@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\CatalogueController;
+use App\Http\Controllers\Backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,11 @@ Route::post('upload', function (Request $request) {
 route::post('post', function (Request $request) {
     dd($request->all());
 })->name('ckeditor.store');
+
+route::prefix('admin')->name('admin.')->group(function () {
+    route::controller(DashboardController::class)->group(function () {
+        route::get('/', 'index')->name('dashboard');
+    });
+
+    Route::resource('catalogues', CatalogueController::class);
+});

@@ -57,7 +57,7 @@ function showImage($path)
         return Storage::url($path);
     }
 
-    return asset('assets/img/banner.jpg');
+    return asset('default.jpg');
 }
 
 function deleteImage($path)
