@@ -38,7 +38,7 @@ function saveImages($request, string $inputName, string $directory = 'images', $
             $filename = time() . uniqid() . '.' . $image->getClientOriginalExtension();
 
             // Lưu hình ảnh đã được thay đổi kích thước vào storage
-            Storage::put($directory . '/' . $filename, $img->encode());
+            Storage::disk('public')->put($directory . '/' . $filename, $img->encode());
 
             // Lưu đường dẫn vào mảng
             $paths[$key] = $directory . '/' . $filename;
@@ -54,7 +54,7 @@ function saveImages($request, string $inputName, string $directory = 'images', $
 function showImage($path)
 {
     if ($path && Storage::exists($path)) {
-        return Storage::url($path);
+        return Storage::disk('public')->url($path);
     }
 
     return asset('default.jpg');
@@ -62,7 +62,7 @@ function showImage($path)
 
 function deleteImage($path)
 {
-    if ($path && Storage::exists($path)) {
-        Storage::delete($path);
+    if ($path && Storage::disk('public')->exists($path)) {
+        Storage::disk('public')->delete($path);
     }
 }

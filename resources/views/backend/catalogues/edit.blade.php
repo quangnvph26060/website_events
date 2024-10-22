@@ -6,15 +6,9 @@
 @section('content')
     <div class="sa-entity-layout">
         <div class="sa-entity-layout__body">
-            <form action="{{ route('admin.catalogues.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.catalogues.update', $catalogue) }}" method="post" enctype="multipart/form-data">
                 @csrf
-
-                {{-- <input type="text" name="slug" readonly id="slug" class="form-control convert_slug"
-                    placeholder="Slug">
-
-                <input type="text" onkeyup="ChangeToSlug()" name="title" id="title" class="form-control slug"
-                    placeholder="Title"> --}}
-
+                @method('PUT')
                 <div class="row">
                     <div class="col-lg-9">
                         <div class="card">
@@ -24,9 +18,9 @@
                                 </div>
                                 <div class="mb-4">
                                     <label for="name" class="form-label">Tên danh mục</label>
-                                    <input onkeyup="ChangeToSlug()" type="text" name="name"
-                                        value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror"
-                                        id="convert_slug" placeholder="Nhập tên danh mục" />
+                                    <input type="text" name="name" value="{{ old('name', $catalogue->name) }}"
+                                        class="form-control @error('name') is-invalid @enderror" id="name"
+                                        placeholder="Nhập tên danh mục" />
                                     @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -35,7 +29,7 @@
                                     <label for="slug" class="form-label">Slug</label>
                                     <div class="input-group input-group--sa-slug">
                                         <span class="input-group-text" id="slug-addon">http://sgo_portfolio.test</span>
-                                        <input name="slug" value="{{ old('slug') }}" type="text"
+                                        <input name="slug" value="{{ old('slug', $catalogue->slug) }}" type="text"
                                             class="form-control @error('slug') is-invalid @enderror" id="slug"
                                             aria-describedby="slug-addon slug-help" />
                                     </div>
@@ -51,9 +45,9 @@
                                 <div class="mb-4">
                                     <label for="description" class="form-label">Mô tả</label>
                                     <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror"
-                                        rows="5" placeholder="Mô tả">
-                                        {{ old('description') }}
-                                    </textarea>
+                                        rows="8" placeholder="Mô tả">
+                                    {{ old('description', $catalogue->description) }}
+                                </textarea>
                                     @error('description')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -62,7 +56,8 @@
                                     <label for="" class="form-label">Trạng thái</label>
                                     <div class="radio-container">
                                         <label class="toggle">
-                                            <input type="checkbox" value="1" name="status" @checked(old('status', true)) class="status-change">
+                                            <input type="checkbox" value="1" name="status"
+                                                @checked(old('status', $catalogue->status)) class="status-change">
                                             <span class="slider"></span>
                                         </label>
                                     </div>
@@ -85,10 +80,10 @@
                                 </div>
                                 <select class="sa-select2 form-select @error('parent_id') is-invalid @enderror"
                                     name="parent_id">
-                                    <option selected value="">[NONE]</option>
-                                    @foreach ($catalogues as $catalogue)
-                                        <option value="{{ $catalogue->id }}">
-                                            {{ str_repeat('--', $catalogue->depth) . ' ' . $catalogue->name }}
+                                    <option value="">[NONE]</option>
+                                    @foreach ($catalogues as $cata)
+                                        <option value="{{ $cata->id }}" @selected(old('parent_id', $catalogue->parent_id) == $cata->id)>
+                                            {{ str_repeat('--', $cata->depth) . ' ' . $cata->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -105,8 +100,8 @@
                                 <h2 class="mb-0 fs-exact-18">Ảnh tiêu biểu</h2>
                                 <div class="max-w-20x">
                                     <img class="img-fluid img-thumbnail w-100" id="show_image"
-                                        style="height: 240px; cursor: pointer" src="{{ showImage('') }}" alt=""
-                                        onclick="document.getElementById('image').click();">
+                                        style="height: 240px; cursor: pointer" src="{{ showImage($catalogue->image) }}"
+                                        alt="" onclick="document.getElementById('image').click();">
                                     <input type="file" name="image" id="image" class="form-control file-input"
                                         accept="image/*" onchange="previewImage(event, 'show_image')">
                                     @error('image')
