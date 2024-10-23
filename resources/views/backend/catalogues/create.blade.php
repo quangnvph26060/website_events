@@ -62,7 +62,7 @@
                                     <label for="" class="form-label">Trạng thái</label>
                                     <div class="radio-container">
                                         <label class="toggle">
-                                            <input type="checkbox" value="1" name="status" @checked(old('status', true)) class="status-change">
+                                            <input type="checkbox" value="1" name="status" @checked(old('status')) class="status-change">
                                             <span class="slider"></span>
                                         </label>
                                     </div>
@@ -81,23 +81,16 @@
                         <div class="card w-100 ">
                             <div class="card-body p-5">
                                 <div class="mb-4">
-                                    <h2 class="mb-0 fs-exact-18">Danh mục cha</h2>
+                                    <h2 class="mb-0 fs-exact-18">Là thẻ</h2>
                                 </div>
-                                <select class="sa-select2 form-select @error('parent_id') is-invalid @enderror"
-                                    name="parent_id">
-                                    <option selected value="">[NONE]</option>
-                                    @foreach ($catalogues as $catalogue)
-                                        <option value="{{ $catalogue->id }}">
-                                            {{ str_repeat('--', $catalogue->depth) . ' ' . $catalogue->name }}
-                                        </option>
-                                    @endforeach
+                                <select class="sa-select2 form-select @error('is_tag') is-invalid @enderror"
+                                    name="is_tag">
+                                    <option selected value="1" @checked(old('is_tag', 1))>Có</option>
+                                    <option  value="0" @checked(old('is_tag', 0))>Không</option>
                                 </select>
-                                @error('parent_id')
+                                @error('is_tag')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                                <div class="form-text">
-                                    Chọn một danh mục sẽ là danh mục chính của danh mục hiện tại.
-                                </div>
                             </div>
                         </div>
                         <div class="card w-100">
@@ -105,7 +98,7 @@
                                 <h2 class="mb-0 fs-exact-18">Ảnh tiêu biểu</h2>
                                 <div class="max-w-20x">
                                     <img class="img-fluid img-thumbnail w-100" id="show_image"
-                                        style="height: 240px; cursor: pointer" src="{{ showImage('') }}" alt=""
+                                        style="max-height: 240px; cursor: pointer" src="{{ showImage('') }}" alt=""
                                         onclick="document.getElementById('image').click();">
                                     <input type="file" name="image" id="image" class="form-control file-input"
                                         accept="image/*" onchange="previewImage(event, 'show_image')">
@@ -123,7 +116,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('backend/assets/js/plugin/quill/quill.min.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/js/plugin/quill/quill.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/plugin/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/stroyka.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/stroyka.js') }}"></script> --}}
 @endpush

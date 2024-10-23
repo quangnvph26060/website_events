@@ -2,9 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\WorkController;
 use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,4 +76,8 @@ route::prefix('admin')->name('admin.')->group(function () {
             'status' => true
         ]);
     })->name('temp-images.destroy');
+
+    route::resource('posts', controller: PostController::class);
+
+    route::resource('tags', controller: TagController::class);
 });

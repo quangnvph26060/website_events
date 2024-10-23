@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Kalnoy\Nestedset\NodeTrait;
 
 class Catalogue extends Model
 {
-    use HasFactory, NodeTrait;
+    use HasFactory;
 
     const IS_ACTIVE = 1;
     const IS_INACTIVE = 0;
@@ -18,10 +17,19 @@ class Catalogue extends Model
         'image',
         'status',
         'description',
-        'parent_id',
+        'is_tag'
     ];
 
     protected $casts = [
         'status' => 'boolean',
+        'is_tag' => 'boolean'
     ];
+
+    // public function scopeIsTag(){
+    //     return $this->is_tag;
+    // }
+    public static function isTag()
+    {
+        return self::where('is_tag', 1); // Use self:: to reference the model
+    }
 }

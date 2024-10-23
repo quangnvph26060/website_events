@@ -13,15 +13,16 @@
             </div>
         </div>
 
-        <form action="{{ route('admin.works.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.works.update', $work) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="title">Tiêu đề</label>
                             <input type="text" name="title" id="title" class="form-control"
-                                value="{{ old('title') }}">
+                                value="{{ old('title', $work->title) }}">
                             @error('title')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -31,14 +32,13 @@
                         <div class="form-group">
                             <label for="category">Danh mục</label>
                             <select name="categories[]" class="sa-select2 form-select" multiple>
-                                {{-- <optgroup label="Alaskan/Hawaiian Time Zone">
-                                    <option value="AK" selected="">Alaska</option>
-                                    <option value="HI">Hawaii</option>
-                                </optgroup> --}}
                                 @foreach ($catalogues as $catalogue)
-                                    <option value="{{ $catalogue->id }}" @selected(old('categories', []) == $catalogue->id)>{{ $catalogue->name }}</option>
+                                    <option value="{{ $catalogue->id }}" @selected(in_array($catalogue->id, old('categories', $selectedCategories)))>
+                                        {{ $catalogue->name }}
+                                    </option>
                                 @endforeach
                             </select>
+
                             @error('categories')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -52,6 +52,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12 mt-3">
+                        <div class="row">
+                            @foreach ($work->images as $image)
+                                <div class="col-md-2 position-relative pe-0 me-4">
+                                    <img src="{{ showImage($image->image_path) }}" class="img-fluid w-100 rounded"
+                                        alt="">
+                                    <button type="button"
+                                        class="btn btn-danger btn-sm remove-image position-absolute end-0 top-0"
+                                        data-id="{{ $image->id }}">Xóa</button>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
                     <!-- Hidden inputs will be appended here by Dropzone -->
                 </div>
 
@@ -72,6 +86,22 @@
         $(document).ready(function() {
             $('.sa-select2').select2();
 
+            // Sự kiện khi nhấn nút "Xóa" ở mỗi ảnh
+            $(document).on('click', '.remove-image', function() {
+                const imageId = $(this).data('id');
+                const button = $(this); // Lưu trữ button hiện tại để xử lý sau
+
+                // Xóa ảnh khỏi giao diện
+                button.closest('.col-md-2').remove();
+
+                // Lưu id ảnh đã xóa vào ô input ẩn
+                $('<input>', {
+                    type: 'hidden',
+                    name: 'deleted_images[]',
+                    value: imageId,
+                    class: 'deleted-image-id'
+                }).appendTo('#image'); // Thêm vào bên trong phần #image hoặc bất kỳ nơi nào phù hợp
+            });
         });
 
         Dropzone.autoDiscover = false;
@@ -92,7 +122,7 @@
                         `<input type="hidden" name="image_path[]" value="${response.path}" id="file-${file.upload.uuid}">`;
                     $('#image').append(inputHidden);
                     uploadedImages.push(response.path);
-                    file.upload.path = response.path; // Lưu đường dẫn để sử dụng khi xóa
+                    file.upload.path = response.path;
                 },
                 removedfile: function(file) {
                     let fileRef;
@@ -100,20 +130,18 @@
                         fileRef.parentNode.removeChild(file.previewElement);
                     }
 
-                    // Gửi yêu cầu xóa file bằng đường dẫn đã lưu
                     $.ajax({
                         url: "{{ route('admin.temp-images.destroy') }}", // Route xóa
                         type: 'DELETE',
                         data: {
-                            path: file.upload.path, // Gửi đường dẫn file
-                            _token: $('meta[name="csrf-token"]').attr('content') // CSRF token
+                            path: file.upload.path,
+                            _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function(response) {
-                            console.log(response.success); // Hiển thị thông báo thành công
+                            console.log(response.success);
                         },
                         error: function(xhr) {
-                            console.error('Error deleting file:', xhr
-                            .responseText); // Xử lý lỗi nếu có
+                            console.error('Error deleting file:', xhr.responseText);
                         }
                     });
 

@@ -8,7 +8,7 @@
         <div class="card-header d-flex justify-content-between">
             <h4 class="card-title">{{ $title }}</h4>
             <div class="card-tools">
-                <a href="{{ route('admin.works.create') }}" class="btn btn-primary">Thêm tác phẩm</a>
+                <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Thêm bài viết</a>
             </div>
         </div>
         <div class="card-body">
@@ -19,8 +19,9 @@
                         <tr>
                             <th>STT</th>
                             <th>Tiêu đề</th>
-                            <th>Danh mục</th>
+                            <th>Thẻ</th>
                             <th>Thời gian</th>
+                            <th>Xuất bản</th>
                             <th>Hành động</th>
                         </tr>
                         </tr>
@@ -29,37 +30,41 @@
                         <tr>
                             <th>STT</th>
                             <th>Tiêu đề</th>
-                            <th>Danh mục</th>
+                            <th>Thẻ</th>
                             <th>Thời gian</th>
+                            <th>Xuất bản</th>
                             <th>Hành động</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @if ($works->isNotEmpty())
-                            @foreach ($works as $work)
+                        @if ($posts->isNotEmpty())
+                            @foreach ($posts as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><a
-                                            href="{{ route('admin.works.edit', $work) }}">{{ Str::limit($work->title, 70, '...') }}</a>
-                                    </td>
+                                    <td>{{ $item->title }}</td>
                                     <td>
-                                        @if ($work->catalogues->isNotEmpty())
-                                            @foreach ($work->catalogues as $catalogue)
-                                                <span class="badge bg-primary">{{ $catalogue->name }}</span>
-                                            @endforeach
-                                        @endif
+                                        @foreach ($item->tags as $tag)
+                                            <span class="badge bg-primary">{{ $tag->name }}</span>
+                                            @if (!$loop->last)
+                                            @endif
+                                        @endforeach
                                     </td>
-                                    <td>{{ \Carbon\Carbon::parse($work->created_at)->diffForHumans() }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>
+                                    <td>{!! $item->is_published
+                                        ? '<span class="badge bg-success">Đã đăng</span>'
+                                        : '<span class="badge bg-primary">Chưa đăng</span>' !!}</td>
                                     <td>
-                                        <form action="{{ route('admin.works.destroy', $work) }}" method="post"
-                                            id="delete-form-{{ $work->id }}">
+                                        <a href="{{ route('admin.posts.edit', $item->id) }}"
+                                            class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+
+                                        <form action="{{ route('admin.posts.destroy', $item) }}" method="post"
+                                            id="delete-form-{{ $item->id }}" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-sm btn-danger" type="submit"
-                                                onclick="confirmDelete(event, '{{ $work->id }}')">
+                                                onclick="confirmDelete(event, '{{ $item->id }}')">
                                                 <i class="fas fa-trash"></i>
                                             </button>
-
                                         </form>
                                     </td>
                                 </tr>
@@ -74,14 +79,30 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('backend/assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-
     <script>
+            function confirmDelete(event, postId) {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('delete-form-' + postId).submit();
+                    }
+                });
+            }
+
         $("#multi-filter-select").DataTable({
             pageLength: 10,
             columnDefs: [{
                     orderable: true,
-                    targets: [0, 1, 2, 3]
+                    targets: [0, 1, 3, 4]
                 }, // Chỉ bật sắp xếp cho cột "STT", "Tên danh mục", "Danh mục cha"
                 {
                     orderable: false,
@@ -90,7 +111,7 @@
             ],
             initComplete: function() {
                 this.api()
-                    .columns([0, 2, 1, 3]) // Chỉ lọc trên cột "Tên danh mục" và "Danh mục cha"
+                    .columns([0, 1, 3]) // Chỉ lọc trên cột "Tên danh mục" và "Danh mục cha"
                     .every(function() {
                         var column = this;
                         var select = $(
@@ -117,24 +138,6 @@
                     });
             },
         });
-
-        function confirmDelete(event, catalogueId) {
-            event.preventDefault(); // Ngăn việc submit form ngay lập tức
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('delete-form-' + catalogueId).submit();
-                }
-            });
-        }
     </script>
 @endpush
 
