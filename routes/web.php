@@ -53,4 +53,25 @@ route::prefix('admin')->name('admin.')->group(function () {
     route::put('catalogues/{catalogue}/change-status', [CatalogueController::class, 'changeStatus'])->name('catalogues.change-status');
 
     Route::resource('works', controller: WorkController::class);
+
+    Route::post('temp-upload', function (Request $request) {
+        if ($request->hasFile('image')) {
+            $path = saveImages($request, 'image', 'uploads', 150, 150);
+
+            return response()->json([
+                'path' => $path,
+            ]);
+        }
+
+        return response()->json(['error' => 'No image uploaded'], 400);
+    })->name('temp-images.create');
+
+
+    Route::delete('temp-upload', function (Request $request) {
+        deleteImage($request->path);
+
+        return response()->json([
+            'status' => true
+        ]);
+    })->name('temp-images.destroy');
 });

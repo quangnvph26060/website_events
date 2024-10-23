@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Work;
+use App\Models\Catalogue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -15,7 +16,7 @@ class WorkController extends Controller
     public function index()
     {
         $title = 'Danh sách tác phẩm';
-        $works = Work::with('catalogues')->get();
+        $works = Work::with('catalogues')->latest()->get();
 
         return view('backend.works.index', compact('works', 'title'));
     }
@@ -26,7 +27,8 @@ class WorkController extends Controller
     public function create()
     {
         $title = 'Thêm mới tác phẩm';
-        return view('backend.works.create', compact('title'));
+        $catalogues = Catalogue::defaultOrder()->withDepth()->get();
+        return view('backend.works.create', compact('title', 'catalogues'));
     }
 
     /**
@@ -34,31 +36,38 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'file.*' => 'image|mimes:jpeg,jpg,png,gif|max:2048',
-        ]);
+        $validated = $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'categories' => 'required|array',
+            ],
+            __('request.messages'),
+            [
+                'categories' => 'Danh sách',
+                'title' => 'Tiêu đề',
+            ]
+        );
 
         DB::beginTransaction();
 
         try {
             $work = Work::create($validated);
 
-            if ($request->hasFile('file')) {
-                dd($request->file('file'));
-                foreach ($request->file('file') as $file) {
-                    $work->addMedia($file)->toMediaCollection();
+            $work->catalogues()->sync($request->categories);
+
+            if ($request->image_path) {
+                foreach ($request->image_path as $image) {
+                    $work->images()->create([
+                        'image_path' => $image
+                    ]);
                 }
             }
-
-            dd($work);
 
             session()->flash('success', 'Tác phẩm đã được thêm thành công!');
 
             DB::commit();
             return redirect()->route('admin.works.index');
         } catch (\Exception $e) {
-
             DB::rollBack();
             session()->flash('error', 'Tác phẩm đã xảy ra lỗi!');
             return redirect()->back();
@@ -94,7 +103,6 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
-        $work->clearMediaCollection(); // Xóa tất cả file media liên quan đến Work
-        return response()->json(['success' => 'File deleted successfully.']);
+       dd($work);
     }
 }

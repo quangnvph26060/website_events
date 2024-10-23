@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.catalogues.create')}}">
+                                <a href="{{route('admin.works.create')}}">
                                     <span class="sub-item">Thêm tác phẩm</span>
                                 </a>
                             </li>
