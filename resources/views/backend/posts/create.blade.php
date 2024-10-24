@@ -147,7 +147,16 @@
     <script src="{{ asset('backend/assets/js/summernote-bs4.min.js') }}"></script>
     <script>
         $('.summernote').summernote({
-            height: '350px'
+            height: '350px',
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['codeview']],
+            ]
         });
 
         $(document).ready(function() {

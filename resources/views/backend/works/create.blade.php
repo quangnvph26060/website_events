@@ -3,7 +3,11 @@
 @section('title', $title)
 
 @section('content')
-
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+        @endforeach
+    @endif
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <h4 class="card-title">{{ $title }}</h4>
@@ -27,16 +31,86 @@
                             @enderror
                         </div>
                     </div>
+
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
-                            <label for="category">Danh mục</label>
+                            <label for="title">Danh mục</label>
+                            <select name="cata_id" id="cata_id" class="form-control">
+                                <option value="">Chọn một danh mục</option>
+                                @foreach ($catas as $cata)
+                                    <option value="{{ $cata->id }}" @selected(old('cata_id') == $cata->id)>{{ $cata->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="customer">Khách hàng</label>
+                            <input type="text" name="customer" id="customer" class="form-control"
+                                value="{{ old('customer') }}">
+                            @error('customer')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="project_name">Tên dự án</label>
+                            <input type="text" name="project_name" id="project_name" class="form-control"
+                                value="{{ old('project_name') }}">
+                            @error('project_name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="participants_count">Số người tham gia</label>
+                            <input type="text" name="participants_count" id="participants_count" class="form-control"
+                                value="{{ old('participants_count') }}">
+                            @error('participants_count')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="year">Năm</label>
+                            <input type="text" name="year" id="year" class="form-control"
+                                value="{{ old('year') }}">
+                            @error('year')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="location">Địa điểm</label>
+                            <input type="text" name="location" id="location" class="form-control"
+                                value="{{ old('location') }}">
+                            @error('location')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="category">Gắn thẻ</label>
                             <select name="categories[]" class="sa-select2 form-select" multiple>
-                                {{-- <optgroup label="Alaskan/Hawaiian Time Zone">
-                                    <option value="AK" selected="">Alaska</option>
-                                    <option value="HI">Hawaii</option>
-                                </optgroup> --}}
                                 @foreach ($catalogues as $catalogue)
-                                    <option value="{{ $catalogue->id }}" @selected(old('categories', []) == $catalogue->id)>{{ $catalogue->name }}</option>
+                                    <option value="{{ $catalogue->id }}" @if (in_array($catalogue->id, old('categories', []))) selected @endif>
+                                        {{ $catalogue->name }}
+                                    </option>
                                 @endforeach
                             </select>
                             @error('categories')
@@ -72,6 +146,11 @@
         $(document).ready(function() {
             $('.sa-select2').select2();
 
+
+            $('#cata_id').select2({
+                placeholder: 'Chọn danh mục',
+                allowClear: true
+            });
         });
 
         Dropzone.autoDiscover = false;
@@ -113,7 +192,7 @@
                         },
                         error: function(xhr) {
                             console.error('Error deleting file:', xhr
-                            .responseText); // Xử lý lỗi nếu có
+                                .responseText); // Xử lý lỗi nếu có
                         }
                     });
 

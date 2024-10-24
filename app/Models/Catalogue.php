@@ -32,4 +32,14 @@ class Catalogue extends Model
     {
         return self::where('is_tag', 1); // Use self:: to reference the model
     }
+
+    public static function isNotTag()
+    {
+        return self::where('is_tag', 0); // Use self:: to reference the model
+    }
+
+    public function works()
+    {
+        return $this->belongsToMany(Work::class, 'catalogue_work');
+    }
 }

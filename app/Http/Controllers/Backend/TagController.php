@@ -47,7 +47,7 @@ class TagController extends Controller
 
         session()->flash('success', 'Thẻ đã được thêm thành công!');
 
-        return redirect()->route('admin.tags.index');
+        return redirect()->back();
     }
 
     /**

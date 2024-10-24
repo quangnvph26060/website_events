@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
 
-   @include('frontend.layouts.partials.styles')
+    @include('frontend.layouts.partials.styles')
 </head>
 
 <body
@@ -19,14 +19,14 @@
         <div class="kleanity-body-wrapper clearfix kleanity-with-transparent-header kleanity-with-frame">
             <div class="kleanity-header-background-transparent">
 
-              @include('frontend.layouts.partials.header')
+                @include('frontend.layouts.partials.header')
 
             </div>
 
             <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
                 <div class="gdlr-core-page-builder-body">
 
-                   @include('frontend.layouts.partials.banner')
+                    {{-- banner --}}
 
                     <!-- start content -->
 
@@ -42,8 +42,7 @@
 
         </footer>
     </div>
-    <a href="#kleanity-top-anchor" class="kleanity-footer-back-to-top-button"
-        id="kleanity-footer-back-to-top-button">
+    <a href="#kleanity-top-anchor" class="kleanity-footer-back-to-top-button" id="kleanity-footer-back-to-top-button">
         <i class="fa fa-angle-up"></i>
     </a>
     <div id="wpcp-error-message" class="msgmsg-box-wpcp hideme">

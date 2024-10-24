@@ -19,9 +19,6 @@ use App\Http\Controllers\Backend\TagController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.pages.portfolio-detail');
-});
 
 Route::post('upload', function (Request $request) {
     if ($request->hasFile('upload')) {
@@ -58,7 +55,7 @@ route::prefix('admin')->name('admin.')->group(function () {
 
     Route::post('temp-upload', function (Request $request) {
         if ($request->hasFile('image')) {
-            $path = saveImages($request, 'image', 'uploads', 150, 150);
+            $path = saveImages($request, 'image', 'uploads', 2560, 1707);
 
             return response()->json([
                 'path' => $path,

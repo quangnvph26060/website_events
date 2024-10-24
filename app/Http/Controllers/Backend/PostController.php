@@ -43,7 +43,7 @@ class PostController extends Controller
                 'meta_keywords' => 'nullable|string',
                 'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'is_published' => 'required|boolean',
-                'tags' => 'required|array',
+                'tags' => 'nullable|array',
             ],
             __('request.messages'),
             [
@@ -103,7 +103,7 @@ class PostController extends Controller
                 'meta_keywords' => 'nullable|string',
                 'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'is_published' => 'required|boolean',
-                'tags' => 'required|array',
+                'tags' => 'nullable|array',
             ],
             __('request.messages'),
             [

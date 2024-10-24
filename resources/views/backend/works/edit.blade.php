@@ -28,22 +28,96 @@
                             @enderror
                         </div>
                     </div>
+
+
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
-                            <label for="category">Danh mục</label>
+                            <label for="title">Danh mục</label>
+                            <select name="cata_id" id="cata_id" class="form-control">
+                                <option value="">Chọn một danh mục</option>
+                                @foreach ($catas as $cata)
+                                    <option value="{{ $cata->id }}" @selected(old('cata_id', $cata->id) == $cata->id)>{{ $cata->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="customer">Khách hàng</label>
+                            <input type="text" name="customer" id="customer" class="form-control"
+                                value="{{ old('customer', $work->customer) }}">
+                            @error('customer')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="project_name">Tên dự án</label>
+                            <input type="text" name="project_name" id="project_name" class="form-control"
+                                value="{{ old('project_name', $work->project_name) }}">
+                            @error('project_name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="participants_count">Số người tham gia</label>
+                            <input type="text" name="participants_count" id="participants_count" class="form-control"
+                                value="{{ old('participants_count', $work->participants_count) }}">
+                            @error('participants_count')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="year">Năm</label>
+                            <input type="text" name="year" id="year" class="form-control"
+                                value="{{ old('year', $work->year) }}">
+                            @error('year')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="location">Địa điểm</label>
+                            <input type="text" name="location" id="location" class="form-control"
+                                value="{{ old('location', $work->location) }}">
+                            @error('location')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="category">Gắn thẻ</label>
                             <select name="categories[]" class="sa-select2 form-select" multiple>
                                 @foreach ($catalogues as $catalogue)
-                                    <option value="{{ $catalogue->id }}" @selected(in_array($catalogue->id, old('categories', $selectedCategories)))>
+                                    <option value="{{ $catalogue->id }}" @if (in_array($catalogue->id, old('categories', $selectedCategories))) selected @endif>
                                         {{ $catalogue->name }}
                                     </option>
                                 @endforeach
                             </select>
-
                             @error('categories')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
+
+
                     <div class="col-md-12">
                         <label for="" class="form-label">Chọn ảnh</label>
                         <div id="image" class="dropzone dz-clickable">
@@ -56,7 +130,7 @@
                         <div class="row">
                             @foreach ($work->images as $image)
                                 <div class="col-md-2 position-relative pe-0 me-4">
-                                    <img src="{{ showImage($image->image_path) }}" class="img-fluid w-100 rounded"
+                                    <img src="{{ showImage($image->image_path) }}" class="img-fluid w-100 rounded mb-3"
                                         alt="">
                                     <button type="button"
                                         class="btn btn-danger btn-sm remove-image position-absolute end-0 top-0"

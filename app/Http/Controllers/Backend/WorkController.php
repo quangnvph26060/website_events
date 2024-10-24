@@ -16,7 +16,7 @@ class WorkController extends Controller
     public function index()
     {
         $title = 'Danh sách tác phẩm';
-        $works = Work::with('catalogues')->latest()->get();
+        $works = Work::with('catalogues', 'catalogue')->latest()->get();
 
         return view('backend.works.index', compact('works', 'title'));
     }
@@ -28,7 +28,8 @@ class WorkController extends Controller
     {
         $title = 'Thêm mới tác phẩm';
         $catalogues = Catalogue::isTag()->latest()->get();
-        return view('backend.works.create', compact('title', 'catalogues'));
+        $catas = Catalogue::isNotTag()->latest()->get();
+        return view('backend.works.create', compact('title', 'catalogues', 'catas'));
     }
 
     /**
@@ -38,13 +39,25 @@ class WorkController extends Controller
     {
         $validated = $request->validate(
             [
+                'cata_id' => 'required|exists:catalogues,id',
                 'title' => 'required|string|max:255',
-                'categories' => 'required|array',
+                'categories' => 'nullable|array',
+                'customer' => 'required|string|max:255',
+                'project_name' => 'required|string|max:255',
+                'participants_count' => 'required|integer|min:1',
+                'year' => 'required|integer|digits:4|between:1900,' . date('Y'),
+                'location' => 'required|string|max:255',
             ],
             __('request.messages'),
             [
-                'categories' => 'Danh sách',
-                'title' => 'Tiêu đề',
+                'categories' => 'Thẻ tag',
+                'title' => 'Tiêu đề',
+                'customer' => 'Khách hàng',
+                'project_name' => 'Tên dự án',
+                'participants_count' => 'Người tham gia',
+                'year' => 'Năm',
+                'location' => 'Địa điểm',
+                'cata_id' => 'Danh mục',
             ]
         );
 
@@ -89,12 +102,13 @@ class WorkController extends Controller
     {
         $work->load('images', 'catalogues'); // Tải mối quan hệ images và catalogues
         $title = 'Cập nhật tác phẩm';
+        $catas = Catalogue::isNotTag()->latest()->get();
         $catalogues = Catalogue::isTag()->latest()->get();
 
         // Lấy các danh mục đã chọn
         $selectedCategories = $work->catalogues->pluck('id')->toArray();
 
-        return view('backend.works.edit', compact('work', 'title', 'catalogues', 'selectedCategories'));
+        return view('backend.works.edit', compact('work', 'title', 'catalogues', 'selectedCategories', 'catas'));
     }
 
 
@@ -106,13 +120,25 @@ class WorkController extends Controller
     {
         $validated = $request->validate(
             [
+                'cata_id' => 'required|exists:catalogues,id',
                 'title' => 'required|string|max:255|unique:works,title,' . $work->id,
-                'categories' => 'required|array',
+                'categories' => 'nullable|array',
+                'customer' => 'required|string|max:255',
+                'project_name' => 'required|string|max:255',
+                'participants_count' => 'required|integer|min:1',
+                'year' => 'required|integer|digits:4|between:1900,' . date('Y'),
+                'location' => 'required|string|max:255',
             ],
             __('request.messages'),
             [
-                'categories' => 'Danh sách',
+                'categories' => 'Thẻ tag',
                 'title' => 'Tiêu đề',
+                'customer' => 'Khách hàng',
+                'project_name' => 'Tên dự án',
+                'participants_count' => 'Số người tham gia',
+                'year' => 'Năm',
+                'location' => 'Địa điểm',
+                'cata_id' => 'Danh mục',
             ]
         );
 
