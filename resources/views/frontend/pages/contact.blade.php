@@ -246,8 +246,7 @@
                                         <p role="status" aria-live="polite" aria-atomic="true"></p>
                                         <ul></ul>
                                     </div>
-                                    <form action="{{ route('user.contact-us.submit') }}" method="post"
-                                        autocomplete="off">
+                                    <form id="contactForm" autocomplete="off">
                                         @csrf
                                         <div
                                             class="gdlr-core-input-wrap gdlr-core-large gdlr-core-full-width gdlr-core-with-column gdlr-core-no-border">
@@ -255,18 +254,17 @@
                                                 <p>
                                                     <input type="text" name="fullName" {{ old('fullName') }}
                                                         class="wpcf7-form-control-wrap" placeholder="Full Name*">
-                                                    @error('fullName')
-                                                        <span style="color: red">{{ $message }}</span>
-                                                    @enderror
+                                                    <span class="text-danger error-text fullName_error"
+                                                        style="color: red"></span>
                                                 </p>
                                             </div>
                                             <div class="gdlr-core-column-30">
                                                 <p>
                                                     <input type="text" name="email" {{ old('email') }}
                                                         placeholder="Email*" class="wpcf7-form-control-wrap">
-                                                    @error('email')
-                                                        <span style="color: red">{{ $message }}</span>
-                                                    @enderror
+
+                                                    <span class="text-danger error-text email_error"
+                                                        style="color: red"></span>
                                                 </p>
                                             </div>
                                             <div class="clear"></div>
@@ -274,18 +272,18 @@
                                                 <p>
                                                     <input type="text" name="phone" {{ old('phone') }}
                                                         placeholder="Phone*" class="wpcf7-form-control-wrap">
-                                                    @error('phone')
-                                                        <span style="color: red">{{ $message }}</span>
-                                                    @enderror
+
+                                                    <span class="text-danger error-text phone_error"
+                                                        style="color: red"></span>
                                                 </p>
                                             </div>
                                             <div class="gdlr-core-column-30">
                                                 <p>
                                                     <input type="text" name="company" value="{{ old('company') }}"
                                                         placeholder="Company*" class="wpcf7-form-control-wrap">
-                                                    @error('company')
-                                                        <span style="color: red">{{ $message }}</span>
-                                                    @enderror
+
+                                                    <span class="text-danger error-text company_error"
+                                                        style="color: red"></span>
                                                 </p>
                                             </div>
                                             <div class="clear"></div>
@@ -293,9 +291,9 @@
                                                 <p>
                                                     <input type="text" name="subject" value="{{ old('subject') }}"
                                                         placeholder="Subject*" class="wpcf7-form-control-wrap">
-                                                    @error('subject')
-                                                        <span style="color: red">{{ $message }}</span>
-                                                    @enderror
+
+                                                    <span class="text-danger error-text subject_error"
+                                                        style="color: red"></span>
                                                 </p>
                                             </div>
                                             <div class="clear"></div>
@@ -304,16 +302,17 @@
                                                     <span class="wpcf7-form-control-wrap">
                                                         <textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea"
                                                             placeholder="Message*" name="message">{{ old('message') }}</textarea>
-                                                        @error('message')
-                                                            <span style="color: red">{{ $message }}</span>
-                                                        @enderror
+
+                                                        <span class="text-danger error-text message_error"
+                                                            style="color: red"></span>
                                                     </span>
                                                 </p>
                                             </div>
                                             <div class="gdlr-core-column-60 gdlr-core-center-align">
                                                 <p>
-                                                    <input class="wpcf7-form-control gdlr-core-full" type="submit"
-                                                        value="Submit Now" /><span></span>
+
+                                                    <button class="contact-button" id="btn-contact-submit">Submit
+                                                        now</button>
                                                 </p>
                                             </div>
                                         </div>
@@ -326,4 +325,83 @@
             </div>
         </div>
     </div>
+    <style>
+        .contact-button {
+            background-color: #333;
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+
+        .contact-button:hover {
+            background-color: #eba904;
+        }
+    </style>
 @endsection
+
+
+@push('scripts')
+    <script src="{{ asset('backend/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery("#btn-contact-submit").click(function(e) {
+                e.preventDefault();
+                var _token = jQuery("input[name='_token']").val();
+                var fullName = jQuery("input[name='fullName']").val();
+                var email = jQuery("input[name='email']").val();
+                var phone = jQuery("input[name='phone']").val();
+                var subject = jQuery("input[name='subject']").val();
+                var company = jQuery("input[name='company']").val();
+                var message = jQuery("textarea[name='message']").val();
+
+                jQuery.ajax({
+                    url: '{{ route('user.contact-us.submit') }}',
+                    type: 'POST',
+                    data: {
+                        _token: _token,
+                        fullName: fullName,
+                        email: email,
+                        phone: phone,
+                        subject: subject,
+                        company: company,
+                        message: message,
+                    },
+                    success: function(data) {
+                        if (jQuery.isEmptyObject(data.error)) {
+                            jQuery(".error-text").text('');
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thành công!',
+                                text: data.success,
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then(() => {
+                                jQuery("#contactForm")[0].reset();
+                            });
+
+                        } else {
+                            printErrorMsg(data.error);
+                        }
+                    }
+                });
+
+
+            });
+
+            function printErrorMsg(msg) {
+                jQuery(".error-text").text('');
+
+                jQuery.each(msg, function(key, value) {
+                    jQuery('.' + key + '_error').text(value[0]);
+                });
+            }
+        })
+    </script>
+@endpush
