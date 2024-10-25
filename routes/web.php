@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\ConfigController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -91,4 +92,5 @@ route::prefix('admin')->name('admin.')->group(function () {
         route::get('home', 'index')->name('home');
     });
     route::get('contact' , [ContactUsController::class, 'index'])->name('contact-us.index');
+    route::resource('about' , AboutUsController::class);
 });
