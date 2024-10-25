@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ConfigController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\TagController;
@@ -49,8 +50,14 @@ route::prefix('admin')->name('admin.')->group(function () {
         route::get('/', 'index')->name('dashboard');
     });
 
-    Route::resource('catalogues', controller: CatalogueController::class);
+    Route::resource('catalogues', CatalogueController::class);
     route::put('catalogues/{catalogue}/change-status', [CatalogueController::class, 'changeStatus'])->name('catalogues.change-status');
+
+
+    Route::resource('works', WorkController::class);
+
+    Route::get('config', [ConfigController::class, 'index'])->name('config.index');
+    Route::post('config', [ConfigController::class, 'update'])->name('config.update');
 
     Route::resource('works', controller: WorkController::class);
 
