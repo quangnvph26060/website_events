@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a data-bs-toggle="collapse" href="/" class="collapsed" aria-expanded="false">
+                    <a  href="{{ route('admin.config.index') }}" class="collapsed" >
                         <i class="fas fa-cogs"></i>
                         <p>Cấu hình</p>
                     </a>
