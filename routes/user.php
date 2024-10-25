@@ -32,4 +32,5 @@ route::name('user.')->group(function () {
     route::get('portfolio_tag/{slug}', [PortfolioController::class, 'portfolioTag'])->name('portfolio_tag');
 
     route::get('contact', [ContactController::class, 'contact'])->name('contact-us');
+    route::post('contact', [ContactController::class, 'contactSubmit'])->name('contact-us.submit');
 });

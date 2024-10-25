@@ -52,6 +52,6 @@
 <script src="{{ asset('frontend/assets/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/lib/remodal.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/lib/pako_deflate.min.js') }}"></script>
-
+@include('backend/includes/alert')
 
 @stack('scripts')
