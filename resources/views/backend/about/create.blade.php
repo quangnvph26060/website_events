@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group" id="content-fields">
-                                    <label for="meta_keywords">Từ khóa seo</label>
+                                    <label for="meta_keywords">Ý tưởng</label>
                                     <div class="input-group">
                                         <input type="text" name="content[]" id="content"
                                             placeholder="Nhập ý tưởng đầu tiên ở đây" required class="form-control">
@@ -113,52 +113,6 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/selectize.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/select2.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/summernote-bs4.min.js') }}"></script>
-    <script>
-        $('.summernote').summernote({
-            height: '350px',
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['view', ['codeview']],
-            ]
-        });
-
-        $(document).ready(function() {
-
-            $('.sa-select2').select2();
-
-
-            $('#meta_keywords').selectize({
-                delimiter: ',',
-                persist: false,
-                create: function(input) {
-                    return {
-                        value: input,
-                        text: input
-                    };
-                },
-                plugins: ['remove_button'],
-                onKeyDown: function(e) {
-                    if (e.key === ' ') {
-                        e.preventDefault();
-                        var value = this.$control_input.val().trim();
-                        if (value) {
-                            this.addItem(value);
-                            this.$control_input.val('');
-                        }
-                    }
-                }
-            });
-        })
-    </script>
     <script>
         document.getElementById('add-content').onclick = function() {
             var contentFields = document.getElementById('content-fields');
@@ -168,28 +122,21 @@
             var newInput = document.createElement('input');
             newInput.type = 'text';
             newInput.name = 'content[]';
-            newInput.className = 'content-input'; 
-            newInput.placeholder = 'Nhập ý tưởng tiếp theo'; 
-            newInput.required = true; 
+            newInput.className = 'content-input';
+            newInput.placeholder = 'Nhập ý tưởng tiếp theo';
+            newInput.required = true;
 
             var removeButton = document.createElement('button');
             removeButton.type = 'button';
-            removeButton.className = 'remove-input'; 
-            removeButton.textContent = 'Remove'; 
+            removeButton.className = 'remove-input';
+            removeButton.textContent = 'Remove';
             removeButton.onclick = function() {
-                contentFields.removeChild(newInputGroup); 
+                contentFields.removeChild(newInputGroup);
             };
 
-            newInputGroup.appendChild(newInput); 
-            newInputGroup.appendChild(removeButton); 
+            newInputGroup.appendChild(newInput);
+            newInputGroup.appendChild(removeButton);
             contentFields.appendChild(newInputGroup);
         };
     </script>
-@endpush
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/select2.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/selectize.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/summernote-bs4.min.css') }}">
 @endpush

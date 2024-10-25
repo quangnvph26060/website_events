@@ -45,7 +45,7 @@
                                     @endforeach
 
 
-                                    <button type="button" id="add-content" class="btn btn-success my-2">Add More
+                                    <button type="button" id="edit-content" class="btn btn-success my-2">Add More
                                         Content</button>
                                     @error('content')
                                         <small class="text-danger">{{ $message }}</small>
@@ -120,26 +120,8 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/selectize.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/select2.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/summernote-bs4.min.js') }}"></script>
     <script>
-        $('.summernote').summernote({
-            height: '350px',
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['view', ['codeview']],
-            ]
-        });
-    </script>
-    <script>
-        document.getElementById('add-content').onclick = function() {
+        document.getElementById('edit-content').onclick = function() {
             var contentFields = document.getElementById('content-fields');
             var newInputGroup = document.createElement('div');
             newInputGroup.className = 'input-group';
@@ -172,11 +154,4 @@
             inputGroup.parentNode.removeChild(inputGroup);
         }
     </script>
-@endpush
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/select2.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/selectize.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/summernote-bs4.min.css') }}">
 @endpush
