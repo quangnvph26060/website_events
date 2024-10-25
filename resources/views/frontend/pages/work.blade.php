@@ -108,7 +108,7 @@
                                                     font-weight: 800;
                                                     letter-spacing: 0px;
                                                     ">
-                                                            <a href="#">{{ $post->title }}</a>
+                                                            <a href="{{ route('user.work-for-us', $post->slug) }}">{{ $post->title }}</a>
                                                         </h3>
                                                     </div>
                                                     <div class="gdlr-core-blog-content">

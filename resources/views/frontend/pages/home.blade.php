@@ -43,13 +43,12 @@
               color: rgb(235, 169, 4);
             "
                                             data-orig-font="50px">
-                                            Who We Are<span
+                                            Chúng tôi là ai<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
                                     <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"
-                                        style="font-size: 20px; margin-top: 0px">Things that make us
-                                        different</span>
+                                        style="font-size: 20px; margin-top: 0px">Những điều khiến chúng ta khác biệt</span>
                                 </div>
                             </div>
                             <div class="gdlr-core-pbf-element">
@@ -64,28 +63,23 @@
                             <div class="gdlr-core-pbf-element">
                                 <div
                                     class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                    <div class="gdlr-core-text-box-item-content"
-                                        style="
-            font-size: 20px;
-            font-weight: 100;
-            text-transform: none;
-            color: #9b9b9b;
-          ">
+                                    <div class="gdlr-core-text-box-item-content">
                                         <p style="text-align: center">
-                                            RI Events is an events management and production
-                                            company based in Vietnam offering a full range
-                                            of services.
+
+                                            RI Events là công ty quản lý và sản xuất sự kiện
+                                            công ty có trụ sở tại Việt Nam cung cấp đầy đủ các loại
+                                            của các dịch vụ.
                                         </p>
                                         <p style="text-align: center">
-                                            As a specialized events company with 3
-                                            outstanding strenghts (<strong>Business understanding –
-                                                Planning –
-                                                Creativity</strong>), RI Events has successfully
-                                            executed numerous
-                                            high profile events within the corporate sector.
-                                            We have earned a reputation for producing events
-                                            with the highest level of professionalism,
-                                            dedication, pride and precision
+                                            Là công ty chuyên tổ chức sự kiện với 3
+                                            điểm mạnh nổi bật (<strong>Hiểu biết kinh doanh –
+                                                Quy hoạch –
+                                                Sáng tạo</strong>), RI Events đã thành công
+                                            xử tử nhiều
+                                            các sự kiện nổi bật trong khu vực doanh nghiệp.
+                                            Chúng tôi đã đạt được danh tiếng về việc tổ chức các sự kiện
+                                            với trình độ chuyên môn cao nhất,
+                                            sự cống hiến, niềm tự hào và sự chính xác
                                         </p>
                                     </div>
                                 </div>
@@ -110,16 +104,7 @@
             color: #9b9b9b;
           ">
                                         <p style="text-align: center">
-                                            Established since 2012 we has been creating
-                                            tailor-made events and has worked with a
-                                            selection of predominantly repeat clients from
-                                            both international companies to local businesses
-                                            all over Vietnam in various industries. Our
-                                            expertise and competence in the industry allows
-                                            us to create innovative ideas and deliver
-                                            bespoke solutions, ensuring that every event is
-                                            cost-effective, unforgettable, enjoyable and
-                                            accomplishes client’s objectives.
+                                            Được thành lập từ năm 2012, chúng tôi đã tổ chức các sự kiện theo yêu cầu riêng và đã làm việc với nhiều khách hàng chủ yếu thường xuyên lựa chọn từ các công ty quốc tế đến các doanh nghiệp địa phương trên khắp Việt Nam trong nhiều ngành khác nhau. Chuyên môn và năng lực của chúng tôi trong ngành cho phép chúng tôi tạo ra những ý tưởng sáng tạo và đưa ra các giải pháp riêng biệt, đảm bảo rằng mọi sự kiện đều tiết kiệm chi phí, khó quên, thú vị và hoàn thành mục tiêu của khách hàng.
                                         </p>
                                     </div>
                                 </div>
@@ -142,7 +127,7 @@
                                             -webkit-border-radius: 35px;
                                             border-color: #eba904;
                                         "><span
-                                            class="gdlr-core-content">Learn More</span></a>
+                                            class="gdlr-core-content">Tìm hiểu thêm</span></a>
                                 </div>
                             </div>
                         </div>
@@ -208,14 +193,16 @@
         color: rgb(235, 169, 4);
       "
                                 data-orig-font="50px">
-                                Our Works<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                Công việc của chúng tôi<span
+                                    class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
                         <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"
-                            style="font-size: 20px; margin-top: 20px">Please take a look at the works
-                            we’ve delivered to find
-                            out how we can help making your next events
-                            memorable</span>
+                            style="font-size: 20px; margin-top: 20px">
+                            Mời các bạn xem tác phẩm
+                            chúng tôi đã gửi để tìm
+                            cách chúng tôi có thể giúp bạn thực hiện các sự kiện tiếp theo
+                            đáng nhớ</span>
                     </div>
                 </div>
                 <div class="gdlr-core-pbf-element">
@@ -227,7 +214,7 @@
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
                             data-ajax="gdlr_core_home_ajax"
-                            data-settings='{"category":["corporate-event","design-production","private-event","public-event"],"tag":["launching-en","business-development","ceremonial","corporate-annual-party","corporate-celebrations","music-show","customer-conference","employee-appreciation","employee-engagement","milestones","entertainment","exhibition","global-conference","internal-meeting","partner-appreciations","press-conference","sales-or-hospitality","festival"],"num-fetch":"15","layout":"masonry","thumbnail-size":"medium_large","orderby":"date","order":"desc","portfolio-style":"metro","hover":"title-date","hover-info":["title","date"],"has-column":"yes","no-space":"no","excerpt":"specify-number","excerpt-number":"55","column-size":"20","filterer":"text","filterer-align":"center","pagination":"none","id":"","class":"","filterer-left-margin":"305px","filterer-left-divider":"enable","pagination-style":"default","pagination-align":"default","view-all-works-button":"disable","view-all-works-text":"View All Works","view-all-works-link":"","portfolio-grid-text-align":"left","portfolio-grid-style":"normal","portfolio-frame-opacity":"1","enable-portfolio-title":"enable","enable-portfolio-tag":"enable","enable-portfolio-date":"disable","portfolio-medium-size":"small","portfolio-medium-style":"left","enable-thumbnail-zoom-on-hover":"enable","enable-thumbnail-grayscale-effect":"disable","enable-badge":"enable","carousel-autoslide":"enable","carousel-start-at":"","carousel-scrolling-item-amount":"1","carousel-navigation":"navigation","carousel-bullet-style":"default","read-more-button":"disable","filter-font-size":"20px","filter-font-weight":"","filter-letter-spacing":"","filter-text-transform":"uppercase","portfolio-title-font-size":"","portfolio-title-font-weight":"","portfolio-title-letter-spacing":"","portfolio-title-text-transform":"uppercase","portfolio-tag-font-style":"default","portfolio-hover-title-font-size":"","portfolio-hover-title-font-weight":"","portfolio-hover-title-letter-spacing":"","portfolio-hover-title-text-transform":"uppercase","filterer-bottom-margin":"50px","portfolio-frame-padding":"","portfolio-border-radius":"","portfolio-item-bottom-margin":"","portfolio-title-bottom-margin":"","pagination-top-margin":"","padding-bottom":"0px","frame-shadow-size":"","frame-shadow-color":"","frame-shadow-opacity":"0.2","overlay-color":"#eba904","overlay-opacity":"0.85","title-align":"left","title-left-media":"icon","title-left-icon":"","title-left-image":"","title":"","caption":"","caption-position":"top","read-more-style":"default","read-more-text":"Read More","read-more-link":"http:\/\/rievents.vn\/portfolio\/","read-more-target":"_self","title-size":"41px","title-letter-spacing":"","title-line-height":"","title-font-style":"","title-text-transform":"uppercase","caption-size":"20px","caption-font-style":"","caption-spaces":"","read-more-size":"20px","read-more-font-weight":"","title-left-icon-color":"","title-color":"","caption-color":"","read-more-color":"#eba904","read-more-divider":"none","read-more-divider-color":"#eba904","title-wrap-bottom-margin":"","title-carousel-nav-style":"default","lightbox-group":"gdlr-core-img-group-1","paged":1}'
+                            data-settings='{"category":["corporate-event","design-production","private-event","public-event"],"tag":["launching-en","business-development","ceremonial","corporate-annual-party","corporate-celebrations","music-show","customer-conference","employee-appreciation","employee-engagement","milestones","entertainment","exhibition","global-conference","internal-meeting","partner-appreciations","press-conference","sales-or-hospitality","festival"],"num-fetch":"15","layout":"masonry","thumbnail-size":"medium_large","orderby":"date","order":"desc","portfolio-style":"metro","hover":"title-date","hover-info":["title","date"],"has-column":"yes","no-space":"no","excerpt":"specify-number","excerpt-number":"55","column-size":"20","filterer":"text","filterer-align":"center","pagination":"none","id":"","class":"","filterer-left-margin":"305px","filterer-left-divider":"enable","pagination-style":"default","pagination-align":"default","view-all-works-button":"disable","view-all-works-text":"xem tất cả tác phẩm","view-all-works-link":"","portfolio-grid-text-align":"left","portfolio-grid-style":"normal","portfolio-frame-opacity":"1","enable-portfolio-title":"enable","enable-portfolio-tag":"enable","enable-portfolio-date":"disable","portfolio-medium-size":"small","portfolio-medium-style":"left","enable-thumbnail-zoom-on-hover":"enable","enable-thumbnail-grayscale-effect":"disable","enable-badge":"enable","carousel-autoslide":"enable","carousel-start-at":"","carousel-scrolling-item-amount":"1","carousel-navigation":"navigation","carousel-bullet-style":"default","read-more-button":"disable","filter-font-size":"20px","filter-font-weight":"","filter-letter-spacing":"","filter-text-transform":"uppercase","portfolio-title-font-size":"","portfolio-title-font-weight":"","portfolio-title-letter-spacing":"","portfolio-title-text-transform":"uppercase","portfolio-tag-font-style":"default","portfolio-hover-title-font-size":"","portfolio-hover-title-font-weight":"","portfolio-hover-title-letter-spacing":"","portfolio-hover-title-text-transform":"uppercase","filterer-bottom-margin":"50px","portfolio-frame-padding":"","portfolio-border-radius":"","portfolio-item-bottom-margin":"","portfolio-title-bottom-margin":"","pagination-top-margin":"","padding-bottom":"0px","frame-shadow-size":"","frame-shadow-color":"","frame-shadow-opacity":"0.2","overlay-color":"#eba904","overlay-opacity":"0.85","title-align":"left","title-left-media":"icon","title-left-icon":"","title-left-image":"","title":"","caption":"","caption-position":"top","read-more-style":"default","read-more-text":"Read More","read-more-link":"http:\/\/rievents.vn\/portfolio\/","read-more-target":"_self","title-size":"41px","title-letter-spacing":"","title-line-height":"","title-font-style":"","title-text-transform":"uppercase","caption-size":"20px","caption-font-style":"","caption-spaces":"","read-more-size":"20px","read-more-font-weight":"","title-left-icon-color":"","title-color":"","caption-color":"","read-more-color":"#eba904","read-more-divider":"none","read-more-divider-color":"#eba904","title-wrap-bottom-margin":"","title-carousel-nav-style":"default","lightbox-group":"gdlr-core-img-group-1","paged":1}'
                             data-target="gdlr-core-portfolio-item-holder" data-target-action="replace">
                             <a href="#" class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">All</a>
 
@@ -259,13 +246,13 @@
                                                         src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                         data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                         alt="" width="2560" height="1707"
-                                                        title="PM3. Thank You Party (5)" /><span
+                                                        title="{{ $work->title }}" /><span
                                                         class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"
                                                         style="background: rgba(235, 169, 4, 0.85)"><span
                                                             class="gdlr-core-image-overlay-content"
                                                             style="margin-top: -26.725px"><span
                                                                 class="gdlr-core-portfolio-title gdlr-core-title-font"><a
-                                                                    href="">{{ $work->title }}</a></span><span
+                                                                    href="{{ route('user.portfolio', $work->slug) }}">{{ $work->title }}</a></span><span
                                                                 class="gdlr-core-portfolio-info gdlr-core-portfolio-date-wrap">
                                                                 {{ \Carbon\Carbon::parse($work->created_at)->format('F j, Y') }}</span></span></span></span>
                                                 </div>
@@ -290,7 +277,7 @@
             color: #eba904;
             border-color: #eba904;
           "><span
-                                            class="gdlr-core-content">View All Works</span></a>
+                                            class="gdlr-core-content">xem tất cả tác phẩm</span></a>
                                 </div>
                             </div>
                         </div>
@@ -346,7 +333,7 @@
               color: rgb(235, 169, 4);
             "
                                             data-orig-font="50px">
-                                            Our Friends<span
+                                            Bạn bè của chúng tôi<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -364,9 +351,8 @@
                                     <div class="gdlr-core-text-box-item-content"
                                         style="font-size: 20px; text-transform: none">
                                         <p>
-                                            Every client is served with unwavering
-                                            commitment, irrepressible passion and
-                                            unparalleled creativity
+                                            Mọi khách hàng đều được phục vụ với sự cam kết vững chắc, niềm đam mê không thể
+                                            kìm nén và khả năng sáng tạo vô song
                                         </p>
                                     </div>
                                 </div>
@@ -456,7 +442,8 @@
                 color: rgb(235, 169, 4);
             "
                                 data-orig-font="50px">
-                                Contact Us<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                Liên hệ với chúng tôi<span
+                                    class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
                     </div>
@@ -466,9 +453,9 @@
                         style="padding-bottom: 25px">
                         <div class="gdlr-core-text-box-item-content" style="font-size: 20px; text-transform: none">
                             <p style="text-align: center">
-                                Email us your demand or give us a call,so we can
-                                discuss further how we can make a significant
-                                difference in your next event.
+                                Gửi email cho chúng tôi nhu cầu của bạn hoặc gọi cho chúng tôi, để chúng tôi có thể
+                                thảo luận thêm về cách chúng ta có thể tạo ra sự thay đổi đáng kể
+                                sự khác biệt trong sự kiện tiếp theo của bạn.
                             </p>
                         </div>
                     </div>
@@ -497,7 +484,7 @@
                         text-transform: none;
                         color: #eba904;
                         ">
-                                            Phone<span
+                                            Số điện thoại<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -586,7 +573,7 @@
                         text-transform: none;
                         color: #eba904;
                         ">
-                                            Address<span
+                                            Địa chỉ<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -634,7 +621,9 @@
                         text-transform: none;
                         color: #eba904;
                     ">
-                                View on map<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+
+                                Xem trên bản đồ<span
+                                    class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
                     </div>
@@ -666,7 +655,8 @@
                             color: rgb(235, 169, 4);
                         "
                                 data-orig-font="50px">
-                                Leave us your info
+
+                                Để lại cho chúng tôi thông tin của bạn
                                 <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
@@ -677,7 +667,7 @@
                         style="padding-bottom: 25px">
                         <div class="gdlr-core-text-box-item-content" style="font-size: 20px; text-transform: none">
                             <p style="text-align: left">
-                                and we will get back to you
+                                và chúng tôi sẽ liên lạc lại với bạn
                             </p>
                         </div>
                     </div>
@@ -785,4 +775,3 @@
         </div>
     </div>
 @endsection
-

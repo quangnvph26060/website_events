@@ -1,6 +1,6 @@
 <div class="main-slider">
     <div id="slide">
-        <div class="item" style="background-image: url({{ asset('canh-dep-1.jpg') }})">
+        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -10,7 +10,7 @@
                 <button>See more</button>
             </div>
         </div>
-        <div class="item" style="background-image: url({{ asset('canh-dep-5.jpg') }})">
+        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -20,7 +20,7 @@
                 <button>See more</button>
             </div>
         </div>
-        <div class="item" style="background-image: url({{ asset('canh-dep-2.jpg') }})">
+        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -30,7 +30,7 @@
                 <button>See more</button>
             </div>
         </div>
-        <div class="item" style="background-image: url({{ asset('canh-dep-1.jpg') }})">
+        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -40,7 +40,7 @@
                 <button>See more</button>
             </div>
         </div>
-        <div class="item" style="background-image: url({{ asset('canh-dep-5.jpg') }})">
+        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -50,7 +50,7 @@
                 <button>See more</button>
             </div>
         </div>
-        <div class="item" style="background-image: url({{ asset('canh-dep-3.jpg') }})">
+        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -113,7 +113,7 @@
     <style>
         .main-slider {
             width: 100%;
-            height: 600px;
+            height: 100vh;
             padding: 50px;
             background-color: #f5f5f5;
             box-shadow: 0 30px 50px #dbdbdb;
@@ -121,7 +121,8 @@
 
         #slide {
             width: 100%;
-            margin-top: 10%;
+            margin-top: 15%;
+            height: 100%;
         }
 
         .item {
@@ -143,7 +144,7 @@
             transform: translate(0, 0);
             border-radius: 0;
             width: 100%;
-            height: 600px;
+            height: 100vh;
             box-shadow: none;
         }
 
@@ -217,8 +218,15 @@
         }
 
         .button {
-            text-align: center;
+            position: absolute;
+            /* Đảm bảo nó nằm trong khung nhìn của slider */
+            /* Đặt nút ở giữa chiều dọc của slider */
+            /* Bạn có thể tùy chỉnh vị trí của nút 'prev' */
+            /* Bạn có thể tùy chỉnh vị trí của nút 'next' */
             width: 100%;
+            text-align: center;
+            z-index: 20;
+            /* Đảm bảo nút nằm phía trên các ảnh */
         }
 
         .button button {
@@ -227,10 +235,33 @@
             border-radius: 50%;
             border: 1px solid #555;
             transition: 0.5s;
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Làm cho nút nổi bật trên ảnh */
+            position: relative;
+            z-index: 21;
+            /* Đảm bảo nút nằm phía trên ảnh */
         }
 
         .button button:hover {
             background-color: #bac383;
+        }
+
+        #prev {
+            position: absolute;
+            left: 45%;
+            /* Tùy chỉnh khoảng cách so với mép trái */
+            top: 50%;
+            transform: translateY(-100%);
+            z-index: 21;
+        }
+
+        #next {
+            position: absolute;
+            right: 45%;
+            /* Tùy chỉnh khoảng cách so với mép phải */
+            top: 50%;
+            transform: translateY(-100%);
+            z-index: 21;
         }
     </style>
 @endpush

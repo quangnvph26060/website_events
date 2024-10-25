@@ -19,8 +19,6 @@ class WorkController extends Controller
             }
         }
 
-
-
         $posts = Post::isPublished()->latest('id')->paginate(6);
 
         return view('frontend.pages.work', compact('posts'));

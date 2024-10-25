@@ -212,7 +212,8 @@
                       text-transform: none;
                       color: #eba904;
                     ">
-                                        Leave us your info
+
+                                        Để lại cho chúng tôi thông tin của bạn
                                         <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -224,7 +225,7 @@
                                 <div class="gdlr-core-text-box-item-content"
                                     style="font-size: 20px; text-transform: none">
                                     <p style="text-align: left">
-                                        And we’ll get back to you
+                                        Và chúng tôi sẽ liên hệ lại với bạn
                                     </p>
                                 </div>
                             </div>

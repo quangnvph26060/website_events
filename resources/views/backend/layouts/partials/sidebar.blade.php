@@ -30,12 +30,24 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item active">
-                    <a data-bs-toggle="collapse" href="/" class="collapsed" aria-expanded="false">
+
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#config" class="collapsed" aria-expanded="false">
                         <i class="fas fa-cogs"></i>
                         <p>Cấu hình</p>
+                        <span class="caret"></span>
                     </a>
+                    <div class="collapse" id="config">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{route('admin.config.home')}}">
+                                    <span class="sub-item">Cấu hình trang chủ</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
