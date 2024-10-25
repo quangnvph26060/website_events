@@ -128,6 +128,13 @@
                     </a>
 
                 </li>
+                <li class="nav-item">
+                    <a  href="{{route('admin.contact-us.index')}}">
+                        <i class="fas fa-id-card-alt"></i>
+                        <p>Liên hệ</p>
+                    </a>
+
+                </li>
             </ul>
         </div>
     </div>

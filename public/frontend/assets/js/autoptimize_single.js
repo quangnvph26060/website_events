@@ -265,70 +265,70 @@
             });
       });
     };
-  function p(e, t = {}) {
-    if (wpcf7.blocked) return d(e), void n(e, "submitting");
-    const o = new FormData(e);
-    t.submitter &&
-      t.submitter.name &&
-      o.append(t.submitter.name, t.submitter.value);
-    const c = {
-      contactFormId: e.wpcf7.id,
-      pluginVersion: e.wpcf7.pluginVersion,
-      contactFormLocale: e.wpcf7.locale,
-      unitTag: e.wpcf7.unitTag,
-      containerPostId: e.wpcf7.containerPost,
-      status: e.wpcf7.status,
-      inputs: Array.from(o, (e) => {
-        const t = e[0],
-          a = e[1];
-        return !t.match(/^_/) && { name: t, value: a };
-      }).filter((e) => !1 !== e),
-      formData: o,
-    };
-    r({
-      endpoint: `contact-forms/${e.wpcf7.id}/feedback`,
-      method: "POST",
-      body: o,
-      wpcf7: { endpoint: "feedback", form: e, detail: c },
-    })
-      .then((t) => {
-        const r = n(e, t.status);
-        return (
-          (c.status = t.status),
-          (c.apiResponse = t),
-          ["invalid", "unaccepted", "spam", "aborted"].includes(r)
-            ? a(e, r, c)
-            : ["sent", "failed"].includes(r) && a(e, `mail${r}`, c),
-          a(e, "submit", c),
-          t
-        );
-      })
-      .then((t) => {
-        t.posted_data_hash &&
-          (e.querySelector('input[name="_wpcf7_posted_data_hash"]').value =
-            t.posted_data_hash),
-          "mail_sent" === t.status &&
-            (e.reset(), (e.wpcf7.resetOnMailSent = !0)),
-          t.invalid_fields &&
-            t.invalid_fields.forEach((t) => {
-              s(e, t.field, t.message);
-            }),
-          e.wpcf7.parent
-            .querySelector('.screen-reader-response [role="status"]')
-            .insertAdjacentText("beforeend", t.message),
-          e.querySelectorAll(".wpcf7-response-output").forEach((e) => {
-            e.innerText = t.message;
-          });
-      })
-      .catch((e) => console.error(e));
-  }
-  r.use((e, t) => {
-    if (e.wpcf7 && "feedback" === e.wpcf7.endpoint) {
-      const { form: t, detail: r } = e.wpcf7;
-      d(t), a(t, "beforesubmit", r), n(t, "submitting");
-    }
-    return t(e);
-  });
+  // function p(e, t = {}) {
+  //   if (wpcf7.blocked) return d(e), void n(e, "submitting");
+  //   const o = new FormData(e);
+  //   t.submitter &&
+  //     t.submitter.name &&
+  //     o.append(t.submitter.name, t.submitter.value);
+  //   const c = {
+  //     contactFormId: e.wpcf7.id,
+  //     pluginVersion: e.wpcf7.pluginVersion,
+  //     contactFormLocale: e.wpcf7.locale,
+  //     unitTag: e.wpcf7.unitTag,
+  //     containerPostId: e.wpcf7.containerPost,
+  //     status: e.wpcf7.status,
+  //     inputs: Array.from(o, (e) => {
+  //       const t = e[0],
+  //         a = e[1];
+  //       return !t.match(/^_/) && { name: t, value: a };
+  //     }).filter((e) => !1 !== e),
+  //     formData: o,
+  //   };
+  //   r({
+  //     endpoint: `contact-forms/${e.wpcf7.id}/feedback`,
+  //     method: "POST",
+  //     body: o,
+  //     wpcf7: { endpoint: "feedback", form: e, detail: c },
+  //   })
+  //     .then((t) => {
+  //       const r = n(e, t.status);
+  //       return (
+  //         (c.status = t.status),
+  //         (c.apiResponse = t),
+  //         ["invalid", "unaccepted", "spam", "aborted"].includes(r)
+  //           ? a(e, r, c)
+  //           : ["sent", "failed"].includes(r) && a(e, `mail${r}`, c),
+  //         a(e, "submit", c),
+  //         t
+  //       );
+  //     })
+  //     .then((t) => {
+  //       t.posted_data_hash &&
+  //         (e.querySelector('input[name="_wpcf7_posted_data_hash"]').value =
+  //           t.posted_data_hash),
+  //         "mail_sent" === t.status &&
+  //           (e.reset(), (e.wpcf7.resetOnMailSent = !0)),
+  //         t.invalid_fields &&
+  //           t.invalid_fields.forEach((t) => {
+  //             s(e, t.field, t.message);
+  //           }),
+  //         e.wpcf7.parent
+  //           .querySelector('.screen-reader-response [role="status"]')
+  //           .insertAdjacentText("beforeend", t.message),
+  //         e.querySelectorAll(".wpcf7-response-output").forEach((e) => {
+  //           e.innerText = t.message;
+  //         });
+  //     })
+  //     .catch((e) => console.error(e));
+  // }
+  // r.use((e, t) => {
+  //   if (e.wpcf7 && "feedback" === e.wpcf7.endpoint) {
+  //     const { form: t, detail: r } = e.wpcf7;
+  //     d(t), a(t, "beforesubmit", r), n(t, "submitting");
+  //   }
+  //   return t(e);
+  // });
   const d = (e) => {
     e.querySelectorAll(".wpcf7-form-control-wrap").forEach((t) => {
       t.dataset.name && i(e, t.dataset.name);

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\WorkController;
 use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
+use App\Http\Controllers\Backend\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,4 +90,5 @@ route::prefix('admin')->name('admin.')->group(function () {
     route::prefix('config')->name('config.')->controller(ConfigHomePageController::class)->group(function () {
         route::get('home', 'index')->name('home');
     });
+    route::get('contact' , [ContactUsController::class, 'index'])->name('contact-us.index');
 });
