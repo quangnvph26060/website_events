@@ -15,7 +15,7 @@ class CatalogueController extends Controller
     public function index()
     {
         $title = 'Danh sách danh mục';
-        $catalogues = Catalogue::defaultOrder()->withDepth()->get();
+        $catalogues = Catalogue::latest()->get();
 
         return view('backend.catalogues.index', compact('catalogues', 'title'));
     }
@@ -24,9 +24,7 @@ class CatalogueController extends Controller
     function create()
     {
         $title = 'Thêm mới danh mục';
-        // $catalogues = Catalogue::get()->toTree();
-        $catalogues = Catalogue::defaultOrder()->withDepth()->get();
-        return view('backend.catalogues.create', compact('catalogues', 'title'));
+        return view('backend.catalogues.create', compact( 'title'));
     }
 
     function store(CatalogueStoreRequest $request)
@@ -37,14 +35,9 @@ class CatalogueController extends Controller
             $criteria['image'] = saveImages($request, 'image', 'catalogues', 150, 150);
         }
 
-        $newCatalogue = new Catalogue($criteria);
+       $criteria['status'] = $request->status ?: 0;
 
-        $parent = Catalogue::find($request->parent_id);
-        if ($parent) {
-            $parent->appendNode($newCatalogue);
-        } else {
-            $newCatalogue->save();
-        }
+        Catalogue::create($criteria);
 
         session()->flash('success', 'Danh mục đã được thêm thành công!');
 
@@ -55,16 +48,8 @@ class CatalogueController extends Controller
     {
         $title = 'Cập nhật danh mục';
 
-        // Lấy tất cả danh mục con của danh mục hiện tại
-        $descendantIds = $catalogue->descendants()->pluck('id');
 
-        // Loại bỏ chính danh mục đang được chỉnh sửa và tất cả danh mục con của nó khỏi danh sách
-        $catalogues = Catalogue::defaultOrder()
-            ->withDepth()
-            ->whereNotIn('id', $descendantIds->push($catalogue->id)) // Loại bỏ danh mục hiện tại và danh mục con
-            ->get();
-
-        return view('backend.catalogues.edit', compact('catalogue', 'catalogues', 'title'));
+        return view('backend.catalogues.edit', compact( 'catalogue', 'title'));
     }
 
 
@@ -72,12 +57,12 @@ class CatalogueController extends Controller
     {
         $criteria = $request->validated();
 
-        // dd($criteria);
-
         if ($request->hasFile('image')) {
             $criteria['image'] = saveImages($request, 'image', 'catalogues', 150, 150);
             deleteImage($catalogue->image);
         }
+
+        $criteria['status'] = $request->status ?: 0;
 
         $catalogue->update($criteria);
 

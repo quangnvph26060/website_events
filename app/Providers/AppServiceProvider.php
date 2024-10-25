@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Tag;
+use App\Models\Work;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +22,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('frontend/include/sidebar', function ($view) {
+            $tags = Tag::latest('id')->get();
+            $works = Work::latest('id')->with('images')->limit(9)->get();
+            $view->with([
+                'tags' => $tags,
+                'works' => $works
+            ]);
+        });
     }
 }

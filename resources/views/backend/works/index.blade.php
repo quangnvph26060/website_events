@@ -20,7 +20,9 @@
                             <th>STT</th>
                             <th>Tiêu đề</th>
                             <th>Danh mục</th>
+                            <th>Thẻ tag</th>
                             <th>Thời gian</th>
+                            <th>Hành động</th>
                         </tr>
                         </tr>
                     </thead>
@@ -29,7 +31,9 @@
                             <th>STT</th>
                             <th>Tiêu đề</th>
                             <th>Danh mục</th>
+                            <th>Thẻ tag</th>
                             <th>Thời gian</th>
+                            <th>Hành động</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -37,16 +41,32 @@
                             @foreach ($works as $work)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><a href="{{ route('admin.works.edit', $work) }}">{{ Str::limit($work->title, 70, '...') }}</a></td>
-                                    <td><a href="{{ route('admin.works.edit', $work) }}">{{ Str::limit($work->title, 70, '...') }}</a></td>
+                                    <td><a
+                                            href="{{ route('admin.works.edit', $work) }}">{{ Str::limit($work->title, 70, '...') }}</a>
+                                    </td>
+                                    <td>{{ $work->catalogue->name }}</td>
                                     <td>
                                         @if ($work->catalogues->isNotEmpty())
                                             @foreach ($work->catalogues as $catalogue)
                                                 <span class="badge bg-primary">{{ $catalogue->name }}</span>
                                             @endforeach
+                                        @else
+                                            <span class="badge bg-primary">Không có thẻ tag</span>
                                         @endif
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($work->created_at)->diffForHumans() }}</td>
+                                    <td>
+                                        <form action="{{ route('admin.works.destroy', $work) }}" method="post"
+                                            id="delete-form-{{ $work->id }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-danger" type="submit"
+                                                onclick="confirmDelete(event, '{{ $work->id }}')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         @endif
@@ -66,7 +86,7 @@
             pageLength: 10,
             columnDefs: [{
                     orderable: true,
-                    targets: [0,1,2,3]
+                    targets: [0,  2, 3, 4]
                 }, // Chỉ bật sắp xếp cho cột "STT", "Tên danh mục", "Danh mục cha"
                 {
                     orderable: false,
@@ -75,7 +95,7 @@
             ],
             initComplete: function() {
                 this.api()
-                    .columns([0, 1, 3]) // Chỉ lọc trên cột "Tên danh mục" và "Danh mục cha"
+                    .columns([0, 2,4]) // Chỉ lọc trên cột "Tên danh mục" và "Danh mục cha"
                     .every(function() {
                         var column = this;
                         var select = $(
@@ -102,10 +122,27 @@
                     });
             },
         });
+
+        function confirmDelete(event, catalogueId) {
+            event.preventDefault(); // Ngăn việc submit form ngay lập tức
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-' + catalogueId).submit();
+                }
+            });
+        }
     </script>
 @endpush
 
 @push('styles')
-    <!-- Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('backend/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 @endpush

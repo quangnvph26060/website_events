@@ -3,9 +3,11 @@
 use App\Http\Controllers\Backend\ConfigController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\WorkController;
 use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,6 @@ use App\Http\Controllers\Backend\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.pages.portfolio-detail');
-});
 
 Route::post('upload', function (Request $request) {
     if ($request->hasFile('upload')) {
@@ -53,8 +52,37 @@ route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('catalogues', CatalogueController::class);
     route::put('catalogues/{catalogue}/change-status', [CatalogueController::class, 'changeStatus'])->name('catalogues.change-status');
 
+
     Route::resource('works', WorkController::class);
 
     Route::get('config', [ConfigController::class, 'index'])->name('config.index');
     Route::post('config', [ConfigController::class, 'update'])->name('config.update');
+
+    Route::resource('works', controller: WorkController::class);
+
+    Route::post('temp-upload', function (Request $request) {
+        if ($request->hasFile('image')) {
+            $path = saveImages($request, 'image', 'uploads', 2560, 1707);
+
+            return response()->json([
+                'path' => $path,
+            ]);
+        }
+
+        return response()->json(['error' => 'No image uploaded'], 400);
+    })->name('temp-images.create');
+
+
+    Route::delete('temp-upload', function (Request $request) {
+        deleteImage($request->path);
+
+        return response()->json([
+            'status' => true
+        ]);
+    })->name('temp-images.destroy');
+
+    route::resource('posts', controller: PostController::class);
+
+    route::resource('tags', controller: TagController::class);
+
 });

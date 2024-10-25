@@ -27,8 +27,8 @@ class CatalogueUpdateRequest extends FormRequest
             'image' => 'nullable|image|max:2048|mimes:png,jpg,jpeg',
             'slug' => 'required|string|unique:catalogues,slug,' . $this->catalogue->id,
             'description' => 'nullable|string',
-            'parent_id' => 'nullable|sometimes|integer',
             'status' => 'nullable|boolean',
+            'is_tag' => 'nullable|boolean',
         ];
         // |exists:catalogues,id
     }

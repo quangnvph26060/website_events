@@ -1,3 +1,15 @@
+<script src="{{ asset('frontend/assets/js/jquery/jquery.min.js') }}"></script>
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+</script>
+
 <script type="text/javascript" id="gdlr-core-page-builder-js-extra">
     var gdlr_core_pbf = {
         admin: "",
@@ -5,10 +17,14 @@
             width: "640",
             height: "360"
         },
-        ajax_url: "https:\/\/rievents.vn\/wp-admin\/admin-ajax.php",
+        // ajax_url: "https:\/\/rievents.vn\/wp-admin\/admin-ajax.php",
+        ajax_url: "{{ route('user.portfolio.ajax') }}",
+
+
         ilightbox_skin: "dark",
     };
 </script>
+
 
 <script type="text/javascript" id="contact-form-7-js-extra">
     var wpcf7 = {
@@ -20,7 +36,6 @@
     };
 </script>
 
-<script src="{{ asset('frontend/assets/js/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/jquery/jquery-migrate.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/autoptimize_single_ba.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/autoptimize_single_d3.js') }}"></script>

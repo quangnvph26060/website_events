@@ -26,8 +26,8 @@ class CatalogueStoreRequest extends FormRequest
             'image' => 'nullable|image|max:2048|mimes:png,jpg,jpeg',
             'slug' => 'required|string|unique:catalogues,slug',
             'description' => 'nullable|string',
-            'parent_id' => 'nullable|sometimes|exists:catalogues,id',
             'status' => 'nullable|boolean',
+            'is_tag' => 'nullable|boolean',
         ];
     }
 

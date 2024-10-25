@@ -76,18 +76,13 @@
                         <div class="card w-100 ">
                             <div class="card-body p-5">
                                 <div class="mb-4">
-                                    <h2 class="mb-0 fs-exact-18">Danh mục cha</h2>
+                                    <h2 class="mb-0 fs-exact-18">Thẻ tag</h2>
                                 </div>
-                                <select class="sa-select2 form-select @error('parent_id') is-invalid @enderror"
-                                    name="parent_id">
-                                    <option value="">[NONE]</option>
-                                    @foreach ($catalogues as $cata)
-                                        <option value="{{ $cata->id }}" @selected(old('parent_id', $catalogue->parent_id) == $cata->id)>
-                                            {{ str_repeat('--', $cata->depth) . ' ' . $cata->name }}
-                                        </option>
-                                    @endforeach
+                                <select class="form-select @error('is_tag') is-invalid @enderror" name="is_tag">
+                                    <option selected value="1" @checked(old('is_tag', $catalogue->is_tag))>Có</option>
+                                    <option value="0" @checked(old('is_tag', $catalogue->is_tag))>Không</option>
                                 </select>
-                                @error('parent_id')
+                                @error('is_tag')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                                 <div class="form-text">
@@ -100,7 +95,7 @@
                                 <h2 class="mb-0 fs-exact-18">Ảnh tiêu biểu</h2>
                                 <div class="max-w-20x">
                                     <img class="img-fluid img-thumbnail w-100" id="show_image"
-                                        style="height: 240px; cursor: pointer" src="{{ showImage($catalogue->image) }}"
+                                        style="max-height: 240px; cursor: pointer" src="{{ showImage($catalogue->image) }}"
                                         alt="" onclick="document.getElementById('image').click();">
                                     <input type="file" name="image" id="image" class="form-control file-input"
                                         accept="image/*" onchange="previewImage(event, 'show_image')">

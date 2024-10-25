@@ -18,7 +18,7 @@
                             <th>STT</th>
                             <th>Ảnh</th>
                             <th>Tên danh mục</th>
-                            <th>Danh mục cha</th>
+                            <th>Thẻ</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -28,7 +28,7 @@
                             <th>STT</th>
                             <th>Ảnh</th>
                             <th>Tên danh mục</th>
-                            <th>Danh mục cha</th>
+                            <th>Thẻ</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -40,7 +40,7 @@
                                 <td><img width="100px" height="100px" src="{{ showImage($catalogue->image) }}"
                                         alt="{{ $catalogue->name }}"></td>
                                 <td>{{ $catalogue->name }}</td>
-                                <td>{{ $catalogue->parent ? '--' . $catalogue->parent->name : '[NONE]' }}</td>
+                                <td>{!! $catalogue->is_tag ? '<span class="badge bg-success">Có</span>' : '<span class="badge bg-primary">Không</span>' !!}</td>
                                 <td>
                                     <form action="{{ route('admin.catalogues.change-status', $catalogue) }}" method="post"
                                         id="change-form-{{ $catalogue->id }}">
