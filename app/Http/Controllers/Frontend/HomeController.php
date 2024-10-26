@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\ConfigHome;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,9 @@ class HomeController extends Controller
 
         $works = \App\Models\Work::with('images')->latest('id')->limit(10)->get();
 
+        $configHome = ConfigHome::first();
 
-        return view('frontend.pages.home', compact('catalogues', 'works'));
+        return view('frontend.pages.home', compact('catalogues', 'works', 'configHome'));
     }
 
 

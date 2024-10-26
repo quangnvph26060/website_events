@@ -43,6 +43,9 @@
                                 <a href="{{route('admin.config.home')}}">
                                     <span class="sub-item">Cấu hình trang chủ</span>
                                 </a>
+                                <a href="{{route('admin.config.slider')}}">
+                                    <span class="sub-item">Cấu hình slider</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -64,7 +67,7 @@
                     <div class="collapse" id="base">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{route('admin.catalogues.index')}}">
+                                <a href="{{route('admin.catalogues.index')}}" >
                                     <span class="sub-item">Danh sách danh mục</span>
                                 </a>
                             </li>

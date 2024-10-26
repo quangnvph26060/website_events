@@ -44,19 +44,13 @@
                 </h3>
                 <span class="clear"></span>
                 <ul>
-                    <li>
-                        <a href="https://rievents.vn/sr-3d-design/">Creative work is looking for the right
-                            guy: Senior 3D
-                            Design</a>
-                    </li>
-                    <li>
-                        <a href="https://rievents.vn/sr-account-ri-job/">A Great Job Waiting for You :
-                            Senior Account Executive</a>
-                    </li>
-                    <li>
-                        <a href="https://rievents.vn/account-executive-job/">Great Job Here: Account
-                            Executive</a>
-                    </li>
+
+                    @foreach ($postF->take(3) as $item)
+                        <li>
+                            <a
+                                href="{{ route('user.work-for-us', $item->slug) }}">{{ \Str::limit($item->title, 30, '...') }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -69,62 +63,23 @@
                 </h3>
                 <span class="clear"></span>
                 <div class="gdlr-core-recent-portfolio-widget-wrap clearfix">
-                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
-                        <a href="">
-                            <noscript>
-                                <img src="{{ asset('frontend/assets/image/PTSC.30Years-75-150x150.jpg') }}"
-                                    alt="" width="150" height="150" title="PTSC.30Years (75)" />
-                            </noscript>
-                            <img class="lazyload" src="{{ asset('frontend/assets/image/PTSC.30Years-75-150x150.jpg') }}"
-                                data-src="{{ asset('frontend/assets/image/PTSC.30Years-75-150x150.jpg') }}"
-                                alt="" width="150" height="150" title="PTSC.30Years (75)" />
-                            <span class="gdlr-core-image-overlay">
-                                <i class="gdlr-core-image-overlay-icon gdlr-core-size-15 icon_link_alt"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
-                        <a href="#">
-                            <noscript>
-                                <img src="{{ asset('frontend/assets/image/PTSC_YEP2022-6-150x150.jpg') }}"
-                                    alt="" width="150" height="150" title="PTSC_YEP2022 (6)" />
-                            </noscript>
-                            <img class="lazyload" src="{{ asset('frontend/assets/image/PTSC_YEP2022-6-150x150.jpg') }}"
-                                data-src="{{ asset('frontend/assets/image/PTSC_YEP2022-6-150x150.jpg') }}"
-                                alt="" width="150" height="150" title="PTSC_YEP2022 (6)" />
-                            <span class="gdlr-core-image-overlay">
-                                <i class="gdlr-core-image-overlay-icon gdlr-core-size-15 icon_link_alt"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
-                        <a href="#">
-                            <noscript>
-                                <img src="{{ asset('frontend/assets/image/SAN-KHAU-4-150x150.jpg') }}" alt=""
-                                    width="150" height="150" title="SEV2022" />
-                            </noscript>
-                            <img class="lazyload" src="{{ asset('frontend/assets/image/SAN-KHAU-4-150x150.jpg') }}"
-                                data-src="{{ asset('frontend/assets/image/SAN-KHAU-4-150x150.jpg') }}" alt=""
-                                width="150" height="150" title="SEV2022" />
-                            <span class="gdlr-core-image-overlay">
-                                <i class="gdlr-core-image-overlay-icon gdlr-core-size-15 icon_link_alt"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
-                        <a href="#">
-                            <noscript>
-                                <img src="{{ asset('frontend/assets/image/CHUBB_ABL-17-150x150.jpg') }}" alt=""
-                                    width="150" height="150" title="CHUBB_ABL (17)" />
-                            </noscript>
-                            <img class="lazyload" src="{{ asset('frontend/assets/image/CHUBB_ABL-17-150x150.jpg') }}"
-                                data-src="{{ asset('frontend/assets/image/CHUBB_ABL-17-150x150.jpg') }}" alt=""
-                                width="150" height="150" title="CHUBB_ABL (17)" />
-                            <span class="gdlr-core-image-overlay">
-                                <i class="gdlr-core-image-overlay-icon gdlr-core-size-15 icon_link_alt"></i>
-                            </span>
-                        </a>
-                    </div>
+                    @foreach ($works->take(4) as $work)
+                        <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                            <a href="{{ route('user.portfolio', $work->slug) }}">
+                                <noscript>
+                                    <img src="{{ showImage($work->images->first()->image_path ?? '') }}"
+                                        alt="" width="150" height="150" title="{{$work->title}}" />
+                                </noscript>
+                                <img class="lazyload"
+                                    src="{{ showImage($work->images->first()->image_path ?? '') }}"
+                                    data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
+                                    alt="" width="150" height="150" title="{{$work->title}}" />
+                                <span class="gdlr-core-image-overlay">
+                                    <i class="gdlr-core-image-overlay-icon gdlr-core-size-15 icon_link_alt"></i>
+                                </span>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

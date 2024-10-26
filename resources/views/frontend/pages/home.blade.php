@@ -36,19 +36,19 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-              font-size: 50px;
-              font-weight: 600;
-              letter-spacing: 0px;
-              text-transform: none;
-              color: rgb(235, 169, 4);
-            "
-                                            data-orig-font="50px">
-                                            Chúng tôi là ai<span
+
+                                                font-weight: 600;
+                                                letter-spacing: 0px;
+                                                text-transform: none;
+                                                color: rgb(235, 169, 4);
+                                                ">
+
+                                            {{ $configHome->title_1 }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
-                                    <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"
-                                        style="font-size: 20px; margin-top: 0px">Những điều khiến chúng ta khác biệt</span>
+                                    <span
+                                        class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">{{ $configHome->quote_1 }}</span>
                                 </div>
                             </div>
                             <div class="gdlr-core-pbf-element">
@@ -60,58 +60,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gdlr-core-pbf-element">
-                                <div
-                                    class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                    <div class="gdlr-core-text-box-item-content">
-                                        <p style="text-align: center">
 
-                                            RI Events là công ty quản lý và sản xuất sự kiện
-                                            công ty có trụ sở tại Việt Nam cung cấp đầy đủ các loại
-                                            của các dịch vụ.
-                                        </p>
-                                        <p style="text-align: center">
-                                            Là công ty chuyên tổ chức sự kiện với 3
-                                            điểm mạnh nổi bật (<strong>Hiểu biết kinh doanh –
-                                                Quy hoạch –
-                                                Sáng tạo</strong>), RI Events đã thành công
-                                            xử tử nhiều
-                                            các sự kiện nổi bật trong khu vực doanh nghiệp.
-                                            Chúng tôi đã đạt được danh tiếng về việc tổ chức các sự kiện
-                                            với trình độ chuyên môn cao nhất,
-                                            sự cống hiến, niềm tự hào và sự chính xác
-                                        </p>
+                            @foreach ($configHome->content as $item)
+                                <div class="gdlr-core-pbf-element">
+                                    <div
+                                        class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
+                                        <div class="gdlr-core-text-box-item-content">
+                                            {!! $item !!}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="gdlr-core-pbf-element">
-                                <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
-                                    style="margin-top: 0px">
-                                    <div class="gdlr-core-divider-container" style="max-width: 20px">
-                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider"
-                                            style="border-color: #eba904"></div>
+                                @if ($loop->last == false)
+                                    <div class="gdlr-core-pbf-element">
+                                        <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
+                                            style="margin-top: 0px">
+                                            <div class="gdlr-core-divider-container" style="max-width: 20px">
+                                                <div class="gdlr-core-divider-line gdlr-core-skin-divider"
+                                                    style="border-color: #eba904"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="gdlr-core-pbf-element">
-                                <div
-                                    class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                    <div class="gdlr-core-text-box-item-content"
-                                        style="
-            font-size: 20px;
-            font-weight: 100;
-            text-transform: none;
-            color: #9b9b9b;
-          ">
-                                        <p style="text-align: center">
-                                            Được thành lập từ năm 2012, chúng tôi đã tổ chức các sự kiện theo yêu cầu riêng và đã làm việc với nhiều khách hàng chủ yếu thường xuyên lựa chọn từ các công ty quốc tế đến các doanh nghiệp địa phương trên khắp Việt Nam trong nhiều ngành khác nhau. Chuyên môn và năng lực của chúng tôi trong ngành cho phép chúng tôi tạo ra những ý tưởng sáng tạo và đưa ra các giải pháp riêng biệt, đảm bảo rằng mọi sự kiện đều tiết kiệm chi phí, khó quên, thú vị và hoàn thành mục tiêu của khách hàng.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="gdlr-core-pbf-element">
-                                <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px"></div>
-                            </div>
+                                @endif
+                            @endforeach
+
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"
                                     style="margin-top: 30px">
@@ -186,23 +157,18 @@
                         <div class="gdlr-core-title-item-title-wrap">
                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                 style="
-        font-size: 50px;
-        font-weight: 600;
-        letter-spacing: 0px;
-        text-transform: none;
-        color: rgb(235, 169, 4);
-      "
-                                data-orig-font="50px">
-                                Công việc của chúng tôi<span
+
+                            font-weight: 600;
+                            letter-spacing: 0px;
+                            text-transform: none;
+                            color: rgb(235, 169, 4);
+                            ">
+                                {{ $configHome->title_2 }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
-                        <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"
-                            style="font-size: 20px; margin-top: 20px">
-                            Mời các bạn xem tác phẩm
-                            chúng tôi đã gửi để tìm
-                            cách chúng tôi có thể giúp bạn thực hiện các sự kiện tiếp theo
-                            đáng nhớ</span>
+                        <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">
+                            {{ $configHome->quote_2 }}</span>
                     </div>
                 </div>
                 <div class="gdlr-core-pbf-element">
@@ -327,13 +293,11 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-              font-size: 50px;
-              letter-spacing: 0px;
-              text-transform: none;
-              color: rgb(235, 169, 4);
-            "
-                                            data-orig-font="50px">
-                                            Bạn bè của chúng tôi<span
+                                        letter-spacing: 0px;
+                                        text-transform: none;
+                                        color: rgb(235, 169, 4);
+                                         ">
+                                            {{ $configHome->title_3 }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -348,11 +312,9 @@
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"
                                     style="padding-bottom: 0px">
-                                    <div class="gdlr-core-text-box-item-content"
-                                        style="font-size: 20px; text-transform: none">
+                                    <div class="gdlr-core-text-box-item-content">
                                         <p>
-                                            Mọi khách hàng đều được phục vụ với sự cam kết vững chắc, niềm đam mê không thể
-                                            kìm nén và khả năng sáng tạo vô song
+                                            {{ $configHome->quote_3 }}
                                         </p>
                                     </div>
                                 </div>
@@ -377,12 +339,11 @@
                                     style="padding-bottom: 20px">
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
-                                        <noscript><img src="{{ asset('frontend/assets/image/Client-Logo-3-01.png') }}"
-                                                alt="" width="3125" height="2671"
-                                                title="Client Logo 3-01" /></noscript><img class="lazyload"
-                                            src="{{ asset('frontend/assets/image/Client-Logo-3-01.png') }}"
-                                            data-src="{{ asset('frontend/assets/image/Client-Logo-3-01.png') }}"
-                                            alt="" width="3125" height="2671" title="Client Logo 3-01" />
+                                        <noscript><img src="{{ showImage($configHome->image_3 ?? '') }}" alt=""
+                                                width="3125" height="2671" title="Client Logo 3-01" /></noscript><img
+                                            class="lazyload" src="{{ showImage($configHome->image_3 ?? '') }}"
+                                            data-src="{{ showImage($configHome->image_3 ?? '') }}" alt=""
+                                            width="3125" height="2671" title="Client Logo 3-01" />
                                     </div>
                                 </div>
                             </div>
@@ -436,13 +397,11 @@
                         <div class="gdlr-core-title-item-title-wrap">
                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                 style="
-                font-size: 50px;
-                letter-spacing: 0px;
-                text-transform: none;
-                color: rgb(235, 169, 4);
-            "
-                                data-orig-font="50px">
-                                Liên hệ với chúng tôi<span
+                                letter-spacing: 0px;
+                                text-transform: none;
+                                color: rgb(235, 169, 4);
+                            ">
+                                {{ $configHome->title_4 }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
@@ -451,11 +410,9 @@
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"
                         style="padding-bottom: 25px">
-                        <div class="gdlr-core-text-box-item-content" style="font-size: 20px; text-transform: none">
+                        <div class="gdlr-core-text-box-item-content">
                             <p style="text-align: center">
-                                Gửi email cho chúng tôi nhu cầu của bạn hoặc gọi cho chúng tôi, để chúng tôi có thể
-                                thảo luận thêm về cách chúng ta có thể tạo ra sự thay đổi đáng kể
-                                sự khác biệt trong sự kiện tiếp theo của bạn.
+                                {{ $configHome->quote_4 }}
                             </p>
                         </div>
                     </div>
@@ -478,7 +435,7 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-                        font-size: 30px;
+                        font-size: 25px;
                         font-weight: 400;
                         letter-spacing: 0px;
                         text-transform: none;
@@ -502,7 +459,7 @@
                                                         class="gdlr-core-icon-list-icon fa fa-phone"
                                                         style="font-size: 20px; width: 20px"></i></span>
                                                 <div class="gdlr-core-icon-list-content-wrap">
-                                                    <span class="gdlr-core-icon-list-content" style="font-size: 18px">+84
+                                                    <span class="gdlr-core-icon-list-content">+84
                                                         090 969 15
                                                         11</span>
                                                 </div>
@@ -523,7 +480,7 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-                        font-size: 30px;
+                        font-size: 25px;
                         font-weight: 400;
                         letter-spacing: 0px;
                         text-transform: none;
@@ -543,12 +500,10 @@
                                             <a href="mailto:contact@rievents.vn" target="_self"><span
                                                     class="gdlr-core-icon-list-icon-wrap"><i
                                                         class="gdlr-core-icon-list-icon-hover fa fa-envelope-o"
-                                                        style="font-size: 20px"></i><i
-                                                        class="gdlr-core-icon-list-icon fa fa-envelope-o"
-                                                        style="font-size: 20px; width: 20px"></i></span>
+                                                        style="font-size: 20px"></i><i style="font-size: 20px;"
+                                                        class="gdlr-core-icon-list-icon fa fa-envelope-o"></i></span>
                                                 <div class="gdlr-core-icon-list-content-wrap">
-                                                    <span class="gdlr-core-icon-list-content"
-                                                        style="font-size: 20px">contact@rievents.vn</span>
+                                                    <span class="gdlr-core-icon-list-content">contact@rievents.vn</span>
                                                 </div>
                                             </a>
                                         </li>
@@ -567,12 +522,12 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-                        font-size: 30px;
-                        font-weight: 400;
-                        letter-spacing: 0px;
-                        text-transform: none;
-                        color: #eba904;
-                        ">
+                                                font-size: 25px;
+                                                font-weight: 400;
+                                                letter-spacing: 0px;
+                                                text-transform: none;
+                                                color: #eba904;
+                                                ">
                                             Địa chỉ<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
@@ -591,8 +546,7 @@
                                                         class="gdlr-core-icon-list-icon fa fa-map-marker"
                                                         style="font-size: 22px; width: 22px"></i></span>
                                                 <div class="gdlr-core-icon-list-content-wrap">
-                                                    <span class="gdlr-core-icon-list-content"
-                                                        style="font-size: 20px">169/1/16 Luong Dinh Cua
+                                                    <span class="gdlr-core-icon-list-content">169/1/16 Luong Dinh Cua
                                                         Street, An Khanh
                                                         Ward, Thu Duc, Ho Chi Minh City, Viet
                                                         Nam</span>
@@ -629,10 +583,7 @@
                     </div>
                 </div>
                 <div class="gdlr-core-pbf-element">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.1268106255457!2d105.80209477503023!3d20.98755328065149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acc0169d20ab%3A0x3205424efc8bbe2c!2zMzAgTmcuIDE2OCDEkC4gTmd1eeG7hW4gWGnhu4NuLCBI4bqhIMSQw6xuaCwgVGhhbmggWHXDom4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1729380489743!5m2!1svi!2s"
-                        width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {!! $configHome->map !!}
                 </div>
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
@@ -648,13 +599,11 @@
                         <div class="gdlr-core-title-item-title-wrap">
                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                 style="
-                            font-size: 50px;
-                            font-weight: 400;
-                            letter-spacing: 0px;
-                            text-transform: none;
-                            color: rgb(235, 169, 4);
-                        "
-                                data-orig-font="50px">
+                                    font-weight: 400;
+                                    letter-spacing: 0px;
+                                    text-transform: none;
+                                    color: rgb(235, 169, 4);
+                                ">
 
                                 Để lại cho chúng tôi thông tin của bạn
                                 <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -665,7 +614,7 @@
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
                         style="padding-bottom: 25px">
-                        <div class="gdlr-core-text-box-item-content" style="font-size: 20px; text-transform: none">
+                        <div class="gdlr-core-text-box-item-content">
                             <p style="text-align: left">
                                 và chúng tôi sẽ liên lạc lại với bạn
                             </p>
@@ -775,3 +724,11 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <style>
+        .gdlr-core-pbf-element iframe {
+            width: 100% !important;
+        }
+    </style>
+@endpush
