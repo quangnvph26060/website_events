@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Backend\AboutUsController;
-use App\Http\Controllers\Backend\ConfigController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\TagController;

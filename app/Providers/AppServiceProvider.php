@@ -38,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
             $postF = Post::isPublished()->latest('id')->limit(3)->get();
 
             $view->with('postF', $postF);
+        });
         $configWebsite = Config::first();
         View::composer('*', function ($view) use ($configWebsite) {
             $view->with([
