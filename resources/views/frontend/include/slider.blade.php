@@ -1,6 +1,22 @@
 <div class="main-slider">
     <div id="slide">
-        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
+        @if ($sliderHome->isNotEmpty())
+            @foreach ($sliderHome as $slider)
+                <div class="item" style="background-image: url({{ showImage($slider->path_image) }})">
+                    <div class="content">
+                        <div class="name">{{ $slider->title }}</div>
+                        <div class="des">
+                             {{ $slider->short_content }}
+                        </div>
+                        <button>See more</button>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+
+
+
+        {{-- <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
             <div class="content">
                 <div class="name">Hà Nội</div>
                 <div class="des">
@@ -49,17 +65,7 @@
                 </div>
                 <button>See more</button>
             </div>
-        </div>
-        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
-            <div class="content">
-                <div class="name">Hà Nội</div>
-                <div class="des">
-                    Khong co khinh, khong phải vì xe khong co kinh. Boom
-                    giật boom rung kính vỡ đi rồi.
-                </div>
-                <button>See more</button>
-            </div>
-        </div>
+        </div> --}}
     </div>
 
 </div>

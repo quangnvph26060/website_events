@@ -56,7 +56,7 @@ class AboutUsController extends Controller
         $about = About::find($id);
         if ($request->hasFile('image')) {
             deleteImage($about->image);
-            $validated['image'] = saveImages($request, 'image', 'about', 1200, 580);
+            $validated['image'] = saveImages($request, 'image', 'about', 2560, 1600);
         }
 
         $about->update($validated);
