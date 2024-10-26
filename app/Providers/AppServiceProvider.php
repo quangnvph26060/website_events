@@ -7,6 +7,7 @@ use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Work;
 use App\Models\ConfigHome;
+use App\Models\ConfigSlider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,9 +41,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('postF', $postF);
         });
         $configWebsite = Config::first();
-        View::composer('*', function ($view) use ($configWebsite) {
+        $sliderHome = ConfigSlider::all();
+        View::composer('*', function ($view) use ($configWebsite, $sliderHome) {
             $view->with([
-                'configWebsite' => $configWebsite
+                'configWebsite' => $configWebsite,
+                'sliderHome' => $sliderHome
             ]);
         });
     }

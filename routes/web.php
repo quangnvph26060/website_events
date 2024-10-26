@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Config\ConfigSliderController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
 use App\Http\Controllers\Backend\ContactUsController;
+use App\Http\Controllers\Backend\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,4 +103,5 @@ route::prefix('admin')->name('admin.')->group(function () {
     });
     route::get('contact' , [ContactUsController::class, 'index'])->name('contact-us.index');
     route::resource('about' , AboutUsController::class);
+    route::resource('slider' , SliderController::class);
 });

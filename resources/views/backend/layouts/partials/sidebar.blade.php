@@ -40,10 +40,10 @@
                     <div class="collapse" id="config">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{route('admin.config.home')}}">
+                                <a href="{{ route('admin.config.home') }}">
                                     <span class="sub-item">Cấu hình trang chủ</span>
                                 </a>
-                                <a href="{{route('admin.config.slider')}}">
+                                <a href="{{ route('admin.config.slider') }}">
                                     <span class="sub-item">Cấu hình slider</span>
                                 </a>
                             </li>
@@ -67,12 +67,12 @@
                     <div class="collapse" id="base">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{route('admin.catalogues.index')}}" >
+                                <a href="{{ route('admin.catalogues.index') }}">
                                     <span class="sub-item">Danh sách danh mục</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.catalogues.create')}}">
+                                <a href="{{ route('admin.catalogues.create') }}">
                                     <span class="sub-item">Thêm mới danh mục</span>
                                 </a>
                             </li>
@@ -89,12 +89,12 @@
                     <div class="collapse" id="work">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{route('admin.works.index')}}">
+                                <a href="{{ route('admin.works.index') }}">
                                     <span class="sub-item">Danh sách tác phẩm</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.works.create')}}">
+                                <a href="{{ route('admin.works.create') }}">
                                     <span class="sub-item">Thêm tác phẩm</span>
                                 </a>
                             </li>
@@ -111,12 +111,12 @@
                     <div class="collapse" id="news">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{route('admin.posts.index')}}">
+                                <a href="{{ route('admin.posts.index') }}">
                                     <span class="sub-item">Danh sách bài viết</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.posts.create')}}">
+                                <a href="{{ route('admin.posts.create') }}">
                                     <span class="sub-item">Thêm bài viết</span>
                                 </a>
                             </li>
@@ -125,14 +125,35 @@
                 </li>
 
                 <li class="nav-item">
-                    <a  href="{{route('admin.tags.create')}}">
+                    <a href="{{ route('admin.tags.create') }}">
                         <i class="fas fa-tags"></i>
                         <p>Thẻ</p>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <a  href="{{route('admin.contact-us.index')}}">
+                    <a data-bs-toggle="collapse" href="#slider">
+                        <i class="fas fa-map"></i>
+                        <p>Quản lý slider</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="slider">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ route('admin.slider.index') }}">
+                                    <span class="sub-item">Danh sách slider</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.slider.create') }}">
+                                    <span class="sub-item">Thêm một slider</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact-us.index') }}">
                         <i class="fas fa-id-card-alt"></i>
                         <p>Liên hệ</p>
                     </a>
@@ -147,12 +168,12 @@
                     <div class="collapse" id="aboutus">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{route('admin.about.index')}}">
+                                <a href="{{ route('admin.about.index') }}">
                                     <span class="sub-item">Danh sách mục</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.about.create')}}">
+                                <a href="{{ route('admin.about.create') }}">
                                     <span class="sub-item">Thêm mục</span>
                                 </a>
                             </li>
