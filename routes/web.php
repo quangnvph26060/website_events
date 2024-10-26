@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\WorkController;
+use App\Http\Controllers\Backend\ConfigController;
 use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\Config\ConfigSliderController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
 use App\Http\Controllers\Backend\ContactUsController;
 
@@ -88,8 +90,16 @@ route::prefix('admin')->name('admin.')->group(function () {
 
     route::resource('tags', controller: TagController::class);
 
-    route::prefix('config')->name('config.')->controller(ConfigHomePageController::class)->group(function () {
-        route::get('home', 'index')->name('home');
+    route::prefix('config')->name('config.')->group(function () {
+        route::controller(ConfigHomePageController::class)->group(function () {
+            route::get('home', 'index')->name('home');
+            route::put('home', 'update')->name('home.update');
+        });
+
+        route::controller(ConfigSliderController::class)->group(function () {
+            route::get('slider', 'slider')->name('slider');
+            route::post('slider', 'update');
+        });
     });
     route::get('contact' , [ContactUsController::class, 'index'])->name('contact-us.index');
     route::resource('about' , AboutUsController::class);
