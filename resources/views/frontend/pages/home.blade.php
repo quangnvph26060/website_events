@@ -79,6 +79,26 @@
                                                     style="border-color: #eba904"></div>
                                             </div>
                                         </div>
+                            </div>
+                            <div class="gdlr-core-pbf-element">
+                                <div
+                                    class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
+                                    <div class="gdlr-core-text-box-item-content"
+                                        style="
+            font-size: 20px;
+            font-weight: 100;
+            text-transform: none;
+            color: #9b9b9b;
+          ">
+                                        <p style="text-align: center">
+                                            Được thành lập từ năm 2012, chúng tôi đã tổ chức các sự kiện theo yêu cầu riêng
+                                            và đã làm việc với nhiều khách hàng chủ yếu thường xuyên lựa chọn từ các công ty
+                                            quốc tế đến các doanh nghiệp địa phương trên khắp Việt Nam trong nhiều ngành
+                                            khác nhau. Chuyên môn và năng lực của chúng tôi trong ngành cho phép chúng tôi
+                                            tạo ra những ý tưởng sáng tạo và đưa ra các giải pháp riêng biệt, đảm bảo rằng
+                                            mọi sự kiện đều tiết kiệm chi phí, khó quên, thú vị và hoàn thành mục tiêu của
+                                            khách hàng.
+                                        </p>
                                     </div>
                                 @endif
                             @endforeach
@@ -637,85 +657,71 @@
                                 <p role="status" aria-live="polite" aria-atomic="true"></p>
                                 <ul></ul>
                             </div>
-                            <form action="/#wpcf7-f1319-p2039-o1" method="post" class="wpcf7-form init"
-                                aria-label="Contact form" novalidate="novalidate" data-status="init">
-                                <div style="display: none">
-                                    <input type="hidden" name="_wpcf7" value="1319" />
-                                    <input type="hidden" name="_wpcf7_version" value="5.9.8" />
-                                    <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1319-p2039-o1" />
-                                    <input type="hidden" name="_wpcf7_container_post" value="2039" />
-                                    <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                                    <input type="hidden" name="_wpcf7_recaptcha_response"
-                                        value="03AFcWeA6KHheIoLAro2LX4NfGxUrwjSK1Z5cukN0f-d0CgWEH80ExGQg22Eys4sFjVnpViRc6v3viJhsuc4RNNo5FivO13S7uOYaVBKZBcvLgRJGAFlN6FrKJLNdfX_M6GWXm7vudu9jzYyiFS_RxR3s9IMOKhZWbZGlQMBr-ZMm6msYXNPmbXfC6EeM3XkA4H-LX9MnJq7Kn-JnefZJgiukWyGbToB2NmGSc2pC2-ZqjeMigAIf9KNzK61Yr5bqOOCUYgnCDxpuKTvrZMirIcHVGC6HMzG8Y1V1EJOzbTPGxyI9VagvVJXX6Bgg9oJEjEgLrT1F3fqk6EMcNVLheE1PFovtH-wC6-MqwaJW3t5o3rg0_G1JXTV--7oU_KfJrC6LQqycXOxYRsvcOtS88_d74hkJGAlPnMjGrEFC9DQrKtjr5JrndlxQAa8CbOK5xteaoXDBNVuHGr5SPuY5mCWZvu1UDSP98PH1ZBe0uwut5X6ZJbH-VqKMGFEJj4eD89DVFt16svfoRZXUis86AlOqdMDUgXVcaFgBGxWIsbbfMIccW0rmQAp_ylLx8X8LnJS7rjej74psw3pga0bjw06OozQw_EzaV4aH2nXS0SJTHKXQNbN7jmK2Vl6hyykjGMqsujaSzXXgoQAHld0JCxi3pbLSJmlbqsMN37IxZmBIx7IhRgOJws8gaLh3XyC0aAESKtx9ufw-foWPhvGDmg-hA0SOqDxD_Gs6buaa7r4DUJdZVk0FEj2okYKJputxjjjT0kswu3okdK5qhb8mg-4ODpivmeD1-xvDRJ1omf0PS4Gfh1IbFgLTo4NQgaxi9_jnDAITVBbJN" />
-                                </div>
+                            <form id="contactForm" autocomplete="off">
+                                @csrf
                                 <div
                                     class="gdlr-core-input-wrap gdlr-core-large gdlr-core-full-width gdlr-core-with-column gdlr-core-no-border">
                                     <div class="gdlr-core-column-30">
                                         <p>
-                                            <span class="wpcf7-form-control-wrap" data-name="your-name"><input
-                                                    size="40" maxlength="400"
-                                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                    aria-required="true" aria-invalid="false" placeholder="Full Name*"
-                                                    value="" type="text" name="your-name" /></span>
+                                            <input type="text" name="fullName" {{ old('fullName') }}
+                                                class="wpcf7-form-control-wrap" placeholder="Full Name*">
+                                            <span class="text-danger error-text fullName_error" style="color: red"></span>
                                         </p>
                                     </div>
                                     <div class="gdlr-core-column-30">
                                         <p>
-                                            <span class="wpcf7-form-control-wrap" data-name="your-email"><input
-                                                    size="40" maxlength="400"
-                                                    class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
-                                                    aria-required="true" aria-invalid="false" placeholder="Email*"
-                                                    value="" type="email" name="your-email" /></span>
+                                            <input type="text" name="email" {{ old('email') }}
+                                                placeholder="Email*" class="wpcf7-form-control-wrap">
+
+                                            <span class="text-danger error-text email_error" style="color: red"></span>
                                         </p>
                                     </div>
                                     <div class="clear"></div>
                                     <div class="gdlr-core-column-30">
                                         <p>
-                                            <span class="wpcf7-form-control-wrap" data-name="tel-747"><input
-                                                    size="40" maxlength="400"
-                                                    class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel"
-                                                    aria-required="true" aria-invalid="false" placeholder="Phone*"
-                                                    value="" type="tel" name="tel-747" /></span>
+                                            <input type="text" name="phone" {{ old('phone') }}
+                                                placeholder="Phone*" class="wpcf7-form-control-wrap">
+
+                                            <span class="text-danger error-text phone_error" style="color: red"></span>
                                         </p>
                                     </div>
                                     <div class="gdlr-core-column-30">
                                         <p>
-                                            <span class="wpcf7-form-control-wrap" data-name="text-124"><input
-                                                    size="40" maxlength="400"
-                                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                    aria-required="true" aria-invalid="false" placeholder="Company*"
-                                                    value="" type="text" name="text-124" /></span>
+                                            <input type="text" name="company" value="{{ old('company') }}"
+                                                placeholder="Company*" class="wpcf7-form-control-wrap">
+
+                                            <span class="text-danger error-text company_error" style="color: red"></span>
                                         </p>
                                     </div>
                                     <div class="clear"></div>
                                     <div class="gdlr-core-column-60">
                                         <p>
-                                            <span class="wpcf7-form-control-wrap" data-name="your-subject"><input
-                                                    size="40" maxlength="400"
-                                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                    aria-required="true" aria-invalid="false" placeholder="Subject*"
-                                                    value="" type="text" name="your-subject" /></span>
+                                            <input type="text" name="subject" value="{{ old('subject') }}"
+                                                placeholder="Subject*" class="wpcf7-form-control-wrap">
+
+                                            <span class="text-danger error-text subject_error" style="color: red"></span>
                                         </p>
                                     </div>
                                     <div class="clear"></div>
                                     <div class="gdlr-core-column-60">
                                         <p>
-                                            <span class="wpcf7-form-control-wrap" data-name="your-message">
-                                                <textarea cols="40" rows="10" maxlength="2000"
-                                                    class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"
-                                                    placeholder="Message*" name="your-message"></textarea>
+                                            <span class="wpcf7-form-control-wrap">
+                                                <textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea"
+                                                    placeholder="Message*" name="message">{{ old('message') }}</textarea>
+
+                                                <span class="text-danger error-text message_error"
+                                                    style="color: red"></span>
                                             </span>
                                         </p>
                                     </div>
                                     <div class="gdlr-core-column-60 gdlr-core-center-align">
                                         <p>
-                                            <input class="wpcf7-form-control wpcf7-submit has-spinner gdlr-core-full"
-                                                type="submit" value="Submit Now" /><span class="wpcf7-spinner"></span>
+
+                                            <button class="contact-button" id="btn-contact-submit">Submit
+                                                now</button>
                                         </p>
                                     </div>
                                 </div>
-                                <div class="wpcf7-response-output" aria-hidden="true"></div>
                             </form>
                         </div>
                     </div>
@@ -723,6 +729,25 @@
             </div>
         </div>
     </div>
+    <style>
+        .contact-button {
+            background-color: #333;
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+
+        .contact-button:hover {
+            background-color: #eba904;
+        }
+    </style>
 @endsection
 
 @push('styles')
@@ -731,4 +756,64 @@
             width: 100% !important;
         }
     </style>
+
+
+
+@push('scripts')
+    <script src="{{ asset('backend/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery("#btn-contact-submit").click(function(e) {
+                e.preventDefault();
+                var _token = jQuery("input[name='_token']").val();
+                var fullName = jQuery("input[name='fullName']").val();
+                var email = jQuery("input[name='email']").val();
+                var phone = jQuery("input[name='phone']").val();
+                var subject = jQuery("input[name='subject']").val();
+                var company = jQuery("input[name='company']").val();
+                var message = jQuery("textarea[name='message']").val();
+
+                jQuery.ajax({
+                    url: '{{ route('user.contact-us.submit') }}',
+                    type: 'POST',
+                    data: {
+                        _token: _token,
+                        fullName: fullName,
+                        email: email,
+                        phone: phone,
+                        subject: subject,
+                        company: company,
+                        message: message,
+                    },
+                    success: function(data) {
+                        if (jQuery.isEmptyObject(data.error)) {
+                            jQuery(".error-text").text('');
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thành công!',
+                                text: data.success,
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then(() => {
+                                jQuery("#contactForm")[0].reset();
+                            });
+
+                        } else {
+                            printErrorMsg(data.error);
+                        }
+                    }
+                });
+
+
+            });
+
+            function printErrorMsg(msg) {
+                jQuery(".error-text").text('');
+
+                jQuery.each(msg, function(key, value) {
+                    jQuery('.' + key + '_error').text(value[0]);
+                });
+            }
+        })
+    </script>
 @endpush

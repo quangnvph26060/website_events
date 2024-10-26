@@ -11,8 +11,7 @@
                     <p>
                         <span style="font-size: 14px">
                             <strong>Address</strong>
-                            : 169/1/16, Luong Dinh Cua Street, An Khanh Ward, Thu Duc
-                            City, HCMC, Vietnam
+                            : {{ $configWebsite->address }}
                         </span>
                         <br />
                         <span style="font-size: 14px">
@@ -20,7 +19,7 @@
                             &nbsp;&nbsp;:
                             <span style="color: #eba904">
                                 <a style="color: #eba904" href="mailto:contact@rievents.vn" target="_blank"
-                                    rel="noopener">Contact@rievents.vn</a>
+                                    rel="noopener">{{ $configWebsite->email }}</a>
                             </span>
                         </span>
                         <br />
@@ -28,8 +27,7 @@
                             <strong>Hotline</strong>
                             &nbsp;:
                             <span style="color: #eba904">
-                                <a style="color: #eba904" href="tel:(+84)%200909 691511">(+84) 0909
-                                    691511</a>
+                                <a style="color: #eba904" href="tel:(+84)%200909 691511">{{ $configWebsite->constant_hotline }}</a>
                             </span>
                         </span>
                     </p>
@@ -88,7 +86,7 @@
 <div class="kleanity-copyright-wrapper">
     <div class="kleanity-copyright-container kleanity-container">
         <div class="kleanity-copyright-text kleanity-item-pdlr">
-            Copyright 2020 RI E&E CO.,LTD, All Right Reserved
+            {{ $configWebsite->footer }}
         </div>
     </div>
 </div>

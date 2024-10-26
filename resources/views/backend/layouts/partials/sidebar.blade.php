@@ -131,6 +131,34 @@
                     </a>
 
                 </li>
+                <li class="nav-item">
+                    <a  href="{{route('admin.contact-us.index')}}">
+                        <i class="fas fa-id-card-alt"></i>
+                        <p>Liên hệ</p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#aboutus">
+                        <i class="far fa-address-card"></i>
+                        <p>Về chúng tôi</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="aboutus">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{route('admin.about.index')}}">
+                                    <span class="sub-item">Danh sách mục</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('admin.about.create')}}">
+                                    <span class="sub-item">Thêm mục</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

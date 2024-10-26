@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\ConfigController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\TagController;
@@ -10,6 +12,7 @@ use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Config\ConfigSliderController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
+use App\Http\Controllers\Backend\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,4 +101,6 @@ route::prefix('admin')->name('admin.')->group(function () {
             route::post('slider', 'update');
         });
     });
+    route::get('contact' , [ContactUsController::class, 'index'])->name('contact-us.index');
+    route::resource('about' , AboutUsController::class);
 });
