@@ -5,7 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
+    <title>{{ $configWebsite->title_seo ?? 'Documnet' }}</title>
+    <meta name="description" content="{{ $configWebsite->meta_seo ?? 'Default Meta Description' }}">
+    <meta name="keywords" content="{{ $configWebsite->description_seo ?? 'Default Description Keywords' }}">
 
     @include('frontend.layouts.partials.styles')
 </head>

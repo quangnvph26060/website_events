@@ -23,12 +23,12 @@
                                 <div class="kleanity-logo-inner">
                                     <a href="">
                                         <noscript>
-                                            <img src="{{ asset('frontend/assets/image/Ri-Logo-Colors-03-e1646326633617.png') }}"
+                                            <img src="{{ showImage( $configWebsite->logo ) }}"
                                                 alt="" />
                                         </noscript>
                                         <img class="lazyload"
                                             src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E"
-                                            data-src="{{ asset('frontend/assets/image/Ri-Logo-Colors-03-e1646326633617.png') }}"
+                                            data-src="{{ showImage( $configWebsite->logo ) }}"
                                             alt="" />
                                     </a>
                                 </div>
