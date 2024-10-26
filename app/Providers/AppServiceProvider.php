@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Config;
 use App\Models\Tag;
 use App\Models\Work;
 use Illuminate\Support\Facades\View;
@@ -28,6 +29,12 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 'tags' => $tags,
                 'works' => $works
+            ]);
+        });
+        $configWebsite = Config::first();
+        View::composer('*', function ($view) use ($configWebsite) {
+            $view->with([
+                'configWebsite' => $configWebsite
             ]);
         });
     }
