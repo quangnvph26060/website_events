@@ -18,7 +18,7 @@
                             <th>Tiêu đề</th>
                             <th>Công ty</th>
                             <th>Lời nhắn</th>
-                           
+
                         </tr>
                         </tr>
                     </thead>
@@ -35,7 +35,7 @@
                                     <td>{{ $contact->subject }}</td>
                                     <td>{{ $contact->company }}</td>
                                     <td>
-                                        {{ Str::limit($contact->message, 100); }}
+                                        {{ Str::limit($contact->message, 100) }}
                                     </td>
                                 </tr>
                             @endforeach
