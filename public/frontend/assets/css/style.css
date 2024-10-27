@@ -828,7 +828,7 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
 .kleanity-body p,
 .kleanity-line-height,
 .gdlr-core-line-height {
-  line-height: 1.7;
+  /* line-height: 1.7; */
 }
 
 .kleanity-page-preload {

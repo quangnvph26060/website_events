@@ -37,18 +37,7 @@
                         <p>Cấu hình</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="config">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ route('admin.config.home') }}">
-                                    <span class="sub-item">Cấu hình trang chủ</span>
-                                </a>
-                                <a href="{{ route('admin.config.slider') }}">
-                                    <span class="sub-item">Cấu hình slider</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                 
                 </li>
 
                 <li class="nav-section">

@@ -14,6 +14,5 @@ class ConfigSlider extends Model
     protected $fillable = [
         'path_image',
         'title',
-        'short_content',
     ];
 }

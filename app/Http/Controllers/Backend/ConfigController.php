@@ -19,7 +19,6 @@ class ConfigController extends Controller
 
     public function update(Request $request)
     {
-
         $config = Config::first();
         $data = [
             'title_seo' => $request->input('title_seo'),

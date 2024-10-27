@@ -1,71 +1,16 @@
 <div class="main-slider">
+    <div class="overlay"></div>
     <div id="slide">
         @if ($sliderHome->isNotEmpty())
             @foreach ($sliderHome as $slider)
                 <div class="item" style="background-image: url({{ showImage($slider->path_image) }})">
                     <div class="content">
                         <div class="name">{{ $slider->title }}</div>
-                        <div class="des">
-                             {{ $slider->short_content }}
-                        </div>
-                        <button>See more</button>
+
                     </div>
                 </div>
             @endforeach
         @endif
-
-
-
-        {{-- <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
-            <div class="content">
-                <div class="name">Hà Nội</div>
-                <div class="des">
-                    Khong co khinh, khong phải vì xe khong co kinh. Boom
-                    giật boom rung kính vỡ đi rồi.
-                </div>
-                <button>See more</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
-            <div class="content">
-                <div class="name">Hà Nội</div>
-                <div class="des">
-                    Khong co khinh, khong phải vì xe khong co kinh. Boom
-                    giật boom rung kính vỡ đi rồi.
-                </div>
-                <button>See more</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
-            <div class="content">
-                <div class="name">Hà Nội</div>
-                <div class="des">
-                    Khong co khinh, khong phải vì xe khong co kinh. Boom
-                    giật boom rung kính vỡ đi rồi.
-                </div>
-                <button>See more</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
-            <div class="content">
-                <div class="name">Hà Nội</div>
-                <div class="des">
-                    Khong co khinh, khong phải vì xe khong co kinh. Boom
-                    giật boom rung kính vỡ đi rồi.
-                </div>
-                <button>See more</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url({{ asset('frontend/assets/image/RI_Sliders_37.jpg') }})">
-            <div class="content">
-                <div class="name">Hà Nội</div>
-                <div class="des">
-                    Khong co khinh, khong phải vì xe khong co kinh. Boom
-                    giật boom rung kính vỡ đi rồi.
-                </div>
-                <button>See more</button>
-            </div>
-        </div> --}}
     </div>
 
 </div>
@@ -82,17 +27,32 @@
 @push('scripts')
     <script>
         let isSliding = false;
+        let autoSlide;
+
+        // Function to start or restart the auto-slide
+        function startAutoSlide() {
+            // Clear the existing interval
+            clearInterval(autoSlide);
+            // Start a new interval
+            autoSlide = setInterval(function() {
+                document.getElementById("next").click();
+            }, 5000);
+        }
+
+        // Initialize the auto-slide when the page loads
+        startAutoSlide();
 
         document.getElementById("next").onclick = function() {
-            if (isSliding) return; // Chặn nếu đang trong quá trình chuyển slide
-            isSliding = true; // Bắt đầu quá trình chuyển slide
+            if (isSliding) return; // Block if a slide transition is in progress
+            isSliding = true; // Begin slide transition
 
             let lists = document.querySelectorAll(".item");
             document.getElementById("slide").appendChild(lists[0]);
 
             setTimeout(() => {
-                isSliding = false; // Cho phép click lại sau khi quá trình chuyển slide hoàn tất
-            }, 500); // 500ms là thời gian chuyển đổi, điều chỉnh theo nhu cầu
+                isSliding = false; // Allow click again after slide transition is complete
+                startAutoSlide(); // Restart the auto-slide interval after user interaction
+            }, 500); // 500ms is the transition time, adjust as needed
         };
 
         document.getElementById("prev").onclick = function() {
@@ -104,13 +64,9 @@
 
             setTimeout(() => {
                 isSliding = false;
+                startAutoSlide(); // Restart the auto-slide interval after user interaction
             }, 500);
         };
-
-        // Thêm phần này để tự động chạy
-        let autoSlide = setInterval(function() {
-            document.getElementById("next").click();
-        }, 3000);
     </script>
 @endpush
 
@@ -118,11 +74,26 @@
 @push('styles')
     <style>
         .main-slider {
+            position: relative;
+            /* Đảm bảo lớp phủ nằm trên slider */
             width: 100%;
             height: 100vh;
             padding: 50px;
             background-color: #f5f5f5;
             box-shadow: 0 30px 50px #dbdbdb;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3)),
+        linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+            z-index: 1;
         }
 
         #slide {
@@ -140,7 +111,7 @@
             background-size: cover;
             position: absolute;
             border-radius: 20px;
-            box-shadow: 0 30px 50px #505050;
+            box-shadow: 0 30px 50px #b06e6e;
         }
 
         .item:nth-child(1),
@@ -175,13 +146,39 @@
             font-family: system-ui;
             position: absolute;
             top: 50%;
-            left: 100px;
+            left: 200px;
             width: 300px;
             text-align: left;
-            padding: 0;
-            color: #eee;
-            transform: translate(0, -50%);
+            padding: 10px;
+            color: #ffffff;
+            transform: translate(0, -10%);
             display: none;
+            animation: flyIn 1.5s ease-in-out forwards, fadeIn 1.2s ease-in-out forwards;
+            background: rgba(255, 165, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 20;
+        }
+
+        @keyframes flyIn {
+            from {
+                transform: translate(-10%, -100px);
+                /* Start above with slide-in effect */
+            }
+
+            to {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .item:nth-child(2) .content {
@@ -190,23 +187,11 @@
         }
 
         .item .name {
-            font-size: 40px;
+            font-size: 18px;
             font-weight: bold;
             opacity: 0;
             animation: showcontent 1s ease-in-out 1 forwards;
-        }
-
-        .item .des {
-            margin: 20px 0;
-            opacity: 0;
-            animation: showcontent 1s ease-in-out 0.3s 1 forwards;
-        }
-
-        .item button {
-            padding: 10px 20px;
-            border: 0;
-            opacity: 0;
-            animation: showcontent 1s ease-in-out 0.6s 1 forwards;
+            text-shadow: 0 0 10px #ffffff;
         }
 
         @keyframes showcontent {
