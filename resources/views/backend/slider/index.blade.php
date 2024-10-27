@@ -8,7 +8,7 @@
         <div class="card-header d-flex justify-content-between">
             <h4 class="card-title">{{ $title }}</h4>
             <div class="card-tools">
-                <a href="{{ route('admin.slider.create') }}" class="btn btn-primary">Thêm slider</a>
+                <a href="{{ route('admin.slider.create') }}" class="btn btn-primary btn-sm">Thêm slider</a>
             </div>
         </div>
         <div class="card-body">
@@ -20,7 +20,6 @@
                             <th>STT</th>
                             <th>Tiêu đề</th>
                             <th>Ảnh</th>
-                            <th>Mô tả ngắn</th>
                             <th>Hành động</th>
                         </tr>
                         </tr>
@@ -30,7 +29,6 @@
                             <th>STT</th>
                             <th>Tiêu đề</th>
                             <th>Ảnh</th>
-                            <th>Mô tả ngắn</th>
                             <th>Hành động</th>
                         </tr>
                     </tfoot>
@@ -42,7 +40,6 @@
                                     <td>{{ $item->title }}</td>
                                     <td><img src="{{ showImage($item->path_image) }}" alt="{{ $item->title }}"
                                             width="100" height="100"></td>
-                                    <td>{{ \Str::limit($item->short_content , 50) }}</td>
                                     <td>
                                         <a href="{{ route('admin.slider.edit', $item->id) }}"
                                             class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -69,7 +66,49 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('backend/assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script>
+        $("#multi-filter-select").DataTable({
+            pageLength: 10,
+            columnDefs: [{
+                    orderable: true,
+                    targets: [0, 1]
+                }, // Chỉ bật sắp xếp cho cột "STT", "Tên danh mục", "Danh mục cha"
+                {
+                    orderable: false,
+                    targets: '_all'
+                } // Tắt sắp xếp cho các cột còn lại
+            ],
+            initComplete: function() {
+                this.api()
+                    .columns([0, 1]) // Chỉ lọc trên cột "Tên danh mục" và "Danh mục cha"
+                    .every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select"><option value=""></option></select>'
+                            )
+                            .appendTo($(column.footer()).empty())
+                            .on("change", function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column
+                                    .search(val ? "^" + val + "$" : "", true, false)
+                                    .draw();
+                            });
+
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function(d, j) {
+                                select.append(
+                                    '<option value="' + d + '">' + d + "</option>"
+                                );
+                            });
+                    });
+            },
+        });
+
         function confirmDelete(event, postId) {
             event.preventDefault();
 

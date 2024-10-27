@@ -33,15 +33,13 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $criteria =  $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:70',
             'path_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'short_content' => 'required|min:10',
         ],   __('request.messages'), [
             'title' => 'Tiêu đề',
             'path_image' => 'Hình ảnh',
-            'short_content' => 'Mô tả ngắn'
         ]);
-        $criteria['path_image'] = saveImages($request, 'path_image', 'sliders', 1920, 1080);
+        $criteria['path_image'] = saveImages($request, 'path_image', 'sliders', 3125, 2671);
         ConfigSlider::create($criteria);
         session()->flash('success', 'Slider đã được thêm thành công!');
         return redirect()->route('admin.slider.index');
@@ -71,13 +69,11 @@ class SliderController extends Controller
     public function update(Request $request, string $id)
     {
         $validated =  $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:70',
             'path_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'short_content' => 'required|min:10',
         ],   __('request.messages'), [
             'title' => 'Tiêu đề',
             'path_image' => 'Hình ảnh',
-            'short_content' => 'Mô tả ngắn'
         ]);
 
         $slider = ConfigSlider::find($id);
