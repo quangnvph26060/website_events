@@ -1,4 +1,9 @@
-@extends('frontend.layouts.master') @section('content')
+@extends('frontend.layouts.master') 
+
+ 
+@section('content')
+@include('frontend/layouts/partials/banner', ['banner' => $banner , 'is_used' => true])
+
     <div class="gdlr-core-pbf-section">
         <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
             <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">

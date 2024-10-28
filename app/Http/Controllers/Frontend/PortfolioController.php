@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ConfigBanner;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
     public function portfolio($slug = null)
     {
+        $banner = ConfigBanner::where('page_name' , 2)->first();
         if (is_null($slug)) {
             $catalogues = \App\Models\Catalogue::isNotTag()->get();
             $works = \App\Models\Work::with('images', 'catalogues')->paginate(10);
 
-            return view('frontend.pages.portfolio', compact('catalogues', 'works'));
+            return view('frontend.pages.portfolio', compact('catalogues', 'works','banner'));
         }
 
         $work = \App\Models\Work::with('images', 'catalogues')->where('slug', $slug)->first();

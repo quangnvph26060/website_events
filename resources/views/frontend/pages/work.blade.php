@@ -3,7 +3,7 @@
 
 @section('title', 'Công việc')
 @section('content')
-    @include('frontend.layouts.partials.banner', ['is_used' => true])
+    @include('frontend.layouts.partials.banner', ['is_used' => true ,'banner' => $banner])
 
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">

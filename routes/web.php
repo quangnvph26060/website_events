@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\Auth\AuthController;
 use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\ContactUsController;
+use App\Http\Controllers\Backend\Config\ConfigBannerController;
+
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
 
@@ -111,4 +113,10 @@ route::prefix('admin')->name('admin.')->group(function () {
         route::resource('about', AboutUsController::class);
         route::resource('slider', SliderController::class);
     });
+        route::resource('banner', ConfigBannerController::class);
+        route::post('/banner/change-status' , [ConfigBannerController::class , 'changeStatus'])->name('banner.change-status');
+    });
+    route::get('contact', [ContactUsController::class, 'index'])->name('contact-us.index');
+    route::resource('about', AboutUsController::class);
+    route::resource('slider', SliderController::class);
 });

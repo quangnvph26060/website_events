@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ConfigBanner;
 use App\Models\Contact;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class ContactController extends Controller
 {
     public function contact()
     {
-        return view('frontend.pages.contact');
+        $banner = ConfigBanner::where('page_name' , 4)->first();
+        return view('frontend.pages.contact' , compact('banner'));
     }
     public function contactSubmit(Request $request)
     {

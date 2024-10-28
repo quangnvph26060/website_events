@@ -44,6 +44,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.config.banner.index') }}">
+                                    <span class="sub-item">Cấu hình banner</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.config.index') }}">
                                     <span class="sub-item">Cấu hình website</span>
                                 </a>

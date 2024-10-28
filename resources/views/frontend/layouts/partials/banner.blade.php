@@ -10,7 +10,7 @@
         <div class="gdlr-core-pbf-background-wrap">
             <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js lazyloaded" data-bg=""
                 style="
-        background-image: url('{{ asset('frontend/assets/image/Page-Header5a.jpg') }}');
+        background-image: url('{{ showImage($banner->path_image)}}');
         background-size: cover;
         background-position: center center;
         height: 730px;
@@ -55,7 +55,7 @@
                                 text-transform: none;
                                 color: #ffffff;
                                 ">
-                                            Who We Are<span
+                                            {{ !empty($banner->title) ? $banner->title : '' }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -87,16 +87,7 @@
                                     color: #ffffff;
                                 ">
                                         <p style="text-align: center">
-                                            RI Events has been creating tailor-made events
-                                            since 2012 and has worked with a selection of
-                                            predominantly repeat clients from both
-                                            international companies to local businesses all
-                                            over Vietnam in various industries. Our
-                                            expertise allows us to create innovative ideas
-                                            and deliver bespoke solutions, ensuring that
-                                            every event is cost-effective, unforgettable,
-                                            enjoyable and accomplishes client’s
-                                            objectives.&nbsp;
+                                            {{ !empty($banner->description) ? $banner->description : '' }}
                                         </p>
                                     </div>
                                 </div>
