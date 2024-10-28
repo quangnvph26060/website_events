@@ -1,6 +1,9 @@
 @extends('frontend.layouts.master')
 
+@section('title', $work->title)
+
 @section('content')
+
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="gdlr-core-page-builder-body">
             <div class="gdlr-core-pbf-wrapper" style="margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px">
@@ -38,6 +41,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if ($work->link_video)
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-video-item gdlr-core-item-pdlr gdlr-core-item-pdb">
                                             <div class="gdlr-core-video-item-type-youtube">
@@ -47,6 +51,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

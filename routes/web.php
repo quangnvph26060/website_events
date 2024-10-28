@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\Backend\AboutUsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\WorkController;
 use App\Http\Controllers\Backend\ConfigController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\Auth\AuthController;
 use App\Http\Controllers\Backend\CatalogueController;
+use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
-use App\Http\Controllers\Backend\ContactUsController;
-use App\Http\Controllers\Backend\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,53 +50,65 @@ route::post('post', function (Request $request) {
 })->name('ckeditor.store');
 
 route::prefix('admin')->name('admin.')->group(function () {
-    route::controller(DashboardController::class)->group(function () {
-        route::get('/', 'index')->name('dashboard');
+
+
+    route::controller(AuthController::class)->middleware('guest')->group(function () {
+        route::get('login', 'login')->name('auth.login');
+        route::post('login', 'authenticate')->name('login.authenticate');
     });
 
-    Route::resource('catalogues', CatalogueController::class);
-    route::put('catalogues/{catalogue}/change-status', [CatalogueController::class, 'changeStatus'])->name('catalogues.change-status');
+    route::middleware('auth')->group(function () {
+
+        route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+        route::controller(DashboardController::class)->group(function () {
+            route::get('/', 'index')->name('dashboard');
+        });
+
+        Route::resource('catalogues', CatalogueController::class);
+        route::put('catalogues/{catalogue}/change-status', [CatalogueController::class, 'changeStatus'])->name('catalogues.change-status');
 
 
-    Route::resource('works', WorkController::class);
+        Route::resource('works', WorkController::class);
 
-    Route::get('config', [ConfigController::class, 'index'])->name('config.index');
-    Route::post('config', [ConfigController::class, 'update'])->name('config.update');
+        Route::get('config', [ConfigController::class, 'index'])->name('config.index');
+        Route::post('config', [ConfigController::class, 'update'])->name('config.update');
 
-    Route::resource('works', controller: WorkController::class);
+        Route::resource('works', controller: WorkController::class);
 
-    Route::post('temp-upload', function (Request $request) {
-        if ($request->hasFile('image')) {
-            $path = saveImages($request, 'image', 'uploads', 2560, 1707);
+        Route::post('temp-upload', function (Request $request) {
+            if ($request->hasFile('image')) {
+                $path = saveImages($request, 'image', 'uploads', 2560, 1707);
+
+                return response()->json([
+                    'path' => $path,
+                ]);
+            }
+
+            return response()->json(['error' => 'No image uploaded'], 400);
+        })->name('temp-images.create');
+
+
+        Route::delete('temp-upload', function (Request $request) {
+            deleteImage($request->path);
 
             return response()->json([
-                'path' => $path,
+                'status' => true
             ]);
-        }
+        })->name('temp-images.destroy');
 
-        return response()->json(['error' => 'No image uploaded'], 400);
-    })->name('temp-images.create');
+        route::resource('posts', controller: PostController::class);
 
+        route::resource('tags', controller: TagController::class);
 
-    Route::delete('temp-upload', function (Request $request) {
-        deleteImage($request->path);
-
-        return response()->json([
-            'status' => true
-        ]);
-    })->name('temp-images.destroy');
-
-    route::resource('posts', controller: PostController::class);
-
-    route::resource('tags', controller: TagController::class);
-
-    route::prefix('config')->name('config.')->group(function () {
-        route::controller(ConfigHomePageController::class)->group(function () {
-            route::get('home', 'index')->name('home');
-            route::put('home', 'update')->name('home.update');
+        route::prefix('config')->name('config.')->group(function () {
+            route::controller(ConfigHomePageController::class)->group(function () {
+                route::get('home', 'index')->name('home');
+                route::put('home', 'update')->name('home.update');
+            });
         });
+        route::get('contact', [ContactUsController::class, 'index'])->name('contact-us.index');
+        route::resource('about', AboutUsController::class);
+        route::resource('slider', SliderController::class);
     });
-    route::get('contact' , [ContactUsController::class, 'index'])->name('contact-us.index');
-    route::resource('about' , AboutUsController::class);
-    route::resource('slider' , SliderController::class);
 });

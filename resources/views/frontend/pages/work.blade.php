@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 
 
+@section('title', 'Công việc')
 @section('content')
     @include('frontend.layouts.partials.banner', ['is_used' => true])
 
@@ -90,17 +91,9 @@
                                                                     href="#">
                                                                     {{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</a></span><span
                                                                 class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-author">
-                                                                {{-- <span
-                                                                    class="gdlr-core-head">By</span>
-                                                                    {{-- <a href="#"
-                                                                    title="Posts by rievents"
-                                                                    rel="author">rievents</a> --}}
+
                                                             </span>
-                                                            {{-- <span
-                                                                class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-category"><span
-                                                                    class="gdlr-core-head">In</span><a href="#"
-                                                                    rel="tag">Account</a>
-                                                                </span> --}}
+
                                                         </div>
                                                         <h3 class="gdlr-core-blog-title gdlr-core-skin-title"
                                                             style="
@@ -115,8 +108,7 @@
                                                         {{ $post->excerpt }}
                                                         <div class="clear"></div>
                                                         <a class="gdlr-core-excerpt-read-more kleanity-title-font"
-                                                            href="{{ route('user.work-for-us', $post->slug) }}">Continue
-                                                            Reading<i class="fa fa-long-arrow-right"></i></a>
+                                                            href="{{ route('user.work-for-us', $post->slug) }}">Tiếp tục đọc<i class="fa fa-long-arrow-right"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach

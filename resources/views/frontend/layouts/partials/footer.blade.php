@@ -18,7 +18,7 @@
                             <strong>Email &nbsp;</strong>
                             &nbsp;&nbsp;:
                             <span style="color: #eba904">
-                                <a style="color: #eba904" href="mailto:contact@rievents.vn" target="_blank"
+                                <a style="color: #eba904" href="mailto:{{ $configWebsite->email }}" target="_blank"
                                     rel="noopener">{{ $configWebsite->email }}</a>
                             </span>
                         </span>
@@ -37,7 +37,7 @@
         <div class="kleanity-footer-column kleanity-item-pdlr kleanity-column-20">
             <div id="recent-posts-3" class="widget widget_recent_entries kleanity-widget">
                 <h3 class="kleanity-widget-title">
-                    <span class="kleanity-widget-head-text">RECENT POSTS</span>
+                    <span class="kleanity-widget-head-text">Bài viết gần đây</span>
                     <span class="kleanity-widget-head-divider"></span>
                 </h3>
                 <span class="clear"></span>
@@ -56,7 +56,7 @@
             <div id="gdlr-core-recent-portfolio-widget-3"
                 class="widget widget_gdlr-core-recent-portfolio-widget kleanity-widget">
                 <h3 class="kleanity-widget-title">
-                    <span class="kleanity-widget-head-text">RECENT WORKS</span>
+                    <span class="kleanity-widget-head-text">Dự án gần đây</span>
                     <span class="kleanity-widget-head-divider"></span>
                 </h3>
                 <span class="clear"></span>

@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master')
 
+@section('title', $post->title ?? '')
 @section('content')
     @include('frontend/include/banner-job', ['image' => $post->featured_image])
     <div class="kleanity-content-container kleanity-container">

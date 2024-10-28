@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $configWebsite->title_seo ?? 'Documnet' }}</title>
+    <title>@yield('title', $configWebsite->title_seo ?? env('APP_NAME'))</title>
     <meta name="description" content="{{ $configWebsite->meta_seo ?? 'Default Meta Description' }}">
     <meta name="keywords" content="{{ $configWebsite->description_seo ?? 'Default Description Keywords' }}">
+
+    {{-- icon --}}
+    <link rel="icon" type="image/png" href="{{ showImage($configWebsite->icon) }}">
 
     @include('frontend.layouts.partials.styles')
 </head>

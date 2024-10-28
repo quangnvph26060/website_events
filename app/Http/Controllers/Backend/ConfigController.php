@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Storage;
 class ConfigController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $title = 'Thông tin cửa hàng';
         $config = Config::first();
         return view('backend.config.index', compact('config', 'title'));
@@ -19,7 +20,6 @@ class ConfigController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
         $config = Config::first();
         $data = [
             'title_seo' => $request->input('title_seo'),
@@ -33,18 +33,23 @@ class ConfigController extends Controller
             'footer' => $request->input('footer'),
         ];
 
-        if ($request->hasFile('logo')) {
-            $data['logo'] = saveImages($request, 'logo', 'logo', 150, 150);
+        if ($request->hasFile('icon')) {
+            deleteImage($config->icon);
+            $data['icon'] = saveImages($request, 'icon', 'icon');
         }
 
-        if($config){
+        if ($request->hasFile('logo')) {
+            deleteImage($config->logo);
+            $data['logo'] = saveImages($request, 'logo', 'logo', 2364, 2065);
+        }
+
+        if ($config) {
             $config->update($data);
-        }else{
+        } else {
             Config::create($data);
         }
 
 
-         return redirect()->route('admin.config.index')->with('success', 'Cập nhật thông tin thành công');
-
+        return redirect()->route('admin.config.index')->with('success', 'Cập nhật thông tin thành công');
     }
 }

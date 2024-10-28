@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 
 
+@section('title', 'Liên hệ')
 @section('content')
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
@@ -62,7 +63,7 @@
                                                                 style="font-size: 20px; width: 20px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
                                                             <span class="gdlr-core-icon-list-content"
-                                                                style="font-size: 18px">+84 090 969 15 11</span>
+                                                                style="font-size: 18px">+84 {{ $configWebsite->constant_hotline }}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -99,7 +100,7 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="mailto:contact@rievents.vn" target="_self"><span
+                                                    <a href="mailto:{{ $configWebsite->email }}" target="_self"><span
                                                             class="gdlr-core-icon-list-icon-wrap"><i
                                                                 class="gdlr-core-icon-list-icon-hover fa fa-envelope-o"
                                                                 style="font-size: 20px"></i><i
@@ -107,7 +108,7 @@
                                                                 style="font-size: 20px; width: 20px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
                                                             <span class="gdlr-core-icon-list-content"
-                                                                style="font-size: 20px">contact@rievents.vn</span>
+                                                                style="font-size: 20px">{{ $configWebsite->email }}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -152,9 +153,7 @@
                                                                 style="font-size: 22px; width: 22px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
                                                             <span class="gdlr-core-icon-list-content"
-                                                                style="font-size: 20px">169/1/16 Luong Dinh Cua Street, Binh
-                                                                An Ward, Thu Duc City, HCMC, Viet
-                                                                Nam</span>
+                                                                style="font-size: 20px">{{ $configWebsite->address }}</span>
                                                         </div>
                                                     </a>
                                                 </li>

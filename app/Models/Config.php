@@ -20,6 +20,7 @@ class Config extends Model
         'email',
         'constant_hotline',
         'logo',
+        'icon',
         'footer'
     ];
 }
