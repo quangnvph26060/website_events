@@ -86,7 +86,7 @@
             pageLength: 10,
             columnDefs: [{
                     orderable: true,
-                    targets: [0,  2, 3, 4]
+                    targets: [0, 1, 2, 3, 4]
                 }, // Chỉ bật sắp xếp cho cột "STT", "Tên danh mục", "Danh mục cha"
                 {
                     orderable: false,

@@ -20,7 +20,7 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="title">Tiêu đề</label>
                                     <input type="text" name="title" id="title" class="form-control"
@@ -30,7 +30,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <div class="form-group" id="content-fields">
                                     <label for="meta_keywords">Ý tưởng</label>
                                     <div class="input-group">

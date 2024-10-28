@@ -83,18 +83,17 @@
                                             <div
                                                 class="gdlr-core-port-info-wrap gdlr-core-skin-divider gdlr-core-with-border">
                                                 <div class="gdlr-core-port-info">
-                                                    <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">Khách hàng</span><span
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Khách
+                                                        hàng</span><span
                                                         class="gdlr-core-port-info-value">{{ $work->customer }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
-                                                    <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">Dự án</span><span
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Dự
+                                                        án</span><span
                                                         class="gdlr-core-port-info-value">{{ $work->project_name }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
-                                                    <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">
                                                         Người tham dự</span><span
                                                         class="gdlr-core-port-info-value">{{ $work->participants_count }}</span>
                                                 </div>
@@ -104,37 +103,20 @@
                                                         class="gdlr-core-port-info-value">{{ $work->year }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
-                                                    <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">Địa điểm</span><span
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Địa
+                                                        điểm</span><span
                                                         class="gdlr-core-port-info-value">{{ $work->location }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info gdlr-core-port-info-post-type-tax">
-                                                    <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">Danh mục</span>
-                                                        <span class="gdlr-core-port-info-value">
-                                                            <a href="#" rel="tag">
-                                                                {{ implode(', ', $work->catalogues->pluck('name')->toArray()) }}
-                                                            </a>
-                                                </div>
-                                                <div
-                                                    class="gdlr-core-port-info gdlr-core-port-info-social-share gdlr-core-skin-divider">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Share</span>
-                                                    <div class="gdlr-core-port-info-value">
-                                                        <div class="gdlr-core-social-share-item gdlr-core-item-pdb gdlr-core-left-align gdlr-core-social-share-left-text gdlr-core-item-mglr gdlr-core-style-plain gdlr-core-no-counter"
-                                                            style="padding-bottom: 0px">
-                                                            <span class="gdlr-core-social-share-wrap"><a
-                                                                    class="gdlr-core-social-share-facebook" href="#"
-                                                                    target="_blank"
-                                                                    onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=602,width=555');return false;"><i
-                                                                        class="fa fa-facebook"></i></a><a
-                                                                    class="gdlr-core-social-share-google-plus"
-                                                                    href="#" target="_blank"
-                                                                    onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=614,width=496');return false;"><i
-                                                                        class="fa fa-google-plus"></i></a><a
-                                                                    class="gdlr-core-social-share-email" href="#"><i
-                                                                        class="fa fa-envelope"></i></a></span>
-                                                        </div>
-                                                    </div>
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Danh
+                                                        mục</span>
+                                                    <span class="gdlr-core-port-info-value">
+                                                        @foreach ($work->catalogues as $catalogue)
+                                                            <a href="{{ route('user.portfolio_tag', $catalogue->slug) }}"
+                                                                rel="tag">
+                                                                {{ $catalogue->name }}
+                                                            </a>{{ !$loop->last ? ', ' : '' }}
+                                                        @endforeach
                                                 </div>
                                             </div>
                                         </div>
@@ -143,6 +125,63 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gdlr-core-portfolio-single-related gdlr-core-style-grid">
+            <div class="gdlr-core-container">
+                <h3 class="gdlr-core-portfolio-single-related-head gdlr-core-item-pdlr">Dự án liên quan</h3>
+                <div class="gdlr-core-portfolio-item-holder clearfix">
+                    @foreach ($relatedWorks as $key => $relatedWork)
+                        <div
+                            class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-column-15 @if ($key % 3 == 0) gdlr-core-column-first @endif">
+                            <div class="gdlr-core-portfolio-grid  gdlr-core-left-align gdlr-core-style-normal">
+                                <div
+                                    class="gdlr-core-portfolio-thumbnail gdlr-core-media-image  gdlr-core-style-icon-title">
+                                    <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
+                                        <noscript><img
+                                                src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
+                                                alt="" width="700" height="450"
+                                                title="PM3. Thank You Party (5)" /></noscript><img
+                                            class=" ls-is-cached lazyloaded"
+                                            src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
+                                            data-src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
+                                            alt="" width="700" height="450"
+                                            title="PM3. Thank You Party (5)"><span
+                                            class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span
+                                                class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;"><span
+                                                    class="gdlr-core-portfolio-icon-wrap"><a
+                                                        class="gdlr-core-ilightbox gdlr-core-js "
+                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}"
+                                                        data-ilightbox-group="single-related-portfolio"
+                                                        data-type="image"><i
+                                                            class="gdlr-core-portfolio-icon arrow_expand"></i></a></span><span
+                                                    class="gdlr-core-portfolio-title gdlr-core-title-font "><a
+                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ $relatedWork->title }}</a></span></span></span>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-portfolio-content-wrap gdlr-core-skin-divider">
+                                    <h3 class="gdlr-core-portfolio-title gdlr-core-skin-title"><a
+                                            href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ $relatedWork->title }}</a>
+                                    </h3>
+
+                                    <span
+                                        class="gdlr-core-portfolio-info gdlr-core-portfolio-info-tag gdlr-core-info-font gdlr-core-skin-caption">
+
+                                        @foreach ($relatedWork->catalogues as $catalogue2)
+                                            <a href="{{ route('user.portfolio_tag', $catalogue2->slug) }}"
+                                                rel="tag">{{ $catalogue2->name }}</a>
+                                            @if (!$loop->last)
+                                                <span class="gdlr-core-sep">/</span>
+                                            @endif
+                                        @endforeach
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
