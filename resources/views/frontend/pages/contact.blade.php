@@ -325,6 +325,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+@push('styles')
     <style>
         .contact-button {
             background-color: #333;
@@ -344,7 +347,7 @@
             background-color: #eba904;
         }
     </style>
-@endsection
+@endpush
 
 
 @push('scripts')
@@ -374,7 +377,7 @@
                         message: message,
                     },
                     success: function(data) {
-                        if (jQuery.isEmptyObject(data.error)) {
+                        if (data.success) {
                             jQuery(".error-text").text('');
                             Swal.fire({
                                 icon: 'success',
@@ -385,11 +388,20 @@
                             }).then(() => {
                                 jQuery("#contactForm")[0].reset();
                             });
-
-                        } else {
-                            printErrorMsg(data.error);
+                        } else if (data.error) {
+                            if (data.validation_errors) {
+                                printErrorMsg(data.validation_errors);
+                            } else if (data.spam_error) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Chậm lại!',
+                                    text: data.spam_error,
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                            }
                         }
-                    }
+                    },
                 });
 
 
