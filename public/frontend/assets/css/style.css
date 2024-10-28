@@ -307,7 +307,7 @@ body
   .gdlr-core-portfolio-grid
   .gdlr-core-portfolio-content-wrap
   .gdlr-core-portfolio-info {
-  font-size: 15px;
+  /* font-size: 15px; */
 }
 
 body
@@ -327,7 +327,7 @@ body
   .gdlr-core-portfolio-grid
   .gdlr-core-portfolio-content-wrap
   .gdlr-core-portfolio-title {
-  font-size: 17px;
+  font-size: 14px;
   text-transform: none;
   letter-spacing: 0.5px;
 }

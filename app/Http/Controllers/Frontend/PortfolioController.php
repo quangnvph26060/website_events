@@ -12,16 +12,29 @@ class PortfolioController extends Controller
         if (is_null($slug)) {
             $catalogues = \App\Models\Catalogue::isNotTag()->get();
             $works = \App\Models\Work::with('images', 'catalogues')->paginate(10);
+
             return view('frontend.pages.portfolio', compact('catalogues', 'works'));
         }
 
         $work = \App\Models\Work::with('images', 'catalogues')->where('slug', $slug)->first();
+        $catalogueIds = $work->catalogues->pluck('id')->toArray();
+        $relatedWorks = \App\Models\Work::with('images', 'catalogues')
+            ->whereIn('id', function ($query) use ($catalogueIds) {
+                $query->select('work_id')
+                    ->from('catalogue_work')
+                    ->whereIn('catalogue_id', $catalogueIds);
+            })
+            ->latest()
+            ->where('id', '!=', $work->id)
+            ->limit(8)->get();
+
+            // dd($relatedWorks);
 
         if (!$work) {
             abort(404);
         }
 
-        return view('frontend.pages.portfolio-detail', compact('work'));
+        return view('frontend.pages.portfolio-detail', compact('work', 'relatedWorks'));
     }
 
 
