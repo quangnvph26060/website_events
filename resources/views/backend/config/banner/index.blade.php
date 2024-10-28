@@ -22,7 +22,6 @@
                             <th>Tiêu đề</th>
                             <th>Image</th>
                             <th>Mô tả ngắn</th>
-                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </tr>
@@ -34,7 +33,6 @@
                             <th>Tiêu đề</th>
                             <th>Image</th>
                             <th>Mô tả ngắn</th>
-                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                     </tfoot>
@@ -49,15 +47,7 @@
                                             alt="{{ $banner->page_name }}"></td>
                                     <td>{{ !empty($banner->description) ? \Str::limit($banner->description, 100) : 'Không có' }}
                                     </td>
-                                    <td> <select class="form-group change-status-banner" name="status"
-                                            data-id="{{ $banner->id }}">
-                                            <option value="published"
-                                                {{ $banner->status === 'published' ? 'selected' : '' }}>
-                                                Công khai</option>
-                                            <option value="unpublished"
-                                                {{ $banner->status === 'unpublished' ? 'selected' : '' }}>
-                                                Không công khai</option>
-                                        </select></td>
+
                                     <td>
                                         <a href="{{ route('admin.config.banner.edit', $banner->id) }}"
                                             class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -143,26 +133,6 @@
                     });
             },
         });
-        $(document).on('change', '.change-status-banner', function() {
-            var banner_id = $(this).data('id');
-            var status = $(this).find(":selected").val();
-            $.ajax({
-                url: '{{ route('admin.config.banner.change-status') }}',
-                type: "POST",
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    banner_id,
-                    status
-                },
-                success: function(response) {
-                    alert(response.success);
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            })
-
-        })
     </script>
 @endpush
 

@@ -109,7 +109,6 @@ route::prefix('admin')->name('admin.')->group(function () {
                 route::put('home', 'update')->name('home.update');
             });
             route::resource('banner', ConfigBannerController::class);
-            route::post('/banner/change-status', [ConfigBannerController::class, 'changeStatus'])->name('banner.change-status');
 
         });
         route::get('contact', [ContactUsController::class, 'index'])->name('contact-us.index');

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ConfigBanner extends Model
 {
     use HasFactory;
-    protected $fillable = ['page_name' , 'title' , 'description' , 'status' , 'path_image'];
+    protected $fillable = ['page_name' , 'title' , 'description' , 'path_image'];
 }
