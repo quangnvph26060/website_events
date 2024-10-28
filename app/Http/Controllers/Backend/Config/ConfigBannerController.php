@@ -38,7 +38,6 @@ class ConfigBannerController extends Controller
             'title' => 'nullable|string|max:255',
             'path_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'nullable',
-            'status' => 'required'
         ],   __('request.messages'), [
             'path_image' => 'Hình ảnh',
             'page_name' => 'Tên trang',
@@ -83,7 +82,6 @@ class ConfigBannerController extends Controller
             'title' => 'nullable|string|max:255',
             'path_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'nullable',
-            'status' => 'required'
         ],   __('request.messages'), [
             'path_image' => 'Hình ảnh',
             'page_name' => 'Tên trang',
@@ -110,15 +108,5 @@ class ConfigBannerController extends Controller
         $banner->delete();
         session()->flash('success', 'Xóa thành công!');
         return redirect()->back();
-    }
-    public function changeStatus(Request $request)
-    {
-        $banner = ConfigBanner::find($request->banner_id);
-        if (!$banner) {
-            return response()->json(['error' => 'Không tìm thấy banner']);
-        }
-        $banner->status = $request->status;
-        $banner->save();
-        return response()->json(['success' => 'Cập nhật trạng thái thành công!']);
     }
 }

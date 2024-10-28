@@ -82,23 +82,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Trạng thái</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <select name="status" id="status" class="form-select">
-                                <option value="published" selected>Công khai</option>
-                                <option value="unpublished">Không công cai</option>
-                            </select>
-                            @error('status')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
