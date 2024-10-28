@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
 
+@section('title', $catalogue->name)
+
 @section('content')
     <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align">
         <div class="kleanity-header-transparent-substitute" style="height: 101.4px;"></div>

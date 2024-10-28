@@ -2,7 +2,7 @@
     <div class="kleanity-sidebar-area kleanity-item-pdlr">
         <div id="text-2" class="widget widget_text kleanity-widget">
             <h3 class="kleanity-widget-title">
-                <span class="kleanity-widget-head-text">RECRUITMENT</span><span
+                <span class="kleanity-widget-head-text">TUYỂN DỤNG</span><span
                     class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
@@ -18,7 +18,8 @@
         <div id="gdlr-core-recent-portfolio-widget-2"
             class="widget widget_gdlr-core-recent-portfolio-widget kleanity-widget">
             <h3 class="kleanity-widget-title">
-                <span class="kleanity-widget-head-text">RECENT WORKS</span><span
+                <span class="kleanity-widget-head-text">
+                    DỰ ÁN GẦN ĐÂY</span><span
                     class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
@@ -47,7 +48,8 @@
         </div> --}}
         <div id="tag_cloud-2" class="widget widget_tag_cloud kleanity-widget">
             <h3 class="kleanity-widget-title">
-                <span class="kleanity-widget-head-text">Tag Cloud</span><span
+                <span class="kleanity-widget-head-text">
+                    Gắn thẻ đám mây</span><span
                     class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
