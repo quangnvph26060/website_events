@@ -32,9 +32,20 @@ class ContactController extends Controller
             'message' => 'Tin nhắn'
         ]);
         if ($validator->fails()) {
-
-            return response()->json(['error' => $validator->errors()]);
+            return response()->json([
+                'error' => true,
+                'validation_errors' => $validator->errors()
+            ]);
         }
+        $throttleTime = 30;
+        $lastSubmitTime = session('last_submit_time');
+        if ($lastSubmitTime && Carbon::now()->diffInSeconds($lastSubmitTime) < $throttleTime) {
+            return response()->json([
+                'error' => true,
+                'spam_error' => 'Bạn đang gửi form quá nhanh. Hãy thử lại sau 30 giây.'
+            ]);
+        }
+        session(['last_submit_time' => Carbon::now()]);
         Contact::create($request->all());
         return response()->json(['success' => 'Đã gửi tin nhắn liên hệ thành công']);
     }
