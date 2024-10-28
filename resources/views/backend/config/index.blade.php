@@ -115,17 +115,20 @@
 
                                         </div>
 
-                                        <div class="custom-file" style="text-align: end">
+                                        {{-- <div class="custom-file" style="text-align: end">
                                             <input type="file" class="custom-file-input" id="banner" name="logo">
 
 
-                                        </div>
+                                        </div> --}}
 
                                     </div>
                                     <div class="form-group" style="text-align: center">
-                                        <img id="profileImagebanner" style="width:150px; height:auto"
-                                            src="{{ isset($config->logo) && !empty($config->logo) ? showImage($config->logo) : asset('images/avatar2.jpg') }}"
-                                            alt="image banner" class="v">
+                                        <img class="img-fluid img-thumbnail w-100" id="show_path_image"
+                                            style="max-height: 500px; cursor: pointer" src="{{ showImage('') }}"
+                                            alt="" onclick="document.getElementById('logo').click();">
+                                        <input type="file" name="logo" id="logo"
+                                            class="form-control file-input" accept="image/*"
+                                            onchange="previewImage(event, 'show_path_image')">
                                     </div>
 
                                     <div class="form-group">
@@ -393,47 +396,4 @@
     <script src="{{ asset('backend/assets/js/plugin/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/stroyka.js') }}"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-
-    <script>
-        $(document).ready(function() {
-
-            $('#banner').on('change', function(event) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#profileImagebanner').attr('src', e.target.result);
-                };
-                if (event.target.files[0]) {
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            });
-
-            $('#logo1').on('change', function(event) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#profileImagelogo1').attr('src', e.target.result);
-                };
-                if (event.target.files[0]) {
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            });
-            $('#logo2').on('change', function(event) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#profileImagelogo2').attr('src', e.target.result);
-                };
-                if (event.target.files[0]) {
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            });
-            $('#logo3').on('change', function(event) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#profileImagelogo3').attr('src', e.target.result);
-                };
-                if (event.target.files[0]) {
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            });
-        });
-    </script>
 @endpush

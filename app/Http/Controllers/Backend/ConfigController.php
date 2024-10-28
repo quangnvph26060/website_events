@@ -19,6 +19,7 @@ class ConfigController extends Controller
 
     public function update(Request $request)
     {
+        dd($request->all());
         $config = Config::first();
         $data = [
             'title_seo' => $request->input('title_seo'),
