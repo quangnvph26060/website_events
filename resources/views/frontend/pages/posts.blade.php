@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    @include('frontend/include/banner-job', ['image' => $post->featured_image])
+    @include('frontend/include/banner-job', ['image' => $post->featured_image , 'banner' => $banner])
     <div class="kleanity-content-container kleanity-container">
         <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-right">
             <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">

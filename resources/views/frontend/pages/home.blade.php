@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             @foreach ($configHome->content as $item)
                                 <div class="gdlr-core-pbf-element">
                                     <div

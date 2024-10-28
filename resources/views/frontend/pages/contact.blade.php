@@ -2,14 +2,11 @@
 
 
 @section('content')
+    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'is_used' => true])
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
             <div class="kleanity-content-area kleanity-item-pdlr kleanity-sidebar-style-none clearfix">
-                <p>
-                    Email <a href="https://rievents.vn">us</a> your demand or
-                    give us a call so we can discuss further how we can make a
-                    significant difference in your next event.
-                </p>
+              
                 <p></p>
             </div>
         </div>
