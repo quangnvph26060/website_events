@@ -108,14 +108,15 @@ route::prefix('admin')->name('admin.')->group(function () {
                 route::get('home', 'index')->name('home');
                 route::put('home', 'update')->name('home.update');
             });
+            route::resource('banner', ConfigBannerController::class);
+            route::post('/banner/change-status', [ConfigBannerController::class, 'changeStatus'])->name('banner.change-status');
+
         });
         route::get('contact', [ContactUsController::class, 'index'])->name('contact-us.index');
         route::resource('about', AboutUsController::class);
         route::resource('slider', SliderController::class);
     });
-        route::resource('banner', ConfigBannerController::class);
-        route::post('/banner/change-status' , [ConfigBannerController::class , 'changeStatus'])->name('banner.change-status');
-    });
+
     route::get('contact', [ContactUsController::class, 'index'])->name('contact-us.index');
     route::resource('about', AboutUsController::class);
     route::resource('slider', SliderController::class);
