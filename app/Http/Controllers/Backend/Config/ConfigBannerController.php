@@ -45,7 +45,7 @@ class ConfigBannerController extends Controller
         $pageNameExits = $request->page_name;
         $criteria['path_image'] = saveImages($request, 'path_image', 'banners', 2500, 1143);
         $banner = ConfigBanner::where('page_name', $pageNameExits)->first();
-        if ($banner->count() > 0) {
+        if ($banner) {
             $banner->update($criteria);
         }
         ConfigBanner::create($criteria);
