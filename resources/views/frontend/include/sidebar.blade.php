@@ -31,7 +31,7 @@
                                     alt="{{ $work->title }}" width="150" height="150"
                                     title="{{ $work->title }}" /></noscript><img class="ls-is-cached lazyloaded"
                                 src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                data-src="{{ showImage($work->images->first()->image_path ?? '') }}" alt=""
+                                data-src="{{ showImage($work->images->first()->image_path ?? '') }}" alt="{{ $work->title }}"
                                 width="150" height="150" title="{{ $work->title }}" /><span
                                 class="gdlr-core-image-overlay"><i class="fas fa-link"></i></span></a>
                     </div>

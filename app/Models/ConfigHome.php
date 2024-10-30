@@ -18,7 +18,6 @@ class ConfigHome extends Model
         'quote_2',
         'title_3',
         'quote_3',
-        'image_3',
         'title_4',
         'quote_4',
         'map',

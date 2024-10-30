@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="{{ asset('backend/assets/css/demo.css') }}" />
 
 <style>
+    label{
+        font-weight: bold;
+    }
     .roboto-thin {
         font-family: "Roboto", serif;
         font-weight: 100;

@@ -26,9 +26,9 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <label for="title">Tiêu đề</label>
+                                    <label for="title" class="form-label fw-bold">Tiêu đề</label>
                                     <input type="text" name="title" id="title" class="form-control"
                                         value="{{ old('title') }}">
                                     @error('title')
@@ -36,54 +36,10 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label for="title">Thẻ</label>
-                                    <select name="tags[]" class="sa-select2 form-select" multiple id="tags">
-                                        @foreach ($tags as $tag)
-                                            <option value="{{ $tag->id }}" @selected(in_array($tag->id, old('tags', [])))>{{ $tag->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('title')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label for="excerpt">Mô tả ngắn</label>
-                                    <input type="text" name="excerpt" id="excerpt" class="form-control"
-                                        value="{{ old('excerpt') }}">
-
-                                    @error('excerpt')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label for="meta_keywords">Từ khóa seo</label>
-                                    <input type="text" name="meta_keywords" id="meta_keywords" class="form-control"
-                                        value="{{ old('meta_keywords') }}">
-                                    @error('meta_keywords')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
 
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <label for="meta_description">Mô tả seo</label>
-                                    <textarea name="meta_description" id="meta_description" cols="30" rows="5" class="form-control">{{ old('meta_description') }}</textarea>
-                                    @error('meta_description')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <div class="form-group">
-                                    <label for="content">Nội dung</label>
+                                    <label for="content" class="form-label fw-bold">Nội dung</label>
                                     <textarea name="content" id="content" cols="30" rows="10" class="summernote" placeholder="content">{{ old('content') }}</textarea>
                                     @error('content')
                                         <small class="text-danger">{{ $message }}</small>
@@ -91,12 +47,59 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="mt-4">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Xác nhận</button>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Cấu hình seo</h4>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                            <label for="title" class="form-label fw-bold">Thẻ</label>
+                            <select name="tags[]" class="sa-select2 form-select" multiple id="tags">
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}" @selected(in_array($tag->id, old('tags', [])))>{{ $tag->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                            <label for="excerpt" class="form-label fw-bold">Mô tả ngắn</label>
+                            <input type="text" name="excerpt" id="excerpt" class="form-control"
+                                value="{{ old('excerpt') }}">
+
+                            @error('excerpt')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
 
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                            <label for="meta_keywords" class="form-label fw-bold">Từ khóa seo</label>
+                            <input type="text" name="meta_keywords" id="meta_keywords" class="form-control"
+                                value="{{ old('meta_keywords') }}">
+                            @error('meta_keywords')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                            <label for="meta_description" class="form-label fw-bold">Mô tả seo</label>
+                            <textarea name="meta_description" id="meta_description" cols="30" rows="5" class="form-control">{{ old('meta_description') }}</textarea>
+                            @error('meta_description')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3">
@@ -134,6 +137,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Xác nhận</button>
+                </div>
             </div>
         </div>
 
@@ -149,6 +155,7 @@
         $('.summernote').summernote({
             height: '350px',
             toolbar: [
+                ['fontname', ['fontname']],
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['fontsize', ['fontsize']],
@@ -156,6 +163,11 @@
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
                 ['view', ['codeview']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['help', ['help']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+                ['history', ['undo', 'redo']],
             ]
         });
 

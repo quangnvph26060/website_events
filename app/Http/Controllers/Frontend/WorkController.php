@@ -17,7 +17,7 @@ class WorkController extends Controller
         if ($slug) {
             $post = Post::isPublished()->where('slug', $slug)->first();
             if ($post) {
-                return view('frontend.pages.posts', compact('post' ));
+                return view('frontend.pages.posts', compact('post'));
             }
         }
 
