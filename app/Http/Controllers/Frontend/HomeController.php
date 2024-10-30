@@ -16,8 +16,8 @@ class HomeController extends Controller
 
         $configHome = ConfigHome::first();
 
-        return view('frontend.pages.home', compact('catalogues', 'works', 'configHome'));
+        $partners = \App\Models\Partner::latest()->get();
+
+        return view('frontend.pages.home', compact('catalogues', 'works', 'configHome', 'partners'));
     }
-
-
 }

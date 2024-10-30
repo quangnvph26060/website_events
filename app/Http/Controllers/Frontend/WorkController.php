@@ -13,7 +13,7 @@ class WorkController extends Controller
 {
     public function works($slug = null)
     {
-        $banner = ConfigBanner::where('page_name' , 3)->first();
+        $banner = ConfigBanner::where('page_name', 3)->first();
         if ($slug) {
             $post = Post::isPublished()->where('slug', $slug)->first();
             if ($post) {
@@ -24,5 +24,15 @@ class WorkController extends Controller
         $posts = Post::isPublished()->latest('id')->paginate(6);
 
         return view('frontend.pages.work', compact('posts', 'banner'));
+    }
+
+    public function worksTag($slug)
+    {
+        $tag = Tag::where('slug', $slug)->first();
+
+        if ($tag) {
+            $posts = $tag->posts()->isPublished()->latest('id')->paginate(6);
+            return view('frontend.pages.work', compact('posts', 'tag'));
+        }
     }
 }

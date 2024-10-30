@@ -25,6 +25,7 @@ route::name('user.')->group(function () {
     route::get('about', [AboutController::class, 'about'])->name('about-us');
 
     route::get('works/{slug?}', [WorkController::class, 'works'])->name('work-for-us');
+    route::get('works_tag/{slug}', [WorkController::class, 'worksTag'])->name('work-for-us-tag');
 
     route::get('portfolio/{slug?}', [PortfolioController::class, 'portfolio'])->name('portfolio');
     route::post('portfolio', [PortfolioController::class, 'ajax'])->name('portfolio.ajax');
