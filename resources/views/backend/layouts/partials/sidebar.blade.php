@@ -186,6 +186,29 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#partners">
+                        <i class="fas fa-handshake"></i>
+                        <p>Đối tác</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="partners">
+                        <ul class="nav nav-collapse">
+                             <li>
+                                <a href="{{ route('admin.partners.index') }}">
+                                    <span class="sub-item">Danh sách đối tác</span>
+                                </a>
+                            </li>
+                           {{-- <li>
+                                <a href="{{ route('admin.partners.create') }}">
+                                    <span class="sub-item">Thêm một partners</span>
+                                </a>
+                            </li> --}}
+                        </ul>
+                    </div>
+                </li>
+
             </ul>
         </div>
     </div>

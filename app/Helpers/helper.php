@@ -3,6 +3,7 @@
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Filesystem\FilesystemAdapter;
 
 /**
  * Lưu hình ảnh và trả về đường dẫn.
@@ -29,7 +30,7 @@ function saveImages($request, string $inputName, string $directory = 'images', $
 
         foreach ($images as $key => $image) {
             // Đọc hình ảnh từ đường dẫn thực
-            $img = $manager->read($image->getRealPath());
+            $img = $manager->read($image->getPathName());
 
             // Thay đổi kích thước
             $img->resize($width, $height);
@@ -51,10 +52,23 @@ function saveImages($request, string $inputName, string $directory = 'images', $
     return null;
 }
 
+function saveImage($request, string $inputName, string $directory = 'images')
+{
+    if ($request->hasFile($inputName)) {
+        $image = $request->file($inputName);
+        $filename = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Storage::disk('public')->put($directory . '/' . $filename, file_get_contents($image->getPathName()));
+        return $directory . '/' . $filename;
+    }
+}
+
 function showImage($path)
 {
+    /** @var FilesystemAdapter $storage */
+    $storage = Storage::disk('public');
+
     if ($path && Storage::exists($path)) {
-        return Storage::disk('public')->url($path);
+        return $storage->url($path);
     }
 
     return asset('default.jpg');

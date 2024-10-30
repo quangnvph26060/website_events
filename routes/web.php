@@ -8,12 +8,13 @@ use App\Http\Controllers\Backend\WorkController;
 use App\Http\Controllers\Backend\ConfigController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\Auth\AuthController;
 use App\Http\Controllers\Backend\CatalogueController;
 use App\Http\Controllers\Backend\ContactUsController;
-use App\Http\Controllers\Backend\Config\ConfigBannerController;
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\Config\ConfigBannerController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
 
 /*
@@ -66,6 +67,8 @@ route::prefix('admin')->name('admin.')->group(function () {
         route::controller(DashboardController::class)->group(function () {
             route::get('/', 'index')->name('dashboard');
         });
+
+        route::resource('partners', PartnerController::class);
 
         Route::resource('catalogues', CatalogueController::class);
         route::put('catalogues/{catalogue}/change-status', [CatalogueController::class, 'changeStatus'])->name('catalogues.change-status');

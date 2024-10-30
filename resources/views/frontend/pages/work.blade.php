@@ -3,7 +3,24 @@
 
 @section('title', 'Công việc')
 @section('content')
-    @include('frontend.layouts.partials.banner', ['is_used' => true ,'banner' => $banner])
+
+
+    @isset($banner)
+        @include('frontend.layouts.partials.banner', ['is_used' => true, 'banner' => $banner])
+    @else
+        <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align">
+            <div class="kleanity-header-transparent-substitute" style="height: 101.4px;"></div>
+            <div class="kleanity-page-title-overlay"></div>
+            <div class="kleanity-page-title-container kleanity-container">
+                <div class="kleanity-page-title-content kleanity-item-pdlr">
+                    <h3 class="kleanity-page-title">Thẻ</h3>
+                    <div class="kleanity-page-caption">{{ $tag->name }}</div>
+                </div>
+            </div>
+        </div>
+    @endisset
+
+
 
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
@@ -48,24 +65,6 @@
                                 <div class="gdlr-core-pbf-element">
                                     <div class="gdlr-core-blog-item gdlr-core-item-pdb clearfix gdlr-core-style-blog-full"
                                         style="padding-bottom: 40px">
-                                        {{-- <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align"
-                                            data-ajax="gdlr_core_post_ajax" data-target="gdlr-core-blog-item-holder"
-                                            data-target-action="replace">
-                                            <a href="#"
-                                                class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">All</a>
-                                            <span class="kleanity-separater">/</span><a href="#"
-                                                class="gdlr-core-filterer gdlr-core-button-color" data-ajax-name="category"
-                                                data-ajax-value="account-vi">Account</a><span
-                                                class="kleanity-separater">/</span><a href="#"
-                                                class="gdlr-core-filterer gdlr-core-button-color" data-ajax-name="category"
-                                                data-ajax-value="office">Back Office</a><span
-                                                class="kleanity-separater">/</span><a href="#"
-                                                class="gdlr-core-filterer gdlr-core-button-color" data-ajax-name="category"
-                                                data-ajax-value="designer">Design</a><span
-                                                class="kleanity-separater">/</span><a href="#"
-                                                class="gdlr-core-filterer gdlr-core-button-color" data-ajax-name="category"
-                                                data-ajax-value="operation">Operation</a>
-                                        </div> --}}
                                         <div class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix"
                                             data-layout="fitrows">
 
@@ -101,14 +100,16 @@
                                                     font-weight: 800;
                                                     letter-spacing: 0px;
                                                     ">
-                                                            <a href="{{ route('user.work-for-us', $post->slug) }}">{{ $post->title }}</a>
+                                                            <a
+                                                                href="{{ route('user.work-for-us', $post->slug) }}">{{ $post->title }}</a>
                                                         </h3>
                                                     </div>
                                                     <div class="gdlr-core-blog-content">
                                                         {{ $post->excerpt }}
                                                         <div class="clear"></div>
                                                         <a class="gdlr-core-excerpt-read-more kleanity-title-font"
-                                                            href="{{ route('user.work-for-us', $post->slug) }}">Tiếp tục đọc<i class="fa fa-long-arrow-right"></i></a>
+                                                            href="{{ route('user.work-for-us', $post->slug) }}">Tiếp tục
+                                                            đọc<i class="fa fa-long-arrow-right"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach

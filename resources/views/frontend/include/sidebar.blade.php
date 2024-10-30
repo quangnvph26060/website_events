@@ -55,7 +55,7 @@
             <span class="clear"></span>
             <div class="tagcloud">
                 @foreach ($tags as $item)
-                    <a href="" class="tag-cloud-link tag-link-104 tag-link-position-1"
+                    <a href="{{ route('user.work-for-us-tag', $item->slug) }}" class="tag-cloud-link tag-link-104 tag-link-position-1"
                         style="font-size: 8pt" aria-label="{{ $item->name }}">{{ $item->name }}</a>
                 @endforeach
             </div>

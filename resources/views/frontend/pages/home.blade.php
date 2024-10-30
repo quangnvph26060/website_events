@@ -26,7 +26,8 @@
                                                 title="hp1-service-icon" /></noscript><img class="ls-is-cached lazyloaded"
                                             src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
                                             data-src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
-                                            alt="{{ $configHome->title_1 }}" width="44" height="35" title="hp1-service-icon" />
+                                            alt="{{ $configHome->title_1 }}" width="44" height="35"
+                                            title="hp1-service-icon" />
                                     </div>
                                 </div>
                             </div>
@@ -295,8 +296,7 @@
                             font-weight: 600;
                             letter-spacing: 0px;
                             text-transform: none;
-                            color: #154BA3;"
-                            >
+                            color: #154BA3;">
                                             {{ $configHome->title_3 }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
@@ -339,11 +339,18 @@
                                     style="padding-bottom: 20px">
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
-                                        <noscript><img src="{{ showImage($configHome->image_3 ?? '') }}" alt="{{ $configHome->title_3 }}"
-                                                width="3125" height="2671" title="Client Logo 3-01" /></noscript><img
-                                            class="lazyload" src="{{ showImage($configHome->image_3 ?? '') }}"
-                                            data-src="{{ showImage($configHome->image_3 ?? '') }}" alt="{{ $configHome->title_3 }}"
-                                            width="3125" height="2671" title="Client Logo 3-01" />
+                                        @if ($partners->isNotEmpty())
+                                            @foreach ($partners as $partner)
+                                                <noscript><img  src="{{ showImage($partner->logo ?? '') }}"
+                                                        alt="{{ $partner->title }}" style="width: 200px; height: 100px !important; margin-bottom: 5px"
+                                                        title="{{ $partner->title }}" /></noscript>
+                                                        <img class="lazyload"
+                                                    src="{{ showImage($partner->logo ?? '') }}"
+                                                    data-src="{{ showImage($partner->logo ?? '') }}"
+                                                    alt="{{ $partner->title }}"
+                                                    title="{{ $partner->title }}" style="margin-bottom: 5px; width: 200px; height: 100px !important" />
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
