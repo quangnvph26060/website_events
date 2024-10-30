@@ -1,8 +1,14 @@
 @extends('frontend.layouts.master')
 
 @section('title', $post->title ?? '')
+
+@section('description', $post->meta_description)
+
+@section('keywords', $post->meta_keywords)
+
 @section('content')
-    @include('frontend/include/banner-job', ['image' => $post->featured_image , 'banner' => $banner])
+    @include('frontend/include/banner-job', ['image' => $post->featured_image, 'banner' => $banner ?? null])
+
     <div class="kleanity-content-container kleanity-container">
         <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-right">
             <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">
@@ -10,6 +16,9 @@
                     <div class="kleanity-page-builder-wrap kleanity-item-rvpdlr">
                         <div class="gdlr-core-page-builder-body">
                             <div class="gdlr-core-pbf-wrapper">
+                                <div class="gdlr-core-pbf-wrapper-title" style="padding-left: 10px; ">
+                                    <h1 style="color: #4e4e4e">{{ $post->title }}</h1>
+                                </div>
                                 <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
                                     <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
                                         <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
@@ -52,20 +61,16 @@
                     <div class="kleanity-single-author">
                         <div class="kleanity-single-author-wrap">
                             <div class="kleanity-single-author-avartar kleanity-media-image">
-                                <noscript><img alt=""
+                                <noscript><img alt="{{$post->featured_image}}"
                                         src="https://secure.gravatar.com/avatar/8cd00d80e294820fbf2670ff01b0f960?s=90&#038;d=mm&#038;r=g"
-                                        srcset="
-                      https://secure.gravatar.com/avatar/8cd00d80e294820fbf2670ff01b0f960?s=180&#038;d=mm&#038;r=g 2x
-                    "
+
                                         class="avatar avatar-90 photo" height="90" width="90"
-                                        decoding="async" /></noscript><img alt=""
+                                        decoding="async" /></noscript><img alt="{{$post->featured_image}}"
                                     src="https://secure.gravatar.com/avatar/8cd00d80e294820fbf2670ff01b0f960?s=90&amp;d=mm&amp;r=g"
                                     data-src="https://secure.gravatar.com/avatar/8cd00d80e294820fbf2670ff01b0f960?s=90&amp;d=mm&amp;r=g"
                                     data-srcset="https://secure.gravatar.com/avatar/8cd00d80e294820fbf2670ff01b0f960?s=180&amp;d=mm&amp;r=g 2x"
                                     class="avatar avatar-90 photo lazyloaded" height="90" width="90" decoding="async"
-                                    srcset="
-                    https://secure.gravatar.com/avatar/8cd00d80e294820fbf2670ff01b0f960?s=180&amp;d=mm&amp;r=g 2x
-                  " />
+                    />
                             </div>
                             <div class="kleanity-single-author-content-wrap">
                                 <div class="kleanity-single-author-caption kleanity-info-font">

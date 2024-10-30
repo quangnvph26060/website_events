@@ -8,11 +8,11 @@
                     <div
                         class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-date gdlr-core-metro-rvpdlr">
                         <div class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
-                            <noscript><img src="{{ showImage($work->images->first()->image_path ?? '') }}" alt=""
+                            <noscript><img src="{{ showImage($work->images->first()->image_path ?? '') }}" alt="{{ $work->title }}"
                                     width="2560" height="1707" title="{{ $work->title }}" /></noscript><img
                                 class="ls-is-cached lazyloaded"
                                 src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                data-src="{{ showImage($work->images->first()->image_path ?? '') }}" alt=""
+                                data-src="{{ showImage($work->images->first()->image_path ?? '') }}" alt="{{ $work->title }}"
                                 width="2560" height="1707" title="PM3. Thank You Party (5)" /><span
                                 class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"
                                 style="background: rgba(235, 169, 4, 0.85)"><span

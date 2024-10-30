@@ -4,7 +4,7 @@
             <div id="text-3" class="widget widget_text kleanity-widget">
                 <div class="textwidget">
                     <p>
-                        <span style="font-size: 18px; color: #eba904">
+                        <span style="font-size: 18px; color: #154BA3">
                             <strong>RI E &amp;E CO., LTD</strong>
                         </span>
                     </p>
@@ -17,8 +17,8 @@
                         <span style="font-size: 14px">
                             <strong>Email &nbsp;</strong>
                             &nbsp;&nbsp;:
-                            <span style="color: #eba904">
-                                <a style="color: #eba904" href="mailto:{{ $configWebsite->email }}" target="_blank"
+                            <span style="color: #154BA3">
+                                <a style="color: #154BA3" href="mailto:{{ $configWebsite->email }}" target="_blank"
                                     rel="noopener">{{ $configWebsite->email }}</a>
                             </span>
                         </span>
@@ -26,8 +26,8 @@
                         <span style="font-size: 14px">
                             <strong>Hotline</strong>
                             &nbsp;:
-                            <span style="color: #eba904">
-                                <a style="color: #eba904" href="tel:(+84)%200909 691511">{{ $configWebsite->constant_hotline }}</a>
+                            <span style="color: #154BA3">
+                                <a style="color: #154BA3" href="tel:(+84)%200909 691511">{{ $configWebsite->constant_hotline }}</a>
                             </span>
                         </span>
                     </p>

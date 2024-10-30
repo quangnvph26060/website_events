@@ -13,40 +13,47 @@ class ConfigController extends Controller
     //
     public function index()
     {
-        $title = 'Thông tin cửa hàng';
+        $title = 'Cấu hình chung';
         $config = Config::first();
         return view('backend.config.index', compact('config', 'title'));
     }
 
     public function update(Request $request)
     {
+
+        $validated =  $request->validate([
+            'title_seo' => 'required|string|max:255',
+            'meta_seo' => 'nullable|string|max:255',
+            'description_seo' => 'nullable|string|max:300',
+            'description' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'email' => 'nullable|string|max:255',
+            'constant_hotline' => 'nullable|string|max:255',
+            'footer' => 'nullable|string|max:255',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'head_scripts' => 'nullable|string',
+            'body_scripts' => 'nullable|string',
+            'footer_scripts' => 'nullable|string',
+        ],   __('request.messages'));
+
         $config = Config::first();
-        $data = [
-            'title_seo' => $request->input('title_seo'),
-            'meta_seo' =>  $request->input('meta_seo'),
-            'description_seo' => $request->input('description_seo'),
-            'description' => $request->input('description'),
-            'name' => $request->input('name'),
-            'address' => $request->input('address'),
-            'email' => $request->input('email'),
-            'constant_hotline' => $request->input('constant_hotline'),
-            'footer' => $request->input('footer'),
-        ];
+
 
         if ($request->hasFile('icon')) {
             deleteImage($config->icon);
-            $data['icon'] = saveImages($request, 'icon', 'icon');
+            $validated['icon'] = saveImages($request, 'icon', 'icon');
         }
 
         if ($request->hasFile('logo')) {
             deleteImage($config->logo);
-            $data['logo'] = saveImages($request, 'logo', 'logo', 2364, 2065);
+            $validated['logo'] = saveImages($request, 'logo', 'logo', 2364, 2065);
         }
 
         if ($config) {
-            $config->update($data);
+            $config->update($validated);
         } else {
-            Config::create($data);
+            Config::create($validated);
         }
 
 

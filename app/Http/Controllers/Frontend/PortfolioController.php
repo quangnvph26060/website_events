@@ -30,7 +30,6 @@ class PortfolioController extends Controller
             ->where('id', '!=', $work->id)
             ->limit(8)->get();
 
-            // dd($relatedWorks);
 
         if (!$work) {
             abort(404);

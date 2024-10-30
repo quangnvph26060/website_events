@@ -54,8 +54,6 @@
                         <input type="text" name="quote_2" class="form-control"
                             value="{{ old('quote_2', $configHome->quote_2) }}">
                     </div>
-
-
                 </div>
             </div>
 
@@ -70,14 +68,6 @@
                         <label for="quote_3" class="form-label">Châm ngôn</label>
                         <input type="text" name="quote_3" class="form-control"
                             value="{{ old('quote_3', $configHome->quote_3) }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="image_3" class="form-label">Ảnh</label>
-                        <img class="img-fluid img-thumbnail w-100" id="show_image_3"
-                            style="max-height: 500px; cursor: pointer" src="{{ showImage($configHome->image_3 ?? '') }}"
-                            alt="" onclick="document.getElementById('image_3').click();">
-                        <input type="file" name="image_3" id="image_3" class="form-control file-input" accept="image/*"
-                            onchange="previewImage(event, 'show_image_3')">
                     </div>
                 </div>
             </div>
@@ -119,6 +109,7 @@
         $('.summernote').summernote({
             height: '200px',
             toolbar: [
+                ['fontname', ['fontname']],
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['fontsize', ['fontsize']],
@@ -126,6 +117,11 @@
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
                 ['view', ['codeview']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['help', ['help']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+                ['history', ['undo', 'redo']],
             ]
         });
     </script>

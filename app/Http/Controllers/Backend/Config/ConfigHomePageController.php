@@ -28,7 +28,6 @@ class ConfigHomePageController extends Controller
                 'quote_2' => 'nullable|string|max:255',
                 'title_3' => 'required|string|max:255',
                 'quote_3' => 'nullable|string|max:255',
-                'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'title_4' => 'required|string|max:255',
                 'quote_4' => 'nullable|string|max:255',
                 'map' => 'nullable|string',
@@ -37,12 +36,6 @@ class ConfigHomePageController extends Controller
         );
 
         $configHome = ConfigHome::first();
-
-        if ($request->hasFile('image_3')) {
-            deleteImage($configHome->image_3);
-            $validated['image_3'] = saveImages($request, 'image_3', 'config.home', 3125, 2671);
-        }
-
 
         if ($configHome) {
             $configHome->update($validated);

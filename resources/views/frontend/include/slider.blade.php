@@ -40,7 +40,7 @@
         }
 
         // Initialize the auto-slide when the page loads
-        startAutoSlide();
+          startAutoSlide();
 
         document.getElementById("next").onclick = function() {
             if (isSliding) return; // Block if a slide transition is in progress
@@ -90,8 +90,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3)),
-        linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3));
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3)),
+                linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3));
             pointer-events: none;
             z-index: 1;
         }
@@ -154,7 +154,7 @@
             transform: translate(0, -10%);
             display: none;
             animation: flyIn 1.5s ease-in-out forwards, fadeIn 1.2s ease-in-out forwards;
-            background: rgba(255, 165, 0, 0.8);
+            background: rgba(21, 75, 163, 0.8);
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             z-index: 20;
@@ -208,16 +208,33 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .button {
+                display: none;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .button {
+                display: none;
+            }
+
+            .item .content {
+                top: 70%;
+                left: 188px;
+            }
+
+            .item:nth-child(3) {
+                left: 40%;
+            }
+        }
+
         .button {
             position: absolute;
-            /* Đảm bảo nó nằm trong khung nhìn của slider */
-            /* Đặt nút ở giữa chiều dọc của slider */
-            /* Bạn có thể tùy chỉnh vị trí của nút 'prev' */
-            /* Bạn có thể tùy chỉnh vị trí của nút 'next' */
             width: 100%;
             text-align: center;
             z-index: 20;
-            /* Đảm bảo nút nằm phía trên các ảnh */
+
         }
 
         .button button {

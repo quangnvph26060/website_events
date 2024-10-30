@@ -6,19 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', $configWebsite->title_seo ?? env('APP_NAME'))</title>
-    <meta name="description" content="{{ $configWebsite->meta_seo ?? 'Default Meta Description' }}">
-    <meta name="keywords" content="{{ $configWebsite->description_seo ?? 'Default Description Keywords' }}">
+    <meta name="description" content="@yield('description', $configWebsite->description_seo ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam')">
+    <meta name="keywords" content="@yield('keywords', $configWebsite->meta_seo ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam')">
 
     {{-- icon --}}
     <link rel="icon" type="image/png" href="{{ showImage($configWebsite->icon) }}">
+
+    {!! $configWebsite->head_scripts !!}
 
     @include('frontend.layouts.partials.styles')
 </head>
 
 <body
     class="page-template-default page page-id-2876 gdlr-core-body unselectable kleanity-body kleanity-body-front kleanity-full kleanity-with-sticky-navigation gdlr-core-link-to-lightbox">
-
+    {!! $configWebsite->body_scripts !!}
     @include('frontend.layouts.partials.menu')
+
+    <h1 style="display: none">{{ $configWebsite->title_seo ?? env('APP_NAME') }}</h1>
+    <h2 style="display: none">{{ $configWebsite->title_seo ?? env('APP_NAME') }}</h2>
 
     <div class="kleanity-body-outer-wrapper">
         <div class="kleanity-body-wrapper clearfix kleanity-with-transparent-header kleanity-with-frame">
@@ -48,13 +53,14 @@
         </footer>
     </div>
     <a href="#kleanity-top-anchor" class="kleanity-footer-back-to-top-button" id="kleanity-footer-back-to-top-button">
-        <i class="fa fa-angle-up"></i>
+        <i class="fa fa-angle-up " style="color: white"></i>
     </a>
     <div id="wpcp-error-message" class="msgmsg-box-wpcp hideme">
         <span>error: </span>
         Content is protected !!
     </div>
 
+    {!! $configWebsite->footer_scripts !!}
     @include('frontend.layouts.partials.scripts')
 </body>
 

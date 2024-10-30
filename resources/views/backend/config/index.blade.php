@@ -4,6 +4,11 @@
 
 
 @section('content')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+        @endforeach
+    @endif
 
     <form class="form-valide-with-icon" action="{{ route('admin.config.update') }}" method="POST"
         enctype="multipart/form-data">
@@ -16,7 +21,7 @@
 
                         <div class="card-header">
                             <h4 class="card-title">
-                                Thông tin về <span style="color: red;">{{ $config->name }}</span>
+                                {{ $title }}</span>
                             </h4>
                         </div>
                         <div>
@@ -37,22 +42,6 @@
                                 <div class="form-group">
                                     <label class="text-label">Mô tả SEO</label>
                                     <textarea class="form-control" name="description_seo" placeholder="Mô tả SEO">{{ $config->description_seo }}</textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="text-label">Mô tả công ty</label>
-                                    <textarea class="form-control" name="description" placeholder="Mô tả công tu">{{ $config->description }}</textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="text-label">Tên cửa hàng</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-home"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control" name="name" placeholder="Tên cửa hàng"
-                                            value="{{ $config->name }}">
-                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -88,6 +77,7 @@
                                     </div>
                                 </div>
 
+
                                 <div class="form-group">
                                     <label class="text-label">Footer</label>
                                     <input type="text" class="form-control" name="footer" placeholder="Footer"
@@ -95,14 +85,32 @@
                                 </div>
 
 
-                                <div class="form-group float-start">
-                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
-                                </div>
+
                             </div>
 
                         </div>
                     </div>
 
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Cấu hình scripts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="head_scripts" class="form-label">Head scripts</label>
+                            <textarea class="form-control" name="head_scripts" placeholder="Cấu hình head scripts">{{ $config->header_scripts }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="body_scripts" class="form-label">Body scripts</label>
+                            <textarea class="form-control" name="body_scripts" placeholder="Cấu hình body scripts">{{ $config->body_scripts }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="footer_scripts" class="form-label">Footer scripts</label>
+                            <textarea class="form-control" name="footer_scripts" placeholder="Cấu hình footer scripts">{{ $config->footer_scripts }}</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -112,10 +120,10 @@
                         <h5>Logo</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group" style="text-align: center">
+                        <div class="form-group">
                             <img class="img-fluid img-thumbnail w-100" id="show_logo"
-                                style="max-height: 145px; cursor: pointer" src="{{ showImage($config->logo ?? '') }}" alt=""
-                                onclick="document.getElementById('logo').click();">
+                                style="max-height: 145px; cursor: pointer" src="{{ showImage($config->logo ?? '') }}"
+                                alt="" onclick="document.getElementById('logo').click();">
                             <input type="file" name="logo" id="logo" class="form-control file-input"
                                 accept="image/*" onchange="previewImage(event, 'show_logo')">
                         </div>
@@ -130,12 +138,15 @@
                     <div class="card-body">
                         <div class="form-group" style="text-align: center">
                             <img class="img-fluid img-thumbnail w-100" id="show_icon"
-                                style="max-height: 145px; cursor: pointer" src="{{ showImage($config->icon ?? '') }}" alt=""
-                                onclick="document.getElementById('icon').click();">
+                                style="max-height: 145px; cursor: pointer" src="{{ showImage($config->icon ?? '') }}"
+                                alt="" onclick="document.getElementById('icon').click();">
                             <input type="file" name="icon" id="icon" class="form-control file-input"
                                 accept="image/*" onchange="previewImage(event, 'show_icon')">
                         </div>
                     </div>
+                </div>
+                <div class="form-group float-end">
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </div>
             </div>
         </div>
@@ -154,6 +165,7 @@
 
 @push('styles')
     <style>
+
         /* Tạo khoảng cách giữa các phần tử */
         .form-group {
             margin-bottom: 20px;

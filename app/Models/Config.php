@@ -15,12 +15,14 @@ class Config extends Model
         'meta_seo',
         'description_seo',
         'description',
-        'name',
         'address',
         'email',
         'constant_hotline',
         'logo',
         'icon',
-        'footer'
+        'footer',
+        'head_scripts',
+        'body_scripts',
+        'footer_scripts',
     ];
 }

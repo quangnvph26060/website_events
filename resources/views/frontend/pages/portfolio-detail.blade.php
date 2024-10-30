@@ -27,12 +27,12 @@
                                                                 data-ilightbox-group="gdlr-core-img-group-1"
                                                                 data-type="image"><noscript><img
                                                                         src="{{ showImage($item->image_path ?? '') }}"
-                                                                        alt="" width="2560" height="1600"
+                                                                        alt="{{ $item->title }}" width="2560" height="1600"
                                                                         title="PTSC.30Years (122)" /></noscript>
                                                                 <img class="ls-is-cached lazyloaded"
                                                                     src="{{ showImage($item->image_path ?? '') }}"
                                                                     data-src="{{ showImage($item->image_path ?? '') }}"
-                                                                    alt="" width="2560" height="1600"
+                                                                    alt="{{ $item->title }}" width="2560" height="1600"
                                                                     title="PTSC.30Years (122)" />
                                                             </a>
                                                         </div>
@@ -71,7 +71,7 @@
                                         font-size: 40;
                                         font-weight: 700;
                                         text-transform: none;
-                                        color: #eba904;
+                                        color: #154BA3
                                         ">
                                         Thông tin dự án<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -147,12 +147,12 @@
                                     <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
                                         <noscript><img
                                                 src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                                alt="" width="700" height="450"
+                                                alt="{{ $relatedWork->title }}" width="700" height="450"
                                                 title="PM3. Thank You Party (5)" /></noscript><img
                                             class=" ls-is-cached lazyloaded"
                                             src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
                                             data-src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                            alt="" width="700" height="450"
+                                            alt="{{ $relatedWork->title }}" width="700" height="450"
                                             title="PM3. Thank You Party (5)"><span
                                             class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span
                                                 class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;"><span

@@ -7,7 +7,7 @@
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
             <div class="kleanity-content-area kleanity-item-pdlr kleanity-sidebar-style-none clearfix">
-              
+
                 <p></p>
             </div>
         </div>
@@ -19,9 +19,9 @@
                         <div class="gdlr-core-pbf-element">
                             <div class="gdlr-core-divider-item gdlr-core-divider-item-small-center gdlr-core-item-pdlr"
                                 style="margin-bottom: 15px">
-                                <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #eba904">
+                                <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #154BA3">
                                     <div class="gdlr-core-divider-line-bold gdlr-core-skin-divider"
-                                        style="border-color: #eba904"></div>
+                                        style="border-color: #154BA3"></div>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             font-weight: 400;
                             letter-spacing: 0px;
                             text-transform: none;
-                            color: #eba904;
+                            color: #154BA3;
                           ">
                                                     Phone<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -84,7 +84,7 @@
                             font-weight: 400;
                             letter-spacing: 0px;
                             text-transform: none;
-                            color: #eba904;
+                            color: #154BA3;
                           ">
                                                     Email<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -129,7 +129,7 @@
                             font-weight: 400;
                             letter-spacing: 0px;
                             text-transform: none;
-                            color: #eba904;
+                            color: #154BA3;
                           ">
                                                     Address<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -176,7 +176,7 @@
                       font-weight: 400;
                       letter-spacing: 0px;
                       text-transform: none;
-                      color: #eba904;
+                      color: #154BA3;
                     ">
                                         View on map<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -206,7 +206,7 @@
                       font-weight: 400;
                       letter-spacing: 0px;
                       text-transform: none;
-                      color: #eba904;
+                      color: #154BA3;
                     ">
 
                                         Để lại cho chúng tôi thông tin của bạn
@@ -231,7 +231,7 @@
                                 class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-left-align">
                                 <div class="gdlr-core-divider-container" style="max-width: 40px">
                                     <div class="gdlr-core-divider-line gdlr-core-skin-divider"
-                                        style="border-color: #eba904; border-width: 2px"></div>
+                                        style="border-color: #154BA3; border-width: 2px"></div>
                                 </div>
                             </div>
                         </div>
@@ -340,7 +340,7 @@
         }
 
         .contact-button:hover {
-            background-color: #eba904;
+            background-color: #154BA3;
         }
     </style>
 @endpush

@@ -22,11 +22,11 @@
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
                                         <noscript><img src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
-                                                alt="" width="44" height="35"
+                                                alt="{{ $configHome->title_1 }}" width="44" height="35"
                                                 title="hp1-service-icon" /></noscript><img class="ls-is-cached lazyloaded"
                                             src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
                                             data-src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
-                                            alt="" width="44" height="35" title="hp1-service-icon" />
+                                            alt="{{ $configHome->title_1 }}" width="44" height="35" title="hp1-service-icon" />
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                                 font-weight: 600;
                                                 letter-spacing: 0px;
                                                 text-transform: none;
-                                                color: rgb(235, 169, 4);
+                                                color: #154BA3;
                                                 ">
 
                                             {{ $configHome->title_1 }}<span
@@ -56,11 +56,11 @@
                                     class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align">
                                     <div class="gdlr-core-divider-container" style="max-width: 20px">
                                         <div class="gdlr-core-divider-line gdlr-core-skin-divider"
-                                            style="border-color: #eba904"></div>
+                                            style="border-color: #154BA3"></div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             @foreach ($configHome->content as $item)
                                 <div class="gdlr-core-pbf-element">
                                     <div
@@ -76,7 +76,7 @@
                                             style="margin-top: 0px">
                                             <div class="gdlr-core-divider-container" style="max-width: 20px">
                                                 <div class="gdlr-core-divider-line gdlr-core-skin-divider"
-                                                    style="border-color: #eba904"></div>
+                                                    style="border-color: #154BA3"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                             border-radius: 35px;
                                             -moz-border-radius: 35px;
                                             -webkit-border-radius: 35px;
-                                            border-color: #eba904;
+                                            border-color: #154BA3;
                                         "><span
                                             class="gdlr-core-content">Tìm hiểu thêm</span></a>
                                 </div>
@@ -116,7 +116,7 @@
                     <div class="gdlr-core-divider-item-with-icon-inner gdlr-core-js">
                         <div class="gdlr-core-divider-line gdlr-core-left gdlr-core-skin-divider"
                             style="
-                            border-color: rgb(235, 169, 4);
+                            border-color: #154BA3;
                             width: 439.9px;
                             margin-top: -0.4px;
                             ">
@@ -124,7 +124,7 @@
                         <i class="fa fa-briefcase"></i>
                         <div class="gdlr-core-divider-line gdlr-core-skin-divider gdlr-core-right"
                             style="
-                            border-color: rgb(235, 169, 4);
+                            border-color: #154BA3;
                             width: 439.9px;
                             margin-top: -0.4px;
                             ">
@@ -144,7 +144,7 @@
                         style="padding-bottom: 15px">
                         <i class="gdlr-core-icon-item-icon fa fa-folder-open-o"
                             style="
-                        color: #eba904;
+                        color: #154BA3;
                         font-size: 40px;
                         min-width: 40px;
                         min-height: 40px;
@@ -157,11 +157,10 @@
                         <div class="gdlr-core-title-item-title-wrap">
                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                 style="
-
                             font-weight: 600;
                             letter-spacing: 0px;
                             text-transform: none;
-                            color: rgb(235, 169, 4);
+                            color: #154BA3;
                             ">
                                 {{ $configHome->title_2 }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -180,7 +179,7 @@
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
                             data-ajax="gdlr_core_home_ajax"
-                            data-settings='{"category":["corporate-event","design-production","private-event","public-event"],"tag":["launching-en","business-development","ceremonial","corporate-annual-party","corporate-celebrations","music-show","customer-conference","employee-appreciation","employee-engagement","milestones","entertainment","exhibition","global-conference","internal-meeting","partner-appreciations","press-conference","sales-or-hospitality","festival"],"num-fetch":"15","layout":"masonry","thumbnail-size":"medium_large","orderby":"date","order":"desc","portfolio-style":"metro","hover":"title-date","hover-info":["title","date"],"has-column":"yes","no-space":"no","excerpt":"specify-number","excerpt-number":"55","column-size":"20","filterer":"text","filterer-align":"center","pagination":"none","id":"","class":"","filterer-left-margin":"305px","filterer-left-divider":"enable","pagination-style":"default","pagination-align":"default","view-all-works-button":"disable","view-all-works-text":"xem tất cả tác phẩm","view-all-works-link":"","portfolio-grid-text-align":"left","portfolio-grid-style":"normal","portfolio-frame-opacity":"1","enable-portfolio-title":"enable","enable-portfolio-tag":"enable","enable-portfolio-date":"disable","portfolio-medium-size":"small","portfolio-medium-style":"left","enable-thumbnail-zoom-on-hover":"enable","enable-thumbnail-grayscale-effect":"disable","enable-badge":"enable","carousel-autoslide":"enable","carousel-start-at":"","carousel-scrolling-item-amount":"1","carousel-navigation":"navigation","carousel-bullet-style":"default","read-more-button":"disable","filter-font-size":"20px","filter-font-weight":"","filter-letter-spacing":"","filter-text-transform":"uppercase","portfolio-title-font-size":"","portfolio-title-font-weight":"","portfolio-title-letter-spacing":"","portfolio-title-text-transform":"uppercase","portfolio-tag-font-style":"default","portfolio-hover-title-font-size":"","portfolio-hover-title-font-weight":"","portfolio-hover-title-letter-spacing":"","portfolio-hover-title-text-transform":"uppercase","filterer-bottom-margin":"50px","portfolio-frame-padding":"","portfolio-border-radius":"","portfolio-item-bottom-margin":"","portfolio-title-bottom-margin":"","pagination-top-margin":"","padding-bottom":"0px","frame-shadow-size":"","frame-shadow-color":"","frame-shadow-opacity":"0.2","overlay-color":"#eba904","overlay-opacity":"0.85","title-align":"left","title-left-media":"icon","title-left-icon":"","title-left-image":"","title":"","caption":"","caption-position":"top","read-more-style":"default","read-more-text":"Read More","read-more-link":"http:\/\/rievents.vn\/portfolio\/","read-more-target":"_self","title-size":"41px","title-letter-spacing":"","title-line-height":"","title-font-style":"","title-text-transform":"uppercase","caption-size":"20px","caption-font-style":"","caption-spaces":"","read-more-size":"20px","read-more-font-weight":"","title-left-icon-color":"","title-color":"","caption-color":"","read-more-color":"#eba904","read-more-divider":"none","read-more-divider-color":"#eba904","title-wrap-bottom-margin":"","title-carousel-nav-style":"default","lightbox-group":"gdlr-core-img-group-1","paged":1}'
+                            data-settings='{"category":["corporate-event","design-production","private-event","public-event"],"tag":["launching-en","business-development","ceremonial","corporate-annual-party","corporate-celebrations","music-show","customer-conference","employee-appreciation","employee-engagement","milestones","entertainment","exhibition","global-conference","internal-meeting","partner-appreciations","press-conference","sales-or-hospitality","festival"],"num-fetch":"15","layout":"masonry","thumbnail-size":"medium_large","orderby":"date","order":"desc","portfolio-style":"metro","hover":"title-date","hover-info":["title","date"],"has-column":"yes","no-space":"no","excerpt":"specify-number","excerpt-number":"55","column-size":"20","filterer":"text","filterer-align":"center","pagination":"none","id":"","class":"","filterer-left-margin":"305px","filterer-left-divider":"enable","pagination-style":"default","pagination-align":"default","view-all-works-button":"disable","view-all-works-text":"xem tất cả tác phẩm","view-all-works-link":"","portfolio-grid-text-align":"left","portfolio-grid-style":"normal","portfolio-frame-opacity":"1","enable-portfolio-title":"enable","enable-portfolio-tag":"enable","enable-portfolio-date":"disable","portfolio-medium-size":"small","portfolio-medium-style":"left","enable-thumbnail-zoom-on-hover":"enable","enable-thumbnail-grayscale-effect":"disable","enable-badge":"enable","carousel-autoslide":"enable","carousel-start-at":"","carousel-scrolling-item-amount":"1","carousel-navigation":"navigation","carousel-bullet-style":"default","read-more-button":"disable","filter-font-size":"20px","filter-font-weight":"","filter-letter-spacing":"","filter-text-transform":"uppercase","portfolio-title-font-size":"","portfolio-title-font-weight":"","portfolio-title-letter-spacing":"","portfolio-title-text-transform":"uppercase","portfolio-tag-font-style":"default","portfolio-hover-title-font-size":"","portfolio-hover-title-font-weight":"","portfolio-hover-title-letter-spacing":"","portfolio-hover-title-text-transform":"uppercase","filterer-bottom-margin":"50px","portfolio-frame-padding":"","portfolio-border-radius":"","portfolio-item-bottom-margin":"","portfolio-title-bottom-margin":"","pagination-top-margin":"","padding-bottom":"0px","frame-shadow-size":"","frame-shadow-color":"","frame-shadow-opacity":"0.2","overlay-color":"#154BA3","overlay-opacity":"0.85","title-align":"left","title-left-media":"icon","title-left-icon":"","title-left-image":"","title":"","caption":"","caption-position":"top","read-more-style":"default","read-more-text":"Read More","read-more-link":"http:\/\/rievents.vn\/portfolio\/","read-more-target":"_self","title-size":"41px","title-letter-spacing":"","title-line-height":"","title-font-style":"","title-text-transform":"uppercase","caption-size":"20px","caption-font-style":"","caption-spaces":"","read-more-size":"20px","read-more-font-weight":"","title-left-icon-color":"","title-color":"","caption-color":"","read-more-color":"#154BA3","read-more-divider":"none","read-more-divider-color":"#154BA3","title-wrap-bottom-margin":"","title-carousel-nav-style":"default","lightbox-group":"gdlr-core-img-group-1","paged":1}'
                             data-target="gdlr-core-portfolio-item-holder" data-target-action="replace">
                             <a href="#" class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">All</a>
 
@@ -206,12 +205,12 @@
                                                     class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
                                                     <noscript><img
                                                             src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                                            alt="" width="2560" height="1707"
+                                                            alt="{{ $work->title }}" width="2560" height="1707"
                                                             title="{{ $work->title }}" /></noscript><img
                                                         class="ls-is-cached lazyloaded"
                                                         src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                         data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                                        alt="" width="2560" height="1707"
+                                                        alt="{{ $work->title }}" width="2560" height="1707"
                                                         title="{{ $work->title }}" /><span
                                                         class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"
                                                         style="background: rgba(235, 169, 4, 0.85)"><span
@@ -240,8 +239,8 @@
                                         href="{{ route('user.portfolio') }}"
                                         style="
             font-size: 20px;
-            color: #eba904;
-            border-color: #eba904;
+            color: #154BA3;
+            border-color: #154BA3;
           "><span
                                             class="gdlr-core-content">xem tất cả tác phẩm</span></a>
                                 </div>
@@ -261,7 +260,7 @@
                     <div class="gdlr-core-divider-item-with-icon-inner gdlr-core-js">
                         <div class="gdlr-core-divider-line gdlr-core-left gdlr-core-skin-divider"
                             style="
-                            border-color: rgb(235, 169, 4);
+                            border-color: #154BA3;
                             width: 439.9px;
                             margin-top: -0.4px;
                             ">
@@ -269,7 +268,7 @@
                         <i class="fa fa-briefcase"></i>
                         <div class="gdlr-core-divider-line gdlr-core-skin-divider gdlr-core-right"
                             style="
-                        border-color: rgb(235, 169, 4);
+                        border-color: #154BA3;
                         width: 439.9px;
                         margin-top: -0.4px;
                         ">
@@ -293,10 +292,11 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-                                        letter-spacing: 0px;
-                                        text-transform: none;
-                                        color: rgb(235, 169, 4);
-                                         ">
+                            font-weight: 600;
+                            letter-spacing: 0px;
+                            text-transform: none;
+                            color: #154BA3;"
+                            >
                                             {{ $configHome->title_3 }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
@@ -324,8 +324,8 @@
                 </div>
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-divider-item gdlr-core-divider-item-small-center gdlr-core-item-pdlr">
-                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #eba904">
-                            <div class="gdlr-core-divider-line-bold gdlr-core-skin-divider" style="border-color: #eba904">
+                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #154BA3">
+                            <div class="gdlr-core-divider-line-bold gdlr-core-skin-divider" style="border-color: #154BA3">
                             </div>
                         </div>
                     </div>
@@ -339,10 +339,10 @@
                                     style="padding-bottom: 20px">
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
-                                        <noscript><img src="{{ showImage($configHome->image_3 ?? '') }}" alt=""
+                                        <noscript><img src="{{ showImage($configHome->image_3 ?? '') }}" alt="{{ $configHome->title_3 }}"
                                                 width="3125" height="2671" title="Client Logo 3-01" /></noscript><img
                                             class="lazyload" src="{{ showImage($configHome->image_3 ?? '') }}"
-                                            data-src="{{ showImage($configHome->image_3 ?? '') }}" alt=""
+                                            data-src="{{ showImage($configHome->image_3 ?? '') }}" alt="{{ $configHome->title_3 }}"
                                             width="3125" height="2671" title="Client Logo 3-01" />
                                     </div>
                                 </div>
@@ -368,7 +368,7 @@
                     <div class="gdlr-core-divider-item-with-icon-inner gdlr-core-js">
                         <div class="gdlr-core-divider-line gdlr-core-left gdlr-core-skin-divider"
                             style="
-                border-color: rgb(235, 169, 4);
+                border-color: #154BA3;
                 width: 439.9px;
                 margin-top: -0.4px;
                     ">
@@ -376,7 +376,7 @@
                         <i class="fa fa-briefcase"></i>
                         <div class="gdlr-core-divider-line gdlr-core-skin-divider gdlr-core-right"
                             style="
-                    border-color: rgb(235, 169, 4);
+                    border-color: #154BA3;
                     width: 439.9px;
                     margin-top: -0.4px;
                     ">
@@ -397,10 +397,10 @@
                         <div class="gdlr-core-title-item-title-wrap">
                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                 style="
-                                letter-spacing: 0px;
-                                text-transform: none;
-                                color: rgb(235, 169, 4);
-                            ">
+                                font-weight: 600;
+                            letter-spacing: 0px;
+                            text-transform: none;
+                            color: #154BA3;">
                                 {{ $configHome->title_4 }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
@@ -420,8 +420,8 @@
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-divider-item gdlr-core-divider-item-small-center gdlr-core-item-pdlr"
                         style="margin-bottom: 15px">
-                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #eba904">
-                            <div class="gdlr-core-divider-line-bold gdlr-core-skin-divider" style="border-color: #eba904">
+                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #154BA3">
+                            <div class="gdlr-core-divider-line-bold gdlr-core-skin-divider" style="border-color: #154BA3">
                             </div>
                         </div>
                     </div>
@@ -439,7 +439,7 @@
                         font-weight: 400;
                         letter-spacing: 0px;
                         text-transform: none;
-                        color: #eba904;
+                        color: #154BA3;
                         ">
                                             Số điện thoại<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -484,7 +484,7 @@
                         font-weight: 400;
                         letter-spacing: 0px;
                         text-transform: none;
-                        color: #eba904;
+                        color: #154BA3;
                         ">
                                             Email<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -526,7 +526,7 @@
                                                 font-weight: 400;
                                                 letter-spacing: 0px;
                                                 text-transform: none;
-                                                color: #eba904;
+                                                color: #154BA3;
                                                 ">
                                             Địa chỉ<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
@@ -573,7 +573,7 @@
                         font-weight: 400;
                         letter-spacing: 0px;
                         text-transform: none;
-                        color: #eba904;
+                        color: #154BA3;
                     ">
 
                                 Xem trên bản đồ<span
@@ -599,10 +599,10 @@
                         <div class="gdlr-core-title-item-title-wrap">
                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                 style="
-                                    font-weight: 400;
+                                    font-weight: 600;
                                     letter-spacing: 0px;
                                     text-transform: none;
-                                    color: rgb(235, 169, 4);
+                                    color: #154BA3;
                                 ">
 
                                 Để lại cho chúng tôi thông tin của bạn
@@ -626,7 +626,7 @@
                         class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-left-align">
                         <div class="gdlr-core-divider-container" style="max-width: 40px">
                             <div class="gdlr-core-divider-line gdlr-core-skin-divider"
-                                style="border-color: #eba904; border-width: 2px"></div>
+                                style="border-color: #154BA3; border-width: 2px"></div>
                         </div>
                     </div>
                 </div>
@@ -733,7 +733,7 @@
         }
 
         .contact-button:hover {
-            background-color: #eba904;
+            background-color: #154BA3;
         }
     </style>
 @endpush

@@ -19805,6 +19805,8 @@ ul.gdlr-core-category-background-widget li.gdlr-core-with-bg a:hover {
   position: relative;
 }
 
+
+
 .gdlr-core-portfolio-grid
   .gdlr-core-portfolio-content-wrap
   .gdlr-core-portfolio-info
@@ -23593,6 +23595,10 @@ input[type="reset"]:focus {
 
 .kleanity-navigation .sf-menu > .kleanity-normal-menu li:first-child {
   padding-top: 12px;
+}
+
+.kleanity-navigation .sf-menu > .kleanity-normal-menu li:first-child:hover, .kleanity-navigation .sf-menu > .kleanity-normal-menu li:last-child:hover {
+  background-color: #00d082;
 }
 
 .kleanity-navigation .sf-menu > .kleanity-normal-menu li:last-child {

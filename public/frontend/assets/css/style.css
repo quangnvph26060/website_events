@@ -548,6 +548,9 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
   > li
   > a {
   padding-top: 20px;
+  text-shadow: 0px 0px 4px rgba(145, 145, 145, 0.8),
+  0px 0px 8px rgba(255, 255, 255, 0.6),
+  0px 0px 12px rgba(255, 255, 255, 0.4);
 }
 
 .kleanity-header-style-plain.kleanity-style-splitted-menu
@@ -576,6 +579,8 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
   padding-left: 23px;
   padding-right: 23px;
 }
+
+
 
 .kleanity-header-side-nav {
   width: 305px;
@@ -882,11 +887,11 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
 }
 
 .kleanity-navigation .kleanity-navigation-slide-bar {
-  border-color: #eba904;
+  border-color: #154BA3;
 }
 
 .kleanity-navigation .kleanity-navigation-slide-bar:before {
-  border-bottom-color: #eba904;
+  border-bottom-color: #154BA3;
 }
 
 .kleanity-header-side-nav.kleanity-style-side-toggle .kleanity-logo {
@@ -953,7 +958,7 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
 
 .sf-menu > li > a,
 .sf-vertical > li > a {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .sf-menu > li > a:hover,
@@ -1077,7 +1082,7 @@ ul.mm-listview li {
 }
 
 .kleanity-body .kleanity-main-menu-right-button {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .kleanity-body .kleanity-main-menu-right-button {
@@ -1103,7 +1108,7 @@ body.kleanity-boxed .kleanity-body-wrapper,
 }
 
 .kleanity-page-title-wrap .kleanity-page-title {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .kleanity-page-title-wrap .kleanity-page-caption {
@@ -1236,7 +1241,7 @@ body.kleanity-boxed .kleanity-body-wrapper,
 }
 
 .kleanity-sidebar-area .kleanity-widget-title {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .kleanity-sidebar-area a {
@@ -1322,7 +1327,7 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 }
 
 .kleanity-footer-wrapper .kleanity-widget-title {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .kleanity-footer-wrapper {
@@ -1345,7 +1350,7 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 }
 
 .kleanity-footer-wrapper a:hover {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .kleanity-footer-wrapper,
@@ -1354,7 +1359,7 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 }
 
 .kleanity-copyright-wrapper {
-  background-color: #eba904;
+  background-color: #154BA3;
 }
 
 .kleanity-copyright-wrapper {
@@ -1362,11 +1367,11 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 }
 
 .kleanity-footer-back-to-top-button {
-  background-color: #eba904;
+  background-color: #154BA3;
 }
 
 .kleanity-footer-back-to-top-button {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .kleanity-body .kleanity-blog-title-wrap .kleanity-single-article-title {
@@ -1421,7 +1426,7 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 .gdlr-core-blog-title a,
 .kleanity-body .kleanity-single-article-title,
 .kleanity-body .kleanity-single-article-title a {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .gdlr-core-blog-title a:hover,
@@ -1619,7 +1624,7 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 
 .gdlr-core-filterer-wrap.gdlr-core-style-text a,
 .gdlr-core-filterer-wrap.gdlr-core-style-text span {
-  color: #eba904;
+  color: #154BA3;
 }
 
 .gdlr-core-filterer-wrap.gdlr-core-style-text a:hover,
