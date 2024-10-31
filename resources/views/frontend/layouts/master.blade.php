@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', $configWebsite->title_seo ?? env('APP_NAME'))</title>
-    <meta name="description" content="@yield('description', $configWebsite->description_seo ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam')">
-    <meta name="keywords" content="@yield('keywords', $configWebsite->meta_seo ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam')">
+    <meta name="description" content="@yield('description', cachedTranslate($configWebsite->description_seo ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam', \App::getLocale()))">
+    <meta name="keywords" content="@yield('keywords', cachedTranslate($configWebsite->meta_seo ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam', \App::getLocale()))">
 
     {{-- icon --}}
     <link rel="icon" type="image/png" href="{{ showImage($configWebsite->icon) }}">

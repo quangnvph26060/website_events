@@ -2,7 +2,7 @@
 
 
 @section('content')
-@include('frontend/layouts/partials/banner', ['banner' => $banner , 'is_used' => true])
+    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'is_used' => true])
 
     <div class="gdlr-core-pbf-section">
         <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
@@ -15,7 +15,7 @@
                                 <div class="gdlr-core-title-item-title-wrap">
                                     <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                         style="font-size: 44px; letter-spacing: 0px; text-transform: none; color: #154BA3;">
-                                        Core Skills &amp; Services<span
+                                        {{ cachedTranslate('Core Skills &amp; Services', \App::getLocale()) }}<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -64,7 +64,7 @@
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                                     style="font-size: 40px; font-weight: 400; letter-spacing: 0px; text-transform: none; color: #ffffff;">
-                                                    {{ $about->title }}<span
+                                                   {{ cachedTranslate($about->title, \App::getLocale()) }}<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -95,7 +95,7 @@
                                                     </span>
                                                     <div class="gdlr-core-icon-list-content-wrap">
                                                         <span class="gdlr-core-icon-list-content"
-                                                            style="font-size: 20px;">{{ $content }}</span>
+                                                            style="font-size: 20px;">{{ cachedTranslate($content, \App::getLocale()) }}</span>
                                                     </div>
                                                 </li>
                                             @endforeach

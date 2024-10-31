@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', $catalogue->name)
+@section('title', cachedTranslate($catalogue->name, \App::getLocale()))
 
 @section('content')
     <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align">
@@ -10,12 +10,12 @@
             <div class="kleanity-page-title-content kleanity-item-pdlr">
                 <h3 class="kleanity-page-title">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Nhãn</font>
+                        <font style="vertical-align: inherit;">{{ cachedTranslate('Nhãn', \App::getLocale()) }}</font>
                     </font>
                 </h3>
                 <div class="kleanity-page-caption">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">{{ $catalogue->name }}</font>
+                        <font style="vertical-align: inherit;">{{ cachedTranslate($catalogue->name, \App::getLocale()) }}</font>
                     </font>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                                                     <h3 class="gdlr-core-portfolio-title gdlr-core-skin-title">
                                                         <a href="{{ route('user.portfolio', $work->slug) }}">
                                                             <font style="vertical-align: inherit;">
-                                                                <font style="vertical-align: inherit;">{{ $work->title }}
+                                                                <font style="vertical-align: inherit;">{{ cachedTranslate($work->title, \App::getLocale()) }}
                                                                 </font>
                                                             </font>
                                                         </a>
