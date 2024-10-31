@@ -8,15 +8,17 @@
                     <ul id="menu-en_main-navigation-1" class="sf-menu">
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2043 kleanity-normal-menu {{ request()->routeIs('user.home') ? 'current-menu-item' : '' }}">
-                            <a href="/">Home</a>
+                            <a href="/">{{ cachedTranslate('Home', \App::getLocale()) }}</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-2876 current_page_item menu-item-2886 kleanity-normal-menu {{ request()->routeIs('user.about-us') ? 'current-menu-item' : '' }}">
-                            <a href="{{ route('user.about-us') }}">About Us</a>
+                            <a href="{{ route('user.about-us') }}">
+                                {{ cachedTranslate('About Us', \App::getLocale()) }}</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036 kleanity-normal-menu {{ request()->routeIs('user.portfolio') ? 'current-menu-item' : '' }}">
-                            <a href="{{ route('user.portfolio') }}">Our Works</a>
+                            <a href="{{ route('user.portfolio') }}">
+                                {{ cachedTranslate('Our Works', \App::getLocale()) }}</a>
                         </li>
                         <li class="kleanity-center-nav-menu-item ">
                             <div class="kleanity-logo kleanity-item-pdlr">
@@ -34,20 +36,20 @@
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748 kleanity-normal-menu {{ request()->routeIs('user.work-for-us') ? 'current-menu-item' : '' }}">
-                            <a href="{{ route('user.work-for-us') }}">Work for Us</a>
+                            <a href="{{ route('user.work-for-us') }}"> {{ cachedTranslate('Work for Us', \App::getLocale()) }}</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu {{ request()->routeIs('user.contact-us') ? 'current-menu-item' : '' }}">
-                            <a href="{{ route('user.contact-us') }}">Contact</a>
+                            <a href="{{ route('user.contact-us') }}"> {{ cachedTranslate('Contact', \App::getLocale()) }}</a>
                         </li>
-                        {{-- <li
+                        <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu">
-                            <a href="#">Language</a>
+                            <a href="#"> {{ cachedTranslate('Language', \App::getLocale()) }}</a>
                             <ul class="dropdown-menu">
-                                <li><a href="?lang=vi">Tiếng Việt</a></li>
-                                <li><a href="?lang=en">English</a></li>
+                                <li><a class="changeLanguage" data-lang="vi"> {{ cachedTranslate('Tiếng Việt', \App::getLocale()) }}</a></li>
+                                <li><a class="changeLanguage" data-lang="en"> {{ cachedTranslate('Tiếng Anh', \App::getLocale()) }}</a></li>
                             </ul>
-                        </li> --}}
+                        </li>
 
                     </ul>
                 </div>
@@ -56,3 +58,16 @@
     </div>
 </header>
 
+@push('scripts')
+    <script>
+        // $('.changeLanguage').change(function(event) {
+        //     var url = "{{ route('google.translate.change') }}";
+        //     window.location.href = url + "?lang=" + $(this).val()
+        // })
+
+        jQuery('.changeLanguage').click(function(event) {
+            var url = "{{ route('google.translate.change') }}";
+            window.location.href = url + "?lang=" + jQuery(this).data('lang')
+        })
+    </script>
+@endpush

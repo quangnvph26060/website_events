@@ -4,24 +4,23 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
-class Locale
+class GoogleTranslate
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-        $language = session()->get('language', config('app.locale'));
+        if (Session::has('locale')) {
 
-        if (!session()->has('language')) {
-            session()->put('language', $language);
+            App::setLocale(Session::get('locale'));
         }
-
-        app()->setLocale($language);
 
         return $next($request);
     }

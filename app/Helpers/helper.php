@@ -4,6 +4,8 @@ use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Illuminate\Filesystem\FilesystemAdapter;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * Lưu hình ảnh và trả về đường dẫn.
@@ -79,4 +81,41 @@ function deleteImage($path)
     if ($path && Storage::disk('public')->exists($path)) {
         Storage::disk('public')->delete($path);
     }
+}
+
+function translateHtmlContent($html, $targetLocale = 'en')
+{
+    // Tạo khóa cache dựa trên nội dung và ngôn ngữ
+    $cacheKey = "translation_html_" . md5($html) . "_{$targetLocale}";
+
+    // Kiểm tra xem nội dung đã được dịch và lưu trong cache chưa
+    return Cache::remember($cacheKey, 3600, function () use ($html, $targetLocale) {
+        // Tạo một instance của GoogleTranslate
+        $translator = new GoogleTranslate();
+        $translator->setSource(); // Auto-detect ngôn ngữ nguồn
+        $translator->setTarget($targetLocale);
+
+        // Tách văn bản từ HTML và dịch từng phần
+        $translatedHtml = preg_replace_callback('/>([^<]+)</', function ($matches) use ($translator) {
+            $text = $matches[1];
+            // Dịch văn bản và giữ nguyên HTML
+            return '>' . $translator->translate($text) . '<';
+        }, $html);
+
+        return $translatedHtml;
+    });
+}
+
+function cachedTranslate($text, $targetLocale = 'en')
+{
+    // Tạo khóa cache dựa trên nội dung và ngôn ngữ
+    $cacheKey = "translation_" . md5($text) . "_{$targetLocale}";
+
+    // Lưu cache trong 1 giờ (3600 giây)
+    return Cache::remember($cacheKey, 3600, function () use ($text, $targetLocale) {
+        $translator = new GoogleTranslate();
+        $translator->setSource(); // Để auto-detect ngôn ngữ
+        $translator->setTarget($targetLocale);
+        return $translator->translate($text);
+    });
 }

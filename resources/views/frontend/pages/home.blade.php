@@ -44,7 +44,7 @@
                                                 color: #154BA3;
                                                 ">
 
-                                            {{ $configHome->title_1 }}<span
+                                            {{ cachedTranslate($configHome->title_1, \App::getLocale()) }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -67,7 +67,7 @@
                                     <div
                                         class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
                                         <div class="gdlr-core-text-box-item-content">
-                                            {!! $item !!}
+                                            {!! translateHtmlContent($item, \App::getLocale()) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,8 @@
                                             -webkit-border-radius: 35px;
                                             border-color: #154BA3;
                                         "><span
-                                            class="gdlr-core-content">Tìm hiểu thêm</span></a>
+                                            class="gdlr-core-content">
+                                            {{ cachedTranslate('Tìm hiểu thêm', \App::getLocale()) }}</span></a>
                                 </div>
                             </div>
                         </div>
@@ -163,12 +164,12 @@
                             text-transform: none;
                             color: #154BA3;
                             ">
-                                {{ $configHome->title_2 }}<span
+                                {{ cachedTranslate($configHome->title_2, \App::getLocale()) }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
                         <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">
-                            {{ $configHome->quote_2 }}</span>
+                            {{ cachedTranslate($configHome->quote_2, \App::getLocale()) }}</span>
                     </div>
                 </div>
                 <div class="gdlr-core-pbf-element">
@@ -182,12 +183,13 @@
                             data-ajax="gdlr_core_home_ajax"
                             data-settings='{"category":["corporate-event","design-production","private-event","public-event"],"tag":["launching-en","business-development","ceremonial","corporate-annual-party","corporate-celebrations","music-show","customer-conference","employee-appreciation","employee-engagement","milestones","entertainment","exhibition","global-conference","internal-meeting","partner-appreciations","press-conference","sales-or-hospitality","festival"],"num-fetch":"15","layout":"masonry","thumbnail-size":"medium_large","orderby":"date","order":"desc","portfolio-style":"metro","hover":"title-date","hover-info":["title","date"],"has-column":"yes","no-space":"no","excerpt":"specify-number","excerpt-number":"55","column-size":"20","filterer":"text","filterer-align":"center","pagination":"none","id":"","class":"","filterer-left-margin":"305px","filterer-left-divider":"enable","pagination-style":"default","pagination-align":"default","view-all-works-button":"disable","view-all-works-text":"xem tất cả tác phẩm","view-all-works-link":"","portfolio-grid-text-align":"left","portfolio-grid-style":"normal","portfolio-frame-opacity":"1","enable-portfolio-title":"enable","enable-portfolio-tag":"enable","enable-portfolio-date":"disable","portfolio-medium-size":"small","portfolio-medium-style":"left","enable-thumbnail-zoom-on-hover":"enable","enable-thumbnail-grayscale-effect":"disable","enable-badge":"enable","carousel-autoslide":"enable","carousel-start-at":"","carousel-scrolling-item-amount":"1","carousel-navigation":"navigation","carousel-bullet-style":"default","read-more-button":"disable","filter-font-size":"20px","filter-font-weight":"","filter-letter-spacing":"","filter-text-transform":"uppercase","portfolio-title-font-size":"","portfolio-title-font-weight":"","portfolio-title-letter-spacing":"","portfolio-title-text-transform":"uppercase","portfolio-tag-font-style":"default","portfolio-hover-title-font-size":"","portfolio-hover-title-font-weight":"","portfolio-hover-title-letter-spacing":"","portfolio-hover-title-text-transform":"uppercase","filterer-bottom-margin":"50px","portfolio-frame-padding":"","portfolio-border-radius":"","portfolio-item-bottom-margin":"","portfolio-title-bottom-margin":"","pagination-top-margin":"","padding-bottom":"0px","frame-shadow-size":"","frame-shadow-color":"","frame-shadow-opacity":"0.2","overlay-color":"#154BA3","overlay-opacity":"0.85","title-align":"left","title-left-media":"icon","title-left-icon":"","title-left-image":"","title":"","caption":"","caption-position":"top","read-more-style":"default","read-more-text":"Read More","read-more-link":"http:\/\/rievents.vn\/portfolio\/","read-more-target":"_self","title-size":"41px","title-letter-spacing":"","title-line-height":"","title-font-style":"","title-text-transform":"uppercase","caption-size":"20px","caption-font-style":"","caption-spaces":"","read-more-size":"20px","read-more-font-weight":"","title-left-icon-color":"","title-color":"","caption-color":"","read-more-color":"#154BA3","read-more-divider":"none","read-more-divider-color":"#154BA3","title-wrap-bottom-margin":"","title-carousel-nav-style":"default","lightbox-group":"gdlr-core-img-group-1","paged":1}'
                             data-target="gdlr-core-portfolio-item-holder" data-target-action="replace">
-                            <a href="#" class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">All</a>
+                            <a href="#"
+                                class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">{{ cachedTranslate('Tất cả', \App::getLocale()) }}</a>
 
                             @foreach ($catalogues as $catalogue)
                                 <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
-                                    data-ajax-name="category"
-                                    data-ajax-value="{{ $catalogue->id }}">{{ $catalogue->name }}</a>
+                                    data-ajax-name="category" data-ajax-value="{{ $catalogue->id }}">
+                                    {{ cachedTranslate($catalogue->name, \App::getLocale()) }}</a>
                                 @if ($loop->last == false)
                                     <span class="kleanity-separater">/</span>
                                 @endif
@@ -218,7 +220,7 @@
                                                             class="gdlr-core-image-overlay-content"
                                                             style="margin-top: -26.725px"><span
                                                                 class="gdlr-core-portfolio-title gdlr-core-title-font"><a
-                                                                    href="{{ route('user.portfolio', $work->slug) }}">{{ $work->title }}</a></span><span
+                                                                    href="{{ route('user.portfolio', $work->slug) }}">{{ cachedTranslate($work->title, \App::getLocale()) }}</a></span><span
                                                                 class="gdlr-core-portfolio-info gdlr-core-portfolio-date-wrap">
                                                                 {{ \Carbon\Carbon::parse($work->created_at)->format('F j, Y') }}</span></span></span></span>
                                                 </div>
@@ -243,7 +245,7 @@
             color: #154BA3;
             border-color: #154BA3;
           "><span
-                                            class="gdlr-core-content">xem tất cả tác phẩm</span></a>
+                                            class="gdlr-core-content"> {{ cachedTranslate('xem tất cả tác phẩm', \App::getLocale()) }}</span></a>
                                 </div>
                             </div>
                         </div>
@@ -297,7 +299,7 @@
                             letter-spacing: 0px;
                             text-transform: none;
                             color: #154BA3;">
-                                            {{ $configHome->title_3 }}<span
+                                             {{ cachedTranslate( $configHome->title_3 , \App::getLocale()) }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -314,7 +316,7 @@
                                     style="padding-bottom: 0px">
                                     <div class="gdlr-core-text-box-item-content">
                                         <p>
-                                            {{ $configHome->quote_3 }}
+                                             {{ cachedTranslate($configHome->quote_3, \App::getLocale()) }}
                                         </p>
                                     </div>
                                 </div>
@@ -341,14 +343,14 @@
                                         style="border-width: 0px">
                                         @if ($partners->isNotEmpty())
                                             @foreach ($partners as $partner)
-                                                <noscript><img  src="{{ showImage($partner->logo ?? '') }}"
-                                                        alt="{{ $partner->title }}" style="width: 200px; height: 100px !important; margin-bottom: 5px"
+                                                <noscript><img src="{{ showImage($partner->logo ?? '') }}"
+                                                        alt="{{ $partner->title }}"
+                                                        style="width: 200px; height: 100px !important; margin-bottom: 5px"
                                                         title="{{ $partner->title }}" /></noscript>
-                                                        <img class="lazyload"
-                                                    src="{{ showImage($partner->logo ?? '') }}"
+                                                <img class="lazyload" src="{{ showImage($partner->logo ?? '') }}"
                                                     data-src="{{ showImage($partner->logo ?? '') }}"
-                                                    alt="{{ $partner->title }}"
-                                                    title="{{ $partner->title }}" style="margin-bottom: 5px; width: 200px; height: 100px !important" />
+                                                    alt="{{ $partner->title }}" title="{{ $partner->title }}"
+                                                    style="margin-bottom: 5px; width: 200px; height: 100px !important" />
                                             @endforeach
                                         @endif
                                     </div>
@@ -408,7 +410,7 @@
                             letter-spacing: 0px;
                             text-transform: none;
                             color: #154BA3;">
-                                {{ $configHome->title_4 }}<span
+                                {{ cachedTranslate($configHome->title_4, \App::getLocale()) }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
@@ -419,7 +421,7 @@
                         style="padding-bottom: 25px">
                         <div class="gdlr-core-text-box-item-content">
                             <p style="text-align: center">
-                                {{ $configHome->quote_4 }}
+                                 {{ cachedTranslate($configHome->quote_4 , \App::getLocale()) }}
                             </p>
                         </div>
                     </div>
@@ -448,7 +450,7 @@
                         text-transform: none;
                         color: #154BA3;
                         ">
-                                            Số điện thoại<span
+                                             {{ cachedTranslate('Số điện thoại', \App::getLocale()) }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -535,7 +537,7 @@
                                                 text-transform: none;
                                                 color: #154BA3;
                                                 ">
-                                            Địa chỉ<span
+                                            {{ cachedTranslate('Địa chỉ ', \App::getLocale()) }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -553,10 +555,7 @@
                                                         class="gdlr-core-icon-list-icon fa fa-map-marker"
                                                         style="font-size: 22px; width: 22px"></i></span>
                                                 <div class="gdlr-core-icon-list-content-wrap">
-                                                    <span class="gdlr-core-icon-list-content">169/1/16 Luong Dinh Cua
-                                                        Street, An Khanh
-                                                        Ward, Thu Duc, Ho Chi Minh City, Viet
-                                                        Nam</span>
+                                                    <span class="gdlr-core-icon-list-content"> {{ cachedTranslate($configWebsite->address, \App::getLocale()) }}</span>
                                                 </div>
                                             </a>
                                         </li>
@@ -583,7 +582,7 @@
                         color: #154BA3;
                     ">
 
-                                Xem trên bản đồ<span
+                                 {{ cachedTranslate('Xem trên bản đồ', \App::getLocale()) }}<span
                                     class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
@@ -612,7 +611,7 @@
                                     color: #154BA3;
                                 ">
 
-                                Để lại cho chúng tôi thông tin của bạn
+                                 {{ cachedTranslate('Để lại cho chúng tôi thông tin của bạn', \App::getLocale()) }}
                                 <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
@@ -623,7 +622,7 @@
                         style="padding-bottom: 25px">
                         <div class="gdlr-core-text-box-item-content">
                             <p style="text-align: left">
-                                và chúng tôi sẽ liên lạc lại với bạn
+                                 {{ cachedTranslate('và chúng tôi sẽ liên lạc lại với bạn', \App::getLocale()) }}
                             </p>
                         </div>
                     </div>
