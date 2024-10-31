@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Frontend\AboutController;
-use App\Http\Controllers\Frontend\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Frontend\PortfolioController;
 use App\Http\Controllers\Frontend\WorkController;
+use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\GoogleTranslateController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,6 @@ route::name('user.')->group(function () {
     route::get('contact', [ContactController::class, 'contact'])->name('contact-us');
     route::post('contact/submit', [ContactController::class, 'contactSubmit'])->name('contact-us.submit');
 });
+
+Route::get('google/translate',[GoogleTranslateController::class,'googleTranslate'])->name('google.translate');
+Route::get('google/translate/change',[GoogleTranslateController::class,'googleTranslateChange'])->name('google.translate.change');

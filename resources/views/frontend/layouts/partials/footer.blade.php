@@ -10,8 +10,8 @@
                     </p>
                     <p>
                         <span style="font-size: 14px">
-                            <strong>Address</strong>
-                            : {{ $configWebsite->address }}
+                            <strong> {{ cachedTranslate('Địa chỉ', \App::getLocale()) }}</strong>
+                            :  {{ cachedTranslate($configWebsite->address, \App::getLocale()) }}
                         </span>
                         <br />
                         <span style="font-size: 14px">
@@ -24,7 +24,7 @@
                         </span>
                         <br />
                         <span style="font-size: 14px">
-                            <strong>Hotline</strong>
+                            <strong> {{ cachedTranslate('Số điện thoại', \App::getLocale()) }}</strong>
                             &nbsp;:
                             <span style="color: #154BA3">
                                 <a style="color: #154BA3" href="tel:(+84)%200909 691511">{{ $configWebsite->constant_hotline }}</a>
@@ -37,16 +37,15 @@
         <div class="kleanity-footer-column kleanity-item-pdlr kleanity-column-20">
             <div id="recent-posts-3" class="widget widget_recent_entries kleanity-widget">
                 <h3 class="kleanity-widget-title">
-                    <span class="kleanity-widget-head-text">Bài viết gần đây</span>
+                    <span class="kleanity-widget-head-text"> {{ cachedTranslate('Bài viết gần đây', \App::getLocale()) }}</span>
                     <span class="kleanity-widget-head-divider"></span>
                 </h3>
                 <span class="clear"></span>
                 <ul>
-
                     @foreach ($postF->take(3) as $item)
                         <li>
                             <a
-                                href="{{ route('user.work-for-us', $item->slug) }}">{{ \Str::limit($item->title, 30, '...') }}</a>
+                                href="{{ route('user.work-for-us', $item->slug) }}">  {{ cachedTranslate(\Str::limit($item->title, 30, '...'), \App::getLocale()) }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -56,7 +55,7 @@
             <div id="gdlr-core-recent-portfolio-widget-3"
                 class="widget widget_gdlr-core-recent-portfolio-widget kleanity-widget">
                 <h3 class="kleanity-widget-title">
-                    <span class="kleanity-widget-head-text">Dự án gần đây</span>
+                    <span class="kleanity-widget-head-text"> {{ cachedTranslate('Dự án gần đây', \App::getLocale()) }}</span>
                     <span class="kleanity-widget-head-divider"></span>
                 </h3>
                 <span class="clear"></span>

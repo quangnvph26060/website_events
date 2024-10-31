@@ -5,7 +5,7 @@
             @foreach ($sliderHome as $slider)
                 <div class="item" style="background-image: url({{ showImage($slider->path_image) }})">
                     <div class="content">
-                        <div class="name">{{ $slider->title }}</div>
+                        <div class="name">{{ cachedTranslate($slider->title, \App::getLocale()) }}</div>
 
                     </div>
                 </div>
