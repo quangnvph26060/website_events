@@ -41,7 +41,7 @@
                             text-transform: none;
                             color: #154BA3;
                           ">
-                                                    Phone<span
+                                                    {{ cachedTranslate('Số điện thoại', \App::getLocale()) }}<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -60,7 +60,8 @@
                                                                 style="font-size: 20px; width: 20px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
                                                             <span class="gdlr-core-icon-list-content"
-                                                                style="font-size: 18px">+84 {{ $configWebsite->constant_hotline }}</span>
+                                                                style="font-size: 18px">+84
+                                                                {{ $configWebsite->constant_hotline }}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -131,7 +132,7 @@
                             text-transform: none;
                             color: #154BA3;
                           ">
-                                                    Address<span
+                                                    {{ cachedTranslate('Địa chỉ', \App::getLocale()) }}<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -150,7 +151,8 @@
                                                                 style="font-size: 22px; width: 22px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
                                                             <span class="gdlr-core-icon-list-content"
-                                                                style="font-size: 20px">{{ $configWebsite->address }}</span>
+                                                                style="font-size: 20px">
+                                                                {{ cachedTranslate($configWebsite->address, \App::getLocale()) }}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -172,13 +174,13 @@
                                 <div class="gdlr-core-title-item-title-wrap">
                                     <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                         style="
-                      font-size: 30px;
-                      font-weight: 400;
-                      letter-spacing: 0px;
-                      text-transform: none;
-                      color: #154BA3;
-                    ">
-                                        View on map<span
+                                        font-size: 30px;
+                                        font-weight: 400;
+                                        letter-spacing: 0px;
+                                        text-transform: none;
+                                        color: #154BA3;
+                                        ">
+                                        {{ cachedTranslate('Xem trên bản đồ', \App::getLocale()) }}<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -209,7 +211,7 @@
                       color: #154BA3;
                     ">
 
-                                        Để lại cho chúng tôi thông tin của bạn
+                                        {{ cachedTranslate('Để lại cho chúng tôi thông tin của bạn', \App::getLocale()) }}
                                         <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -221,7 +223,7 @@
                                 <div class="gdlr-core-text-box-item-content"
                                     style="font-size: 20px; text-transform: none">
                                     <p style="text-align: left">
-                                        Và chúng tôi sẽ liên hệ lại với bạn
+                                        {{ cachedTranslate('Và chúng tôi sẽ liên hệ lại với bạn', \App::getLocale()) }}
                                     </p>
                                 </div>
                             </div>

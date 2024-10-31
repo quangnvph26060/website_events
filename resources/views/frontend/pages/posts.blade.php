@@ -17,7 +17,7 @@
                         <div class="gdlr-core-page-builder-body">
                             <div class="gdlr-core-pbf-wrapper">
                                 <div class="gdlr-core-pbf-wrapper-title" style="padding-left: 10px; ">
-                                    <h1 style="color: #4e4e4e">{{ $post->title }}</h1>
+                                    <h1 style="color: #4e4e4e"> {{ cachedTranslate($post->title, \App::getLocale()) }}</h1>
                                 </div>
                                 <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
                                     <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
@@ -29,7 +29,8 @@
                                                             class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
                                                             <div class="gdlr-core-text-box-item-content"
                                                                 style="text-transform: none">
-                                                                {!! $post->content !!}
+
+                                                                {!! translateHtmlContent($post->content, \App::getLocale()) !!}
                                                             </div>
                                                         </div>
                                                     </div>

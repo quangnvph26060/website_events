@@ -108,6 +108,9 @@ function translateHtmlContent($html, $targetLocale = 'en')
 
 function cachedTranslate($text, $targetLocale = 'en')
 {
+    if(empty($text)){
+        return $text;
+    }
     // Tạo khóa cache dựa trên nội dung và ngôn ngữ
     $cacheKey = "translation_" . md5($text) . "_{$targetLocale}";
 
