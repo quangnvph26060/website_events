@@ -2,16 +2,21 @@
     <div class="kleanity-sidebar-area kleanity-item-pdlr">
         <div id="text-2" class="widget widget_text kleanity-widget">
             <h3 class="kleanity-widget-title">
-                <span class="kleanity-widget-head-text">TUYỂN DỤNG</span><span
+                <span class="kleanity-widget-head-text">
+                    {{ cachedTranslate('TUYỂN DỤNG', \App::getLocale()) }}</span><span
                     class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
             <div class="textwidget">
                 <p>
-                    We do not need you too much experience because we will
-                    give it to you. We just need you with a great passion
-                    and an excellent thinking that is the foundation to
-                    help you create value and difference.
+
+                    {{ cachedTranslate(
+                        'Chúng tôi không cần bạn quá nhiều kinh nghiệm vì chúng tôi sẽ
+                                                            đưa nó cho bạn. Chúng tôi chỉ cần bạn với niềm đam mê lớn lao
+                                                            và một tư duy xuất sắc là nền tảng để
+                                                            giúp bạn tạo ra giá trị và sự khác biệt.',
+                        \App::getLocale(),
+                    ) }}
                 </p>
             </div>
         </div>
@@ -19,8 +24,7 @@
             class="widget widget_gdlr-core-recent-portfolio-widget kleanity-widget">
             <h3 class="kleanity-widget-title">
                 <span class="kleanity-widget-head-text">
-                    DỰ ÁN GẦN ĐÂY</span><span
-                    class="kleanity-widget-head-divider"></span>
+                    {{ cachedTranslate('DỰ ÁN GẦN ĐÂY', \App::getLocale()) }}</span><span class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
             <div class="gdlr-core-recent-portfolio-widget-wrap clearfix">
@@ -31,32 +35,25 @@
                                     alt="{{ $work->title }}" width="150" height="150"
                                     title="{{ $work->title }}" /></noscript><img class="ls-is-cached lazyloaded"
                                 src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                data-src="{{ showImage($work->images->first()->image_path ?? '') }}" alt="{{ $work->title }}"
-                                width="150" height="150" title="{{ $work->title }}" /><span
-                                class="gdlr-core-image-overlay"><i class="fas fa-link"></i></span></a>
+                                data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
+                                alt="{{ $work->title }}" width="150" height="150"
+                                title="{{ $work->title }}" /><span class="gdlr-core-image-overlay"><i
+                                    class="fas fa-link"></i></span></a>
                     </div>
                 @endforeach
             </div>
         </div>
-        {{-- <div id="recent-comments-3" class="widget widget_recent_comments kleanity-widget">
-            <h3 class="kleanity-widget-title">
-                <span class="kleanity-widget-head-text">Recent Comments</span><span
-                    class="kleanity-widget-head-divider"></span>
-            </h3>
-            <span class="clear"></span>
-            <ul id="recentcomments"></ul>
-        </div> --}}
         <div id="tag_cloud-2" class="widget widget_tag_cloud kleanity-widget">
             <h3 class="kleanity-widget-title">
                 <span class="kleanity-widget-head-text">
-                    Gắn thẻ đám mây</span><span
-                    class="kleanity-widget-head-divider"></span>
+                     {{ cachedTranslate('Gắn thẻ đám mây', \App::getLocale()) }}</span><span class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
             <div class="tagcloud">
                 @foreach ($tags as $item)
-                    <a href="{{ route('user.work-for-us-tag', $item->slug) }}" class="tag-cloud-link tag-link-104 tag-link-position-1"
-                        style="font-size: 8pt" aria-label="{{ $item->name }}">{{ $item->name }}</a>
+                    <a href="{{ route('user.work-for-us-tag', $item->slug) }}"
+                        class="tag-cloud-link tag-link-104 tag-link-position-1" style="font-size: 8pt"
+                        aria-label="{{ $item->name }}"> {{ cachedTranslate($item->name, \App::getLocale()) }}</a>
                 @endforeach
             </div>
         </div>

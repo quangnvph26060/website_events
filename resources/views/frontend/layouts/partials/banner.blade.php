@@ -1,4 +1,3 @@
-
 @if ($is_used == true)
     <div class="gdlr-core-pbf-wrapper gdlr-core-wrapper-full-height gdlr-core-js gdlr-core-full-height-center"
         style="
@@ -10,7 +9,7 @@
         <div class="gdlr-core-pbf-background-wrap">
             <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js lazyloaded" data-bg=""
                 style="
-        background-image: url('{{ showImage($banner->path_image)}}');
+        background-image: url('{{ showImage($banner->path_image) }}');
         background-size: cover;
         background-position: center center;
         height: 730px;
@@ -55,7 +54,7 @@
                                 text-transform: none;
                                 color: #ffffff;
                                 ">
-                                            {{ !empty($banner->title) ? $banner->title : '' }}<span
+                                            {{ cachedTranslate($banner->title, \App::getLocale()) }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -87,7 +86,7 @@
                                     color: #ffffff;
                                 ">
                                         <p style="text-align: center">
-                                            {{ !empty($banner->description) ? $banner->description : '' }}
+                                            {{ cachedTranslate($banner->description, \App::getLocale()) }}
                                         </p>
                                     </div>
                                 </div>

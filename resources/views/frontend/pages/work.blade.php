@@ -46,7 +46,7 @@
                                                         Don't wait for opportunity. Create it.
                                                     </div> --}}
                                                     <h3 class="gdlr-core-stunning-text-item-title">
-                                                        LIFE IS SHORT. WORK SOMEWHERE AWESOME.
+                                                        {{ cachedTranslate('CUỘC ĐỜI LÀ NGẮN. LÀM VIỆC Ở ĐÂU TUYỆT VỜI.', \App::getLocale()) }}
                                                     </h3>
                                                     {{-- <div class="gdlr-core-stunning-text-item-content">
                                                         <p>Oh hey, we’re hirring!</p>
@@ -100,16 +100,21 @@
                                                     font-weight: 800;
                                                     letter-spacing: 0px;
                                                     ">
-                                                            <a
-                                                                href="{{ route('user.work-for-us', $post->slug) }}">{{ $post->title }}</a>
+                                                            <a href="{{ route('user.work-for-us', $post->slug) }}">
+                                                                {{ cachedTranslate($post->title, \App::getLocale()) }}</a>
                                                         </h3>
                                                     </div>
                                                     <div class="gdlr-core-blog-content">
-                                                        {{ $post->excerpt }}
+                                                        {{ cachedTranslate($post->excerpt, \App::getLocale()) }}
                                                         <div class="clear"></div>
                                                         <a class="gdlr-core-excerpt-read-more kleanity-title-font"
-                                                            href="{{ route('user.work-for-us', $post->slug) }}">Tiếp tục
-                                                            đọc<i class="fa fa-long-arrow-right"></i></a>
+                                                            href="{{ route('user.work-for-us', $post->slug) }}">
+                                                            {{ cachedTranslate(
+                                                                'Tiếp tục
+                                                                                                                                                                                    đọc',
+                                                                \App::getLocale(),
+                                                            ) }}<i
+                                                                class="fa fa-long-arrow-right"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach
