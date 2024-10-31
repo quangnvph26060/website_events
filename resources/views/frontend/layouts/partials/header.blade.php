@@ -40,14 +40,14 @@
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu {{ request()->routeIs('user.contact-us') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.contact-us') }}">Contact</a>
                         </li>
-                        <li
+                        {{-- <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu">
                             <a href="#">Language</a>
                             <ul class="dropdown-menu">
                                 <li><a href="?lang=vi">Tiếng Việt</a></li>
                                 <li><a href="?lang=en">English</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>
