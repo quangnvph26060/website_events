@@ -14,7 +14,7 @@
             <div class="kleanity-page-title-container kleanity-container">
                 <div class="kleanity-page-title-content kleanity-item-pdlr">
                     <h3 class="kleanity-page-title">Thẻ</h3>
-                    <div class="kleanity-page-caption">{{ cachedTranslate($slider->title, \App::getLocale()) }}</div>
+                    <div class="kleanity-page-caption">{{ cachedTranslate($tag->name, \App::getLocale()) }}</div>
                 </div>
             </div>
         </div>
