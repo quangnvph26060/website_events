@@ -14,7 +14,7 @@
             <div class="kleanity-page-title-container kleanity-container">
                 <div class="kleanity-page-title-content kleanity-item-pdlr">
                     <h3 class="kleanity-page-title">Thẻ</h3>
-                    <div class="kleanity-page-caption">{{ cachedTranslate($slider->title, \App::getLocale()) }}</div>
+                    <div class="kleanity-page-caption">{{ cachedTranslate($tag->name, \App::getLocale()) }}</div>
                 </div>
             </div>
         </div>
@@ -41,16 +41,11 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div
                                                     class="gdlr-core-stunning-text-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align gdlr-core-stunning-text-caption-above-title">
-                                                    {{-- <div
-                                                        class="gdlr-core-stunning-text-item-caption gdlr-core-info-font gdlr-core-skin-caption">
-                                                        Don't wait for opportunity. Create it.
-                                                    </div> --}}
+
                                                     <h3 class="gdlr-core-stunning-text-item-title">
                                                         {{ cachedTranslate('CUỘC ĐỜI LÀ NGẮN. LÀM VIỆC Ở ĐÂU TUYỆT VỜI.', \App::getLocale()) }}
                                                     </h3>
-                                                    {{-- <div class="gdlr-core-stunning-text-item-content">
-                                                        <p>Oh hey, we’re hirring!</p>
-                                                    </div> --}}
+
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
@@ -97,7 +92,7 @@
                                                         <h3 class="gdlr-core-blog-title gdlr-core-skin-title"
                                                             style="
                                                     font-size: 40px;
-                                                    font-weight: 800;
+                                                    font-weight: 700;
                                                     letter-spacing: 0px;
                                                     ">
                                                             <a href="{{ route('user.work-for-us', $post->slug) }}">

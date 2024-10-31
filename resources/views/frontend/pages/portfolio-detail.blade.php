@@ -68,7 +68,7 @@
                                 <div class="gdlr-core-title-item-title-wrap">
                                     <h4 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                         style="
-                                        font-size: 40;
+                                        font-size: 40px;
                                         font-weight: 700;
                                         text-transform: none;
                                         color: #154BA3

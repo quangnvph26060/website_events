@@ -42,12 +42,12 @@ class ConfigController extends Controller
 
         if ($request->hasFile('icon')) {
             deleteImage($config->icon);
-            $validated['icon'] = saveImages($request, 'icon', 'icon');
+            $validated['icon'] = saveImages($request, 'icon', 'icon', );
         }
 
         if ($request->hasFile('logo')) {
             deleteImage($config->logo);
-            $validated['logo'] = saveImages($request, 'logo', 'logo', 2364, 2065);
+            $validated['logo'] = saveImages($request, 'logo', 'logo', 2732,2000);
         }
 
         if ($config) {

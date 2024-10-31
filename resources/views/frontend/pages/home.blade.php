@@ -90,15 +90,11 @@
                                     <a class="gdlr-core-button gdlr-core-button-transparent gdlr-core-button-with-border"
                                         href="{{ route('user.about-us') }}"
                                         style="
-                                            font-size: 14px;
-                                            font-weight: 300;
-                                            color: #a0a0a0;
-                                            padding: 10px 15px 10px 15px;
-                                            border-radius: 35px;
-                                            -moz-border-radius: 35px;
-                                            -webkit-border-radius: 35px;
-                                            border-color: #154BA3;
-                                        "><span
+                                        font-size: 20px;
+                                        color: #154BA3;
+                                        border-color: #154BA3;
+                                      "
+                                        ><span
                                             class="gdlr-core-content">
                                             {{ cachedTranslate('Tìm hiểu thêm', \App::getLocale()) }}</span></a>
                                 </div>
@@ -137,7 +133,7 @@
         </div>
     </div>
 
-    <div class="gdlr-core-pbf-wrapper 02" style="padding: 90px 0px 40px 0px" data-skin="Blog Hp 6" id="02">
+    <div class="gdlr-core-pbf-wrapper 02" style="padding: 20px 0px 40px 0px" data-skin="Blog Hp 6" id="02">
         <div class="gdlr-core-pbf-background-wrap" style="background-color: #ffffff"></div>
         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
@@ -282,7 +278,7 @@
         </div>
     </div>
 
-    <div class="gdlr-core-pbf-wrapper 03" style="padding: 100px 0px 20px 0px" id="03">
+    <div class="gdlr-core-pbf-wrapper 03" style="padding: 20px 0px 20px 0px" id="03">
         <div class="gdlr-core-pbf-background-wrap"></div>
         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
@@ -369,9 +365,6 @@
                 <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px"></div>
             </div>
             <div class="gdlr-core-pbf-element">
-                <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px"></div>
-            </div>
-            <div class="gdlr-core-pbf-element">
                 <div
                     class="gdlr-core-divider-item gdlr-core-divider-item-with-icon gdlr-core-item-pdlr gdlr-core-center-align">
                     <div class="gdlr-core-divider-item-with-icon-inner gdlr-core-js">
@@ -396,7 +389,7 @@
         </div>
     </div>
 
-    <div class="gdlr-core-pbf-wrapper 04" style="padding: 60px 0px 100px 0px" id="04">
+    <div class="gdlr-core-pbf-wrapper 04" style="padding: 20px 0px 100px 0px" id="04">
         <div class="gdlr-core-pbf-background-wrap" style="background-color: #ffffff"></div>
         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
