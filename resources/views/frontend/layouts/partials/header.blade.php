@@ -36,19 +36,24 @@
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748 kleanity-normal-menu {{ request()->routeIs('user.work-for-us') ? 'current-menu-item' : '' }}">
-                            <a href="{{ route('user.work-for-us') }}"> {{ cachedTranslate('Work for Us', \App::getLocale()) }}</a>
+                            <a href="{{ route('user.work-for-us') }}">
+                                {{ cachedTranslate('Work for Us', \App::getLocale()) }}</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu {{ request()->routeIs('user.contact-us') ? 'current-menu-item' : '' }}">
-                            <a href="{{ route('user.contact-us') }}"> {{ cachedTranslate('Contact', \App::getLocale()) }}</a>
+                            <a href="{{ route('user.contact-us') }}">
+                                {{ cachedTranslate('Contact', \App::getLocale()) }}</a>
                         </li>
                         <li
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu">
-                            <a href="#"> {{ cachedTranslate('Language', \App::getLocale()) }}</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="changeLanguage" data-lang="vi"> {{ cachedTranslate('Tiếng Việt', \App::getLocale()) }}</a></li>
-                                <li><a class="changeLanguage" data-lang="en"> {{ cachedTranslate('Tiếng Anh', \App::getLocale()) }}</a></li>
-                            </ul>
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu" style="display: flex; align-items: center; gap: 10px">
+                           
+
+                            <a href="#" class="changeLanguage" data-lang="vi" >
+                                <img style="max-width: 40px" src="{{ asset('frontend/assets/image/Flag_of_Vietnam.svg.png') }}" alt="Vietnamese Flag">
+                            </a>
+                            <a href="#" class="changeLanguage" data-lang="en" >
+                                <img style="max-width: 40px" src="{{ asset('frontend/assets/image/Flag_of_the_United_Kingdom_(3-5).svg.png') }}" alt="UK Flag">
+                            </a>
                         </li>
 
                     </ul>
@@ -60,10 +65,6 @@
 
 @push('scripts')
     <script>
-        // $('.changeLanguage').change(function(event) {
-        //     var url = "{{ route('google.translate.change') }}";
-        //     window.location.href = url + "?lang=" + $(this).val()
-        // })
 
         jQuery('.changeLanguage').click(function(event) {
             var url = "{{ route('google.translate.change') }}";

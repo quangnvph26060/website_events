@@ -49,10 +49,10 @@
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
-                                font-size: 44px;
-                                letter-spacing: 0px;
-                                text-transform: none;
-                                color: #ffffff;
+                                                font-weight: 600;
+                                                letter-spacing: 0px;
+                                                text-transform: none;
+                                                 color: #ffffff;
                                 ">
                                             {{ cachedTranslate($banner->title, \App::getLocale()) }}<span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>

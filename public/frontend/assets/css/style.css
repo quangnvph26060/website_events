@@ -353,7 +353,7 @@ body
 
 body .gdlr-core-blog-full .gdlr-core-excerpt-read-more {
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 body .gdlr-core-blog-full .gdlr-core-blog-info-wrapper {
@@ -1950,6 +1950,12 @@ q {
   color: #383838;
 }
 
+/* .gdlr-core-body .gdlr-core-load-more,
+.gdlr-core-body .gdlr-core-button-with-border.gdlr-core-button-transparent:hover{
+    background-color: #154BA3;
+    color: #fff !important;
+} */
+
 .gdlr-core-body .gdlr-core-load-more:hover,
 .gdlr-core-body .gdlr-core-button-with-border:hover {
   border-color: #000;
@@ -1958,7 +1964,9 @@ q {
 .gdlr-core-body .gdlr-core-load-more:hover,
 .gdlr-core-body
   .gdlr-core-button-with-border.gdlr-core-button-transparent:hover {
-  color: #000;
+  color: #fff !important;
+  background-color: #154BA3 !important;
+
 }
 
 .gdlr-core-body .gdlr-core-button.gdlr-core-button-gradient {
