@@ -5,11 +5,11 @@
                 <div class="kleanity-logo-inner">
                     <a href="/">
                         <noscript>
-                            <img src="{{asset('frontend/assets/image/Ri-Logo-Colors-03-e1646326633617.png')}}" alt=""
+                            <img src="{{ showImage($configWebsite->logo) }}" alt=""
                                 width="2364" height="2065" title="Ri Logo Colors-03" />
                         </noscript>
-                        <img class="lazyload" src="{{asset('frontend/assets/image/Ri-Logo-Colors-03-e1646326633617.png')}}"
-                            data-src="{{asset('frontend/assets/image/Ri-Logo-Colors-03-e1646326633617.png')}}" alt=""
+                        <img class="lazyload" src="{{ showImage($configWebsite->logo) }}"
+                            data-src="{{ showImage($configWebsite->logo) }}" alt=""
                             width="2364" height="2065" title="Ri Logo Colors-03" />
                     </a>
                 </div>

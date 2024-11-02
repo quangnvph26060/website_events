@@ -5,7 +5,7 @@
     @include('frontend/include/slider')
 
 
-    <div class="gdlr-core-pbf-wrapper 01" style="padding: 90px 0px 40px 0px" id="01">
+    <div class="gdlr-core-pbf-wrapper 01" style="padding: 20px 0px 40px 0px" id="01">
         <div class="gdlr-core-pbf-background-wrap" style="background-color: #ffffff"></div>
         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
@@ -329,12 +329,12 @@
                     </div>
                 </div>
                 <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
-                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js gdlr-core-column-full-height gdlr-core-full-height-center"
-                        style="min-height: 730px">
+                    <div class="gdlr-core-pbf-column-content-margin  gdlr-core-full-height-center"
+                        style="min-height: 520px">
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js gdlr-core-full-height-content">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"
-                                    style="padding-bottom: 20px">
+                                    >
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
                                         @if ($partners->isNotEmpty())

@@ -15711,7 +15711,7 @@ form.submitting .wpcf7-spinner {
   vertical-align: middle;
   position: relative;
   line-height: 1;
-  margin-top: 3px;
+  margin-top: 10px;
 }
 
 .gdlr-core-icon-list-item.gdlr-core-right-align .gdlr-core-icon-list-icon-wrap {
@@ -24647,7 +24647,7 @@ html.mm-opened body.admin-bar .kleanity-header-side-nav {
 }
 
 .kleanity-fixed-navigation.kleanity-style-slide .kleanity-logo-inner img {
-  max-height: 35px !important;
+  max-height: 50px !important;
   width: auto;
 }
 
@@ -24681,7 +24681,7 @@ body.admin-bar .kleanity-fixed-navigation.kleanity-style-slide {
 
 .kleanity-animate-fixed-navigation.kleanity-header-style-plain
   .kleanity-navigation {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .kleanity-animate-fixed-navigation.kleanity-header-style-plain

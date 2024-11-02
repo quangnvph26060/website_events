@@ -146,12 +146,15 @@
                                     <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
                                         <noscript><img
                                                 src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                                alt="{{ $relatedWork->title }}" width="700" height="450"
+
+                                                alt="{{ $relatedWork->title }}"
                                                 title="{{ $relatedWork->title }}" /></noscript><img
+                                                style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;"
                                             class=" ls-is-cached lazyloaded"
                                             src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
                                             data-src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                            alt="{{ $relatedWork->title }}" width="700" height="450"
+                                            alt="{{ $relatedWork->title }}"
+
                                             title="{{ $relatedWork->title }}"><span
                                             class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span
                                                 class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;"><span
