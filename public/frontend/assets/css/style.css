@@ -449,8 +449,8 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
 
 .kleanity-body-front .gdlr-core-container,
 .kleanity-body-front .kleanity-container {
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .kleanity-body-front .kleanity-container .kleanity-container,
@@ -547,7 +547,7 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
   .sf-menu
   > li
   > a {
-  padding-top: 20px;
+  padding-top: 22px;
   text-shadow: 0px 0px 4px rgba(145, 145, 145, 0.8),
   0px 0px 8px rgba(255, 255, 255, 0.6),
   0px 0px 12px rgba(255, 255, 255, 0.4);
@@ -625,11 +625,11 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
 }
 
 .kleanity-logo-inner {
-  max-width: 80px;
+  max-width: 150px;
 }
 
 .kleanity-navigation {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 .kleanity-navigation-top {
