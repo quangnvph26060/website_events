@@ -27,7 +27,8 @@
                                                                 data-ilightbox-group="gdlr-core-img-group-1"
                                                                 data-type="image"><noscript><img
                                                                         src="{{ showImage($item->image_path ?? '') }}"
-                                                                        alt="{{ $item->title }}" width="2560" height="1600"
+                                                                        alt="{{ $item->title }}" width="2560"
+                                                                        height="1600"
                                                                         title="PTSC.30Years (122)" /></noscript>
                                                                 <img class="ls-is-cached lazyloaded"
                                                                     src="{{ showImage($item->image_path ?? '') }}"
@@ -42,15 +43,15 @@
                                         </div>
                                     </div>
                                     @if ($work->link_video)
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-video-item gdlr-core-item-pdlr gdlr-core-item-pdb">
-                                            <div class="gdlr-core-video-item-type-youtube">
-                                                <div class="gdlr-core-fluid-video-wrapper" style="padding-top: 56.25%">
-                                                    {!! $work->link_video !!}
+                                        <div class="gdlr-core-pbf-element">
+                                            <div class="gdlr-core-video-item gdlr-core-item-pdlr gdlr-core-item-pdb">
+                                                <div class="gdlr-core-video-item-type-youtube">
+                                                    <div class="gdlr-core-fluid-video-wrapper" style="padding-top: 56.25%">
+                                                        {!! $work->link_video !!}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endif
                                 </div>
                             </div>
@@ -73,7 +74,7 @@
                                         text-transform: none;
                                         color: #154BA3
                                         ">
-                                        Thông tin dự án<span
+                                        {{ cachedTranslate('Thông tin dự án', \App::getLocale()) }}<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h4>
                                 </div>
@@ -88,38 +89,36 @@
                                             <div
                                                 class="gdlr-core-port-info-wrap gdlr-core-skin-divider gdlr-core-with-border">
                                                 <div class="gdlr-core-port-info">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Khách
-                                                        hàng</span><span
-                                                        class="gdlr-core-port-info-value">{{ $work->customer }}</span>
+                                                    <span
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Khách hàng', \App::getLocale()) }}</span><span
+                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->customer, \App::getLocale()) }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Dự
-                                                        án</span><span
-                                                        class="gdlr-core-port-info-value">{{ $work->project_name }}</span>
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Dự án', \App::getLocale()) }}</span><span
+                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->project_name, \App::getLocale()) }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span class="gdlr-core-port-info-key gdlr-core-skin-title">
-                                                        Người tham dự</span><span
-                                                        class="gdlr-core-port-info-value">{{ $work->participants_count }}</span>
+                                                        {{ cachedTranslate('Người tham dự', \App::getLocale()) }}</span><span
+                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->participants_count, \App::getLocale()) }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">Năm</span><span
-                                                        class="gdlr-core-port-info-value">{{ $work->year }}</span>
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Năm', \App::getLocale()) }}</span><span
+                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->year, \App::getLocale()) }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Địa
-                                                        điểm</span><span
-                                                        class="gdlr-core-port-info-value">{{ $work->location }}</span>
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Địa điểm', \App::getLocale()) }}</span><span
+                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->location, \App::getLocale()) }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info gdlr-core-port-info-post-type-tax">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">Danh
-                                                        mục</span>
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Danh mục', \App::getLocale()) }}
+                                                        </span>
                                                     <span class="gdlr-core-port-info-value">
                                                         @foreach ($work->catalogues as $catalogue)
                                                             <a href="{{ route('user.portfolio_tag', $catalogue->slug) }}"
                                                                 rel="tag">
-                                                                {{ $catalogue->name }}
+                                                            {{ cachedTranslate($catalogue->name , \App::getLocale()) }}
                                                             </a>{{ !$loop->last ? ', ' : '' }}
                                                         @endforeach
                                                 </div>
@@ -136,7 +135,7 @@
 
         <div class="gdlr-core-portfolio-single-related gdlr-core-style-grid">
             <div class="gdlr-core-container">
-                <h3 class="gdlr-core-portfolio-single-related-head gdlr-core-item-pdlr">Dự án liên quan</h3>
+                <h3 class="gdlr-core-portfolio-single-related-head gdlr-core-item-pdlr">{{ cachedTranslate('Dự án liên quan', \App::getLocale()) }}</h3>
                 <div class="gdlr-core-portfolio-item-holder clearfix">
                     @foreach ($relatedWorks as $key => $relatedWork)
                         <div
@@ -147,6 +146,7 @@
                                     <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
                                         <noscript><img
                                                 src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
+
                                                 alt="{{ $relatedWork->title }}"
                                                 title="{{ $relatedWork->title }}" /></noscript><img
                                                 style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;"
@@ -154,6 +154,7 @@
                                             src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
                                             data-src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
                                             alt="{{ $relatedWork->title }}"
+
                                             title="{{ $relatedWork->title }}"><span
                                             class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span
                                                 class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;"><span
@@ -164,12 +165,12 @@
                                                         data-type="image"><i
                                                             class="gdlr-core-portfolio-icon arrow_expand"></i></a></span><span
                                                     class="gdlr-core-portfolio-title gdlr-core-title-font "><a
-                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ $relatedWork->title }}</a></span></span></span>
+                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ cachedTranslate($relatedWork->title , \App::getLocale()) }}</a></span></span></span>
                                     </div>
                                 </div>
                                 <div class="gdlr-core-portfolio-content-wrap gdlr-core-skin-divider">
                                     <h3 class="gdlr-core-portfolio-title gdlr-core-skin-title"><a
-                                            href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ $relatedWork->title }}</a>
+                                            href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ cachedTranslate($relatedWork->title , \App::getLocale()) }}</a>
                                     </h3>
 
                                     <span
@@ -177,7 +178,7 @@
 
                                         @foreach ($relatedWork->catalogues as $catalogue2)
                                             <a href="{{ route('user.portfolio_tag', $catalogue2->slug) }}"
-                                                rel="tag">{{ $catalogue2->name }}</a>
+                                                rel="tag">{{ cachedTranslate($catalogue2->name, \App::getLocale()) }}</a>
                                             @if (!$loop->last)
                                                 <span class="gdlr-core-sep">/</span>
                                             @endif
