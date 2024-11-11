@@ -3,20 +3,12 @@
         <div id="text-2" class="widget widget_text kleanity-widget">
             <h3 class="kleanity-widget-title">
                 <span class="kleanity-widget-head-text">
-                    {{ cachedTranslate('TUYỂN DỤNG', \App::getLocale()) }}</span><span
-                    class="kleanity-widget-head-divider"></span>
+                    @lang('lang.recruitment')</span><span class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
             <div class="textwidget">
                 <p>
-
-                    {{ cachedTranslate(
-                        'Chúng tôi không cần bạn quá nhiều kinh nghiệm vì chúng tôi sẽ
-                                                            đưa nó cho bạn. Chúng tôi chỉ cần bạn với niềm đam mê lớn lao
-                                                            và một tư duy xuất sắc là nền tảng để
-                                                            giúp bạn tạo ra giá trị và sự khác biệt.',
-                        \App::getLocale(),
-                    ) }}
+                    @lang('lang.document')
                 </p>
             </div>
         </div>
@@ -24,7 +16,7 @@
             class="widget widget_gdlr-core-recent-portfolio-widget kleanity-widget">
             <h3 class="kleanity-widget-title">
                 <span class="kleanity-widget-head-text">
-                    {{ cachedTranslate('DỰ ÁN GẦN ĐÂY', \App::getLocale()) }}</span><span class="kleanity-widget-head-divider"></span>
+                    @lang('lang.recent-projects')</span><span class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
             <div class="gdlr-core-recent-portfolio-widget-wrap clearfix">
@@ -46,14 +38,16 @@
         <div id="tag_cloud-2" class="widget widget_tag_cloud kleanity-widget">
             <h3 class="kleanity-widget-title">
                 <span class="kleanity-widget-head-text">
-                     {{ cachedTranslate('Gắn thẻ đám mây', \App::getLocale()) }}</span><span class="kleanity-widget-head-divider"></span>
+                    @lang('lang.tag')</span><span class="kleanity-widget-head-divider"></span>
             </h3>
             <span class="clear"></span>
             <div class="tagcloud">
                 @foreach ($tags as $item)
                     <a href="{{ route('user.work-for-us-tag', $item->slug) }}"
                         class="tag-cloud-link tag-link-104 tag-link-position-1" style="font-size: 8pt"
-                        aria-label="{{ $item->name }}"> {{ cachedTranslate($item->name, \App::getLocale()) }}</a>
+                        aria-label="{{ $item->name }}">
+                        {{ getLocalizedContent($item, 'name', \App::getLocale()) }}
+                    </a>
                 @endforeach
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Events\TranslateContent;
 use App\Models\Catalogue;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class CatalogueController extends Controller
     function create()
     {
         $title = 'Thêm mới danh mục';
-        return view('backend.catalogues.create', compact( 'title'));
+        return view('backend.catalogues.create', compact('title'));
     }
 
     function store(CatalogueStoreRequest $request)
@@ -35,9 +36,11 @@ class CatalogueController extends Controller
             $criteria['image'] = saveImages($request, 'image', 'catalogues', 150, 150);
         }
 
-       $criteria['status'] = $request->status ?: 0;
+        $criteria['status'] = $request->status ?: 0;
 
-        Catalogue::create($criteria);
+        $catalogue =  Catalogue::create($criteria);
+
+        event(new TranslateContent('catalogues', $catalogue->id, ['name'], 'en'));
 
         session()->flash('success', 'Danh mục đã được thêm thành công!');
 
@@ -49,7 +52,7 @@ class CatalogueController extends Controller
         $title = 'Cập nhật danh mục';
 
 
-        return view('backend.catalogues.edit', compact( 'catalogue', 'title'));
+        return view('backend.catalogues.edit', compact('catalogue', 'title'));
     }
 
 
@@ -65,6 +68,8 @@ class CatalogueController extends Controller
         $criteria['status'] = $request->status ?: 0;
 
         $catalogue->update($criteria);
+
+        event(new TranslateContent('catalogues', $catalogue->id, ['name'], 'en'));
 
         session()->flash('success', 'Danh mục đã được cập nhật thành công!');
 

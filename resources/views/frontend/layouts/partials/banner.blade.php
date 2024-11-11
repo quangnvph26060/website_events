@@ -54,7 +54,8 @@
                                                 text-transform: none;
                                                  color: #ffffff;
                                 ">
-                                            {{ cachedTranslate($banner->title, \App::getLocale()) }}<span
+                                            {{ getLocalizedContent($banner, 'title', \App::getLocale()) }}
+                                            <span
                                                 class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
@@ -86,7 +87,7 @@
                                     color: #ffffff;
                                 ">
                                         <p style="text-align: center">
-                                            {{ cachedTranslate($banner->description, \App::getLocale()) }}
+                                            {{ getLocalizedContent($banner, 'description', \App::getLocale()) }}
                                         </p>
                                     </div>
                                 </div>

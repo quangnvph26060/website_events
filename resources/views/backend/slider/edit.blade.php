@@ -21,14 +21,9 @@
                 <div id="slider-container">
                         <div class="form-group mb-3 shadow-sm position-relative">
                             <div class="row ">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <input type="text" name="title" placeholder="Tiêu đề"
                                         class="form-control" value="{{ old("title", $slider->title) }}">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" name="short_content"
-                                        placeholder="Nội dung ngắn" class="form-control"
-                                        value="{{ old("short_content", $slider->short_content) }}">
                                 </div>
                                 <div class="col-md-12">
                                     <img class="img-fluid img-thumbnail w-100" id="show_path_image"

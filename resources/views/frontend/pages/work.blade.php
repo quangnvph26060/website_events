@@ -13,8 +13,12 @@
             <div class="kleanity-page-title-overlay"></div>
             <div class="kleanity-page-title-container kleanity-container">
                 <div class="kleanity-page-title-content kleanity-item-pdlr">
-                    <h3 class="kleanity-page-title">Thẻ</h3>
-                    <div class="kleanity-page-caption">{{ cachedTranslate($tag->name, \App::getLocale()) }}</div>
+                    <h3 class="kleanity-page-title">@lang('lang.tags')</h3>
+                    <div class="kleanity-page-caption">
+
+                        {{ getLocalizedContent($tag, 'name', \App::getLocale()) }}
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,7 +47,7 @@
                                                     class="gdlr-core-stunning-text-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align gdlr-core-stunning-text-caption-above-title">
 
                                                     <h3 class="gdlr-core-stunning-text-item-title">
-                                                        {{ cachedTranslate('CUỘC ĐỜI LÀ NGẮN. LÀM VIỆC Ở ĐÂU TUYỆT VỜI.', \App::getLocale()) }}
+                                                        @lang('lang.life-is-short')
                                                     </h3>
 
                                                 </div>
@@ -96,20 +100,16 @@
                                                     letter-spacing: 0px;
                                                     ">
                                                             <a href="{{ route('user.work-for-us', $post->slug) }}">
-                                                                {{ cachedTranslate($post->title, \App::getLocale()) }}</a>
+                                                                {{ getLocalizedContent($post, 'title', \App::getLocale()) }}
+                                                            </a>
                                                         </h3>
                                                     </div>
                                                     <div class="gdlr-core-blog-content">
-                                                        {{ cachedTranslate($post->excerpt, \App::getLocale()) }}
+                                                        {{ getLocalizedContent($post, 'excerpt', \App::getLocale()) }}
                                                         <div class="clear"></div>
                                                         <a class="gdlr-core-excerpt-read-more kleanity-title-font"
                                                             href="{{ route('user.work-for-us', $post->slug) }}">
-                                                            {{ cachedTranslate(
-                                                                'Tiếp tục
-                                                                                                                                                                                    đọc',
-                                                                \App::getLocale(),
-                                                            ) }}<i
-                                                                class="fa fa-long-arrow-right"></i></a>
+                                                            @lang('lang.continue')<i class="fa fa-long-arrow-right"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach

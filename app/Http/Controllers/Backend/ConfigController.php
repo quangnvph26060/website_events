@@ -59,6 +59,7 @@ class ConfigController extends Controller
             Config::create($validated);
         }
 
+        translateAndSave('config', $config->id, ['title_seo', 'meta_seo', 'description_seo', 'description', 'address', 'footer'], 'en');
 
         return redirect()->route('admin.config.index')->with('success', 'Cập nhật thông tin thành công');
     }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend\Config;
 
-use App\Http\Controllers\Controller;
 use App\Models\ConfigBanner;
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
+use App\Http\Controllers\Controller;
 
 class ConfigBannerController extends Controller
 {
@@ -45,10 +46,17 @@ class ConfigBannerController extends Controller
         $pageNameExits = $request->page_name;
         $criteria['path_image'] = saveImages($request, 'path_image', 'banners', 2500, 1143);
         $banner = ConfigBanner::where('page_name', $pageNameExits)->first();
+
+
+
         if ($banner) {
             $banner->update($criteria);
         }
-        ConfigBanner::create($criteria);
+
+        $banner =  ConfigBanner::create($criteria);
+
+        event(new TranslateContent('config_banners', $banner->id, ['title', 'description'], 'en'));
+
         session()->flash('success', 'Banner page đã được thêm thành công!');
         return redirect()->route('admin.config.banner.index');
     }
@@ -94,6 +102,9 @@ class ConfigBannerController extends Controller
         }
 
         $banner->update($validated);
+
+        event(new TranslateContent('config_banners', $banner->id, ['title', 'description'], 'en'));
+
         session()->flash('success', 'Cập nhật về banner đã được thêm thành công!');
         return redirect()->route('admin.config.banner.index');
     }

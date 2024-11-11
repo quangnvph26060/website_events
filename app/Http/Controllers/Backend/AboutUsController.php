@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
+use App\Http\Controllers\Controller;
 
 class AboutUsController extends Controller
 {
@@ -30,9 +31,16 @@ class AboutUsController extends Controller
             'title' => 'Tiêu đề',
             'image' => 'Hình ảnh'
         ]);
+
         $criteria['image'] = saveImages($request, 'image', 'about', 2560, 1600);
-        About::create($criteria);
+
+        $about = About::create($criteria);
+
+        event(new TranslateContent('abouts', $about->id, ['title', 'content'], 'en'));
+
+
         session()->flash('success', 'Giới thiệu về chúng tôi đã được thêm thành công!');
+
         return redirect()->route('admin.about.index');
     }
     public function edit($id)
@@ -60,7 +68,11 @@ class AboutUsController extends Controller
         }
 
         $about->update($validated);
+
+        event(new TranslateContent('abouts', $about->id, ['title', 'content'], 'en'));
+
         session()->flash('success', 'Cập nhật về chúng tôi đã được thêm thành công!');
+        
         return redirect()->route('admin.about.index');
     }
     public function destroy($id)

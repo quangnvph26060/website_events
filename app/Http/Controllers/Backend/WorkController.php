@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Work;
 use App\Models\Catalogue;
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -75,6 +76,16 @@ class WorkController extends Controller
                     ]);
                 }
             }
+
+            $fields = [
+                'title',
+                'description',
+                'customer',
+                'project_name',
+                'location'
+            ];
+
+            event(new TranslateContent('works', $work->id, $fields, 'en'));
 
             session()->flash('success', 'Tác phẩm đã được thêm thành công!');
 
@@ -167,6 +178,17 @@ class WorkController extends Controller
                 }
             }
 
+            $fields = [
+                'title',
+                'description',
+                'customer',
+                'project_name',
+                'location'
+            ];
+
+            event(new TranslateContent('works', $work->id, $fields, 'en'));
+
+
             session()->flash('success', 'Tác phẩm đã được cập nhật thành công!');
 
             DB::commit();
@@ -174,6 +196,7 @@ class WorkController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             session()->flash('error', 'Tác phẩm đã xảy ra lỗi!');
             return redirect()->back();
         }

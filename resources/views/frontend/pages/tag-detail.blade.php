@@ -1,6 +1,8 @@
 @extends('frontend.layouts.master')
 
-@section('title', cachedTranslate($catalogue->name, \App::getLocale()))
+{{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+
+@section('title')
 
 @section('content')
     <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align">
@@ -10,12 +12,14 @@
             <div class="kleanity-page-title-content kleanity-item-pdlr">
                 <h3 class="kleanity-page-title">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">{{ cachedTranslate('Nhãn', \App::getLocale()) }}</font>
+                        <font style="vertical-align: inherit;">@lang('lang.tags')</font>
                     </font>
                 </h3>
                 <div class="kleanity-page-caption">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">{{ cachedTranslate($catalogue->name, \App::getLocale()) }}</font>
+                        <font style="vertical-align: inherit;">
+                            {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+                        </font>
                     </font>
                 </div>
             </div>
@@ -27,14 +31,7 @@
             <div class=" kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-none">
                 <div class=" kleanity-sidebar-center kleanity-column-60 kleanity-line-height">
                     <div class="kleanity-content-area">
-                        {{-- <div class="kleanity-archive-taxonomy-description kleanity-item-pdlr">
-                            <p>
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Ngày kỷ niệm, lễ kỷ niệm cột mốc quan trọng.
-                                    </font>
-                                </font>
-                            </p>
-                        </div> --}}
+
                         <div
                             class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix  gdlr-core-portfolio-item-style-grid">
                             <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
@@ -51,8 +48,7 @@
                                                         class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
                                                         <a class="gdlr-core-ilightbox gdlr-core-js"
                                                             href="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                                            data-ilightbox-group="gdlr-core-img-group-1"
-                                                            data-type="image">
+                                                            data-ilightbox-group="gdlr-core-img-group-1" data-type="image">
                                                             <noscript><img
                                                                     src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                                     alt="" width="700" height="500"
@@ -79,7 +75,8 @@
                                                     <h3 class="gdlr-core-portfolio-title gdlr-core-skin-title">
                                                         <a href="{{ route('user.portfolio', $work->slug) }}">
                                                             <font style="vertical-align: inherit;">
-                                                                <font style="vertical-align: inherit;">{{ cachedTranslate($work->title, \App::getLocale()) }}
+                                                                <font style="vertical-align: inherit;">
+                                                                    {{ getLocalizedContent($work, 'title', \App::getLocale()) }}
                                                                 </font>
                                                             </font>
                                                         </a>
