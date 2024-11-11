@@ -3379,3 +3379,20 @@ del span.woocommerce-Price-amount.amount {
 .gdlr-core-item-mgb {
   margin-bottom: 40px;
 }
+
+.header-language {
+    width: 100%;
+    height: 20px; /* Chiều cao có thể điều chỉnh */
+    background-color: #ffffff; /* Màu nền trắng */
+    display: flex; /* Sử dụng flexbox */
+    justify-content: flex-end; /* Căn chỉnh nội dung về bên trái */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding:14px 0px; /* Khoảng cách bên trái và bên phải */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ */
+}
+
+.header-language a {
+    margin: 0 5px; /* Khoảng cách giữa các phần tử */
+    font-size: 14px; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+}

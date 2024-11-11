@@ -1,16 +1,26 @@
 <div class="kleanity-mobile-header-wrap">
+    <div class="header-language">
+        {{-- <p>Tiếng anh</p>
+        <p>Tiếng việt</p> --}}
+        <a href="#" class="changeLanguage" data-lang="vi">
+            <img style="max-width: 40px" src="{{ asset('frontend/assets/image/Flag_of_Vietnam.svg.png') }}" alt="Vietnamese Flag">
+        </a>
+        <a href="#" class="changeLanguage" data-lang="en">
+            <img style="max-width: 40px" src="{{ asset('frontend/assets/image/Flag_of_the_United_Kingdom_(3-5).svg.png') }}" alt="UK Flag">
+        </a>
+    </div>
     <div class="kleanity-mobile-header kleanity-header-background kleanity-style-slide" id="kleanity-mobile-header">
         <div class="kleanity-mobile-header-container kleanity-container">
             <div class="kleanity-logo kleanity-item-pdlr">
                 <div class="kleanity-logo-inner">
                     <a href="/">
                         <noscript>
-                            <img src="{{ showImage($configWebsite->logo) }}" alt=""
-                                width="2364" height="2065" title="Ri Logo Colors-03" />
+                            <img src="{{ showImage($configWebsite->logo) }}" alt="" width="2364" height="2065"
+                                title="Ri Logo Colors-03" />
                         </noscript>
                         <img class="lazyload" src="{{ showImage($configWebsite->logo) }}"
-                            data-src="{{ showImage($configWebsite->logo) }}" alt=""
-                            width="2364" height="2065" title="Ri Logo Colors-03" />
+                            data-src="{{ showImage($configWebsite->logo) }}" alt="" width="2364"
+                            height="2065" title="Ri Logo Colors-03" />
                     </a>
                 </div>
             </div>
@@ -31,19 +41,16 @@
                                     </li>
                                     <li
                                         class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2876 current_page_item menu-item-2886">
-                                        <a href="{{route('user.about-us')}}" aria-current="page">About Us</a>
+                                        <a href="{{ route('user.about-us') }}" aria-current="page">About Us</a>
                                     </li>
-                                    <li
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036">
-                                        <a href="{{route('user.portfolio')}}">Our Works</a>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036">
+                                        <a href="{{ route('user.portfolio') }}">Our Works</a>
                                     </li>
-                                    <li
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748">
-                                        <a href="{{route('user.work-for-us')}}">Work for Us</a>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748">
+                                        <a href="{{ route('user.work-for-us') }}">Work for Us</a>
                                     </li>
-                                    <li
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007">
-                                        <a href="{{route('user.contact-us')}}">Contact</a>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007">
+                                        <a href="{{ route('user.contact-us') }}">Contact</a>
                                     </li>
                                 </ul>
                             </div>
