@@ -24008,7 +24008,7 @@ input[type="reset"]:focus {
 }
 
 .kleanity-overlay-menu-content .kleanity-overlay-menu-close:after {
-  content: "\4d";
+  content: "X";
   font-family: elegantIcons;
 }
 
@@ -25969,8 +25969,9 @@ body.kleanity-boxed
   }
 
   .kleanity-overlay-menu-content ul.menu {
-    padding-top: 120px;
-    padding-bottom: 100px;
+    /* padding-top: 120px;
+    padding-bottom: 100px; */
+    padding-top: 0 !important;
     max-width: 80%;
   }
 
