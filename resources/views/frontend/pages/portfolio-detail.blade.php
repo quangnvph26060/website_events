@@ -74,7 +74,7 @@
                                         text-transform: none;
                                         color: #154BA3
                                         ">
-                                        {{ cachedTranslate('Thông tin dự án', \App::getLocale()) }}<span
+                                        @lang('lang.info-work')<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h4>
                                 </div>
@@ -90,35 +90,45 @@
                                                 class="gdlr-core-port-info-wrap gdlr-core-skin-divider gdlr-core-with-border">
                                                 <div class="gdlr-core-port-info">
                                                     <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Khách hàng', \App::getLocale()) }}</span><span
-                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->customer, \App::getLocale()) }}</span>
-                                                </div>
-                                                <div class="gdlr-core-port-info">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Dự án', \App::getLocale()) }}</span><span
-                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->project_name, \App::getLocale()) }}</span>
-                                                </div>
-                                                <div class="gdlr-core-port-info">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">
-                                                        {{ cachedTranslate('Người tham dự', \App::getLocale()) }}</span><span
-                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->participants_count, \App::getLocale()) }}</span>
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.client')</span><span
+                                                        class="gdlr-core-port-info-value">
+                                                        {{ getLocalizedContent($work, 'customer', \App::getLocale()) }}
+                                                    </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Năm', \App::getLocale()) }}</span><span
-                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->year, \App::getLocale()) }}</span>
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.project')</span><span
+                                                        class="gdlr-core-port-info-value">
+                                                        {{ getLocalizedContent($work, 'project_name', \App::getLocale()) }}
+                                                    </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Địa điểm', \App::getLocale()) }}</span><span
-                                                        class="gdlr-core-port-info-value">{{ cachedTranslate($work->location, \App::getLocale()) }}</span>
+                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">
+                                                        @lang('lang.attendee')</span><span class="gdlr-core-port-info-value">
+                                                        {{ $work->participants_count }}
+                                                    </span>
+                                                </div>
+                                                <div class="gdlr-core-port-info">
+                                                    <span
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.year')</span><span
+                                                        class="gdlr-core-port-info-value">{{$work->year}}</span>
+                                                </div>
+                                                <div class="gdlr-core-port-info">
+                                                    <span
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.location')</span><span
+                                                        class="gdlr-core-port-info-value">
+                                                        {{ getLocalizedContent($work, 'location', \App::getLocale()) }}
+                                                    </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info gdlr-core-port-info-post-type-tax">
-                                                    <span class="gdlr-core-port-info-key gdlr-core-skin-title">{{ cachedTranslate('Danh mục', \App::getLocale()) }}
-                                                        </span>
+                                                    <span
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.catalogue')
+                                                    </span>
                                                     <span class="gdlr-core-port-info-value">
                                                         @foreach ($work->catalogues as $catalogue)
                                                             <a href="{{ route('user.portfolio_tag', $catalogue->slug) }}"
                                                                 rel="tag">
-                                                            {{ cachedTranslate($catalogue->name , \App::getLocale()) }}
+                                                                {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
                                                             </a>{{ !$loop->last ? ', ' : '' }}
                                                         @endforeach
                                                 </div>
@@ -135,7 +145,7 @@
 
         <div class="gdlr-core-portfolio-single-related gdlr-core-style-grid">
             <div class="gdlr-core-container">
-                <h3 class="gdlr-core-portfolio-single-related-head gdlr-core-item-pdlr">{{ cachedTranslate('Dự án liên quan', \App::getLocale()) }}</h3>
+                <h3 class="gdlr-core-portfolio-single-related-head gdlr-core-item-pdlr">@lang('lang.related-projects')</h3>
                 <div class="gdlr-core-portfolio-item-holder clearfix">
                     @foreach ($relatedWorks as $key => $relatedWork)
                         <div
@@ -146,16 +156,13 @@
                                     <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
                                         <noscript><img
                                                 src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-
                                                 alt="{{ $relatedWork->title }}"
                                                 title="{{ $relatedWork->title }}" /></noscript><img
-                                                style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;"
+                                            style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;"
                                             class=" ls-is-cached lazyloaded"
                                             src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
                                             data-src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                            alt="{{ $relatedWork->title }}"
-
-                                            title="{{ $relatedWork->title }}"><span
+                                            alt="{{ $relatedWork->title }}" title="{{ $relatedWork->title }}"><span
                                             class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span
                                                 class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;"><span
                                                     class="gdlr-core-portfolio-icon-wrap"><a
@@ -165,12 +172,16 @@
                                                         data-type="image"><i
                                                             class="gdlr-core-portfolio-icon arrow_expand"></i></a></span><span
                                                     class="gdlr-core-portfolio-title gdlr-core-title-font "><a
-                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ cachedTranslate($relatedWork->title , \App::getLocale()) }}</a></span></span></span>
+                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">
+                                                        {{ getLocalizedContent($relatedWork, 'title', \App::getLocale()) }}
+                                                    </a></span></span></span>
                                     </div>
                                 </div>
                                 <div class="gdlr-core-portfolio-content-wrap gdlr-core-skin-divider">
                                     <h3 class="gdlr-core-portfolio-title gdlr-core-skin-title"><a
-                                            href="{{ route('user.portfolio', $relatedWork->slug) }}">{{ cachedTranslate($relatedWork->title , \App::getLocale()) }}</a>
+                                            href="{{ route('user.portfolio', $relatedWork->slug) }}">
+                                            {{ getLocalizedContent($relatedWork, 'title', \App::getLocale()) }}
+                                        </a>
                                     </h3>
 
                                     <span
@@ -178,7 +189,9 @@
 
                                         @foreach ($relatedWork->catalogues as $catalogue2)
                                             <a href="{{ route('user.portfolio_tag', $catalogue2->slug) }}"
-                                                rel="tag">{{ cachedTranslate($catalogue2->name, \App::getLocale()) }}</a>
+                                                rel="tag">
+                                                {{ getLocalizedContent($catalogue2, 'name', \App::getLocale()) }}
+                                            </a>
                                             @if (!$loop->last)
                                                 <span class="gdlr-core-sep">/</span>
                                             @endif

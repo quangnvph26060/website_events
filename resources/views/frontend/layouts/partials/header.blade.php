@@ -8,17 +8,17 @@
                     <ul id="menu-en_main-navigation-1" class="sf-menu">
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2043 kleanity-normal-menu {{ request()->routeIs('user.home') ? 'current-menu-item' : '' }}">
-                            <a href="/">{{ cachedTranslate('Trang chủ', \App::getLocale()) }}</a>
+                            <a href="/">{{ __('lang.home') }}</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-2876 current_page_item menu-item-2886 kleanity-normal-menu {{ request()->routeIs('user.about-us') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.about-us') }}">
-                                {{ cachedTranslate('Về chúng tôi', \App::getLocale()) }}</a>
+                                @lang('lang.about')</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036 kleanity-normal-menu {{ request()->routeIs('user.portfolio') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.portfolio') }}">
-                                {{ cachedTranslate('Công việc', \App::getLocale()) }}</a>
+                                @lang('lang.job')</a>
                         </li>
                         <li class="kleanity-center-nav-menu-item ">
                             <div class="kleanity-logo kleanity-item-pdlr">
@@ -37,12 +37,12 @@
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748 kleanity-normal-menu {{ request()->routeIs('user.work-for-us') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.work-for-us') }}">
-                                {{ cachedTranslate('Dịch vụ', \App::getLocale()) }}</a>
+                                @lang('lang.service')</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu {{ request()->routeIs('user.contact-us') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.contact-us') }}">
-                                {{ cachedTranslate('Contact', \App::getLocale()) }}</a>
+                                @lang('lang.contact')</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu" style="display: flex; align-items: center; gap: 10px">

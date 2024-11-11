@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    @include('frontend.layouts.partials.banner', ['is_used' => true , 'banner' => $banner])
+    @include('frontend.layouts.partials.banner', ['is_used' => true, 'banner' => $banner])
 
     <div class="gdlr-core-pbf-wrapper" style="padding: 0px 0px 30px 0px">
         <div class="gdlr-core-pbf-background-wrap"></div>
@@ -20,11 +20,14 @@
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align"
                             data-ajax="gdlr_core_portfolio_ajax" data-target="gdlr-core-portfolio-item-holder"
                             data-target-action="replace" style="font-size: 22px; margin-bottom: 50px">
-                            <a href="#" class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">{{ cachedTranslate('Tất cả', \App::getLocale()) }}</a>
+                            <a href="#"
+                                class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
 
                             @foreach ($catalogues as $catalogue)
                                 <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
-                                    data-ajax-value="{{ $catalogue->id }}">{{ cachedTranslate($catalogue->name, \App::getLocale()) }}</a>
+                                    data-ajax-value="{{ $catalogue->id }}">
+                                    {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+                                </a>
                                 @if ($loop->last == false)
                                     <span class="kleanity-separater">/</span>
                                 @endif
@@ -58,12 +61,15 @@
                                                                     letter-spacing: 0px;
                                                                     text-transform: none;
                                                                     ">
-                                                                    <a
-                                                                    href="{{ route('user.portfolio', $work->slug) }}">{{ cachedTranslate($work->title, \App::getLocale()) }}</a></span><span
+                                                                <a href="{{ route('user.portfolio', $work->slug) }}">
+                                                                    {{ getLocalizedContent($work, 'title', \App::getLocale()) }}
+                                                                </a></span><span
                                                                 class="gdlr-core-portfolio-info gdlr-core-portfolio-info-tag gdlr-core-info-font">
                                                                 @foreach ($work->catalogues as $cata)
                                                                     <a href="{{ route('user.portfolio_tag', $cata->slug) }}"
-                                                                        rel="tag">{{ cachedTranslate($cata->name, \App::getLocale()) }}</a>
+                                                                        rel="tag">
+                                                                        {{ getLocalizedContent($cata, 'name', \App::getLocale()) }}
+                                                                    </a>
                                                                     @if ($loop->last == false)
                                                                         <span class="gdlr-core-sep">/</span>
                                                                     @endif

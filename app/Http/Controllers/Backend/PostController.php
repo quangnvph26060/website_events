@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
@@ -60,6 +61,11 @@ class PostController extends Controller
         $criteria['featured_image'] = saveImages($request, 'featured_image', 'posts', 1200, 580);
 
         $post = Post::create($criteria);
+
+        $fields = ['title', 'content', 'excerpt', 'meta_description', 'meta_keywords'];
+
+        event(new TranslateContent('posts', $post->id, $fields, 'en'));
+
 
         $post->tags()->sync($request->tags);
 
@@ -124,6 +130,10 @@ class PostController extends Controller
         }
 
         $post->update($validated);
+
+        $fields = ['title', 'content', 'excerpt', 'meta_description', 'meta_keywords'];
+
+        event(new TranslateContent('posts', $post->id, $fields, 'en'));
 
         $post->tags()->sync($request->tags);
 

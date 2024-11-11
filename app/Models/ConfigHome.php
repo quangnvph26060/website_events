@@ -21,10 +21,43 @@ class ConfigHome extends Model
         'title_4',
         'quote_4',
         'map',
+        'content_en',
 
     ];
 
     protected $casts = [
-        'content' => 'array'
+        'content' => 'array',
+        'content_en' => 'array',
     ];
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     $columns = [
+    //         'title_1',
+    //         'quote_1',
+    //         'content',
+    //         'title_2',
+    //         'quote_2',
+    //         'title_3',
+    //         'quote_3',
+    //         'title_4',
+    //         'quote_4',
+    //     ];
+
+    //     static::saving(function ($configHome) use ($columns) {
+    //         $fieldsToTranslate = [];
+
+    //         foreach ($columns as $column) {
+    //             if ($configHome->isDirty($column)) {
+    //                 $fieldsToTranslate[] = $column;
+    //             }
+    //         }
+
+    //         if (!empty($fieldsToTranslate)) {
+    //             translateAndSave('config_home', $configHome->id, $fieldsToTranslate, 'en');
+    //         }
+    //     });
+    // }
 }

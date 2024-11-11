@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\ConfigSlider;
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
+use App\Http\Controllers\Controller;
 
 class SliderController extends Controller
 {
@@ -40,7 +41,11 @@ class SliderController extends Controller
             'path_image' => 'Hình ảnh',
         ]);
         $criteria['path_image'] = saveImages($request, 'path_image', 'sliders', 3125, 2671);
-        ConfigSlider::create($criteria);
+
+        $slider =  ConfigSlider::create($criteria);
+
+        event(new TranslateContent('config_sliders', $slider->id, ['title'], 'en'));
+
         session()->flash('success', 'Slider đã được thêm thành công!');
         return redirect()->route('admin.slider.index');
     }
@@ -83,6 +88,9 @@ class SliderController extends Controller
         }
 
         $slider->update($validated);
+
+        event(new TranslateContent('config_sliders', $slider->id, ['title'], 'en'));
+
         session()->flash('success', 'Cập nhật slider thành công!');
         return redirect()->route('admin.slider.index');
     }

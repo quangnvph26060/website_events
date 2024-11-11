@@ -20,7 +20,12 @@ class Work extends Model
         'participants_count',
         'year',
         'location',
-        'link_video'
+        'link_video',
+        'title_en',
+        'description_en',
+        'customer_en',
+        'project_name_en',
+        'location_en'
     ];
 
     public function catalogue()

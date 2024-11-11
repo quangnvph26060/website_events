@@ -5,8 +5,9 @@
             @foreach ($sliderHome as $slider)
                 <div class="item" style="background-image: url({{ showImage($slider->path_image) }})">
                     <div class="content">
-                        <div class="name">{{ cachedTranslate($slider->title, \App::getLocale()) }}</div>
-
+                        <div class="name">
+                            {{ getLocalizedContent($slider, 'title', \App::getLocale()) }}
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -40,7 +41,7 @@
         }
 
         // Initialize the auto-slide when the page loads
-          startAutoSlide();
+        startAutoSlide();
 
         document.getElementById("next").onclick = function() {
             if (isSliding) return; // Block if a slide transition is in progress

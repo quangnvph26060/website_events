@@ -41,7 +41,7 @@
                             text-transform: none;
                             color: #154BA3;
                           ">
-                                                    {{ cachedTranslate('Số điện thoại', \App::getLocale()) }}<span
+                                                  @lang('lang.phone')<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -132,7 +132,7 @@
                             text-transform: none;
                             color: #154BA3;
                           ">
-                                                    {{ cachedTranslate('Địa chỉ', \App::getLocale()) }}<span
+                                                   @lang('lang.address')<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -143,16 +143,15 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="https://g.page/RIEVENTS?share" target="_blank"><span
-                                                            class="gdlr-core-icon-list-icon-wrap"><i
-                                                                class="gdlr-core-icon-list-icon-hover fa fa-map-marker"
-                                                                style="font-size: 22px"></i><i
-                                                                class="gdlr-core-icon-list-icon fa fa-map-marker"
-                                                                style="font-size: 22px; width: 22px"></i></span>
+                                                    <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($configWebsite->address) }}" target="_blank">
+                                                        <span class="gdlr-core-icon-list-icon-wrap">
+                                                            <i class="gdlr-core-icon-list-icon-hover fa fa-map-marker" style="font-size: 22px"></i>
+                                                            <i class="gdlr-core-icon-list-icon fa fa-map-marker" style="font-size: 22px; width: 22px"></i>
+                                                        </span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
-                                                            <span class="gdlr-core-icon-list-content"
-                                                                style="font-size: 20px">
-                                                                {{ cachedTranslate($configWebsite->address, \App::getLocale()) }}</span>
+                                                            <span class="gdlr-core-icon-list-content" style="font-size: 20px">
+                                                                {{ $configWebsite->address }}
+                                                            </span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -180,7 +179,7 @@
                                         text-transform: none;
                                         color: #154BA3;
                                         ">
-                                        {{ cachedTranslate('Xem trên bản đồ', \App::getLocale()) }}<span
+                                       @lang('lang.map')<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -211,7 +210,7 @@
                       color: #154BA3;
                     ">
 
-                                        {{ cachedTranslate('Để lại cho chúng tôi thông tin của bạn', \App::getLocale()) }}
+       @lang('lang.information')
                                         <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -223,7 +222,7 @@
                                 <div class="gdlr-core-text-box-item-content"
                                     style="font-size: 20px; text-transform: none">
                                     <p style="text-align: left">
-                                        {{ cachedTranslate('Và chúng tôi sẽ liên hệ lại với bạn', \App::getLocale()) }}
+                                   @lang('lang.i-and')
                                     </p>
                                 </div>
                             </div>

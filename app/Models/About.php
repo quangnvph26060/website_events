@@ -10,6 +10,7 @@ class About extends Model
     use HasFactory;
     protected $casts = [
         'content' => 'array',
+        'content_en' => 'array'
     ];
 
     protected $fillable = ['title', 'image', 'content'];

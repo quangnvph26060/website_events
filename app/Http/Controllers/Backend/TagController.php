@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
 use App\Http\Controllers\Controller;
 
 class TagController extends Controller
@@ -43,7 +44,10 @@ class TagController extends Controller
             ]
         );
 
-        Tag::create($criteria);
+       $tag = Tag::create($criteria);
+
+       event(new TranslateContent('tags', $tag->id, ['name'], 'en'));
+
 
         session()->flash('success', 'Thẻ đã được thêm thành công!');
 
@@ -84,6 +88,9 @@ class TagController extends Controller
         );
 
         $tag->update($criteria);
+
+       event(new TranslateContent('tags', $tag->id, ['name'], 'en'));
+
 
         session()->flash('success', 'Thẻ đã được cập nhật thành công!');
 

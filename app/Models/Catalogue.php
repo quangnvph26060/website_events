@@ -13,6 +13,7 @@ class Catalogue extends Model
     const IS_INACTIVE = 0;
     protected $fillable = [
         'name',
+        'name_en',
         'slug',
         'image',
         'status',

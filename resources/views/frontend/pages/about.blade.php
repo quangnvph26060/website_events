@@ -15,7 +15,7 @@
                                 <div class="gdlr-core-title-item-title-wrap">
                                     <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                         style="font-size: 44px; letter-spacing: 0px; text-transform: none; color: #154BA3;">
-                                        {{ cachedTranslate('Core Skills &amp; Services', \App::getLocale()) }}<span
+                                        @lang('lang.core-skills-and-services')<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -64,7 +64,9 @@
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                                     style="font-size: 40px; font-weight: 400; letter-spacing: 0px; text-transform: none; color: #ffffff;">
-                                                   {{ cachedTranslate($about->title, \App::getLocale()) }}<span
+
+                                                    {{ getLocalizedContent($about, 'title', \App::getLocale()) }}
+                                                    <span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -85,7 +87,8 @@
                                     <div
                                         class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                         <ul>
-                                            @foreach ($about->content as $content)
+                                            @php($texts = getLocalizedContent($about, 'content', \App::getLocale()))
+                                            @foreach ($texts as $content)
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover gdlr-core-column-20">
                                                     <span class="gdlr-core-icon-list-icon-wrap">
                                                         <i class="gdlr-core-icon-list-icon-hover fa fa-check-circle"
@@ -94,8 +97,9 @@
                                                             style="color: #154BA3; font-size: 20px; width: 20px;"></i>
                                                     </span>
                                                     <div class="gdlr-core-icon-list-content-wrap">
-                                                        <span class="gdlr-core-icon-list-content"
-                                                            style="font-size: 20px;">{{ cachedTranslate($content, \App::getLocale()) }}</span>
+                                                        <span class="gdlr-core-icon-list-content" style="font-size: 20px;">
+                                                            {{ $content }}
+                                                        </span>
                                                     </div>
                                                 </li>
                                             @endforeach
