@@ -1,16 +1,16 @@
 <div class="kleanity-mobile-header-wrap">
-    <div class="header-language">
-        {{-- <p>Tiếng anh</p>
-        <p>Tiếng việt</p> --}}
-        <a href="#" class="changeLanguage" data-lang="vi">
-            <img style="max-width: 30px" src="{{ asset('frontend/assets/image/Flag_of_Vietnam.svg.png') }}" alt="Vietnamese Flag">
-        </a>
-        <a href="#" class="changeLanguage" data-lang="en">
-            <img style="max-width: 30px" src="{{ asset('frontend/assets/image/Flag_of_the_United_Kingdom_(3-5).svg.png') }}" alt="UK Flag">
-        </a>
-    </div>
+
     <div class="kleanity-mobile-header kleanity-header-background kleanity-style-slide" id="kleanity-mobile-header">
+        <div class="header-language">
+            <a href="#" class="changeLanguage" data-lang="vi">
+                <img style="max-width: 30px" src="{{ asset('frontend/assets/image/Flag_of_Vietnam.svg.png') }}" alt="Vietnamese Flag">
+            </a>
+            <a href="#" class="changeLanguage" data-lang="en">
+                <img style="max-width: 30px" src="{{ asset('frontend/assets/image/Flag_of_the_United_Kingdom_(3-5).svg.png') }}" alt="UK Flag">
+            </a>
+        </div>
         <div class="kleanity-mobile-header-container kleanity-container">
+
             <div class="kleanity-logo kleanity-item-pdlr">
                 <div class="kleanity-logo-inner">
                     <a href="/">

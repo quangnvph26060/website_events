@@ -18,7 +18,7 @@
                                 style="background: rgba(235, 169, 4, 0.85)"><span
                                     class="gdlr-core-image-overlay-content" style="margin-top: -26.725px"><span
                                         class="gdlr-core-portfolio-title gdlr-core-title-font"><a
-                                            href="">{{ $work->title }}</a></span><span
+                                            href="{{ route('user.portfolio', $work->slug) }}">{{ $work->title }}</a></span><span
                                         class="gdlr-core-portfolio-info gdlr-core-portfolio-date-wrap">
                                         {{ \Carbon\Carbon::parse($work->created_at)->format('F j, Y') }}</span></span></span></span>
                         </div>
