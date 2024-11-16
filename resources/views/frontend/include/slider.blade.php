@@ -85,7 +85,7 @@
             overflow: hidden;
         }
 
-        .overlay {
+        /* .overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -95,7 +95,7 @@
                 linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3));
             pointer-events: none;
             z-index: 1;
-        }
+        } */
 
         #slide {
             width: 100%;

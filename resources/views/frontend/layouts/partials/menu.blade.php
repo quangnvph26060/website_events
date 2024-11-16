@@ -3,10 +3,10 @@
         {{-- <p>Tiếng anh</p>
         <p>Tiếng việt</p> --}}
         <a href="#" class="changeLanguage" data-lang="vi">
-            <img style="max-width: 40px" src="{{ asset('frontend/assets/image/Flag_of_Vietnam.svg.png') }}" alt="Vietnamese Flag">
+            <img style="max-width: 30px" src="{{ asset('frontend/assets/image/Flag_of_Vietnam.svg.png') }}" alt="Vietnamese Flag">
         </a>
         <a href="#" class="changeLanguage" data-lang="en">
-            <img style="max-width: 40px" src="{{ asset('frontend/assets/image/Flag_of_the_United_Kingdom_(3-5).svg.png') }}" alt="UK Flag">
+            <img style="max-width: 30px" src="{{ asset('frontend/assets/image/Flag_of_the_United_Kingdom_(3-5).svg.png') }}" alt="UK Flag">
         </a>
     </div>
     <div class="kleanity-mobile-header kleanity-header-background kleanity-style-slide" id="kleanity-mobile-header">
