@@ -25779,7 +25779,7 @@ body.kleanity-boxed
 }
 
 .kleanity-mobile-header {
-  padding-top: 15px;
+  /* padding-top: 15px; */
   padding-bottom: 15px;
   z-index: 99;
   position: relative;

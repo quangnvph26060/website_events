@@ -224,7 +224,7 @@
                                                             style="margin-top: -26.725px"><span
                                                                 class="gdlr-core-portfolio-title gdlr-core-title-font"><a
                                                                     href="{{ route('user.portfolio', $work->slug) }}">
-                                                                    {{-- {{getLocalizedContent($work, 'title', \App::getLocale())}} --}}
+                                                                    {{getLocalizedContent($work, 'title', \App::getLocale())}}
                                                                 </a></span><span
                                                                 class="gdlr-core-portfolio-info gdlr-core-portfolio-date-wrap">
                                                                 {{ \Carbon\Carbon::parse($work->created_at)->format('F j, Y') }}</span></span></span></span>

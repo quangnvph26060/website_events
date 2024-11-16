@@ -3387,9 +3387,10 @@ del span.woocommerce-Price-amount.amount {
     display: flex; /* Sử dụng flexbox */
     justify-content: center; /* Căn chỉnh nội dung về bên trái */
     align-items: center; /* Căn giữa theo chiều dọc */
-    padding: 15px 0px; /* Khoảng cách bên trái và bên phải */
+    padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ */
     border-bottom: 2px #0A4693 solid;
+    margin-bottom: 15px;
 }
 
 .header-language a {
