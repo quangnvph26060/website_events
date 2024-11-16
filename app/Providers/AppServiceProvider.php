@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('frontend/layouts/partials/footer', function ($view) {
             $postF = Post::isPublished()->latest('id')->limit(3)->get();
-            
+
             $view->with('postF', $postF);
         });
         $configWebsite = Config::first();

@@ -548,9 +548,9 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
   > li
   > a {
   padding-top: 22px;
-  text-shadow: 0px 0px 4px rgba(145, 145, 145, 0.8),
+  /* text-shadow: 0px 0px 4px rgba(145, 145, 145, 0.8),
   0px 0px 8px rgba(255, 255, 255, 0.6),
-  0px 0px 12px rgba(255, 255, 255, 0.4);
+  0px 0px 12px rgba(255, 255, 255, 0.4); */
 }
 
 .kleanity-header-style-plain.kleanity-style-splitted-menu
@@ -871,11 +871,11 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
 .kleanity-header-background,
 .kleanity-sticky-menu-placeholder,
 .kleanity-header-style-boxed.kleanity-fixed-navigation {
-  background-color: #6d6d6d;
+  background-color: #ffffff;
 }
 
 .kleanity-header-wrap.kleanity-header-style-plain {
-  border-color: #e8e8e8;
+  border-color: #0A4693;
 }
 
 .kleanity-navigation-background {
@@ -961,14 +961,14 @@ body.kleanity-boxed .kleanity-fixed-footer .kleanity-copyright-wrapper {
   color: #154BA3;
 }
 
-.sf-menu > li > a:hover,
+/* .sf-menu > li > a:hover,
 .sf-menu > li.current-menu-item > a,
 .sf-menu > li.current-menu-ancestor > a,
 .sf-vertical > li > a:hover,
 .sf-vertical > li.current-menu-item > a,
 .sf-vertical > li.current-menu-ancestor > a {
   color: #fff;
-}
+} */
 
 .sf-menu > .kleanity-normal-menu li,
 .sf-menu > .kleanity-mega-menu > .sf-mega,
@@ -3385,10 +3385,11 @@ del span.woocommerce-Price-amount.amount {
     height: 20px; /* Chiều cao có thể điều chỉnh */
     background-color: #ffffff; /* Màu nền trắng */
     display: flex; /* Sử dụng flexbox */
-    justify-content: flex-end; /* Căn chỉnh nội dung về bên trái */
+    justify-content: center; /* Căn chỉnh nội dung về bên trái */
     align-items: center; /* Căn giữa theo chiều dọc */
-    padding:14px 0px; /* Khoảng cách bên trái và bên phải */
+    padding: 15px 0px; /* Khoảng cách bên trái và bên phải */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ */
+    border-bottom: 2px #0A4693 solid;
 }
 
 .header-language a {

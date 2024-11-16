@@ -4,7 +4,7 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
 
-<link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
+{{-- <link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" /> --}}
 <!-- CSS Files -->
 <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('backend/assets/css/plugins.min.css') }}" />
