@@ -357,7 +357,7 @@
                                                 <img class="lazyload" src="{{ showImage($partner->logo ?? '') }}"
                                                     data-src="{{ showImage($partner->logo ?? '') }}"
                                                     alt="{{ $partner->title }}" title="{{ $partner->title }}"
-                                                    style="margin-bottom: 5px; width: 200px; height: 100px !important" />
+                                                    style="margin-bottom: 5px; width: 200px; auto" />
                                             @endforeach
                                         @endif
                                     </div>
