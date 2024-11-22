@@ -23,7 +23,7 @@
                         <li class="kleanity-center-nav-menu-item ">
                             <div class="kleanity-logo kleanity-item-pdlr">
                                 <div class="kleanity-logo-inner">
-                                    <a href="">
+                                    <a href="{{route('user.home')}}">
                                         <noscript>
                                             <img src="{{ showImage($configWebsite->logo) }}" alt="" />
                                         </noscript>

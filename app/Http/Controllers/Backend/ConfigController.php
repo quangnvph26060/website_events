@@ -35,6 +35,7 @@ class ConfigController extends Controller
                 'head_scripts' => 'nullable|string',
                 'body_scripts' => 'nullable|string',
                 'footer_scripts' => 'nullable|string',
+                'company' => 'nullable|string|max:255',
             ],
             __('request.messages')
         );

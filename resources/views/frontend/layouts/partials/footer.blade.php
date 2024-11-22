@@ -5,7 +5,7 @@
                 <div class="textwidget">
                     <p>
                         <span style="font-size: 18px; color: #154BA3">
-                            <strong>RI E &amp;E CO., LTD</strong>
+                            <strong>{{ $configWebsite->company }}</strong>
                         </span>
                     </p>
                     <p>

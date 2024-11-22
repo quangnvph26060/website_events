@@ -35,4 +35,11 @@ return [
      'catalogue' => 'Danh mục',
      'related-projects' => 'Dự án liên quan',
      'tags' => 'Gắn thẻ',
+
+     'name' => 'Tên',
+     'phone_number' => 'Số điện thoại',
+     'subject' => 'Chủ thể',
+     'message' => 'Tin nhắn',
+     'company' => 'Công ty',
+     'send' => 'XÁC NHẬN',
 ];

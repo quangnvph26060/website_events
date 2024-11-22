@@ -250,7 +250,7 @@
                                             <div class="gdlr-core-column-30">
                                                 <p>
                                                     <input type="text" name="fullName" {{ old('fullName') }}
-                                                        class="wpcf7-form-control-wrap" placeholder="Full Name*">
+                                                        class="wpcf7-form-control-wrap" placeholder="@lang('lang.name')*">
                                                     <span class="text-danger error-text fullName_error"
                                                         style="color: red"></span>
                                                 </p>
@@ -268,7 +268,7 @@
                                             <div class="gdlr-core-column-30">
                                                 <p>
                                                     <input type="text" name="phone" {{ old('phone') }}
-                                                        placeholder="Phone*" class="wpcf7-form-control-wrap">
+                                                        placeholder="@lang('lang.phone_number')*" class="wpcf7-form-control-wrap">
 
                                                     <span class="text-danger error-text phone_error"
                                                         style="color: red"></span>
@@ -277,7 +277,7 @@
                                             <div class="gdlr-core-column-30">
                                                 <p>
                                                     <input type="text" name="company" value="{{ old('company') }}"
-                                                        placeholder="Company*" class="wpcf7-form-control-wrap">
+                                                        placeholder="@lang('lang.company')*" class="wpcf7-form-control-wrap">
 
                                                     <span class="text-danger error-text company_error"
                                                         style="color: red"></span>
@@ -287,7 +287,7 @@
                                             <div class="gdlr-core-column-60">
                                                 <p>
                                                     <input type="text" name="subject" value="{{ old('subject') }}"
-                                                        placeholder="Subject*" class="wpcf7-form-control-wrap">
+                                                        placeholder="@lang('lang.subject')*" class="wpcf7-form-control-wrap">
 
                                                     <span class="text-danger error-text subject_error"
                                                         style="color: red"></span>
@@ -298,7 +298,7 @@
                                                 <p>
                                                     <span class="wpcf7-form-control-wrap">
                                                         <textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea"
-                                                            placeholder="Message*" name="message">{{ old('message') }}</textarea>
+                                                            placeholder="@lang('lang.message')*" name="message">{{ old('message') }}</textarea>
 
                                                         <span class="text-danger error-text message_error"
                                                             style="color: red"></span>
@@ -308,8 +308,7 @@
                                             <div class="gdlr-core-column-60 gdlr-core-center-align">
                                                 <p>
 
-                                                    <button class="contact-button" id="btn-contact-submit">Submit
-                                                        now</button>
+                                                    <button class="contact-button" id="btn-contact-submit">@lang('lang.send')</button>
                                                 </p>
                                             </div>
                                         </div>
