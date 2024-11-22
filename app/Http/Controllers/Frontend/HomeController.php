@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     function home()
     {
-        $catalogues = \App\Models\Catalogue::isNotTag()->get();
+        $catalogues = \App\Models\Catalogue::isNotTag()->latest('id')->get();
 
         $works = \App\Models\Work::with('images')->latest('id')->limit(10)->get();
 

@@ -4,76 +4,122 @@
         @if ($sliderHome->isNotEmpty())
             @foreach ($sliderHome as $slider)
                 <div class="item" style="background-image: url({{ showImage($slider->path_image) }})">
-                    <div class="content">
-                        <div class="name">
-                            {{ getLocalizedContent($slider, 'title', \App::getLocale()) }}
-                        </div>
-                    </div>
                 </div>
             @endforeach
         @endif
     </div>
+    <div class="dot-container"></div>
 
+    <div class="button">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+    </div>
 </div>
-<div class="button">
-    <button id="prev" class="btn btn-primary">
-        <i class="fa-solid fa-angle-left"></i>
-    </button>
-    <button id="next">
-        <i class="fa-solid fa-angle-right"></i>
-    </button>
-</div>
+
 
 
 @push('scripts')
     <script>
-        let isSliding = false;
-        let autoSlide;
+       document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".item");
+    const slideContainer = document.getElementById("slide");
+    const dotContainer = document.querySelector(".dot-container");
 
-        // Function to start or restart the auto-slide
-        function startAutoSlide() {
-            // Clear the existing interval
-            clearInterval(autoSlide);
-            // Start a new interval
-            autoSlide = setInterval(function() {
-                document.getElementById("next").click();
-            }, 5000);
+    // Tạo các dấu chấm
+    slides.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(index));
+        dotContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+
+    let currentIndex = 0;
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    function goToSlide(index) {
+        if (index === currentIndex) return;
+
+        const totalSlides = slides.length;
+        const offset = index - currentIndex;
+
+        if (offset > 0) {
+            // Chuyển đến slide tiếp theo
+            for (let i = 0; i < offset; i++) {
+                slideContainer.appendChild(slideContainer.firstElementChild);
+            }
+        } else {
+            // Quay lại slide trước
+            for (let i = 0; i < Math.abs(offset); i++) {
+                slideContainer.prepend(slideContainer.lastElementChild);
+            }
         }
 
-        // Initialize the auto-slide when the page loads
-        startAutoSlide();
+        currentIndex = index;
+        updateDots();
+    }
 
-        document.getElementById("next").onclick = function() {
-            if (isSliding) return; // Block if a slide transition is in progress
-            isSliding = true; // Begin slide transition
+    function nextSlide() {
+        goToSlide((currentIndex + 1) % slides.length);
+    }
 
-            let lists = document.querySelectorAll(".item");
-            document.getElementById("slide").appendChild(lists[0]);
+    function prevSlide() {
+        goToSlide((currentIndex - 1 + slides.length) % slides.length);
+    }
 
-            setTimeout(() => {
-                isSliding = false; // Allow click again after slide transition is complete
-                startAutoSlide(); // Restart the auto-slide interval after user interaction
-            }, 500); // 500ms is the transition time, adjust as needed
-        };
+    document.getElementById("next").onclick = nextSlide;
+    document.getElementById("prev").onclick = prevSlide;
 
-        document.getElementById("prev").onclick = function() {
-            if (isSliding) return;
-            isSliding = true;
+    // Tự động chạy slider mỗi 3 giây
+    let autoSlideInterval = setInterval(nextSlide, 3000);
 
-            let lists = document.querySelectorAll(".item");
-            document.getElementById("slide").prepend(lists[lists.length - 1]);
+    // Dừng tự động khi người dùng tương tác
+    const slider = document.querySelector(".main-slider");
+    slider.addEventListener("mouseover", () => clearInterval(autoSlideInterval));
+    slider.addEventListener("mouseout", () => {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    });
+});
 
-            setTimeout(() => {
-                isSliding = false;
-                startAutoSlide(); // Restart the auto-slide interval after user interaction
-            }, 500);
-        };
     </script>
 @endpush
 
 
 @push('styles')
     <style>
+        .dot-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #fff;
+        }
+
         .main-slider {
             position: relative;
             /* Đảm bảo lớp phủ nằm trên slider */
@@ -86,16 +132,16 @@
         }
 
         /* .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3)),
-                linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3));
-            pointer-events: none;
-            z-index: 1;
-        } */
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3)),
+                        linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent 50%, transparent 50%, rgba(0, 0, 0, 0.3));
+                    pointer-events: none;
+                    z-index: 1;
+                } */
 
         #slide {
             width: 100%;
