@@ -24,6 +24,7 @@ class Config extends Model
         'head_scripts',
         'body_scripts',
         'footer_scripts',
+        'company',
     ];
 
     protected static function boot()

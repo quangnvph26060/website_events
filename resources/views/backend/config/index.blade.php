@@ -43,6 +43,10 @@
                                     <label class="text-label">Mô tả SEO</label>
                                     <textarea class="form-control" name="description_seo" placeholder="Mô tả SEO">{{ $config->description_seo }}</textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label class="text-label">Tên công ty</label>
+                                    <textarea class="form-control" name="company" placeholder="Tên công ty">{{ $config->company }}</textarea>
+                                </div>
 
                                 <div class="form-group">
                                     <label class="text-label">Địa chỉ</label>

@@ -35,4 +35,11 @@ return [
     'catalogue' => 'Category',
     'related-projects' => 'Related projects',
     'tags' => 'Tags',
+
+    'name' => 'Full Name',
+    'phone_number' => 'Phone',
+    'subject' => 'Subject',
+    'message' => 'Message',
+    'company' => 'Company',
+    'send' => 'SUBMIT NOW',
 ];
