@@ -20,22 +20,7 @@
         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js gdlr-core-full-height-content"
             data-gdlr-animation-duration="600ms" data-gdlr-animation-offset="0.8" style="">
             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                <div class="gdlr-core-pbf-element">
-                    <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
-                    </div>
-                </div>
-                <div class="gdlr-core-pbf-element">
-                    <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
-                    </div>
-                </div>
-                <div class="gdlr-core-pbf-element">
-                    <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
-                    </div>
-                </div>
-                <div class="gdlr-core-pbf-element">
-                    <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
-                    </div>
-                </div>
+
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
                     </div>
@@ -106,14 +91,22 @@
         style="background-image: url('{{ showImage($banner->path_image) }}');">
         <div class="kleanity-header-transparent-substitute" style="height: 0px;"></div>
         <div class="kleanity-page-title-overlay"></div>
+        <div class="gdlr-core-pbf-element">
+            <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
+            </div>
+        </div>
+        <div class="gdlr-core-pbf-element">
+            <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
+            </div>
+        </div>
         <div class="kleanity-page-title-container kleanity-container">
             <div class="kleanity-page-title-content kleanity-item-pdlr">
                 <h1 class="kleanity-page-title" style=" font-weight: 600;
                             letter-spacing: 0px;
                             text-transform: none;
-                            color: #fff;"
+                            color: #fff; text-align: center"
                     data-orig-font="57px">{{ getLocalizedContent($banner, 'title', \App::getLocale()) }}</h1>
-                <p class="kleanity-page-caption" style="color: rgb(255, 255, 255);">
+                <p class="kleanity-page-caption" style="color: rgb(255, 255, 255); text-align: center">
                     {{ getLocalizedContent($banner, 'description', \App::getLocale()) }}
                 </p>
             </div>
@@ -134,7 +127,7 @@
     }
 
     /* Lớp phủ tối */
-    .kleanity-page-title-wrap::before {
+    .kleanity-page-title-wrap::before, .gdlr-core-pbf-background::before  {
         content: "";
         position: absolute;
         top: 0;

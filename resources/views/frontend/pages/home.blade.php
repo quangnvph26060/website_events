@@ -180,7 +180,7 @@
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
                             data-ajax="gdlr_core_home_ajax"
-                            data-settings='{"category":["corporate-event","design-production","private-event","public-event"],"tag":["launching-en","business-development","ceremonial","corporate-annual-party","corporate-celebrations","music-show","customer-conference","employee-appreciation","employee-engagement","milestones","entertainment","exhibition","global-conference","internal-meeting","partner-appreciations","press-conference","sales-or-hospitality","festival"],"num-fetch":"15","layout":"masonry","thumbnail-size":"medium_large","orderby":"date","order":"desc","portfolio-style":"metro","hover":"title-date","hover-info":["title","date"],"has-column":"yes","no-space":"no","excerpt":"specify-number","excerpt-number":"55","column-size":"20","filterer":"text","filterer-align":"center","pagination":"none","id":"","class":"","filterer-left-margin":"305px","filterer-left-divider":"enable","pagination-style":"default","pagination-align":"default","view-all-works-button":"disable","view-all-works-text":"xem tất cả tác phẩm","view-all-works-link":"","portfolio-grid-text-align":"left","portfolio-grid-style":"normal","portfolio-frame-opacity":"1","enable-portfolio-title":"enable","enable-portfolio-tag":"enable","enable-portfolio-date":"disable","portfolio-medium-size":"small","portfolio-medium-style":"left","enable-thumbnail-zoom-on-hover":"enable","enable-thumbnail-grayscale-effect":"disable","enable-badge":"enable","carousel-autoslide":"enable","carousel-start-at":"","carousel-scrolling-item-amount":"1","carousel-navigation":"navigation","carousel-bullet-style":"default","read-more-button":"disable","filter-font-size":"20px","filter-font-weight":"","filter-letter-spacing":"","filter-text-transform":"uppercase","portfolio-title-font-size":"","portfolio-title-font-weight":"","portfolio-title-letter-spacing":"","portfolio-title-text-transform":"uppercase","portfolio-tag-font-style":"default","portfolio-hover-title-font-size":"","portfolio-hover-title-font-weight":"","portfolio-hover-title-letter-spacing":"","portfolio-hover-title-text-transform":"uppercase","filterer-bottom-margin":"50px","portfolio-frame-padding":"","portfolio-border-radius":"","portfolio-item-bottom-margin":"","portfolio-title-bottom-margin":"","pagination-top-margin":"","padding-bottom":"0px","frame-shadow-size":"","frame-shadow-color":"","frame-shadow-opacity":"0.2","overlay-color":"#154BA3","overlay-opacity":"0.85","title-align":"left","title-left-media":"icon","title-left-icon":"","title-left-image":"","title":"","caption":"","caption-position":"top","read-more-style":"default","read-more-text":"Read More","read-more-link":"http:\/\/rievents.vn\/portfolio\/","read-more-target":"_self","title-size":"41px","title-letter-spacing":"","title-line-height":"","title-font-style":"","title-text-transform":"uppercase","caption-size":"20px","caption-font-style":"","caption-spaces":"","read-more-size":"20px","read-more-font-weight":"","title-left-icon-color":"","title-color":"","caption-color":"","read-more-color":"#154BA3","read-more-divider":"none","read-more-divider-color":"#154BA3","title-wrap-bottom-margin":"","title-carousel-nav-style":"default","lightbox-group":"gdlr-core-img-group-1","paged":1}'
+                            
                             data-target="gdlr-core-portfolio-item-holder" data-target-action="replace">
                             <a href="#"
                                 class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
@@ -463,7 +463,7 @@
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                    style="padding-bottom: 5px">
+                                    style="padding-bottom: 10px">
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
@@ -508,7 +508,7 @@
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                    style="padding-bottom: 5px">
+                                    style="padding-bottom: 10px">
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
@@ -549,7 +549,7 @@
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                    style="padding-bottom: 5px">
+                                    style="padding-bottom: 10px">
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="

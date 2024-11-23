@@ -19,7 +19,7 @@
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align"
                             data-ajax="gdlr_core_portfolio_ajax" data-target="gdlr-core-portfolio-item-holder"
-                            data-target-action="replace" style="font-size: 22px; margin-bottom: 50px">
+                            data-target-action="replace" style="font-size: 22px; margin-bottom: 30px">
                             <a href="#"
                                 class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
 
