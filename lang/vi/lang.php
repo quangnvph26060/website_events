@@ -5,7 +5,7 @@ return [
     'home' => 'TRANG CHỦ',
     'about' => 'VỀ CHÚNG TÔI',
     'job' => 'CÔNG VIỆC',
-    'service' => 'DỊCH VỤ',
+    'blog' => 'TIN TỨC',
     'contact' => 'LIÊN HỆ',
     'phone' => 'Số điện thoại',
     'address' => 'Địa chỉ',
@@ -42,4 +42,6 @@ return [
      'message' => 'Tin nhắn',
      'company' => 'Công ty',
      'send' => 'XÁC NHẬN',
+
+     'contact_footer' => 'LIÊN HỆ VỚI CHÚNG TÔI',
 ];

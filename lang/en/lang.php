@@ -5,7 +5,7 @@ return [
     'home' => 'HOME',
     'about' => 'ABOUT US',
     'job' => 'JOB',
-    'service' => 'SERVICE',
+    'blog' => 'BLOG',
     'contact' => 'CONTACT',
     'phone' => 'Phone number',
     'address' => 'Address',
@@ -42,4 +42,6 @@ return [
     'message' => 'Message',
     'company' => 'Company',
     'send' => 'SUBMIT NOW',
+
+    'contact_footer' => 'CONTACT US',
 ];

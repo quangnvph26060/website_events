@@ -14,7 +14,10 @@
                                 style="padding-bottom: 40px;">
                                 <div class="gdlr-core-title-item-title-wrap">
                                     <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
-                                        style="font-size: 44px; letter-spacing: 0px; text-transform: none; color: #154BA3;">
+                                        style="font-weight: 600;
+                                                letter-spacing: 0px;
+                                                text-transform: none;
+                                                color: #154BA3;">
                                         @lang('lang.core-skills-and-services')<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
@@ -41,12 +44,12 @@
                     <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js lazyloaded"
                         data-bg="{{ showImage($about->image) }}"
                         style="
-              background-image: url('{{ showImage($about->image) }}');
-              background-size: cover;
-              background-position: center center;
-              height: 532.46px;
-              transform: translate(0px, -142.043px);
-            "
+                                background-image: url('{{ showImage($about->image) }}');
+                                background-size: cover;
+                                background-position: center center;
+                                height: 532.46px;
+                                transform: translate(0px, -142.043px);
+                                "
                         data-parallax-speed="0.3"></div>
                 </div>
                 <div class="gdlr-core-pbf-wrapper-content gdlr-core-js" data-gdlr-animation-duration="600ms"

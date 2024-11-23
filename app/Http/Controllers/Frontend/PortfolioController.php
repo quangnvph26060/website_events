@@ -10,7 +10,7 @@ class PortfolioController extends Controller
 {
     public function portfolio($slug = null)
     {
-        $banner = ConfigBanner::where('page_name' , 2)->first();
+        $banner = ConfigBanner::where('page_name' , 4)->first();
         if (is_null($slug)) {
             $catalogues = \App\Models\Catalogue::isNotTag()->get();
             $works = \App\Models\Work::with('images', 'catalogues')->paginate(10);
@@ -66,6 +66,7 @@ class PortfolioController extends Controller
                 $works = $query->paginate(10);
 
                 $view = 'frontend.response.work-list-portfolio';
+
                 $pagination = $works->links('vendor.pagination.custom')->toHtml();
             } else {
                 $view = 'frontend.response.work-list-home';

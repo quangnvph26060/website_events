@@ -13,7 +13,7 @@ class ContactController extends Controller
 {
     public function contact()
     {
-        $banner = ConfigBanner::where('page_name' , 4)->first();
+        $banner = ConfigBanner::where('page_name' , 1)->first();
         return view('frontend.pages.contact' , compact('banner'));
     }
     public function contactSubmit(Request $request)

@@ -21,9 +21,7 @@
                                     class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
-                                        <noscript><img src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
-                                                alt="{{ $configHome->title_1 }}" width="44" height="35"
-                                                title="hp1-service-icon" /></noscript><img class="ls-is-cached lazyloaded"
+                                        <img class="ls-is-cached lazyloaded"
                                             src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
                                             data-src="{{ asset('frontend/assets/image/hp1-service-icon.png') }}"
                                             alt="{{ $configHome->title_1 }}" width="44" height="35"
@@ -165,8 +163,7 @@
                             ">
 
                                 {{ getLocalizedContent($configHome, 'title_2', \App::getLocale()) }}
-                                <span
-                                    class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
                         <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">
@@ -209,11 +206,7 @@
                                                 class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-date gdlr-core-metro-rvpdlr">
                                                 <div
                                                     class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
-                                                    <noscript><img
-                                                            src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                                            alt="{{ $work->title }}" width="2560" height="1707"
-                                                            title="{{ $work->title }}" /></noscript><img
-                                                        class="ls-is-cached lazyloaded"
+                                                    <img class="ls-is-cached lazyloaded"
                                                         src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                         data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                         alt="{{ $work->title }}" width="2560" height="1707"
@@ -224,7 +217,7 @@
                                                             style="margin-top: -26.725px"><span
                                                                 class="gdlr-core-portfolio-title gdlr-core-title-font"><a
                                                                     href="{{ route('user.portfolio', $work->slug) }}">
-                                                                    {{getLocalizedContent($work, 'title', \App::getLocale())}}
+                                                                    {{ getLocalizedContent($work, 'title', \App::getLocale()) }}
                                                                 </a></span><span
                                                                 class="gdlr-core-portfolio-info gdlr-core-portfolio-date-wrap">
                                                                 {{ \Carbon\Carbon::parse($work->created_at)->format('F j, Y') }}</span></span></span></span>
@@ -306,8 +299,7 @@
                             text-transform: none;
                             color: #154BA3;">
                                             {{ getLocalizedContent($configHome, 'title_3', \App::getLocale()) }}
-                                            <span
-                                                class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                            <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                         </h3>
                                     </div>
                                 </div>
@@ -349,16 +341,15 @@
                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
                                         style="border-width: 0px">
                                         @if ($partners->isNotEmpty())
-                                            @foreach ($partners as $partner)
-                                                <noscript><img src="{{ showImage($partner->logo ?? '') }}"
-                                                        alt="{{ $partner->title }}"
-                                                        style="width: 200px; height: 100px !important; margin-bottom: 5px"
-                                                        title="{{ $partner->title }}" /></noscript>
-                                                <img class="lazyload" src="{{ showImage($partner->logo ?? '') }}"
-                                                    data-src="{{ showImage($partner->logo ?? '') }}"
-                                                    alt="{{ $partner->title }}" title="{{ $partner->title }}"
-                                                    style="margin-bottom: 5px; width: 200px; auto" />
-                                            @endforeach
+                                            <div class="partner-container">
+                                                @foreach ($partners as $partner)
+                                                    <img class="lazyload d-flex-box"
+                                                        src="{{ showImage($partner->logo ?? '') }}"
+                                                        data-src="{{ showImage($partner->logo ?? '') }}"
+                                                        alt="{{ $partner->title }}" title="{{ $partner->title }}"
+                                                        style="margin-bottom: 5px; width: 200px; auto" />
+                                                @endforeach
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -369,6 +360,34 @@
             </div>
         </div>
     </div>
+
+    <style>
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .partner-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                /* Khoảng cách giữa các ảnh */
+                justify-content: center;
+                /* Canh giữa các ảnh */
+            }
+
+            .partner-container img {
+                flex: 1 1 calc(33.33% - 10px);
+                /* Mỗi ảnh chiếm 1/3 chiều rộng trừ khoảng cách */
+                max-width: calc(33.33% - 10px);
+                /* Đảm bảo giới hạn chiều rộng */
+                height: auto;
+                /* Tự động điều chỉnh chiều cao theo tỷ lệ */
+            }
+
+            .partner-container img {
+                flex: 1 1 calc(100% / 3 - 10px);
+                /* Điều chỉnh cho mobile */
+            }
+        }
+    </style>
 
     <div class="gdlr-core-pbf-section">
         <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
@@ -415,8 +434,7 @@
                             text-transform: none;
                             color: #154BA3;">
                                 {{ getLocalizedContent($configHome, 'title_4', \App::getLocale()) }}
-                                <span
-                                    class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                             </h3>
                         </div>
                     </div>
@@ -466,12 +484,13 @@
                                     class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                     <ul>
                                         <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                            <a href="tel:+84%20090%20969%2015%2011" target="_self"><span
+                                            <a href="tel: {{ $configWebsite->constant_hotline }}" target="_self">
+                                                <span
                                                     class="gdlr-core-icon-list-icon-wrap"><i
-                                                        class="gdlr-core-icon-list-icon-hover fa fa-phone"
-                                                        style="font-size: 20px"></i><i
                                                         class="gdlr-core-icon-list-icon fa fa-phone"
-                                                        style="font-size: 20px; width: 20px"></i></span>
+                                                        style="font-size: 20px; width: 20px"></i>
+                                                </span>
+                                                
                                                 <div class="gdlr-core-icon-list-content-wrap">
                                                     <span class="gdlr-core-icon-list-content">+84
                                                         {{ $configWebsite->constant_hotline }}</span>
@@ -715,7 +734,8 @@
                                     <div class="gdlr-core-column-60 gdlr-core-center-align">
                                         <p>
 
-                                            <button class="contact-button" id="btn-contact-submit">@lang('lang.send')</button>
+                                            <button class="contact-button"
+                                                id="btn-contact-submit">@lang('lang.send')</button>
                                         </p>
                                     </div>
                                 </div>

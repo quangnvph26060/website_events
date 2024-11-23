@@ -15711,7 +15711,7 @@ form.submitting .wpcf7-spinner {
   vertical-align: middle;
   position: relative;
   line-height: 1;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .gdlr-core-icon-list-item.gdlr-core-right-align .gdlr-core-icon-list-icon-wrap {
