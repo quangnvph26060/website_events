@@ -11,7 +11,7 @@ class AboutController extends Controller
 {
     function about(){
         $aboutUs = About::all();
-        $banner = ConfigBanner::where('page_name' , 1)->first();
+        $banner = ConfigBanner::where('page_name' , 2)->first();
         return view('frontend.pages.about' , compact('aboutUs' , 'banner'));
     }
 }

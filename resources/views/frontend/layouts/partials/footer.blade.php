@@ -5,10 +5,15 @@
                 <div class="textwidget">
                     <p>
                         <span style="font-size: 18px; color: #154BA3">
-                            <strong>{{ $configWebsite->company }}</strong>
+                            <strong>@lang('lang.contact_footer')</strong>
                         </span>
                     </p>
                     <p>
+                        <span style="font-size: 14px">
+                            <strong>@lang('lang.company')</strong>
+                            :  {{ $configWebsite->company }}
+                        </span>
+                        <br>
                         <span style="font-size: 14px">
                             <strong> @lang('lang.address')</strong>
                             :  {{ getLocalizedContent($configWebsite, 'address', \App::getLocale()) }}
@@ -27,7 +32,7 @@
                             <strong> @lang('lang.phone')</strong>
                             &nbsp;:
                             <span style="color: #154BA3">
-                                <a style="color: #154BA3" href="tel:(+84){{ $configWebsite->constant_hotline }}">{{ $configWebsite->constant_hotline }}</a>
+                                <a style="color: #154BA3" href="tel:{{ $configWebsite->constant_hotline }}">{{ $configWebsite->constant_hotline }}</a>
                             </span>
                         </span>
                     </p>

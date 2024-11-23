@@ -37,7 +37,7 @@
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748 kleanity-normal-menu {{ request()->routeIs('user.work-for-us') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.work-for-us') }}">
-                                @lang('lang.service')</a>
+                                @lang('lang.blog')</a>
                         </li>
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu {{ request()->routeIs('user.contact-us') ? 'current-menu-item' : '' }}">
