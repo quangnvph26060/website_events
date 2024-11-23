@@ -7,17 +7,28 @@
 @section('keywords', $post->meta_keywords)
 
 @section('content')
-    @include('frontend/include/banner-job', ['image' => $post->featured_image, 'banner' => $banner ?? null])
+    @include('frontend/include/banner-job', [
+        'image' => $post->featured_image,
+        'banner' => $banner ?? null,
+    ])
+
+    @isset($slug)
+        <style>
+            .kleanity-column-40 {
+                width: 100% !important;
+            }
+        </style>
+    @endisset
 
     <div class="kleanity-content-container kleanity-container">
         <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-right">
-            <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height" >
+            <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">
                 <div class="kleanity-content-wrap kleanity-item-pdlr clearfix">
                     <div class="kleanity-page-builder-wrap kleanity-item-rvpdlr">
                         <div class="gdlr-core-page-builder-body">
                             <div class="gdlr-core-pbf-wrapper">
-                                <div class="gdlr-core-pbf-wrapper-title" style="padding-left: 10px; ">
-                                    <h1  style="margin-bottom: 50px !important; color: #4e4e4e">
+                                <div class="gdlr-core-pbf-wrapper-title">
+                                    <h1 style="margin-bottom: 50px !important; color: #4e4e4e">
                                         {{ getLocalizedContent($post, 'title', \App::getLocale()) }}
 
                                     </h1>
