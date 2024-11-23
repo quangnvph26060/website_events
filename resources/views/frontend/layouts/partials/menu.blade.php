@@ -37,20 +37,20 @@
                                 <ul id="menu-en_main-navigation" class="menu">
                                     <li
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2043">
-                                        <a href="/">Home</a>
+                                        <a href="/">@lang('lang.home')</a>
                                     </li>
                                     <li
                                         class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2876 current_page_item menu-item-2886">
-                                        <a href="{{ route('user.about-us') }}" aria-current="page">About Us</a>
+                                        <a href="{{ route('user.about-us') }}" aria-current="page">@lang('lang.about')</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036">
-                                        <a href="{{ route('user.portfolio') }}">Our Works</a>
+                                        <a href="{{ route('user.portfolio') }}">@lang('lang.job')</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748">
-                                        <a href="{{ route('user.work-for-us') }}">Work for Us</a>
+                                        <a href="{{ route('user.work-for-us') }}">@lang('lang.blog')</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007">
-                                        <a href="{{ route('user.contact-us') }}">Contact</a>
+                                        <a href="{{ route('user.contact-us') }}">@lang('lang.contact')</a>
                                     </li>
                                 </ul>
                             </div>

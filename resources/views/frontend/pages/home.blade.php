@@ -419,7 +419,7 @@
         </div>
     </div>
 
-    <div class="gdlr-core-pbf-wrapper 04" style="padding: 20px 0px 100px 0px" id="04">
+    <div class="gdlr-core-pbf-wrapper 04" style="padding: 20px 0px 30px 0px" id="04">
         <div class="gdlr-core-pbf-background-wrap" style="background-color: #ffffff"></div>
         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
@@ -463,7 +463,7 @@
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                    style="padding-bottom: 15px">
+                                    style="padding-bottom: 5px">
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
@@ -508,7 +508,7 @@
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                    style="padding-bottom: 15px">
+                                    style="padding-bottom: 5px">
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
@@ -549,7 +549,7 @@
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                    style="padding-bottom: 15px">
+                                    style="padding-bottom: 5px">
                                     <div class="gdlr-core-title-item-title-wrap">
                                         <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                             style="
@@ -750,7 +750,7 @@
 @push('styles')
     <style>
         #contactForm input, #contactForm textarea {
-            border: 1px solid #154BA3 !important;
+            border: 1px solid rgba(21, 75, 163, .3) !important;
             border-radius: 3px;
         }
         .gdlr-core-pbf-element iframe {
