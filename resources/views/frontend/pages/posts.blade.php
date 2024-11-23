@@ -11,7 +11,7 @@
 
     <div class="kleanity-content-container kleanity-container">
         <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-right">
-            <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">
+            <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height" >
                 <div class="kleanity-content-wrap kleanity-item-pdlr clearfix">
                     <div class="kleanity-page-builder-wrap kleanity-item-rvpdlr">
                         <div class="gdlr-core-page-builder-body">
