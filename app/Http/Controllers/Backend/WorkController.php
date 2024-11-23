@@ -40,9 +40,9 @@ class WorkController extends Controller
     {
         $validated = $request->validate(
             [
-                'cata_id' => 'nullable|exists:catalogues,id',
+                'cata_id' => 'required|exists:catalogues,id',
                 'title' => 'required|string|max:255',
-                'categories' => 'required|array',
+                'categories' => 'nullable|array',
                 'customer' => 'nullable|string|max:255',
                 'project_name' => 'nullable|string|max:255',
                 'participants_count' => 'nullable|integer|min:1',
@@ -131,7 +131,7 @@ class WorkController extends Controller
     {
         $validated = $request->validate(
             [
-                'cata_id' => 'nullable|exists:catalogues,id',
+                'cata_id' => 'required|exists:catalogues,id',
                 'title' => 'required|string|max:255|unique:works,title,' . $work->id,
                 'categories' => 'nullable|array',
                 'customer' => 'nullable|string|max:255',
