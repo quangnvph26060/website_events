@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    @include('frontend.layouts.partials.banner', ['is_used' => true, 'banner' => $banner])
+    @include('frontend.layouts.partials.banner', ['template' => '2', 'banner' => $banner])
 
     <div class="gdlr-core-pbf-wrapper" style="padding: 0px 0px 30px 0px">
         <div class="gdlr-core-pbf-background-wrap"></div>

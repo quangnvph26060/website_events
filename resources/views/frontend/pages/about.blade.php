@@ -2,7 +2,7 @@
 
 
 @section('content')
-    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'is_used' => true])
+    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '1'])
 
     <div class="gdlr-core-pbf-section">
         <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">

@@ -174,14 +174,19 @@
 
         .item:nth-child(3) {
             left: 50%;
+            opacity: 0;
+
         }
 
         .item:nth-child(4) {
             left: calc(50% + 220px);
+            opacity: 0;
         }
 
         .item:nth-child(5) {
             left: calc(50% + 440px);
+            opacity: 0;
+
         }
 
         .item:nth-child(n + 6) {

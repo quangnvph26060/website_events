@@ -6,7 +6,7 @@
 
 
     @isset($banner)
-        @include('frontend.layouts.partials.banner', ['is_used' => true, 'banner' => $banner])
+        @include('frontend.layouts.partials.banner', ['template' => '2', 'banner' => $banner])
     @else
         <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align">
             <div class="kleanity-header-transparent-substitute" style="height: 101.4px;"></div>

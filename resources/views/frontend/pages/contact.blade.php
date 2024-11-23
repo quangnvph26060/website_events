@@ -3,7 +3,7 @@
 
 @section('title', 'Liên hệ')
 @section('content')
-    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'is_used' => true])
+    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '2'])
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
             <div class="kleanity-content-area kleanity-item-pdlr kleanity-sidebar-style-none clearfix">
@@ -52,7 +52,7 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="tel:+84%20090%20969%2015%2011" target="_self"><span
+                                                    <a href="tel:{{ $configWebsite->constant_hotline }}" target="_self" style="display: flex; align-items: center "><span
                                                             class="gdlr-core-icon-list-icon-wrap"><i
                                                                 class="gdlr-core-icon-list-icon-hover fa fa-phone"
                                                                 style="font-size: 20px"></i><i
@@ -81,12 +81,12 @@
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                                     style="
-                            font-size: 30px;
-                            font-weight: 400;
-                            letter-spacing: 0px;
-                            text-transform: none;
-                            color: #154BA3;
-                          ">
+                                                        font-size: 30px;
+                                                        font-weight: 400;
+                                                        letter-spacing: 0px;
+                                                        text-transform: none;
+                                                        color: #154BA3;
+                                                    ">
                                                     Email<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
@@ -98,10 +98,8 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="mailto:{{ $configWebsite->email }}" target="_self"><span
-                                                            class="gdlr-core-icon-list-icon-wrap"><i
-                                                                class="gdlr-core-icon-list-icon-hover fa fa-envelope-o"
-                                                                style="font-size: 20px"></i><i
+                                                    <a href="mailto:{{ $configWebsite->email }}" target="_self" style="display: flex; align-items: center "><span
+                                                            class="gdlr-core-icon-list-icon-wrap" ><i
                                                                 class="gdlr-core-icon-list-icon fa fa-envelope-o"
                                                                 style="font-size: 20px; width: 20px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
@@ -143,10 +141,9 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($configWebsite->address) }}" target="_blank">
+                                                    <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($configWebsite->address) }}" target="_blank" >
                                                         <span class="gdlr-core-icon-list-icon-wrap">
-                                                            <i class="gdlr-core-icon-list-icon-hover fa fa-map-marker" style="font-size: 22px"></i>
-                                                            <i class="gdlr-core-icon-list-icon fa fa-map-marker" style="font-size: 22px; width: 22px"></i>
+                                                            <i class="gdlr-core-icon-list-icon fa fa-map-marker" style="font-size: 22px; width: 22px; margin-top: 5px;"></i>
                                                         </span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
                                                             <span class="gdlr-core-icon-list-content" style="font-size: 20px">
@@ -325,6 +322,10 @@
 
 @push('styles')
     <style>
+          #contactForm input, #contactForm textarea {
+            border: 1px solid #154BA3 !important;
+            border-radius: 3px;
+        }
         .contact-button {
             background-color: #333;
             color: white;
