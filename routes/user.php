@@ -23,17 +23,17 @@ use App\Http\Controllers\Frontend\PortfolioController;
 route::name('user.')->group(function () {
     route::get('/', [HomeController::class, 'home'])->name('home');
 
-    route::get('about', [AboutController::class, 'about'])->name('about-us');
+    route::get('ve-chung-toi', [AboutController::class, 'about'])->name('about-us');
 
-    route::get('works/{slug?}', [WorkController::class, 'works'])->name('work-for-us');
-    route::get('works_tag/{slug}', [WorkController::class, 'worksTag'])->name('work-for-us-tag');
+    route::get('tin-tuc/{slug?}', [WorkController::class, 'works'])->name('work-for-us');
+    route::get('the-tin-tuc/{slug}', [WorkController::class, 'worksTag'])->name('work-for-us-tag');
 
     route::get('portfolio/{slug?}', [PortfolioController::class, 'portfolio'])->name('portfolio');
     route::post('portfolio', [PortfolioController::class, 'ajax'])->name('portfolio.ajax');
 
     route::get('portfolio_tag/{slug}', [PortfolioController::class, 'portfolioTag'])->name('portfolio_tag');
 
-    route::get('contact', [ContactController::class, 'contact'])->name('contact-us');
+    route::get('lien-he', [ContactController::class, 'contact'])->name('contact-us');
     route::post('contact/submit', [ContactController::class, 'contactSubmit'])->name('contact-us.submit');
 });
 

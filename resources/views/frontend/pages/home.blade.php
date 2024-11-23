@@ -490,7 +490,7 @@
                                                         class="gdlr-core-icon-list-icon fa fa-phone"
                                                         style="font-size: 20px; width: 20px"></i>
                                                 </span>
-                                                
+
                                                 <div class="gdlr-core-icon-list-content-wrap">
                                                     <span class="gdlr-core-icon-list-content">+84
                                                         {{ $configWebsite->constant_hotline }}</span>
@@ -530,9 +530,7 @@
                                     <ul>
                                         <li class="gdlr-core-skin-divider gdlr-core-with-hover">
                                             <a href="mailto:contact@rievents.vn" target="_self"><span
-                                                    class="gdlr-core-icon-list-icon-wrap"><i
-                                                        class="gdlr-core-icon-list-icon-hover fa fa-envelope-o"
-                                                        style="font-size: 20px"></i><i style="font-size: 20px;"
+                                                    class="gdlr-core-icon-list-icon-wrap"><i style="font-size: 20px;"
                                                         class="gdlr-core-icon-list-icon fa fa-envelope-o"></i></span>
                                                 <div class="gdlr-core-icon-list-content-wrap">
                                                     <span
@@ -751,6 +749,10 @@
 
 @push('styles')
     <style>
+        #contactForm input, #contactForm textarea {
+            border: 1px solid #154BA3 !important;
+            border-radius: 3px;
+        }
         .gdlr-core-pbf-element iframe {
             width: 100% !important;
         }

@@ -42,7 +42,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('title')
+                            @error('cata_id')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>

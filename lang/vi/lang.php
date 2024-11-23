@@ -38,7 +38,7 @@ return [
 
      'name' => 'Tên',
      'phone_number' => 'Số điện thoại',
-     'subject' => 'Chủ thể',
+     'subject' => 'Tiêu đề',
      'message' => 'Tin nhắn',
      'company' => 'Công ty',
      'send' => 'XÁC NHẬN',

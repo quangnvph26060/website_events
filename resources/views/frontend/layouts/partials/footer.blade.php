@@ -10,8 +10,8 @@
                     </p>
                     <p>
                         <span style="font-size: 14px">
-                            <strong>@lang('lang.company')</strong>
-                            :  {{ $configWebsite->company }}
+                            <strong>  {{ $configWebsite->company }}</strong>
+
                         </span>
                         <br>
                         <span style="font-size: 14px">

@@ -1,4 +1,4 @@
-@if ($is_used == true)
+@if ($template == '1')
     <div class="gdlr-core-pbf-wrapper gdlr-core-wrapper-full-height gdlr-core-js gdlr-core-full-height-center"
         style="
         padding: 95px 0px 45px;
@@ -94,6 +94,37 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
+
+@if ($template == '2')
+    <div class="gdlr-core-pbf-wrapper ">
+        <div class="gdlr-core-pbf-background-wrap">
+            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js"
+                style="background-image: url({{ showImage($banner->path_image) }}); background-size: cover; background-position: center center; height: 540px !important; transform: translate(0px, 0px);"
+                data-parallax-speed="0.8"></div>
+        </div>
+        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                <div class="gdlr-core-pbf-element">
+                    <div class="gdlr-core-space-item gdlr-core-item-pdlr " style="padding-top: 100px ;"></div>
+                </div>
+                <div class="gdlr-core-pbf-element">
+                    <div class="gdlr-core-space-item gdlr-core-item-pdlr " style="padding-top: 100px ;"></div>
+                </div>
+                <div class="gdlr-core-pbf-element">
+                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-right-align">
+                        <div class="gdlr-core-text-box-item-content"
+                            style="font-size: 25px ;font-weight: 400 ;text-transform: none ;color: #ffffff ;">
+                            <p style="text-align: right;">{{ getLocalizedContent($banner, 'description', \App::getLocale()) }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gdlr-core-pbf-element">
+                    <div class="gdlr-core-space-item gdlr-core-item-pdlr " style="padding-top: 100px ;"></div>
                 </div>
             </div>
         </div>
