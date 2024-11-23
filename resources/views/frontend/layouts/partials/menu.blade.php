@@ -14,10 +14,7 @@
             <div class="kleanity-logo kleanity-item-pdlr">
                 <div class="kleanity-logo-inner">
                     <a href="/">
-                        <noscript>
-                            <img src="{{ showImage($configWebsite->logo) }}" alt="" width="2364" height="2065"
-                                title="Ri Logo Colors-03" />
-                        </noscript>
+                       
                         <img class="lazyload" src="{{ showImage($configWebsite->logo) }}"
                             data-src="{{ showImage($configWebsite->logo) }}" alt="" width="2364"
                             height="2065" title="Ri Logo Colors-03" />
@@ -44,7 +41,7 @@
                                         <a href="{{ route('user.about-us') }}" aria-current="page">@lang('lang.about')</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036">
-                                        <a href="{{ route('user.portfolio') }}">@lang('lang.job')</a>
+                                        <a href="{{ route('user.portfolio') }}">@lang('lang.service')</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748">
                                         <a href="{{ route('user.work-for-us') }}">@lang('lang.blog')</a>

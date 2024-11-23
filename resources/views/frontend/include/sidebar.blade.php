@@ -22,18 +22,47 @@
             <div class="gdlr-core-recent-portfolio-widget-wrap clearfix">
                 @foreach ($works as $work)
                     <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
-                        <a href="{{ route('user.portfolio', $work->slug) }}"><noscript><img
-                                    src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                    alt="{{ $work->title }}" width="150" height="150"
-                                    title="{{ $work->title }}" /></noscript><img class="ls-is-cached lazyloaded"
+                        <a href="{{ route('user.portfolio', $work->slug) }}">
+
+                            <img class="ls-is-cached lazyloaded"
                                 src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                 data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                alt="{{ $work->title }}" width="150" height="150"
-                                title="{{ $work->title }}" /><span class="gdlr-core-image-overlay"><i
-                                    class="fas fa-link"></i></span></a>
+                                alt="{{ $work->title }}" width="150" height="150" title="{{ $work->title }}" />
+                            <span class="gdlr-core-image-overlay"><i class="fas fa-link"></i></span>
+                        </a>
                     </div>
                 @endforeach
             </div>
+            <style>
+                /* Container */
+
+
+                /* Media Query cho mobile */
+                @media (max-width: 768px) {
+                    .gdlr-core-recent-portfolio-widget-wrap {
+                        display: flex;
+                        flex-wrap: wrap;
+                        /* Cho phép các phần tử xuống hàng */
+                        justify-content: space-between;
+                        /* Canh đều khoảng cách giữa các ảnh */
+                    }
+
+                    /* Ảnh trong mỗi ô */
+                    .gdlr-core-recent-portfolio-widget {
+                        flex: 1 1 calc(33.33% - 10px);
+                        /* Mỗi ảnh chiếm 1/3 chiều rộng (trừ khoảng cách) */
+                        max-width: calc(33.33% - 10px);
+                        /* Đảm bảo không vượt quá chiều rộng 1/3 */
+                        box-sizing: border-box;
+                        /* Bao gồm padding và border vào chiều rộng */
+                    }
+
+                    .gdlr-core-recent-portfolio-widget {
+                        flex: 1 1 calc(33.33% - 5px);
+                        /* Giữ 3 ảnh mỗi hàng */
+                    }
+                }
+            </style>
         </div>
         <div id="tag_cloud-2" class="widget widget_tag_cloud kleanity-widget">
             <h3 class="kleanity-widget-title">

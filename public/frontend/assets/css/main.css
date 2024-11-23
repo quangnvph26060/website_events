@@ -11635,7 +11635,7 @@ form.submitting .wpcf7-spinner {
 }
 
 .gdlr-core-pbf-section:first-child:last-child {
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 .gdlr-core-pbf-background {
@@ -15963,7 +15963,7 @@ form.submitting .wpcf7-spinner {
 }
 
 .gdlr-core-blog-full .gdlr-core-blog-content {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .gdlr-core-blog-full .gdlr-core-blog-full-head {
@@ -23281,7 +23281,7 @@ body.kleanity-boxed.kleanity-background-image .kleanity-body-background {
 }
 
 .kleanity-sidebar-right {
-  float: right;
+  float: left;
 }
 
 .kleanity-sidebar-center {
@@ -24180,7 +24180,7 @@ body.admin-bar .kleanity-overlay-menu-content {
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 100;
 }
 
 .kleanity-header-style-plain.kleanity-style-menu-right .kleanity-logo {
@@ -24248,7 +24248,7 @@ body.admin-bar .kleanity-overlay-menu-content {
 }
 
 .kleanity-header-style-plain.kleanity-style-splitted-menu .kleanity-logo {
-  padding-top: 0;
+  padding-top: 10px;
   padding-bottom: 0;
 }
 

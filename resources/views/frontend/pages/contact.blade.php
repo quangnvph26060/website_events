@@ -31,7 +31,7 @@
                                 <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                            style="padding-bottom: 0px">
+                                            style="padding-bottom: 5px">
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                                     style="
@@ -77,7 +77,7 @@
                                 <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                            style="padding-bottom: 0px">
+                                            style="padding-bottom: 5px">
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                                     style="
@@ -120,7 +120,7 @@
                                 <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                                            style="padding-bottom: 0px">
+                                            style="padding-bottom: 5px">
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title"
                                                     style="
