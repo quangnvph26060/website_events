@@ -25901,12 +25901,16 @@ body.kleanity-boxed
     display: none;
   }
 }
+.kleanity-column-40 {
+    width: 100%;
+  }
 
 @media only screen and (max-width: 767px) {
+
   body.kleanity-body-front .kleanity-container {
     max-width: 500px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   body.kleanity-body-front .gdlr-core-container {
