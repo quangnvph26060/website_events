@@ -1,17 +1,6 @@
 <div class="kleanity-sidebar-right kleanity-column-20 kleanity-line-height kleanity-line-height">
     <div class="kleanity-sidebar-area kleanity-item-pdlr">
-        <div id="text-2" class="widget widget_text kleanity-widget">
-            <h3 class="kleanity-widget-title">
-                <span class="kleanity-widget-head-text">
-                    @lang('lang.recruitment')</span><span class="kleanity-widget-head-divider"></span>
-            </h3>
-            <span class="clear"></span>
-            <div class="textwidget">
-                <p>
-                    @lang('lang.document')
-                </p>
-            </div>
-        </div>
+        
         <div id="gdlr-core-recent-portfolio-widget-2"
             class="widget widget_gdlr-core-recent-portfolio-widget kleanity-widget">
             <h3 class="kleanity-widget-title">

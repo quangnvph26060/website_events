@@ -31,7 +31,7 @@
 
 
             <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-left">
-                <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">
+                <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height" style="padding-left: 15px !important">
                     <div class="gdlr-core-page-builder-body">
                         <div class="gdlr-core-pbf-section">
                             <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
@@ -41,18 +41,18 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
                                                     style="margin-top: 5px">
-                                                    <div class="gdlr-core-divider-line gdlr-core-skin-divider"></div>
+                                                    {{-- <div class="gdlr-core-divider-line gdlr-core-skin-divider"></div> --}}
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
-                                                <div
+                                                {{-- <div
                                                     class="gdlr-core-stunning-text-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align gdlr-core-stunning-text-caption-above-title">
 
                                                     <h3 class="gdlr-core-stunning-text-item-title">
                                                         @lang('lang.life-is-short')
                                                     </h3>
 
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"

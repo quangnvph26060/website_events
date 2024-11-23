@@ -108,7 +108,10 @@
         <div class="kleanity-page-title-overlay"></div>
         <div class="kleanity-page-title-container kleanity-container">
             <div class="kleanity-page-title-content kleanity-item-pdlr">
-                <h1 class="kleanity-page-title" style="color: rgb(255, 255, 255); font-size: 40px;"
+                <h1 class="kleanity-page-title" style=" font-weight: 600;
+                            letter-spacing: 0px;
+                            text-transform: none;
+                            color: #fff;"
                     data-orig-font="57px">{{ getLocalizedContent($banner, 'title', \App::getLocale()) }}</h1>
                 <p class="kleanity-page-caption" style="color: rgb(255, 255, 255);">
                     {{ getLocalizedContent($banner, 'description', \App::getLocale()) }}
