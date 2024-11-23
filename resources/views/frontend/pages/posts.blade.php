@@ -17,7 +17,7 @@
                         <div class="gdlr-core-page-builder-body">
                             <div class="gdlr-core-pbf-wrapper">
                                 <div class="gdlr-core-pbf-wrapper-title" style="padding-left: 10px; ">
-                                    <h1 style="color: #4e4e4e">
+                                    <h1  style="margin-bottom: 50px !important; color: #4e4e4e">
                                         {{ getLocalizedContent($post, 'title', \App::getLocale()) }}
 
                                     </h1>
@@ -46,8 +46,6 @@
                     </div>
                 </div>
             </div>
-
-            @include('frontend.include.sidebar')
         </div>
     </div>
 @endsection
