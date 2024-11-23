@@ -68,7 +68,8 @@
                                         font-size: 40px;
                                         font-weight: 700;
                                         text-transform: none;
-                                        color: #154BA3
+                                        color: #154BA3;
+                                        margin-bottom: 20px
                                         ">
                                         @lang('lang.info-work')<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>

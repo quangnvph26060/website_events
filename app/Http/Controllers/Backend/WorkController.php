@@ -40,7 +40,7 @@ class WorkController extends Controller
     {
         $validated = $request->validate(
             [
-                'cata_id' => 'required|exists:catalogues,id',
+                'cata_id' => 'nullable|exists:catalogues,id',
                 'title' => 'required|string|max:255',
                 'categories' => 'required|array',
                 'customer' => 'nullable|string|max:255',
@@ -131,14 +131,14 @@ class WorkController extends Controller
     {
         $validated = $request->validate(
             [
-                'cata_id' => 'required|exists:catalogues,id',
+                'cata_id' => 'nullable|exists:catalogues,id',
                 'title' => 'required|string|max:255|unique:works,title,' . $work->id,
                 'categories' => 'nullable|array',
-                'customer' => 'required|string|max:255',
-                'project_name' => 'required|string|max:255',
-                'participants_count' => 'required|integer|min:1',
-                'year' => 'required|integer|digits:4|between:1900,' . date('Y'),
-                'location' => 'required|string|max:255',
+                'customer' => 'nullable|string|max:255',
+                'project_name' => 'nullable|string|max:255',
+                'participants_count' => 'nullable|integer|min:1',
+                'year' => 'nullable|integer|digits:4|between:1900,' . date('Y'),
+                'location' => 'nullable|string|max:255',
             ],
             __('request.messages'),
             [
