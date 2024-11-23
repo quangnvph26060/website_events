@@ -18,15 +18,13 @@
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036 kleanity-normal-menu {{ request()->routeIs('user.portfolio') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.portfolio') }}">
-                                @lang('lang.job')</a>
+                                @lang('lang.service')</a>
                         </li>
                         <li class="kleanity-center-nav-menu-item ">
                             <div class="kleanity-logo kleanity-item-pdlr">
                                 <div class="kleanity-logo-inner">
                                     <a href="{{route('user.home')}}">
-                                        <noscript>
-                                            <img src="{{ showImage($configWebsite->logo) }}" alt="" />
-                                        </noscript>
+
                                         <img class="lazyload"
                                             src="{{ showImage($configWebsite->logo) }}"
                                             data-src="{{ showImage($configWebsite->logo) }}" alt="" style="padding-left: 0px" />

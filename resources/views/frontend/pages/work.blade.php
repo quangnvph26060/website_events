@@ -4,7 +4,6 @@
 @section('title', 'Công việc')
 @section('content')
 
-
     @isset($banner)
         @include('frontend.layouts.partials.banner', ['template' => '2', 'banner' => $banner])
     @else
@@ -28,6 +27,9 @@
 
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
+
+
+
             <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-left">
                 <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">
                     <div class="gdlr-core-page-builder-body">
@@ -63,19 +65,16 @@
                                 </div>
                                 <div class="gdlr-core-pbf-element">
                                     <div class="gdlr-core-blog-item gdlr-core-item-pdb clearfix gdlr-core-style-blog-full"
-                                        style="padding-bottom: 40px">
+                                      >
                                         <div class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix"
                                             data-layout="fitrows">
 
                                             @foreach ($posts as $post)
                                                 <div
-                                                    class="gdlr-core-item-list gdlr-core-blog-full gdlr-core-item-pdlr gdlr-core-style-left">
+                                                    class="gdlr-core-item-list gdlr-core-blog-full gdlr-core-item-pdlr gdlr-core-style-left" style="margin-bottom: 30px">
                                                     <div
                                                         class="gdlr-core-blog-thumbnail gdlr-core-media-image gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-                                                        <a href="#"><noscript><img
-                                                                    src="{{ showImage($post->featured_image ?? '') }}"
-                                                                    alt="" width="1200" height="580"
-                                                                    title="Senior Account Executive Job" /></noscript><img
+                                                        <a href="#"><img
                                                                 class="lazyloaded"
                                                                 src="{{ showImage($post->featured_image ?? '') }}"
                                                                 data-src="{{ showImage($post->featured_image ?? '') }}"
@@ -120,8 +119,12 @@
                         </div>
                     </div>
                 </div>
+
                 @include('frontend.include.sidebar')
+
             </div>
+
+
         </div>
     </div>
 @endsection

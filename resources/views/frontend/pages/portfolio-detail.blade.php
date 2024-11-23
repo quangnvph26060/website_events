@@ -25,11 +25,7 @@
                                                             <a class="gdlr-core-ilightbox gdlr-core-js"
                                                                 href="{{ showImage($item->image_path ?? '') }}"
                                                                 data-ilightbox-group="gdlr-core-img-group-1"
-                                                                data-type="image"><noscript><img
-                                                                        src="{{ showImage($item->image_path ?? '') }}"
-                                                                        alt="{{ $item->title }}" width="2560"
-                                                                        height="1600"
-                                                                        title="PTSC.30Years (122)" /></noscript>
+                                                                data-type="image">
                                                                 <img class="ls-is-cached lazyloaded"
                                                                     src="{{ showImage($item->image_path ?? '') }}"
                                                                     data-src="{{ showImage($item->image_path ?? '') }}"
@@ -154,10 +150,7 @@
                                 <div
                                     class="gdlr-core-portfolio-thumbnail gdlr-core-media-image  gdlr-core-style-icon-title">
                                     <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
-                                        <noscript><img
-                                                src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                                alt="{{ $relatedWork->title }}"
-                                                title="{{ $relatedWork->title }}" /></noscript><img
+                                       <img
                                             style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;"
                                             class=" ls-is-cached lazyloaded"
                                             src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"

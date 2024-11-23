@@ -49,10 +49,7 @@
                                                         <a class="gdlr-core-ilightbox gdlr-core-js"
                                                             href="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                             data-ilightbox-group="gdlr-core-img-group-1" data-type="image">
-                                                            <noscript><img
-                                                                    src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                                                    alt="" width="700" height="500"
-                                                                    title="{{ $work->title }}" /></noscript>
+
                                                             <img class="lazyloaded"
                                                                 src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                                                 data-src="{{ showImage($work->images->first()->image_path ?? '') }}"

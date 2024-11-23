@@ -101,16 +101,53 @@
 @endif
 
 @if ($template == '2')
-    <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align lazyloaded"
-        data-bg="{{showImage($banner->path_image) }}"
-        style="background-image: url('{{showImage($banner->path_image) }}');">
+    <div class="kleanity-page-title-wrap kleanity-style-medium kleanity-left-align lazyloaded"
+        data-bg="{{ showImage($banner->path_image) }}"
+        style="background-image: url('{{ showImage($banner->path_image) }}');">
         <div class="kleanity-header-transparent-substitute" style="height: 0px;"></div>
         <div class="kleanity-page-title-overlay"></div>
         <div class="kleanity-page-title-container kleanity-container">
             <div class="kleanity-page-title-content kleanity-item-pdlr">
                 <h1 class="kleanity-page-title" style="color: rgb(255, 255, 255); font-size: 40px;"
                     data-orig-font="57px">{{ getLocalizedContent($banner, 'title', \App::getLocale()) }}</h1>
+                <p class="kleanity-page-caption" style="color: rgb(255, 255, 255);">
+                    {{ getLocalizedContent($banner, 'description', \App::getLocale()) }}
+                </p>
             </div>
         </div>
     </div>
 @endif
+
+<style>
+    .kleanity-page-title-wrap {
+        position: relative;
+        /* Quan trọng để áp dụng ::before */
+        background-size: cover;
+        /* Đảm bảo ảnh nền bao phủ đầy đủ */
+        background-position: center;
+        /* Căn giữa ảnh nền */
+        color: #fff;
+        /* Màu chữ trắng */
+    }
+
+    /* Lớp phủ tối */
+    .kleanity-page-title-wrap::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        /* Lớp phủ màu đen 50% trong suốt */
+        z-index: 1;
+        /* Đặt dưới nội dung */
+    }
+
+    /* Nội dung chữ */
+    .kleanity-page-title-content {
+        position: relative;
+        z-index: 2;
+        /* Đặt trên lớp phủ */
+    }
+</style>

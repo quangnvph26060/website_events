@@ -74,10 +74,7 @@
                     @foreach ($works->take(4) as $work)
                         <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
                             <a href="{{ route('user.portfolio', $work->slug) }}">
-                                <noscript>
-                                    <img src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                        alt="" width="150" height="150" title="{{$work->title}}" />
-                                </noscript>
+
                                 <img class="lazyload"
                                     src="{{ showImage($work->images->first()->image_path ?? '') }}"
                                     data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
