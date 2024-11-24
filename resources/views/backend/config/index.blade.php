@@ -50,14 +50,18 @@
 
                                 <div class="form-group">
                                     <label class="text-label">Địa chỉ</label>
-                                    <div class="input-group">
+                                    <div class="input-group mb-0">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
                                         </div>
                                         <input type="text" class="form-control" name="address" placeholder="Địa chỉ"
                                             value="{{ $config->address }}">
                                     </div>
+                                    <small class="form-text text-danger">
+                                        Vui lòng chèn thêm ký tự "<b>|</b>" nếu có từ 2 địa chỉ trở lên.
+                                    </small>
                                 </div>
+
 
                                 <div class="form-group">
                                     <label class="text-label">Email</label>

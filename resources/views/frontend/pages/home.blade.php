@@ -230,6 +230,7 @@
                         </div>
                     </div>
                 </div>
+   
                 {{-- <style>
                     .gdlr-core-portfolio-item-holder.gdlr-core-js-2.clearfix{
                         opacity: 1 !important;

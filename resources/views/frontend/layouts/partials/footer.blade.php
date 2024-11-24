@@ -10,15 +10,27 @@
                     </p>
                     <p>
                         <span style="font-size: 14px">
-                            <strong>  {{ $configWebsite->company }}</strong>
+                            <strong> {{ $configWebsite->company }}</strong>
 
                         </span>
                         <br>
-                        <span style="font-size: 14px">
-                            <strong> @lang('lang.address')</strong>
-                            :  {{ getLocalizedContent($configWebsite, 'address', \App::getLocale()) }}
-                        </span>
-                        <br />
+
+                        @php
+                            $ad = getLocalizedContent($configWebsite, 'address', \App::getLocale());
+                            $address = explode('|', $ad);
+                        @endphp
+
+                        @foreach ($address as $a)
+                        {{\Log::info(count($address))}}
+                            <span style="font-size: 14px">
+                                <strong>
+                                    {{ count($address) > 1 ? __('lang.branch') .' ' . $loop->iteration  : __('lang.address') }}
+                                </strong>
+                                : {{ $a }}
+                            </span>
+                            <br />
+                        @endforeach
+
                         <span style="font-size: 14px">
                             <strong>Email &nbsp;</strong>
                             &nbsp;&nbsp;:
@@ -32,7 +44,8 @@
                             <strong> @lang('lang.phone')</strong>
                             &nbsp;:
                             <span style="color: #154BA3">
-                                <a style="color: #154BA3" href="tel:{{ $configWebsite->constant_hotline }}">{{ $configWebsite->constant_hotline }}</a>
+                                <a style="color: #154BA3"
+                                    href="tel:{{ $configWebsite->constant_hotline }}">{{ $configWebsite->constant_hotline }}</a>
                             </span>
                         </span>
                     </p>
@@ -49,10 +62,8 @@
                 <ul>
 
                     @foreach ($postF->take(3) as $item)
-
                         <li>
-                            <a
-                                href="{{ route('user.work-for-us', $item->slug) }}">
+                            <a href="{{ route('user.work-for-us', $item->slug) }}">
                                 {{ getLocalizedContent($item, 'title', \App::getLocale()) }}
                             </a>
                         </li>
@@ -75,10 +86,9 @@
                         <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
                             <a href="{{ route('user.portfolio', $work->slug) }}">
 
-                                <img class="lazyload"
-                                    src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                    data-src="{{ showImage($work->images->first()->image_path ?? '') }}"
-                                    alt="" width="150" height="150" title="{{$work->title}}" />
+                                <img class="lazyload" src="{{ showImage($work->images->first()->image_path ?? '') }}"
+                                    data-src="{{ showImage($work->images->first()->image_path ?? '') }}" alt=""
+                                    width="150" height="150" title="{{ $work->title }}" />
                                 <span class="gdlr-core-image-overlay">
                                     <i class="gdlr-core-image-overlay-icon gdlr-core-size-15 icon_link_alt"></i>
                                 </span>
