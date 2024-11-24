@@ -38,6 +38,11 @@ class Work extends Model
         return $this->hasMany(WorkImage::class);
     }
 
+    public function cata(){
+
+        return $this->belongsTo(Catalogue::class, 'cata_id');
+    }
+
     public function catalogues()
     {
         return $this->belongsToMany(Catalogue::class, 'catalogue_work', 'work_id', 'catalogue_id')->withTimestamps();

@@ -180,7 +180,7 @@
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
                             data-ajax="gdlr_core_home_ajax"
-                            
+
                             data-target="gdlr-core-portfolio-item-holder" data-target-action="replace">
                             <a href="#"
                                 class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
@@ -196,7 +196,7 @@
                             @endforeach
                         </div>
                         <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="masonry"
-                            style="position: relative; height: 1252.35px">
+                            style="position: relative; height: 1252.35px;">
                             @if ($works->isNotEmpty())
                                 @foreach ($works as $work)
                                     <div class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20 gdlr-core-column-first gdlr-core-animate-end"
@@ -230,6 +230,11 @@
                         </div>
                     </div>
                 </div>
+                {{-- <style>
+                    .gdlr-core-portfolio-item-holder.gdlr-core-js-2.clearfix{
+                        opacity: 1 !important;
+                    }
+                </style> --}}
                 <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
                     <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="margin: -18px 0px 0px 0px">
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">

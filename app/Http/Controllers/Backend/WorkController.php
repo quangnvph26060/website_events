@@ -92,6 +92,7 @@ class WorkController extends Controller
             DB::commit();
             return redirect()->route('admin.works.index');
         } catch (\Exception $e) {
+            \Log::info($e->getMessage());
             DB::rollBack();
             session()->flash('error', 'Tác phẩm đã xảy ra lỗi!');
             return redirect()->back();
