@@ -18,7 +18,8 @@ class PortfolioController extends Controller
             return view('frontend.pages.portfolio', compact('catalogues', 'works','banner'));
         }
 
-        $work = \App\Models\Work::with('images', 'catalogues')->where('slug', $slug)->first();
+        $work = \App\Models\Work::with('images', 'catalogues', 'cata')->where('slug', $slug)->first();
+
         $catalogueIds = $work->catalogues->pluck('id')->toArray();
         $relatedWorks = \App\Models\Work::with('images', 'catalogues')
             ->whereIn('id', function ($query) use ($catalogueIds) {

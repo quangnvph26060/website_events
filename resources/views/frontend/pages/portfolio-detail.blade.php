@@ -87,33 +87,37 @@
                                                 class="gdlr-core-port-info-wrap gdlr-core-skin-divider gdlr-core-with-border">
                                                 <div class="gdlr-core-port-info">
                                                     <span
-                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.client')</span><span
-                                                        class="gdlr-core-port-info-value">
+                                                        class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.client')</span>
+                                                        <span
+                                                        class="gdlr-core-port-info-value"
+                                                        id="client"
+                                                        >
                                                         {{ getLocalizedContent($work, 'customer', \App::getLocale()) }}
                                                     </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.project')</span><span
-                                                        class="gdlr-core-port-info-value">
+                                                        class="gdlr-core-port-info-value"
+                                                        id="project">
                                                         {{ getLocalizedContent($work, 'project_name', \App::getLocale()) }}
                                                     </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span class="gdlr-core-port-info-key gdlr-core-skin-title">
-                                                        @lang('lang.attendee')</span><span class="gdlr-core-port-info-value">
+                                                        @lang('lang.attendee')</span><span class="gdlr-core-port-info-value" id="attendee">
                                                         {{ $work->participants_count }}
                                                     </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.year')</span><span
-                                                        class="gdlr-core-port-info-value">{{$work->year}}</span>
+                                                        class="gdlr-core-port-info-value" id="year">{{$work->year}}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.location')</span><span
-                                                        class="gdlr-core-port-info-value">
+                                                        class="gdlr-core-port-info-value" id="location">
                                                         {{ getLocalizedContent($work, 'location', \App::getLocale()) }}
                                                     </span>
                                                 </div>
@@ -121,13 +125,14 @@
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.catalogue')
                                                     </span>
-                                                    <span class="gdlr-core-port-info-value">
-                                                        @foreach ($work->catalogues as $catalogue)
+                                                    <span class="gdlr-core-port-info-value" id="catalogue">
+                                                        {{$work->cata->name}}
+                                                        {{-- @foreach ($work->catalogues as $catalogue)
                                                             <a href="{{ route('user.portfolio_tag', $catalogue->slug) }}"
                                                                 rel="tag">
                                                                 {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
                                                             </a>{{ !$loop->last ? ', ' : '' }}
-                                                        @endforeach
+                                                        @endforeach --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -139,6 +144,32 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            @media (min-width: 767px) {
+                #client {
+                    margin-left: 85px
+                }
+                #project {
+                    margin-left: 100px
+                }
+                #attendee {
+                    margin-left: 60px
+                }
+                #year {
+                    margin-left: 102px
+                }
+
+                #location {
+                    margin-left: 96px
+                }
+
+                #catalogue {
+                    margin-left: 98px
+                }
+
+            }
+        </style>
 
         <div class="gdlr-core-portfolio-single-related gdlr-core-style-grid">
             <div class="gdlr-core-container">
