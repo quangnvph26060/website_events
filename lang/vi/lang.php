@@ -44,4 +44,6 @@ return [
      'send' => 'XÁC NHẬN',
 
      'contact_footer' => 'LIÊN HỆ VỚI CHÚNG TÔI',
+
+     'branch' => 'Chi nhánh',
 ];

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-
 use App\Models\Config;
+
 use Illuminate\Http\Request;
+use App\Events\TranslateContent;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class ConfigController extends Controller
@@ -60,7 +61,8 @@ class ConfigController extends Controller
             Config::create($validated);
         }
 
-        translateAndSave('config', $config->id, ['title_seo', 'meta_seo', 'description_seo', 'description', 'address', 'footer'], 'en');
+        // translateAndSave('config', $config->id, , 'en');
+        event(new TranslateContent('config', $config->id, ['title_seo', 'meta_seo', 'description_seo', 'description', 'address', 'footer'], 'en'));
 
         return redirect()->route('admin.config.index')->with('success', 'Cập nhật thông tin thành công');
     }

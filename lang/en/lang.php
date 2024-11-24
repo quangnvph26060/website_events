@@ -44,4 +44,6 @@ return [
     'send' => 'SUBMIT NOW',
 
     'contact_footer' => 'CONTACT US',
+
+    'branch' => 'Branch',
 ];
