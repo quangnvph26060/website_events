@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="kleanity-mobile-menu-right">
-                <div  id="menuOverlay"></div>
+                <div id="menuOverlay"></div>
                 <div class="kleanity-overlay-menu kleanity-mobile-menu" id="kleanity-mobile-menu">
                     <div class="menu-container">
                         <input type="checkbox" id="menuToggle" class="hidden">
@@ -47,8 +47,17 @@
                                                 aria-current="page">@lang('lang.about')</a>
                                         </li>
                                         <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036">
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4036 has-children">
                                             <a href="{{ route('user.portfolio') }}">@lang('lang.service')</a>
+                                            <span class="toggle-icon"><i class="fa fa-chevron-down"></i></span>
+                                            <ul class="sub-menu">
+                                                @foreach ($catalogues as $category)
+                                                    <li class="menu-item">
+                                                        <a
+                                                            href="{{ route('user.portfolio_tag', $category->slug) }}">{{ $category->name }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748">
@@ -59,6 +68,8 @@
                                             <a href="{{ route('user.contact-us') }}">@lang('lang.contact')</a>
                                         </li>
                                     </ul>
+
+
                                 </div>
                             </div>
                         </div>
@@ -70,28 +81,97 @@
     </div>
 </div>
 <script>
-
-    document.getElementById('menuOverlay').addEventListener('click', function () {
+    document.getElementById('menuOverlay').addEventListener('click', function() {
         document.getElementById('menuToggle').checked = false;
         document.getElementById('menuOverlay').style.display = 'none';
     });
 
-    document.querySelector('#menuToggle').addEventListener('click', function () {
+    document.querySelector('#menuToggle').addEventListener('click', function() {
         document.getElementById('menuOverlay').style.display = 'block';
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lấy tất cả icon toggle
+        const toggleIcons = document.querySelectorAll('.menu-item.has-children .toggle-icon');
+
+        toggleIcons.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation(); // Ngăn sự kiện lan đến phần tử cha
+                const parent = this.parentElement;
+
+                // Đóng tất cả menu con khác
+                document.querySelectorAll('.menu-item.open').forEach(item => {
+                    if (item !== parent) {
+                        item.classList.remove('open');
+                    }
+                });
+
+                // Mở/đóng menu con hiện tại
+                parent.classList.toggle('open');
+            });
+        });
+    });
 </script>
 <style>
+ 
+
+    .menu .menu-item {
+        position: relative;
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    .menu .menu-item a:hover {
+        background-color: #f5f5f5;
+        color: #000;
+    }
+
+    /* Menu con */
+    .menu .sub-menu {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: #f9f9f9;
+        border-left: 1px solid #ddd;
+    }
+
+    .menu .sub-menu .menu-item a {
+        padding: 10px 30px;
+        /* Thụt vào để dễ phân biệt */
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* Khi mở menu con */
+    .menu .menu-item.open>.sub-menu {
+        display: block;
+    }
+
+    /* Icon toggle */
+    .toggle-icon {
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 10px;
+        color: #555;
+        font-size: 14px;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-item.open>.toggle-icon i {
+        transform: rotate(180deg);
+        /* Xoay icon xuống khi mở */
+    }
 
     /* Overlay styles */
     #menuOverlay {
         position: fixed;
         top: 0;
         left: 0;
-       right: 0;
-       bottom: 0;
-       display: none;
-       z-index: 8888;
+        right: 0;
+        bottom: 0;
+        display: none;
+        z-index: 8888;
     }
 
     /* Hiển thị overlay khi menu mở */
