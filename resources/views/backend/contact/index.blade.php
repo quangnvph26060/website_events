@@ -5,6 +5,20 @@
 @section('content')
 
     <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3 class="card-title">
+                Yêu Cầu Liên Hệ
+            </h3>
+            <div class="card-tools">
+                <form action="" method="post" style="width: 300px" id="email-form">
+                    <div class="input-group d-flex">
+                        <input type="text" name="email" id="email" value="{{ env('MAIL_TO') }}"
+                            placeholder="Nhập email nhận thông báo" class="form-control">
+                        <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="multi-filter-select" class="display table table-striped table-hover">
@@ -17,7 +31,7 @@
                             <th>Số điện thoại</th>
                             <th>Tiêu đề</th>
                             <th>Công ty</th>
-                            <th>Lời nhắn</th>
+                            <th>Thời gian tạo</th>
 
                         </tr>
                         </tr>
@@ -29,13 +43,13 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $contact->fullName }}</td>
                                     <td>
-                                       {{ $contact->email }}
+                                        {{ $contact->email }}
                                     </td>
                                     <td>{{ $contact->phone }}</td>
                                     <td>{{ $contact->subject }}</td>
                                     <td>{{ $contact->company }}</td>
-                                    <td>
-                                        {{ Str::limit($contact->message, 100) }}
+                                    <td>{{ \Carbon\Carbon::parse($contact->created_at)->format('d-m-Y H:i') }}
+                                        ({{ \Carbon\Carbon::parse($contact->created_at)->locale('vi')->diffForHumans() }})
                                     </td>
                                 </tr>
                             @endforeach
@@ -50,6 +64,42 @@
 
 @push('scripts')
     <script>
+        $('#email-form').submit(function(e) {
+            e.preventDefault();
+            var email = $('#email').val();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    email
+                },
+                success: function(response) {
+                    if (response.status) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công',
+                            text: response.message,
+                        })
+
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Thất bại',
+                            text: response.error,
+                        })
+                    }
+                },
+                error: function(error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Thất bại',
+                        text: response.message,
+                    })
+                }
+            })
+        });
+
         $("#multi-filter-select").DataTable({
             pageLength: 10,
             columnDefs: [{
@@ -94,5 +144,7 @@
 @endpush
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.css') }}">
+
     <script src="{{ asset('backend/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 @endpush
