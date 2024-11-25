@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\ConfigBanner;
-use App\Models\Contact;
 use Carbon\Carbon;
+use App\Models\Contact;
+use App\Models\ConfigHome;
+use App\Models\ConfigBanner;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
     public function contact()
     {
+        $configHome = ConfigHome::first();
         $banner = ConfigBanner::where('page_name' , 1)->first();
-        return view('frontend.pages.contact' , compact('banner'));
+        return view('frontend.pages.contact' , compact('banner', 'configHome'));
     }
     public function contactSubmit(Request $request)
     {
