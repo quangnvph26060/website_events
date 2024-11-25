@@ -24050,6 +24050,7 @@ input[type="reset"]:focus {
 }
 
 .kleanity-overlay-menu-content ul.sub-menu > li {
+    text-align: left;
   font-size: 14px;
   text-transform: none;
   font-weight: 400;

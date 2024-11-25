@@ -113,7 +113,7 @@
     });
 </script>
 <style>
- 
+
 
     .menu .menu-item {
         position: relative;
@@ -137,8 +137,7 @@
     }
 
     .menu .sub-menu .menu-item a {
-        padding: 10px 30px;
-        /* Thụt vào để dễ phân biệt */
+
         font-size: 14px;
         color: #555;
     }
