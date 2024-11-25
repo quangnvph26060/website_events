@@ -2,12 +2,12 @@
 
 
 @section('content')
-    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '1'])
+    @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '2'])
 
     <div class="gdlr-core-pbf-section">
         <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
             <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
-                <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 80px 0px 40px 0px;">
+                {{-- <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 80px 0px 40px 0px;">
                     <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
                         <div class="gdlr-core-pbf-element">
                             <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="gdlr-core-pbf-element">
                 <div
@@ -38,7 +38,7 @@
     @if ($aboutUs->isNotEmpty())
         @foreach ($aboutUs as $about)
             <div class="gdlr-core-pbf-wrapper"
-                style="margin: 0px 0px 0px 0px; padding: 95px 0px 45px 0px; background-color: #f2f2f2;"
+                style="margin: 50px 0px 0px 0px; padding: 95px 0px 45px 0px; background-color: #f2f2f2;"
                 id="gdlr-core-wrapper-1">
                 <div class="gdlr-core-pbf-background-wrap">
                     <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js lazyloaded"

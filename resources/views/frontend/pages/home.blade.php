@@ -62,7 +62,11 @@
 
                             {{-- {!! getLocalizedContentHtml($configHome, 'content', \App::getLocale()) !!} --}}
 
-                            @php($textArray = getLocalizedContent($configHome, 'content', \App::getLocale()))
+
+
+                            @php
+                                $textArray = getLocalizedContent($configHome, 'content', \App::getLocale());
+                            @endphp
 
                             @foreach ($textArray as $item)
                                 <div class="gdlr-core-pbf-element">
@@ -179,9 +183,8 @@
                     <div class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix gdlr-core-portfolio-item-style-metro"
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
-                            data-ajax="gdlr_core_home_ajax"
-
-                            data-target="gdlr-core-portfolio-item-holder" data-target-action="replace">
+                            data-ajax="gdlr_core_home_ajax" data-target="gdlr-core-portfolio-item-holder"
+                            data-target-action="replace">
                             <a href="#"
                                 class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
                             @foreach ($catalogues as $catalogue)
@@ -231,11 +234,6 @@
                     </div>
                 </div>
 
-                {{-- <style>
-                    .gdlr-core-portfolio-item-holder.gdlr-core-js-2.clearfix{
-                        background: rgba(31, 4, 235, 0.85);
-                    }
-                </style> --}}
                 <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
                     <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="margin: -18px 0px 0px 0px">
                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
@@ -491,8 +489,7 @@
                                     <ul>
                                         <li class="gdlr-core-skin-divider gdlr-core-with-hover">
                                             <a href="tel: {{ $configWebsite->constant_hotline }}" target="_self">
-                                                <span
-                                                    class="gdlr-core-icon-list-icon-wrap"><i
+                                                <span class="gdlr-core-icon-list-icon-wrap"><i
                                                         class="gdlr-core-icon-list-icon fa fa-phone"
                                                         style="font-size: 20px; width: 20px"></i>
                                                 </span>
@@ -575,22 +572,30 @@
                                 <div
                                     class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                     <ul>
-                                        <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                            <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($configWebsite->address) }}"
-                                                target="_blank">
-                                                <span class="gdlr-core-icon-list-icon-wrap">
-                                                    <i class="gdlr-core-icon-list-icon-hover fa fa-map-marker"
-                                                        style="font-size: 22px"></i>
-                                                    <i class="gdlr-core-icon-list-icon fa fa-map-marker"
-                                                        style="font-size: 22px; width: 22px"></i>
-                                                </span>
-                                                <div class="gdlr-core-icon-list-content-wrap">
-                                                    <span class="gdlr-core-icon-list-content" style="font-size: 16px">
-                                                        {{ $configWebsite->address }}
+                                        @php
+                                            $ad = getLocalizedContent($configWebsite, 'address', \App::getLocale());
+                                            $address = explode('|', $ad);
+                                        @endphp
+
+                                        @foreach ($address as $a)
+                                            <li class="gdlr-core-skin-divider gdlr-core-with-hover">
+                                                <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($a) }}"
+                                                    target="_blank">
+                                                    <span class="gdlr-core-icon-list-icon-wrap">
+                                                        <i class="gdlr-core-icon-list-icon-hover fa fa-map-marker"
+                                                            style="font-size: 22px"></i>
+                                                        <i class="gdlr-core-icon-list-icon fa fa-map-marker"
+                                                            style="font-size: 22px; width: 22px"></i>
                                                     </span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                                    <div class="gdlr-core-icon-list-content-wrap">
+                                                        <span class="gdlr-core-icon-list-content" style="font-size: 16px">
+                                                            {{ $a }}
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endforeach
+
                                         <li class="gdlr-core-skin-divider">
                                             <div class="gdlr-core-icon-list-content-wrap"></div>
                                         </li>
@@ -755,10 +760,12 @@
 
 @push('styles')
     <style>
-        #contactForm input, #contactForm textarea {
+        #contactForm input,
+        #contactForm textarea {
             border: 1px solid rgba(21, 75, 163, .3) !important;
             border-radius: 3px;
         }
+
         .gdlr-core-pbf-element iframe {
             width: 100% !important;
         }
