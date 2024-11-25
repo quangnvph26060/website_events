@@ -6,7 +6,8 @@
     @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '2'])
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="kleanity-content-container kleanity-container">
-            <div class="kleanity-content-area kleanity-item-pdlr kleanity-sidebar-style-none clearfix" style="padding-top: 30px; padding-bottom:  0px;">
+            <div class="kleanity-content-area kleanity-item-pdlr kleanity-sidebar-style-none clearfix"
+                style="padding-top: 30px; padding-bottom:  0px;">
 
                 <p></p>
             </div>
@@ -41,7 +42,7 @@
                             text-transform: none;
                             color: #154BA3;
                           ">
-                                                  @lang('lang.phone')<span
+                                                    @lang('lang.phone')<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -52,7 +53,8 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="tel:{{ $configWebsite->constant_hotline }}" target="_self" style="display: flex; align-items: center "><span
+                                                    <a href="tel:{{ $configWebsite->constant_hotline }}" target="_self"
+                                                        style="display: flex; align-items: center "><span
                                                             class="gdlr-core-icon-list-icon-wrap"><i
                                                                 class="gdlr-core-icon-list-icon-hover fa fa-phone"
                                                                 style="font-size: 20px"></i><i
@@ -98,8 +100,9 @@
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
                                                 <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="mailto:{{ $configWebsite->email }}" target="_self" style="display: flex; align-items: center "><span
-                                                            class="gdlr-core-icon-list-icon-wrap" ><i
+                                                    <a href="mailto:{{ $configWebsite->email }}" target="_self"
+                                                        style="display: flex; align-items: center "><span
+                                                            class="gdlr-core-icon-list-icon-wrap"><i
                                                                 class="gdlr-core-icon-list-icon fa fa-envelope-o"
                                                                 style="font-size: 20px; width: 20px"></i></span>
                                                         <div class="gdlr-core-icon-list-content-wrap">
@@ -130,7 +133,7 @@
                             text-transform: none;
                             color: #154BA3;
                           ">
-                                                   @lang('lang.address')<span
+                                                    @lang('lang.address')<span
                                                         class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
@@ -140,18 +143,33 @@
                                         <div
                                             class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align">
                                             <ul>
-                                                <li class="gdlr-core-skin-divider gdlr-core-with-hover">
-                                                    <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($configWebsite->address) }}" target="_blank" >
-                                                        <span class="gdlr-core-icon-list-icon-wrap">
-                                                            <i class="gdlr-core-icon-list-icon fa fa-map-marker" style="font-size: 22px; width: 22px; margin-top: 5px;"></i>
-                                                        </span>
-                                                        <div class="gdlr-core-icon-list-content-wrap">
-                                                            <span class="gdlr-core-icon-list-content" style="font-size: 20px">
-                                                                {{ $configWebsite->address }}
+
+                                                @php
+                                                    $ad = getLocalizedContent(
+                                                        $configWebsite,
+                                                        'address',
+                                                        \App::getLocale(),
+                                                    );
+                                                    $address = explode('|', $ad);
+                                                @endphp
+
+                                                @foreach ($address as $a)
+                                                    <li class="gdlr-core-skin-divider gdlr-core-with-hover">
+                                                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($a) }}"
+                                                            target="_blank">
+                                                            <span class="gdlr-core-icon-list-icon-wrap">
+                                                                <i class="gdlr-core-icon-list-icon fa fa-map-marker"
+                                                                    style="font-size: 22px; width: 22px; margin-top: 5px;"></i>
                                                             </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
+                                                            <div class="gdlr-core-icon-list-content-wrap">
+                                                                <span class="gdlr-core-icon-list-content"
+                                                                    style="font-size: 20px">
+                                                                    {{ $a }}
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                                 <li class="gdlr-core-skin-divider">
                                                     <div class="gdlr-core-icon-list-content-wrap"></div>
                                                 </li>
@@ -176,7 +194,7 @@
                                         text-transform: none;
                                         color: #154BA3;
                                         ">
-                                       @lang('lang.map')<span
+                                        @lang('lang.map')<span
                                             class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -207,7 +225,7 @@
                       color: #154BA3;
                     ">
 
-       @lang('lang.information')
+                                        @lang('lang.information')
                                         <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                     </h3>
                                 </div>
@@ -219,7 +237,7 @@
                                 <div class="gdlr-core-text-box-item-content"
                                     style="font-size: 20px; text-transform: none">
                                     <p style="text-align: left">
-                                   @lang('lang.i-and')
+                                        @lang('lang.i-and')
                                     </p>
                                 </div>
                             </div>
@@ -305,7 +323,8 @@
                                             <div class="gdlr-core-column-60 gdlr-core-center-align">
                                                 <p>
 
-                                                    <button class="contact-button" id="btn-contact-submit">@lang('lang.send')</button>
+                                                    <button class="contact-button"
+                                                        id="btn-contact-submit">@lang('lang.send')</button>
                                                 </p>
                                             </div>
                                         </div>
@@ -322,10 +341,12 @@
 
 @push('styles')
     <style>
-          #contactForm input, #contactForm textarea {
+        #contactForm input,
+        #contactForm textarea {
             border: 1px solid rgba(21, 75, 163, .3) !important;
             border-radius: 3px;
         }
+
         .contact-button {
             background-color: #333;
             color: white;

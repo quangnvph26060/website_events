@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         $catalogues = \App\Models\Catalogue::isNotTag()->latest('id')->get();
 
-        $works = \App\Models\Work::with('images')->latest('id')->limit(10)->get();
+        $works = \App\Models\Work::with('images')->latest('id')->limit(9)->get();
 
         $configHome = ConfigHome::first();
 

@@ -71,7 +71,7 @@ class PortfolioController extends Controller
                 $pagination = $works->links('vendor.pagination.custom')->toHtml();
             } else {
                 $view = 'frontend.response.work-list-home';
-                $works = $query->latest('id')->limit(10)->get();
+                $works = $query->latest('id')->limit(9)->get();
             }
 
 

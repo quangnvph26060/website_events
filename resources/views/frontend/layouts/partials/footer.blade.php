@@ -21,7 +21,6 @@
                         @endphp
 
                         @foreach ($address as $a)
-                        {{\Log::info(count($address))}}
                             <span style="font-size: 14px">
                                 <strong>
                                     {{ count($address) > 1 ? __('lang.branch') .' ' . $loop->iteration  : __('lang.address') }}
