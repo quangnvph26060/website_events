@@ -201,11 +201,13 @@
                             </div>
                         </div>
                         <div class="gdlr-core-pbf-element">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.1268106255457!2d105.80209477503023!3d20.98755328065149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acc0169d20ab%3A0x3205424efc8bbe2c!2zMzAgTmcuIDE2OCDEkC4gTmd1eeG7hW4gWGnhu4NuLCBI4bqhIMSQw6xuaCwgVGhhbmggWHXDom4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1729380489743!5m2!1svi!2s"
-                                width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            {!! $configHome->map !!}
                         </div>
+                        <style>
+                            .gdlr-core-pbf-element iframe {
+                                width: 100%;
+                            }
+                        </style>
                         <div class="gdlr-core-pbf-element">
                             <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px"></div>
                         </div>
