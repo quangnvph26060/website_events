@@ -7,7 +7,11 @@ use App\Models\Contact;
 use App\Models\ConfigHome;
 use App\Models\ConfigBanner;
 use Illuminate\Http\Request;
+use App\Mail\SenMailNotification;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -15,8 +19,8 @@ class ContactController extends Controller
     public function contact()
     {
         $configHome = ConfigHome::first();
-        $banner = ConfigBanner::where('page_name' , 1)->first();
-        return view('frontend.pages.contact' , compact('banner', 'configHome'));
+        $banner = ConfigBanner::where('page_name', 1)->first();
+        return view('frontend.pages.contact', compact('banner', 'configHome'));
     }
     public function contactSubmit(Request $request)
     {
@@ -37,20 +41,47 @@ class ContactController extends Controller
         ]);
         if ($validator->fails()) {
             return response()->json([
-                'error' => true,
-                'validation_errors' => $validator->errors()
+                'status' => false,
+                'error' => $validator->errors()->first()
             ]);
         }
-        $throttleTime = 30;
-        $lastSubmitTime = session('last_submit_time');
-        if ($lastSubmitTime && Carbon::now()->diffInSeconds($lastSubmitTime) < $throttleTime) {
+        $credentials = $validator->validated();
+
+        $recentContact = Contact::where([
+            'phone' => $credentials['phone'],
+            'email' => $credentials['email'],
+        ])
+            ->where('created_at', '>=', Carbon::now()->subMinutes(5))
+            ->first();
+
+        if ($recentContact) {
             return response()->json([
-                'error' => true,
-                'spam_error' => 'Bạn đang gửi form quá nhanh. Hãy thử lại sau 30 giây.'
+                'status' => false,
+                'message' => 'Bạn đã gửi liên hệ trong vòng 5 phút trước. Vui lòng chờ thêm.',
             ]);
         }
-        session(['last_submit_time' => Carbon::now()]);
-        Contact::create($request->all());
-        return response()->json(['success' => 'Đã gửi tin nhắn liên hệ thành công']);
+
+        $credentials['created_at'] = Carbon::now();
+
+
+
+        DB::beginTransaction();
+        try {
+            $contact = Contact::updateOrCreate(
+                ['phone' => $credentials['phone'], 'email' => $credentials['email']],
+                $credentials
+            );
+
+            $email = config('mail.to');
+            Mail::to($email)->send(new SenMailNotification($contact));
+
+            DB::commit();
+
+            return response()->json(['success' => 'Đã gửi tin nhắn liên hệ thành công', 'status' => true]);
+        } catch (\Exception $e) {
+            Log::info($e->getMessage());
+            DB::rollBack();
+            return response()->json(['success' => 'Đã gửi tin nhắn liên hệ thất bại', 'status' => false]);
+        }
     }
 }

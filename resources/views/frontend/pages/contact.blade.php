@@ -384,6 +384,7 @@
                 var company = jQuery("input[name='company']").val();
                 var message = jQuery("textarea[name='message']").val();
 
+
                 jQuery.ajax({
                     url: '{{ route('user.contact-us.submit') }}',
                     type: 'POST',
@@ -397,8 +398,7 @@
                         message: message,
                     },
                     success: function(data) {
-                        if (data.success) {
-                            jQuery(".error-text").text('');
+                        if (data.status) {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Thành công!',
@@ -408,32 +408,19 @@
                             }).then(() => {
                                 jQuery("#contactForm")[0].reset();
                             });
-                        } else if (data.error) {
-                            if (data.validation_errors) {
-                                printErrorMsg(data.validation_errors);
-                            } else if (data.spam_error) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Chậm lại!',
-                                    text: data.spam_error,
-                                    showConfirmButton: false,
-                                    timer: 2000
-                                });
-                            }
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Thất bại',
+                                text: data.error ?? data.message,
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
                         }
-                    },
+                    }
                 });
-
 
             });
-
-            function printErrorMsg(msg) {
-                jQuery(".error-text").text('');
-
-                jQuery.each(msg, function(key, value) {
-                    jQuery('.' + key + '_error').text(value[0]);
-                });
-            }
         })
     </script>
 @endpush

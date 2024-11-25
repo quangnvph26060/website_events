@@ -120,6 +120,7 @@ route::prefix('admin')->name('admin.')->group(function () {
     });
 
     route::get('contact', [ContactUsController::class, 'index'])->name('contact-us.index');
+    route::post('contact', [ContactUsController::class, 'UpdateEmail']);
     route::resource('about', AboutUsController::class);
     route::resource('slider', SliderController::class);
 });
