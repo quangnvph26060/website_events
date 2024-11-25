@@ -53,7 +53,7 @@
                                             <ul class="sub-menu">
                                                 @foreach ($catalogues as $category)
                                                     <li class="menu-item">
-                                                        <a
+                                                        <a style="padding: 0px;"
                                                             href="{{ route('user.portfolio_tag', $category->slug) }}">{{ $category->name }}</a>
                                                     </li>
                                                 @endforeach
@@ -119,7 +119,9 @@
         position: relative;
         border-bottom: 1px solid #ddd;
     }
-
+    .menu li.menu-item {
+        padding: 10px 20px;
+    }
 
     .menu .menu-item a:hover {
         background-color: #f5f5f5;
