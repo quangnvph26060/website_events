@@ -44,5 +44,7 @@ return [
 
      'contact_footer' => 'LIÊN HỆ VỚI CHÚNG TÔI',
 
-     'branch' => 'Chi nhánh',
+     'branch_hn' => 'ĐỊA CHỈ VĂN PHÒNG HÀ NỘI',
+     'branch_hcm' => 'ĐỊA CHỈ VĂN PHÒNG HỒ CHÍ MINH',
+     'headquarters' => 'ĐỊA CHỈ TRỤ SỞ',
 ];

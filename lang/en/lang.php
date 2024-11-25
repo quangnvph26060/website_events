@@ -44,5 +44,7 @@ return [
 
     'contact_footer' => 'CONTACT US',
 
-    'branch' => 'Branch',
+    'branch_hn' => 'HANOI OFFICE ADDRESS',
+    'branch_hcm' => 'HO CHI MINH OFFICE ADDRESS',
+    'headquarters' => 'HEADQUARTERS',
 ];

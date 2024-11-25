@@ -13812,6 +13812,11 @@ form.submitting .wpcf7-spinner {
   font-weight: 700;
 }
 
+.gdlr-core-port-info{
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
 .gdlr-core-port-info-item .gdlr-core-port-info {
   margin-top: 15px;
 }
