@@ -1,6 +1,6 @@
 <div class="kleanity-footer-wrapper">
     <div class="kleanity-footer-container kleanity-container clearfix">
-        <div class="kleanity-footer-column kleanity-item-pdlr kleanity-column-20">
+        <div class="kleanity-footer-column kleanity-item-pdlr kleanity-column-24">
             <div id="text-3" class="widget widget_text kleanity-widget">
                 <div class="textwidget">
                     <p>
@@ -23,7 +23,13 @@
                         @foreach ($address as $a)
                             <span style="font-size: 14px">
                                 <strong>
-                                    {{ count($address) > 1 ? __('lang.branch') .' ' . $loop->iteration  : __('lang.address') }}
+                                    @if ($loop->index == 0)
+                                        @lang('lang.headquarters')
+                                    @elseif($loop->index == 1)
+                                        @lang('lang.branch_hn')
+                                    @else
+                                        @lang('lang.branch_hcm')
+                                    @endif
                                 </strong>
                                 : {{ $a }}
                             </span>
@@ -51,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="kleanity-footer-column kleanity-item-pdlr kleanity-column-20">
+        <div class="kleanity-footer-column kleanity-item-pdlr kleanity-column-15">
             <div id="recent-posts-3" class="widget widget_recent_entries kleanity-widget">
                 <h3 class="kleanity-widget-title">
                     <span class="kleanity-widget-head-text"> @lang('lang.recent-articles')</span>

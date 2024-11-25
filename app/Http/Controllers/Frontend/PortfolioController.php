@@ -19,21 +19,19 @@ class PortfolioController extends Controller
 
         $work = \App\Models\Work::with('images', 'catalogues', 'cata')->where('slug', $slug)->first();
 
-        $catalogueIds = $work->catalogues->pluck('id')->toArray();
-        $relatedWorks = \App\Models\Work::with('images', 'catalogues')
-            ->whereIn('id', function ($query) use ($catalogueIds) {
-                $query->select('work_id')
-                    ->from('catalogue_work')
-                    ->whereIn('catalogue_id', $catalogueIds);
-            })
-            ->latest()
-            ->where('id', '!=', $work->id)
-            ->limit(8)->get();
-
-
         if (!$work) {
             abort(404);
         }
+
+        $relatedWorks = \App\Models\Work::with('images', 'catalogues')
+    ->where('cata_id', $work->cata_id)
+    ->where('id', '!=', $work->id)
+    ->latest()
+    ->limit(8)
+    ->get();
+
+
+
 
         return view('frontend.pages.portfolio-detail', compact('work', 'relatedWorks'));
     }

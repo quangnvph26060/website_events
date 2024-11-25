@@ -88,31 +88,29 @@
                                                 <div class="gdlr-core-port-info">
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.client')</span>
-                                                        <span
-                                                        class="gdlr-core-port-info-value"
-                                                        id="client"
-                                                        >
+                                                    <span class="gdlr-core-port-info-value" id="client">
                                                         {{ getLocalizedContent($work, 'customer', \App::getLocale()) }}
                                                     </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.project')</span><span
-                                                        class="gdlr-core-port-info-value"
-                                                        id="project">
+                                                        class="gdlr-core-port-info-value" id="project">
                                                         {{ getLocalizedContent($work, 'project_name', \App::getLocale()) }}
                                                     </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span class="gdlr-core-port-info-key gdlr-core-skin-title">
-                                                        @lang('lang.attendee')</span><span class="gdlr-core-port-info-value" id="attendee">
+                                                        @lang('lang.attendee')</span><span class="gdlr-core-port-info-value"
+                                                        id="attendee">
                                                         {{ $work->participants_count }}
                                                     </span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.year')</span><span
-                                                        class="gdlr-core-port-info-value" id="year">{{$work->year}}</span>
+                                                        class="gdlr-core-port-info-value"
+                                                        id="year">{{ $work->year }}</span>
                                                 </div>
                                                 <div class="gdlr-core-port-info">
                                                     <span
@@ -126,7 +124,7 @@
                                                         class="gdlr-core-port-info-key gdlr-core-skin-title">@lang('lang.catalogue')
                                                     </span>
                                                     <span class="gdlr-core-port-info-value" id="catalogue">
-                                                        {{$work->cata->name}}
+                                                        {{ $work->cata->name }}
                                                         {{-- @foreach ($work->catalogues as $catalogue)
                                                             <a href="{{ route('user.portfolio_tag', $catalogue->slug) }}"
                                                                 rel="tag">
@@ -150,12 +148,15 @@
                 #client {
                     margin-left: 85px
                 }
+
                 #project {
                     margin-left: 100px
                 }
+
                 #attendee {
                     margin-left: 60px
                 }
+
                 #year {
                     margin-left: 102px
                 }
@@ -169,6 +170,30 @@
                 }
 
             }
+
+            @media (max-width: 767px) {
+                #client {
+                    margin-left: 25px
+                }
+
+                #project {
+                    margin-left: 39px
+                }
+
+
+
+                #year {
+                    margin-left: 40px
+                }
+
+                #location {
+                    margin-left: 40px
+                }
+
+                #catalogue {
+                    margin-left: 40px
+                }
+            }
         </style>
 
         <div class="gdlr-core-portfolio-single-related gdlr-core-style-grid">
@@ -177,58 +202,52 @@
                 <div class="gdlr-core-portfolio-item-holder clearfix">
                     @foreach ($relatedWorks as $key => $relatedWork)
                         <div
-                            class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-column-15 @if ($key % 3 == 0) gdlr-core-column-first @endif">
+                            class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-column-15 @if ($key % 4 == 0) gdlr-core-column-first @endif">
                             <div class="gdlr-core-portfolio-grid  gdlr-core-left-align gdlr-core-style-normal">
                                 <div
                                     class="gdlr-core-portfolio-thumbnail gdlr-core-media-image  gdlr-core-style-icon-title">
                                     <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
-                                       <img
-                                            style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;"
-                                            class=" ls-is-cached lazyloaded"
+                                        <noscript>
+                                            <img src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
+                                                alt="{{ $relatedWork->title }}" width="700" height="450"
+                                                title="{{ $relatedWork->title }}" />
+                                        </noscript>
+                                        <img class=" ls-is-cached lazyloaded"
                                             src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
                                             data-src="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
-                                            alt="{{ $relatedWork->title }}" title="{{ $relatedWork->title }}"><span
-                                            class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span
-                                                class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;"><span
-                                                    class="gdlr-core-portfolio-icon-wrap"><a
+                                            alt="" width="700" height="450" title="{{ $relatedWork->title }}">
+                                        <span
+                                            class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
+                                            <span class="gdlr-core-image-overlay-content" style="margin-top: -45.55px;">
+                                                <span class="gdlr-core-portfolio-icon-wrap"><a
                                                         class="gdlr-core-ilightbox gdlr-core-js "
-                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}"
-                                                        data-ilightbox-group="single-related-portfolio"
-                                                        data-type="image"><i
-                                                            class="gdlr-core-portfolio-icon arrow_expand"></i></a></span><span
-                                                    class="gdlr-core-portfolio-title gdlr-core-title-font "><a
-                                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">
+                                                        href="{{ showImage($relatedWork->images->first()->image_path ?? '') }}"
+                                                        data-ilightbox-group="single-related-portfolio" data-type="image">
+                                                        <i class="fas fa-expand-alt"></i>
+                                                    </a>
+                                                </span>
+                                                <span class="gdlr-core-portfolio-title gdlr-core-title-font ">
+                                                    <a href="{{ route('user.portfolio', $relatedWork->slug) }}">
                                                         {{ getLocalizedContent($relatedWork, 'title', \App::getLocale()) }}
-                                                    </a></span></span></span>
+                                                    </a>
+                                                </span>
+                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="gdlr-core-portfolio-content-wrap gdlr-core-skin-divider">
                                     <h3 class="gdlr-core-portfolio-title gdlr-core-skin-title"><a
-                                            href="{{ route('user.portfolio', $relatedWork->slug) }}">
-                                            {{ getLocalizedContent($relatedWork, 'title', \App::getLocale()) }}
-                                        </a>
-                                    </h3>
-
-                                    <span
-                                        class="gdlr-core-portfolio-info gdlr-core-portfolio-info-tag gdlr-core-info-font gdlr-core-skin-caption">
-
-                                        @foreach ($relatedWork->catalogues as $catalogue2)
-                                            <a href="{{ route('user.portfolio_tag', $catalogue2->slug) }}"
-                                                rel="tag">
-                                                {{ getLocalizedContent($catalogue2, 'name', \App::getLocale()) }}
-                                            </a>
-                                            @if (!$loop->last)
-                                                <span class="gdlr-core-sep">/</span>
-                                            @endif
-                                        @endforeach
-                                    </span>
+                                        href="{{ route('user.portfolio', $relatedWork->slug) }}">
+                                        {{ getLocalizedContent($relatedWork, 'title', \App::getLocale()) }}
+                                    </a>
+                                </h3>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
