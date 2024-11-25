@@ -34,7 +34,6 @@ return [
      'attendee' => 'Người tham dự',
      'catalogue' => 'Danh mục',
      'related-projects' => 'Dự án liên quan',
-     'tags' => 'Gắn thẻ',
 
      'name' => 'Tên',
      'phone_number' => 'Số điện thoại',

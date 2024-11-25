@@ -175,29 +175,41 @@
                         </span>
                     </div>
                 </div>
-                <div class="gdlr-core-pbf-element">
-                    <div class="gdlr-core-space-item gdlr-core-item-pdlr" style="padding-top: 30px">
-                    </div>
-                </div>
+
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix gdlr-core-portfolio-item-style-metro"
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
                             data-ajax="gdlr_core_home_ajax" data-target="gdlr-core-portfolio-item-holder"
                             data-target-action="replace">
-                            <a href="#"
-                                class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
-                            @foreach ($catalogues as $catalogue)
-                                <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
-                                    data-ajax-name="category" data-ajax-value="{{ $catalogue->id }}">
+                            <div class="desktop-view">
+                                <a href="#"
+                                    class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
+                                @foreach ($catalogues as $catalogue)
+                                    <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
+                                        data-ajax-name="category" data-ajax-value="{{ $catalogue->id }}">
 
-                                    {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
-                                </a>
-                                @if ($loop->last == false)
-                                    <span class="kleanity-separater">/</span>
-                                @endif
-                            @endforeach
+                                        {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+                                    </a>
+                                    @if ($loop->last == false)
+                                        <span class="kleanity-separater">/</span>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="mobile-view" style="display: none">
+                                <select id="mobile-filter-select" class="gdlr-core-filterer-select">
+                                    <option value="" data-ajax-name="category" data-ajax-value="">@lang('lang.all')
+                                    </option>
+                                    @foreach ($catalogues as $catalogue)
+                                        <option value="{{ $catalogue->id }}" data-ajax-name="category"
+                                            data-ajax-value="{{ $catalogue->id }}">
+                                            {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
+
                         <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="masonry"
                             style="position: relative; height: 1252.35px;">
                             @if ($works->isNotEmpty())
@@ -794,6 +806,9 @@
 @push('scripts')
     <script src="{{ asset('backend/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
     <script>
+
+    
+
         jQuery(document).ready(function() {
             jQuery("#btn-contact-submit").click(function(e) {
                 e.preventDefault();

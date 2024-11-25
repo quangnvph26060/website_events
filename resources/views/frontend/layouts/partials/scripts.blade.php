@@ -1,6 +1,23 @@
 <script src="{{ asset('frontend/assets/js/jquery/jquery.min.js') }}"></script>
 
 <script>
+
+    function toggleView() {
+        const desktopView = document.querySelector('.desktop-view');
+        const mobileView = document.querySelector('.mobile-view');
+        if (window.innerWidth <= 768) { // Mobile breakpoint
+            desktopView.style.display = 'none';
+            mobileView.style.display = 'block';
+        } else {
+            desktopView.style.display = 'block';
+            mobileView.style.display = 'none';
+        }
+    }
+
+        // Listen to resize event
+        window.addEventListener('resize', toggleView);
+        document.addEventListener('DOMContentLoaded', toggleView);
+
     jQuery(document).ready(function() {
         jQuery.ajaxSetup({
             headers: {

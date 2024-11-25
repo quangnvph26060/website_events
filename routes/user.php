@@ -31,7 +31,7 @@ route::name('user.')->group(function () {
     route::get('portfolio/{slug?}', [PortfolioController::class, 'portfolio'])->name('portfolio');
     route::post('portfolio', [PortfolioController::class, 'ajax'])->name('portfolio.ajax');
 
-    route::get('portfolio_tag/{slug}', [PortfolioController::class, 'portfolioTag'])->name('portfolio_tag');
+    route::get('danh-muc-dau-tu/{slug}', [PortfolioController::class, 'portfolioTag'])->name('portfolio_tag');
 
     route::get('lien-he', [ContactController::class, 'contact'])->name('contact-us');
     route::post('contact/submit', [ContactController::class, 'contactSubmit'])->name('contact-us.submit');

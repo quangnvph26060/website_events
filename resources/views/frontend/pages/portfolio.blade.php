@@ -17,25 +17,36 @@
                 <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix gdlr-core-portfolio-item-style-metro"
                         style="padding-bottom: 0px">
-                        <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align"
-                            data-ajax="gdlr_core_portfolio_ajax" data-target="gdlr-core-portfolio-item-holder"
-                            data-target-action="replace" style="font-size: 22px; margin-bottom: 30px">
+                        <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
+                        data-ajax="gdlr_core_home_ajax" data-target="gdlr-core-portfolio-item-holder"
+                        data-target-action="replace">
+                        <div class="desktop-view">
                             <a href="#"
                                 class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
-
                             @foreach ($catalogues as $catalogue)
                                 <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
-                                    data-ajax-value="{{ $catalogue->id }}">
+                                    data-ajax-name="category" data-ajax-value="{{ $catalogue->id }}">
+
                                     {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
                                 </a>
                                 @if ($loop->last == false)
                                     <span class="kleanity-separater">/</span>
                                 @endif
                             @endforeach
-
-                            <div class="gdlr-core-filterer-slide-bar" style="width: 21px; left: 369.6px; overflow: hidden">
-                            </div>
                         </div>
+                        <div class="mobile-view" style="display: none">
+                            <select id="mobile-filter-select" class="gdlr-core-filterer-select">
+                                <option value="" data-ajax-name="category" data-ajax-value="">@lang('lang.all')
+                                </option>
+                                @foreach ($catalogues as $catalogue)
+                                    <option value="{{ $catalogue->id }}" data-ajax-name="category"
+                                        data-ajax-value="{{ $catalogue->id }}">
+                                        {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
                         @if ($works->isNotEmpty())
                             <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="masonry"

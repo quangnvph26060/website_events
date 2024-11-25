@@ -3,6 +3,46 @@
     display: none !important;
 }
 
+/* Kiểu dáng tổng thể cho select */
+.mobile-view select.gdlr-core-filterer-select {
+    width: 100%; /* Chiếm toàn bộ chiều rộng khung cha */
+    max-width: 400px; /* Giới hạn kích thước tối đa */
+    margin: 10px auto; /* Canh giữa */
+    padding: 10px 15px; /* Khoảng cách bên trong */
+    font-size: 16px; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+    background-color: #f9f9f9; /* Màu nền */
+    border: 1px solid #ddd; /* Viền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    appearance: none; /* Xóa kiểu dáng mặc định của trình duyệt */
+    cursor: pointer;
+}
+
+/* Biểu tượng mũi tên cho select */
+.mobile-view select.gdlr-core-filterer-select::-ms-expand {
+    display: none; /* Ẩn mũi tên mặc định trên IE */
+}
+
+.mobile-view select.gdlr-core-filterer-select:focus {
+    outline: none; /* Loại bỏ đường viền khi focus */
+    border-color: #4CAF50; /* Màu viền khi focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Hiệu ứng sáng */
+}
+
+/* Kiểu dáng khi hover */
+.mobile-view select.gdlr-core-filterer-select:hover {
+    background-color: #fff; /* Nền đổi thành trắng */
+    border-color: #ccc; /* Viền đổi màu */
+}
+
+/* Phần tử cha mobile-view để căn giữa */
+.mobile-view {
+    text-align: center; /* Canh giữa nội dung */
+    margin-top: 20px;
+}
+
+
 .sf-menu .sub-menu {
     display: none;
     position: absolute;

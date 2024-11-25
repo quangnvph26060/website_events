@@ -1,8 +1,8 @@
 @extends('frontend.layouts.master')
 
-{{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
 
-@section('title')
+
+@section('title', getLocalizedContent($catalogue, 'name', \App::getLocale()))
 
 @section('content')
     <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-left-align">
@@ -12,7 +12,7 @@
             <div class="kleanity-page-title-content kleanity-item-pdlr">
                 <h3 class="kleanity-page-title">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">@lang('lang.tags')</font>
+                        <font style="vertical-align: inherit;">@lang('lang.catalogue')</font>
                     </font>
                 </h3>
                 <div class="kleanity-page-caption">
@@ -36,8 +36,8 @@
                             class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix  gdlr-core-portfolio-item-style-grid">
                             <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
 
-                                @if ($catalogue->works->isNotEmpty())
-                                    @foreach ($catalogue->works as $index => $work)
+                                @if ($catalogue->work->isNotEmpty())
+                                    @foreach ($catalogue->work as $index => $work)
                                         <div
                                             class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-column-20 {{ $index % 3 == 0 ? 'gdlr-core-column-first' : '' }}">
                                             <div
@@ -59,10 +59,7 @@
                                                                 class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
                                                                 <span class="gdlr-core-image-overlay-content"
                                                                     style="margin-top: -14.35px;">
-                                                                    <span class="gdlr-core-portfolio-icon-wrap">
-                                                                        <i
-                                                                            class="gdlr-core-portfolio-icon arrow_expand"></i>
-                                                                    </span>
+                                                                   
                                                                 </span>
                                                             </span>
                                                         </a>
