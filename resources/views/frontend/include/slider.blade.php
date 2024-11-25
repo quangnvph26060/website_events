@@ -78,7 +78,7 @@
     document.getElementById("prev").onclick = prevSlide;
 
     // Tự động chạy slider mỗi 3 giây
-    let autoSlideInterval = setInterval(nextSlide, 3000);
+    // let autoSlideInterval = setInterval(nextSlide, 3000);
 
     // Dừng tự động khi người dùng tương tác
     const slider = document.querySelector(".main-slider");
@@ -94,6 +94,15 @@
 
 @push('styles')
     <style>
+        @media only screen and (max-width: 768px) {
+            .main-slider {
+                height: 26vh !important;
+            }
+
+            .item:nth-child(1), .item:nth-child(2) {
+                height: 26vh !important;
+            }
+        }
         .dot-container {
             display: flex;
             justify-content: center;
