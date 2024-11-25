@@ -18,9 +18,9 @@
                                 </div>
                                 <div class="mb-4">
                                     <label for="name" class="form-label">Tên danh mục</label>
-                                    <input type="text" name="name" value="{{ old('name', $catalogue->name) }}"
-                                        class="form-control @error('name') is-invalid @enderror" id="name"
-                                        placeholder="Nhập tên danh mục" />
+                                    <input onkeyup="ChangeToSlug()" type="text" name="name"
+                                        value="{{ old('name', $catalogue->name) }}" class="form-control @error('name') is-invalid @enderror"
+                                        id="convert_slug" placeholder="Nhập tên danh mục" />
                                     @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -28,7 +28,7 @@
                                 <div class="mb-4">
                                     <label for="slug" class="form-label">Slug</label>
                                     <div class="input-group input-group--sa-slug">
-                                        <span class="input-group-text" id="slug-addon">http://sgo_portfolio.test</span>
+                                        <span class="input-group-text" id="slug-addon">{{ url('/') }}</span>
                                         <input name="slug" value="{{ old('slug', $catalogue->slug) }}" type="text"
                                             class="form-control @error('slug') is-invalid @enderror" id="slug"
                                             aria-describedby="slug-addon slug-help" />

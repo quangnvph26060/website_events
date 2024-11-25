@@ -212,7 +212,7 @@
                                                         alt="{{ $work->title }}" width="2560" height="1707"
                                                         title="{{ $work->title }}" /><span
                                                         class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"
-                                                        style="background: rgba(235, 169, 4, 0.85)"><span
+                                                        style="background: rgba(31, 4, 235, 0.6)"><span
                                                             class="gdlr-core-image-overlay-content"
                                                             style="margin-top: -26.725px"><span
                                                                 class="gdlr-core-portfolio-title gdlr-core-title-font"><a
@@ -230,10 +230,10 @@
                         </div>
                     </div>
                 </div>
-   
+
                 {{-- <style>
                     .gdlr-core-portfolio-item-holder.gdlr-core-js-2.clearfix{
-                        opacity: 1 !important;
+                        background: rgba(31, 4, 235, 0.85);
                     }
                 </style> --}}
                 <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
