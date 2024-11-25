@@ -2,6 +2,30 @@
 .hidden{
     display: none !important;
 }
+
+.sf-menu .sub-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+}
+
+.sf-menu li:hover > .sub-menu {
+    display: block;
+}
+
+.sf-menu li {
+    position: relative; /* Needed for absolute positioning of the submenu */
+}
+
+.sf-menu li a {
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.sub-menu li a {
+    padding: 10px 20px; /* Indent submenu items */
+}
+
+
 .roboto-thin {
   font-family: "Roboto", sans-serif;
   font-weight: 100;
@@ -23594,21 +23618,21 @@ input[type="reset"]:focus {
   padding: 1px 11px;
 }
 
-.kleanity-navigation .sf-menu > .kleanity-normal-menu li:first-child {
+/* .kleanity-navigation .sf-menu > .kleanity-normal-menu li:first-child {
   padding-top: 12px;
-}
+} */
 
-.kleanity-navigation .sf-menu > .kleanity-normal-menu li:first-child:hover, .kleanity-navigation .sf-menu > .kleanity-normal-menu li:last-child:hover {
+/* .kleanity-navigation .sf-menu > .kleanity-normal-menu li:first-child:hover, .kleanity-navigation .sf-menu > .kleanity-normal-menu li:last-child:hover {
   background-color: #00d082;
 }
 
 .kleanity-navigation .sf-menu > .kleanity-normal-menu li:last-child {
   padding-bottom: 12px;
-}
+} */
 
 .kleanity-navigation .sf-menu > .kleanity-normal-menu li > a {
   display: block;
-  padding: 6px 12px;
+  padding: 10px 12px;
 }
 
 .kleanity-navigation
@@ -27627,7 +27651,7 @@ html.mm-opening.kleanity-mmenu-right .kleanity-mobile-header {
 .sf-menu > .kleanity-normal-menu ul {
   list-style: none;
   position: absolute;
-  display: none;
+  /* display: none; */
   z-index: 99;
   min-width: 220px;
 }
