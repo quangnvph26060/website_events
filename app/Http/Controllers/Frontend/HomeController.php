@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     function home()
     {
-        $catalogues = \App\Models\Catalogue::isNotTag()->latest('id')->get();
 
         $works = \App\Models\Work::with('images')->latest('id')->limit(9)->get();
 
@@ -18,6 +17,6 @@ class HomeController extends Controller
 
         $partners = \App\Models\Partner::latest('id')->get();
 
-        return view('frontend.pages.home', compact('catalogues', 'works', 'configHome', 'partners'));
+        return view('frontend.pages.home', compact( 'works', 'configHome', 'partners'));
     }
 }

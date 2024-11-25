@@ -12,7 +12,7 @@
                             alt="{{ $work->title }}" width="2560" height="1707"
                             title="{{ $work->title }}" /><span
                             class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"
-                            style="background: rgba(235, 169, 4, 0.85)"><span class="gdlr-core-image-overlay-content"
+                            style="background: rgba(21, 75, 163, .6)"><span class="gdlr-core-image-overlay-content"
                                 style="margin-top: -26.725px"><span
                                     class="gdlr-core-portfolio-title gdlr-core-title-font"><a
                                         href="{{ route('user.portfolio', $work->slug) }}">

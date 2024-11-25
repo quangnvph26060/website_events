@@ -34,7 +34,6 @@ return [
     'attendee' => 'Attendee',
     'catalogue' => 'Category',
     'related-projects' => 'Related projects',
-    'tags' => 'Tags',
 
     'name' => 'Full Name',
     'phone_number' => 'Phone',

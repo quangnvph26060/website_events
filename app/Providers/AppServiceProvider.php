@@ -42,10 +42,12 @@ class AppServiceProvider extends ServiceProvider
         });
         $configWebsite = Config::first();
         $sliderHome = ConfigSlider::all();
-        View::composer('*', function ($view) use ($configWebsite, $sliderHome) {
+        $catalogues = \App\Models\Catalogue::isNotTag()->latest('id')->get();
+        View::composer('*', function ($view) use ($configWebsite, $sliderHome, $catalogues) {
             $view->with([
                 'configWebsite' => $configWebsite,
-                'sliderHome' => $sliderHome
+                'sliderHome' => $sliderHome,
+                'catalogues' => $catalogues
             ]);
         });
     }

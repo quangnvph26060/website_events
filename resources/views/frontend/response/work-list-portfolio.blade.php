@@ -11,7 +11,7 @@
                             <img src="{{ showImage($work->images->first()->image_path ?? '') }}" alt="" width="2560"
                                 height="1707" title="PM3. Thank You Party (5)" /><span
                                 class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js gdlr-core-with-margin"
-                                style="background: rgba(235, 169, 4, 0.6)"><span class="gdlr-core-image-overlay-content"
+                                style="background: rgba(21, 75, 163, .6)"><span class="gdlr-core-image-overlay-content"
                                     style="margin-top: -37.85px"><span
                                         class="gdlr-core-portfolio-title gdlr-core-title-font"
                                         style="

@@ -12,10 +12,9 @@ class PortfolioController extends Controller
     {
         $banner = ConfigBanner::where('page_name' , 4)->first();
         if (is_null($slug)) {
-            $catalogues = \App\Models\Catalogue::isNotTag()->get();
-            $works = \App\Models\Work::with('images', 'catalogues')->paginate(10);
+            $works = \App\Models\Work::with('images', 'catalogues')->latest('id')->paginate(10);
 
-            return view('frontend.pages.portfolio', compact('catalogues', 'works','banner'));
+            return view('frontend.pages.portfolio', compact( 'works','banner'));
         }
 
         $work = \App\Models\Work::with('images', 'catalogues', 'cata')->where('slug', $slug)->first();
@@ -42,7 +41,7 @@ class PortfolioController extends Controller
 
     function portfolioTag($slug)
     {
-        $catalogue = \App\Models\Catalogue::isTag()->where('slug', $slug)->with('works.images')->first();
+        $catalogue = \App\Models\Catalogue::isNotTag()->where('slug', $slug)->with('work.images')->first();
 
         if (!$catalogue) {
             abort(404);
@@ -58,7 +57,7 @@ class PortfolioController extends Controller
             $query = \App\Models\Work::with('images');
 
             // Kiểm tra điều kiện `option`
-            if ($request->option) {
+            if ($request->option && !is_null($request->option['value'])) {
                 $query->where('cata_id', $request->option['value']);
             }
 

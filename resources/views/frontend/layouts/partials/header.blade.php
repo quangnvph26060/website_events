@@ -20,9 +20,11 @@
                                 @lang('lang.service') <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </a>
                             <ul class="sub-menu">
-                                <li><a href="">1</a></li>
-                                <li><a href="">1</a></li>
-                                <li><a href="">1</a></li>
+
+
+                                @foreach ($catalogues as $category)
+                                    <li><a href="{{route('user.portfolio_tag', $category->slug)}}">{{ $category->name }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="kleanity-center-nav-menu-item">

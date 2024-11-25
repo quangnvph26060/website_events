@@ -43,4 +43,9 @@ class Catalogue extends Model
     {
         return $this->belongsToMany(Work::class, 'catalogue_work');
     }
+
+    public function work()
+    {
+        return $this->hasMany(Work::class, 'cata_id');
+    }
 }
