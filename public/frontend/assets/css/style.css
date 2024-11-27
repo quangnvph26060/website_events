@@ -1582,8 +1582,29 @@ ul.gdlr-core-twitter-widget-wrap li .gdlr-core-twitter-widget-date a:hover {
 }
 
 .gdlr-core-portfolio-content-wrap .gdlr-core-portfolio-title a {
-  color: #191919;
+  color: #fff;
 }
+
+.gdlr-core-portfolio-content-wrap {
+    display: flex; /* Để dễ căn giữa */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    opacity: 0; /* Ẩn mặc định */
+    visibility: hidden; /* Không hiển thị */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Thêm hiệu ứng mượt */
+}
+
+.gdlr-core-item-list:hover .gdlr-core-portfolio-content-wrap {
+    opacity: 1; /* Hiển thị khi hover */
+    visibility: visible;
+}
+
 
 .gdlr-core-port-info-item .gdlr-core-port-info-key,
 .gdlr-core-port-info2 .gdlr-core-port-info2-key {

@@ -10,7 +10,13 @@
         <div class="kleanity-page-title-overlay"></div>
         <div class="kleanity-page-title-container kleanity-container">
             <div class="kleanity-page-title-content kleanity-item-pdlr">
-                <h3 class="kleanity-page-title">
+                <h3 class="kleanity-page-title" style="
+
+                                                font-weight: 600;
+                                                letter-spacing: 0px;
+                                                text-transform: none;
+                                                color: #154BA3;
+                                                ">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">@lang('lang.catalogue')</font>
                     </font>
@@ -39,7 +45,7 @@
                                 @if ($catalogue->work->isNotEmpty())
                                     @foreach ($catalogue->work as $index => $work)
                                         <div
-                                            class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-column-20 {{ $index % 3 == 0 ? 'gdlr-core-column-first' : '' }}">
+                                            class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-column-20 {{ $index % 3 == 0 ? 'gdlr-core-column-first' : '' }}" style="position: relative">
                                             <div
                                                 class="gdlr-core-portfolio-grid gdlr-core-center-align gdlr-core-style-normal">
                                                 <div
@@ -59,7 +65,7 @@
                                                                 class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
                                                                 <span class="gdlr-core-image-overlay-content"
                                                                     style="margin-top: -14.35px;">
-                                                                   
+
                                                                 </span>
                                                             </span>
                                                         </a>
@@ -76,6 +82,7 @@
                                                         </a>
                                                     </h3>
                                                 </div>
+
                                             </div>
                                         </div>
                                     @endforeach
