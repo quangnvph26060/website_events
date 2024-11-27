@@ -19904,6 +19904,18 @@ ul.gdlr-core-category-background-widget li.gdlr-core-with-bg a:hover {
   position: relative;
 }
 
+.gdlr-core-portfolio-content-wrap {
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Đảm bảo căn giữa tuyệt đối */
+    text-align: center; /* Căn giữa nội dung text */
+    width: 100%; /* Để đảm bảo toàn bộ không gian được sử dụng */
+}
+
 .gdlr-core-portfolio-grid.gdlr-core-style-with-frame
   .gdlr-core-portfolio-grid-frame {
   background: #f5f5f5;
@@ -24897,8 +24909,8 @@ body.admin-bar .kleanity-fixed-navigation.kleanity-style-slide {
 }
 
 .kleanity-page-title-wrap.kleanity-style-medium .kleanity-page-title-content {
-  padding-top: 126px;
-  padding-bottom: 116px;
+  padding-top: 50px;
+  padding-bottom: 80px;
 }
 
 .kleanity-page-title-wrap.kleanity-style-large .kleanity-page-title {
