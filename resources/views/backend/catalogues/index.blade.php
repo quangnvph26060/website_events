@@ -34,7 +34,7 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($catalogues as $catalogue)
+                        @foreach ($cataloguesAdmin as $catalogue)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td><img width="100px" height="100px" src="{{ showImage($catalogue->image) }}"
@@ -73,46 +73,46 @@
     <script src="{{ asset('backend/assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
 
     <script>
-        $("#multi-filter-select").DataTable({
-            pageLength: 10,
-            columnDefs: [{
-                    orderable: true,
-                    targets: [0, 2, 3]
-                }, // Chỉ bật sắp xếp cho cột "STT", "Tên danh mục", "Danh mục cha"
-                {
-                    orderable: false,
-                    targets: '_all'
-                } // Tắt sắp xếp cho các cột còn lại
-            ],
-            initComplete: function() {
-                this.api()
-                    .columns([0, 2, 3]) // Chỉ lọc trên cột "Tên danh mục" và "Danh mục cha"
-                    .every(function() {
-                        var column = this;
-                        var select = $(
-                                '<select class="form-select"><option value=""></option></select>'
-                            )
-                            .appendTo($(column.footer()).empty())
-                            .on("change", function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        // $("#multi-filter-select").DataTable({
+        //     pageLength: 10,
+        //     columnDefs: [{
+        //             orderable: true,
+        //             targets: [0, 2, 3]
+        //         },
+        //         {
+        //             orderable: false,
+        //             targets: '_all'
+        //         }
+        //     ],
+        //     initComplete: function() {
+        //         this.api()
+        //             .columns([0, 2, 3])
+        //             .every(function() {
+        //                 var column = this;
+        //                 var select = $(
+        //                         '<select class="form-select"><option value=""></option></select>'
+        //                     )
+        //                     .appendTo($(column.footer()).empty())
+        //                     .on("change", function() {
+        //                         var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                                column
-                                    .search(val ? "^" + val + "$" : "", true, false)
-                                    .draw();
-                            });
+        //                         column
+        //                             .search(val ? "^" + val + "$" : "", true, false)
+        //                             .draw();
+        //                     });
 
-                        column
-                            .data()
-                            .unique()
-                            .sort()
-                            .each(function(d, j) {
-                                select.append(
-                                    '<option value="' + d + '">' + d + "</option>"
-                                );
-                            });
-                    });
-            },
-        });
+        //                 column
+        //                     .data()
+        //                     .unique()
+        //                     .sort()
+        //                     .each(function(d, j) {
+        //                         select.append(
+        //                             '<option value="' + d + '">' + d + "</option>"
+        //                         );
+        //                     });
+        //             });
+        //     },
+        // });
 
 
 
