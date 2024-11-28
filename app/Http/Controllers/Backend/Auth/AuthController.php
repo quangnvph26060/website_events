@@ -23,7 +23,9 @@ class AuthController extends Controller
 
         $credentials = $request->validated();
 
-        if (auth()->attempt($credentials)) {
+        $remember = $request->boolean('remember');
+
+        if (auth()->attempt($credentials, $remember)) {
 
             session()->flash('success', 'Xin chào ' . auth()->user()->name);
 

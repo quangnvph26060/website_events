@@ -16,9 +16,10 @@ class CatalogueController extends Controller
     public function index()
     {
         $title = 'Danh sách danh mục';
-        $catalogues = Catalogue::latest()->get();
+        $cataloguesAdmin = Catalogue::latest()->get();
 
-        return view('backend.catalogues.index', compact('catalogues', 'title'));
+
+        return view('backend.catalogues.index', compact('cataloguesAdmin', 'title'));
     }
 
 
