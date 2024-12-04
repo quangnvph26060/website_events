@@ -1,5 +1,10 @@
 @extends('frontend.layouts.master')
 
+@section('title', $banner->title)
+@section('description', $banner->description)
+@section('og_title', $banner->title)
+@section('og_description', $banner->description)
+@section('og_image', showImage($banner->path_image))
 
 @section('content')
     @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '2'])

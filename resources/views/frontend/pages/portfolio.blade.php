@@ -1,7 +1,16 @@
 @extends('frontend.layouts.master')
 
+@section('title', $banner->title)
+@section('description', $banner->description)
+@section('og_title', $banner->title)
+@section('og_description', $banner->description)
+@section('og_image', showImage($banner->path_image))
+
 @section('content')
     @include('frontend.layouts.partials.banner', ['template' => '2', 'banner' => $banner])
+
+
+
 
     <div class="gdlr-core-pbf-wrapper" style="padding: 0px 0px 30px 0px">
         <div class="gdlr-core-pbf-background-wrap"></div>
@@ -18,35 +27,35 @@
                     <div class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix gdlr-core-portfolio-item-style-metro"
                         style="padding-bottom: 0px">
                         <div class="gdlr-core-filterer-wrap gdlr-core-js gdlr-core-style-text gdlr-core-item-pdlr gdlr-core-center-align kleanity-with-left-divider"
-                        data-ajax="gdlr_core_home_ajax" data-target="gdlr-core-portfolio-item-holder"
-                        data-target-action="replace">
-                        <div class="desktop-view">
-                            <a href="#"
-                                class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
-                            @foreach ($catalogues as $catalogue)
-                                <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
-                                    data-ajax-name="category" data-ajax-value="{{ $catalogue->id }}">
-
-                                    {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
-                                </a>
-                                @if ($loop->last == false)
-                                    <span class="kleanity-separater">/</span>
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="mobile-view" style="display: none">
-                            <select id="mobile-filter-select" class="gdlr-core-filterer-select">
-                                <option value="" data-ajax-name="category" data-ajax-value="">@lang('lang.all')
-                                </option>
+                            data-ajax="gdlr_core_home_ajax" data-target="gdlr-core-portfolio-item-holder"
+                            data-target-action="replace">
+                            <div class="desktop-view">
+                                <a href="#"
+                                    class="gdlr-core-filterer gdlr-core-button-color gdlr-core-active">@lang('lang.all')</a>
                                 @foreach ($catalogues as $catalogue)
-                                    <option value="{{ $catalogue->id }}" data-ajax-name="category"
-                                        data-ajax-value="{{ $catalogue->id }}">
+                                    <a href="#" class="gdlr-core-filterer gdlr-core-button-color"
+                                        data-ajax-name="category" data-ajax-value="{{ $catalogue->id }}">
+
                                         {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
-                                    </option>
+                                    </a>
+                                    @if ($loop->last == false)
+                                        <span class="kleanity-separater">/</span>
+                                    @endif
                                 @endforeach
-                            </select>
+                            </div>
+                            <div class="mobile-view" style="display: none">
+                                <select id="mobile-filter-select" class="gdlr-core-filterer-select">
+                                    <option value="" data-ajax-name="category" data-ajax-value="">@lang('lang.all')
+                                    </option>
+                                    @foreach ($catalogues as $catalogue)
+                                        <option value="{{ $catalogue->id }}" data-ajax-name="category"
+                                            data-ajax-value="{{ $catalogue->id }}">
+                                            {{ getLocalizedContent($catalogue, 'name', \App::getLocale()) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
                         @if ($works->isNotEmpty())
                             <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="masonry"
@@ -104,3 +113,5 @@
         </div>
     </div>
 @endsection
+
+
