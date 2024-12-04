@@ -24,6 +24,7 @@
                     </div>
 
 
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 mb-3">
@@ -39,7 +40,18 @@
 
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <label for="content" class="form-label fw-bold">Nội dung</label>
+                                    <label for="excerpt" class="form-label fw-bold">Mô tả bài viết</label>
+
+                                    <textarea name="excerpt" id="excerpt" cols="30" rows="10" class="form-control">{{ old('excerpt') }}</textarea>
+                                    @error('excerpt')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <div class="form-group">
+                                    <label for="content" class="form-label fw-bold">Nội dung chi tiết</label>
                                     <textarea name="content" id="content" cols="30" rows="10" class="summernote" placeholder="content">{{ old('content') }}</textarea>
                                     @error('content')
                                         <small class="text-danger">{{ $message }}</small>
@@ -54,31 +66,7 @@
                     <div class="card-header">
                         <h4>Cấu hình seo</h4>
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <div class="form-group">
-                            <label for="title" class="form-label fw-bold">Thẻ</label>
-                            <select name="tags[]" class="sa-select2 form-select" multiple id="tags">
-                                @foreach ($tags as $tag)
-                                    <option value="{{ $tag->id }}" @selected(in_array($tag->id, old('tags', [])))>{{ $tag->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('title')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <div class="form-group">
-                            <label for="excerpt" class="form-label fw-bold">Mô tả ngắn</label>
-                            <input type="text" name="excerpt" id="excerpt" class="form-control"
-                                value="{{ old('excerpt') }}">
 
-                            @error('excerpt')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
 
                     <div class="col-md-12 mb-3">
                         <div class="form-group">
@@ -135,6 +123,28 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Tags</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <select name="tags[]" class="sa-select2 form-select" multiple id="tags">
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}" @selected(in_array($tag->id, old('tags', [])))>{{ $tag->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-end">
@@ -206,4 +216,13 @@
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/selectize.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/summernote-bs4.min.css') }}">
+
+    <style>
+        textarea {
+            resize: both !important;
+            /* Cho phép kéo cả chiều ngang và chiều dọc */
+            overflow: auto;
+            /* Hiển thị thanh cuộn khi cần */
+        }
+    </style>
 @endpush

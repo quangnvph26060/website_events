@@ -12,7 +12,10 @@
 
     <link rel="icon" type="image/png" href="{{ showImage($configWebsite->icon) }}">
 
+    <meta property="og:title" content="@yield('og_title', getLocalizedContent($configWebsite, 'title_seo', \App::getLocale()) ?? env('APP_NAME'))">
     <meta property="og:image" content="@yield('og_image', 'https://beesea.vn/storage/sliders/17325006226743dc8e99cc2.jpg')">
+    <meta property="og:description" content="@yield('og_description', getLocalizedContent($configWebsite, 'description_seo', \App::getLocale()) ?? 'Beesea Đơn vị Tổ chức sự kiện số 1 Việt Nam')">
+    <meta property="og:url" content="{{ url()->current() }}">
 
     {!! $configWebsite->head_scripts !!}
 

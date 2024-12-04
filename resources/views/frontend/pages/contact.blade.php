@@ -2,6 +2,12 @@
 
 
 @section('title', 'Liên hệ')
+@section('title', $banner->title)
+@section('description', $banner->description)
+@section('og_title', $banner->title)
+@section('og_description', $banner->description)
+@section('og_image', showImage($banner->path_image))
+
 @section('content')
     @include('frontend/layouts/partials/banner', ['banner' => $banner, 'template' => '2'])
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">

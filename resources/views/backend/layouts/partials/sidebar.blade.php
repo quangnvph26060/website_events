@@ -111,19 +111,19 @@
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#news">
                         <i class="fas fa-newspaper"></i>
-                        <p>Bài viết</p>
+                        <p>Tin tức</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="news">
                         <ul class="nav nav-collapse">
                             <li>
                                 <a href="{{ route('admin.posts.index') }}">
-                                    <span class="sub-item">Danh sách bài viết</span>
+                                    <span class="sub-item">Danh sách tin tức</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('admin.posts.create') }}">
-                                    <span class="sub-item">Thêm bài viết</span>
+                                    <span class="sub-item">Thêm tin tức</span>
                                 </a>
                             </li>
                         </ul>
@@ -133,7 +133,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.tags.create') }}">
                         <i class="fas fa-tags"></i>
-                        <p>Thẻ</p>
+                        <p>Tags</p>
                     </a>
 
                 </li>

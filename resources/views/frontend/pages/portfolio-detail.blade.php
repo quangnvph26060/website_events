@@ -1,9 +1,11 @@
 @extends('frontend.layouts.master')
 
 @section('title', $work->title)
+@section('description', $work->description)
+@section('og_title', $work->title)
+@section('og_description', $work->description)
 
 @section('content')
-
     <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
         <div class="gdlr-core-page-builder-body">
             <div class="gdlr-core-pbf-wrapper" style="margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px">

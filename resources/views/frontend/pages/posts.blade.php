@@ -8,6 +8,9 @@
 
 @section('og_image', showImage($post->featured_image))
 
+@section('og_title', $post->title)
+@section('og_description', $post->meta_description)
+
 
 
 @section('content')
@@ -25,6 +28,16 @@
     @endisset
 
     <div class="kleanity-content-container kleanity-container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('/') }}">Trang chủ
+
+                </a></li>
+                <li class="breadcrumb-item " aria-current="page"><a href="{{route('user.work-for-us')}}">Tin tức</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ getLocalizedContent($post, 'title', \App::getLocale()) }}</li>
+            </ol>
+        </nav>
         <div class="kleanity-sidebar-wrap clearfix kleanity-line-height-0 kleanity-sidebar-style-right">
             <div class="kleanity-sidebar-center kleanity-column-40 kleanity-line-height">
                 <div class="kleanity-content-wrap kleanity-item-pdlr clearfix">
@@ -64,3 +77,54 @@
         </div>
     </div>
 @endsection
+@push('styles')
+    <style>
+        .breadcrumb {
+            display: flex;
+            list-style: none;
+            padding: 10px 15px;
+            margin: 0;
+            background-color: #f8f9fa;
+            /* Màu nền nhạt */
+            border-radius: 5px;
+            /* Bo góc */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng */
+        }
+
+        .breadcrumb li {
+            margin-right: 5px;
+            font-size: 18px;
+            /* Kích thước chữ */
+            font-weight: 500;
+            /* Chữ đậm nhẹ */
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: "/";
+            margin-left: 5px;
+            color: #6c757d;
+            /* Màu xám nhạt cho dấu phân cách */
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #007bff;
+            /* Màu xanh Bootstrap */
+            transition: color 0.3s ease;
+            /* Hiệu ứng mượt khi hover */
+        }
+
+        .breadcrumb a:hover {
+            color: #0056b3;
+            /* Đậm hơn khi hover */
+        }
+
+        .breadcrumb .active {
+            color: #6c757d;
+            /* Màu xám nhạt */
+            font-weight: 600;
+            /* Chữ đậm */
+        }
+    </style>
+@endpush
