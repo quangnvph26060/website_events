@@ -12,6 +12,8 @@
 
     <link rel="icon" type="image/png" href="{{ showImage($configWebsite->icon) }}">
 
+    <meta property="og:image" content="@yield('og_image', 'https://beesea.vn/storage/sliders/17325006226743dc8e99cc2.jpg')">
+
     {!! $configWebsite->head_scripts !!}
 
     @include('frontend.layouts.partials.styles')

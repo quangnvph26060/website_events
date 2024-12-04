@@ -6,6 +6,10 @@
 
 @section('keywords', $post->meta_keywords)
 
+@section('og_image', showImage($post->featured_image))
+
+
+
 @section('content')
     @include('frontend/include/banner-job', [
         'image' => $post->featured_image,
