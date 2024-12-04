@@ -25,10 +25,10 @@ class ConfigHome extends Model
 
     ];
 
-    protected $casts = [
-        'content' => 'array',
-        'content_en' => 'array',
-    ];
+    // protected $casts = [
+    //     'content' => 'array',
+    //     'content_en' => 'array',
+    // ];
 
     // protected static function boot()
     // {

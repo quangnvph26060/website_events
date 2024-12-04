@@ -135,7 +135,6 @@ if (!function_exists('translateAndSave')) {
      */
     function translateAndSave($table, $recordId, $fields, $targetLocale = 'en')
     {
-        // dd($table, $recordId, $fields, $targetLocale);
         $translator = new GoogleTranslate();
         $translator->setSource('vi'); // Đặt ngôn ngữ nguồn là tiếng Việt
         $translator->setTarget($targetLocale);
@@ -144,33 +143,33 @@ if (!function_exists('translateAndSave')) {
         $translatedFields = [];
 
         foreach ($fields as $field) {
-            // dd($field);
             // Lấy giá trị gốc của trường từ cơ sở dữ liệu
             $originalText = DB::table($table)->where('id', $recordId)->value($field);
-
             // Kiểm tra nếu trường có dữ liệu, thì mới dịch
             if ($originalText) {
                 // Kiểm tra nếu có thẻ HTML, giữ nguyên cấu trúc HTML khi dịch
                 if (strip_tags($originalText) !== $originalText) {
+                    // Tách nội dung văn bản ra khỏi các thẻ HTML
                     $translatedText = preg_replace_callback('/>([^<]+)</', function ($matches) use ($translator) {
-                        return '>' . $translator->translate($matches[1]) . '<';
+                        // Dịch văn bản nhưng giữ nguyên thẻ HTML
+                        $translated = $translator->translate($matches[1]);
+                        return '>' . $translated . '<';
                     }, $originalText);
                 } else {
+                    // Nếu không có HTML, dịch trực tiếp
                     $translatedText = $translator->translate($originalText);
                 }
 
                 // Lưu bản dịch vào mảng, với tên cột thêm đuôi ngôn ngữ
                 $translatedFields["{$field}_{$targetLocale}"] = $translatedText;
-
-                // Log::info($field . ': ' . $originalText . ' --> ' . $translatedText);
             }
         }
 
         // Cập nhật bản ghi với các trường đã dịch
         DB::table($table)->where('id', $recordId)->update($translatedFields);
-        // $table->where('id', $recordId)->update($translatedFields);
     }
 }
+
 
 // if (!function_exists('translateAndSave')) {
 //     /**
