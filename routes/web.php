@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\WorkController;
@@ -11,8 +12,8 @@ use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\Auth\AuthController;
 use App\Http\Controllers\Backend\CatalogueController;
-use App\Http\Controllers\Backend\ContactUsController;
 
+use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Config\ConfigBannerController;
 use App\Http\Controllers\Backend\Config\ConfigHomePageController;
@@ -124,3 +125,29 @@ route::prefix('admin')->name('admin.')->group(function () {
     route::resource('about', AboutUsController::class);
     route::resource('slider', SliderController::class);
 });
+
+Route::post('upload', function (Request $request) {
+    if ($request->hasFile('upload')) {
+        $image = $request->file('upload');
+        $filename = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Storage::disk('public')->put('images' . '/' . $filename, file_get_contents($image->getPathName()));
+        $path = 'images' . '/' . $filename;
+        $url = Storage::url($path);
+        $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+        $msg = 'Image uploaded successfully';
+
+        return "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg');</script>";
+    }
+})->name('ckeditor.upload');
+
+route::get('filemanager-browse', function () {
+
+    $paths = glob(public_path('storage/images/*'));
+
+    $fileName = [];
+
+    foreach ($paths as $path) {
+        $fileName[] = basename($path);
+    }
+    return view('filemanager-browse', compact('fileName'));
+})->name('filemanager.browse');

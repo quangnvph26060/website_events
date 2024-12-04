@@ -59,36 +59,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="gdlr-core-pbf-element">
+                                <div
+                                    class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
+                                    <div class="gdlr-core-text-box-item-content">
+                                        {!! getLocalizedContent($configHome, 'content', \App::getLocale()) !!}
+                                    </div>
+                                </div>
+                            </div>
 
-                            {{-- {!! getLocalizedContentHtml($configHome, 'content', \App::getLocale()) !!} --}}
-
-
-
-                            @php
-                                $textArray = getLocalizedContent($configHome, 'content', \App::getLocale());
-                            @endphp
-
-                            @foreach ($textArray as $item)
                                 <div class="gdlr-core-pbf-element">
-                                    <div
-                                        class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                        <div class="gdlr-core-text-box-item-content">
-                                            {!! $item !!}
+                                    <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
+                                        style="margin-top: 0px">
+                                        <div class="gdlr-core-divider-container" style="max-width: 20px">
+                                            <div class="gdlr-core-divider-line gdlr-core-skin-divider"
+                                                style="border-color: #154BA3"></div>
                                         </div>
                                     </div>
                                 </div>
-                                @if ($loop->last == false)
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
-                                            style="margin-top: 0px">
-                                            <div class="gdlr-core-divider-container" style="max-width: 20px">
-                                                <div class="gdlr-core-divider-line gdlr-core-skin-divider"
-                                                    style="border-color: #154BA3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
+
 
                             <div class="gdlr-core-pbf-element">
                                 <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"
