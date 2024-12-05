@@ -32,8 +32,8 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/') }}">Trang chủ
 
-                </a></li>
-                <li class="breadcrumb-item " aria-current="page"><a href="{{route('user.work-for-us')}}">Tin tức</a></li>
+                    </a></li>
+                <li class="breadcrumb-item " aria-current="page"><a href="{{ route('user.work-for-us') }}">Tin tức</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
                     {{ getLocalizedContent($post, 'title', \App::getLocale()) }}</li>
             </ol>
@@ -77,6 +77,25 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        const images = document.querySelectorAll('.gdlr-core-pbf-wrapper img');
+
+        images.forEach(img => {
+            // Lấy giá trị alt của từng ảnh
+            const altText = img.alt;
+
+            // Tạo thẻ div để hiển thị alt
+            const altDiv = document.createElement('div');
+            altDiv.classList.add('image-alt');
+            altDiv.textContent = altText;
+
+            // Thêm thẻ altDiv bên dưới ảnh
+            img.parentElement.appendChild(altDiv);
+        });
+    </script>
+@endpush
 @push('styles')
     <style>
         .breadcrumb {
@@ -125,6 +144,13 @@
             /* Màu xám nhạt */
             font-weight: 600;
             /* Chữ đậm */
+        }
+
+
+        .image-alt {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
         }
     </style>
 @endpush
