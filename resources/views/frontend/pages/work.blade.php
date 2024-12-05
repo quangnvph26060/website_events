@@ -101,7 +101,7 @@
                                                             <span
                                                                 class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><a
                                                                     href="{{route('user.work-for-us', $post->slug) }}">
-                                                                    {{ \Carbon\Carbon::parse($post->created_at)->locale(config('app.locale'))->translatedFormat('F j, Y') }}
+                                                                    {{ \Carbon\Carbon::parse($post->created_at)->locale(config('app.locale'))->translatedFormat('j F, Y') }}
                                                                 </a></span><span
                                                                 class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-author">
 
