@@ -156,30 +156,44 @@
     </form>
 @endsection
 
+
 @push('scripts')
     <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/selectize.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/select2.js') }}"></script>
     <script src="{{ asset('backend/assets/js/summernote-bs4.min.js') }}"></script>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
-        $('.summernote').summernote({
-            height: '350px',
-            toolbar: [
-                ['fontname', ['fontname']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['view', ['codeview']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['help', ['help']],
-                ['view', ['fullscreen', 'codeview', 'help']],
-                ['history', ['undo', 'redo']],
-            ]
+        const BASE_URL = "{{ url('/') }}";
+    </script>
+
+    <script>
+        CKEDITOR.replace('content', {
+            filebrowserImageUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form',
         });
+    </script>
+
+    <script>
+        // $('.summernote').summernote({
+        //     height: '350px',
+        //     toolbar: [
+        //         ['fontname', ['fontname']],
+        //         ['style', ['bold', 'italic', 'underline', 'clear']],
+        //         ['font', ['strikethrough', 'superscript', 'subscript']],
+        //         ['fontsize', ['fontsize']],
+        //         ['color', ['color']],
+        //         ['para', ['ul', 'ol', 'paragraph']],
+        //         ['height', ['height']],
+        //         ['view', ['codeview']],
+        //         ['table', ['table']],
+        //         ['insert', ['link', 'picture', 'video']],
+        //         ['help', ['help']],
+        //         ['view', ['fullscreen', 'codeview', 'help']],
+        //         ['history', ['undo', 'redo']],
+        //     ]
+        // });
 
         $(document).ready(function() {
 
