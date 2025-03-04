@@ -33,7 +33,17 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <label for="content">Nội dung</label>
+                                    <label for="excerpt" class="form-label fw-bold">Mô tả bài viết</label>
+
+                                    <textarea name="excerpt" id="excerpt" cols="30" rows="10" class="form-control">{{ old('content', $post->excerpt) }}</textarea>
+                                    @error('excerpt')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="form-group">
+                                    <label for="content">Nội dung chi tiết</label>
                                     <textarea name="content" id="content" cols="30" rows="10" class="summernote" placeholder="content">{{ old('content', $post->content) }}</textarea>
                                     @error('content')
                                         <small class="text-danger">{{ $message }}</small>
@@ -159,7 +169,7 @@
             filebrowserUploadMethod: 'form',
         });
     </script>
-    
+
     <script>
         // $('.summernote').summernote({
         //     height: '350px',

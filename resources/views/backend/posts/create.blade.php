@@ -170,7 +170,7 @@
 
     <script>
         CKEDITOR.replace('content', {
-            filebrowserImageUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            // filebrowserImageUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
         });
     </script>
