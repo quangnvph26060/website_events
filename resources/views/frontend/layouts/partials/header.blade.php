@@ -46,6 +46,7 @@
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu {{ request()->routeIs('user.contact-us') ? 'current-menu-item' : '' }}">
                             <a href="{{ route('user.contact-us') }}">@lang('lang.contact')</a>
                         </li>
+
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2007 kleanity-normal-menu"
                             style="display: flex; align-items: center; gap: 10px">
                             <a href="#" class="changeLanguage" data-lang="vi" style="padding-bottom: 20px">

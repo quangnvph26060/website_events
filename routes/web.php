@@ -29,6 +29,9 @@ use App\Http\Controllers\Backend\Config\ConfigHomePageController;
 |
 */
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::post('upload', function (Request $request) {
     if ($request->hasFile('upload')) {
